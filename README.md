@@ -44,3 +44,9 @@ Build: 2026-01-11 22:43
 ## v22
 - Fix: updateProgress definíció hozzáadva (és védett hívás), így nem akad el indításkor.
 Build: 2026-01-11 22:46
+
+
+## v23
+- Gyakorlás: 10 kérdés / kör (ismétlés nélkül).
+- Villámkör: kérdések nem ismétlődnek a körön belül (ha elfogynak, vége).
+Build: 2026-01-11 22:56
