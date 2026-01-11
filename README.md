@@ -31,3 +31,8 @@ Ha valamiért mégsem futna, a jobb oldali panel alján megjelenik egy piros hib
 - Javítva: `Cannot set properties of undefined (textContent)` hiba.
 - Új kategória: **Évszámok** (külön kérdéssor csak dátumokból).
 - Cache-buster frissítve: 20260111202610
+
+
+## v11
+- Egyfájlos (inline) build: az `index.html` önmagában tartalmaz mindent. Ha a `data.js` hiányzik/404, ez akkor is működik.
+- Build stamp: 20260111203031
