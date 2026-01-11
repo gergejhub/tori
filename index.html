@@ -8,7 +8,7 @@
   <meta http-equiv="Pragma" content="no-cache"/>
   <meta http-equiv="Expires" content="0"/>
   <style>
-/* v15 rebuilt stable */
+/* v16 rebuilt stable */
  
 :root{
   --bg1:#050814; --bg2:#0a1126;
@@ -81,6 +81,24 @@ body{
   }
   .btn{padding:12px 12px;border-radius:14px}
 }
+
+/* v16 readability + clear correct/incorrect colors */
+body{font-size:16px; line-height:1.45}
+.brand p{font-size:13px}
+.pill{font-size:13px}
+.qtitle{font-size:22px; line-height:1.25}
+.qmeta{font-size:13px}
+.small{font-size:13px}
+.ans{font-size:16px}
+.tile .t{font-size:15px}
+.tile .s{font-size:13px}
+.btn{font-size:15px}
+.feedback{font-size:15px; line-height:1.35}
+.feedback.good{border-color:rgba(98,210,158,.55); background:rgba(98,210,158,.12); color:rgba(232,236,255,.95)}
+.feedback.bad{border-color:rgba(255,109,109,.55); background:rgba(255,109,109,.10); color:rgba(232,236,255,.95)}
+.ans.good{background:rgba(98,210,158,.20); border-color:rgba(98,210,158,.55)}
+.ans.bad{background:rgba(255,109,109,.16); border-color:rgba(255,109,109,.55)}
+
 </style>
 </head>
 <body>
@@ -89,7 +107,7 @@ body{
       <div class="brand">
         <div class="logo">⏳</div>
         <div>
-          <h1>Ókori Küldi – Lili Témázáró Játék <span class="small">v15</span></h1>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="small">v16</span></h1>
           <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
@@ -160,6 +178,7 @@ const state = {
   score: 0,
   streak: 0,
   lives: 3,
+  lastCorrect: null,
   endTs: 0,
   timer: null,
 };
@@ -240,6 +259,7 @@ function resetQuestionUI(){
   $("inputAnswer").disabled=false;
   $("inputAnswer").style.background="rgba(0,0,0,.22)";
   $("feedback").textContent="";
+  $("feedback").classList.remove("good","bad");
   $("btnOK").disabled=true;
   $("btnSkip").disabled=false;
   $("btnHint").disabled=false;
@@ -295,7 +315,19 @@ function reveal(q){
   $("btnOK").disabled=false;
   $("btnSkip").disabled=true;
   $("btnHint").disabled=true;
-  $("feedback").textContent = q.explain || "";
+
+  const fb = $("feedback");
+  fb.classList.remove("good","bad");
+
+  // Cards mode: show answer (neutral), Practice/Blitz: green/red result
+  if(state.mode==="cards"){
+    fb.textContent = (q.explain || "");
+    return;
+  }
+
+  const ok = !!state.lastCorrect;
+  fb.classList.add(ok ? "good" : "bad");
+  fb.textContent = (ok ? "Helyes! " : "Nem jó. ") + (q.explain || "");
 }
 function nextQuestion(){
   if(state.idx >= state.queue.length) return finishRun(false);
@@ -321,6 +353,7 @@ function onOK(){
   let correct=false;
   if(state.mode==="cards"){
     correct=true;
+    state.lastCorrect = null;
   } else if(q.type==="mcq"){
     if(state.selected==null){ showToast("Válassz egy választ."); return; }
     correct = state.selected===q.correct;
@@ -336,11 +369,13 @@ function onOK(){
     $("inputAnswer").disabled=true;
     $("inputAnswer").style.background = correct ? "rgba(98,210,158,.18)" : "rgba(255,109,109,.16)";
   }
+  state.lastCorrect = correct;
   applyResult(correct);
   reveal(q);
 }
 function onSkip(){
   if(!state.mode){ showToast("Válassz módot bal oldalt."); return; }
+  state.lastCorrect = null;
   state.idx += 1;
   nextQuestion();
 }
