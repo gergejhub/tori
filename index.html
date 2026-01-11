@@ -9,7 +9,7 @@
   <meta http-equiv="Expires" content="0"/>
   <style>@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap');
 
-/* v19 rebuilt stable */
+/* v17 rebuilt stable */
  
 :root{
   --bg0:#050714;
@@ -180,7 +180,7 @@ body{
   .btn{padding:12px 12px;border-radius:14px}
 }
 
-/* v19 readability + clear correct/incorrect colors */
+/* v17 readability + clear correct/incorrect colors */
 body{font-size:16px; line-height:1.45}
 .brand p{font-size:13px}
 .pill{font-size:13px}
@@ -240,7 +240,7 @@ body::before{
       <div class="brand">
         <div class="logo">⏳</div>
         <div>
-          <h1>Ókori Küldi – Lili Témázáró Játék <span class="small">v19</span></h1>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="small">v17</span></h1>
           <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
@@ -248,7 +248,6 @@ body::before{
         <div class="pill" id="pillPont">Pont: 0</div>
         <div class="pill" id="pillSzeria">Széria: 0</div>
         <div class="pill" id="pillSziv">Szív: 3</div>
-        <div class="pill" id="pillQ">Kérdés: 0/0</div>
         <div class="pill" id="pillIdo"></div>
         <div class="pill" id="pillMod">Mód: várakozás</div>
         <div class="pill" id="pillTema">Téma: —</div>
@@ -301,7 +300,7 @@ body::before{
   <div id="toast" class="toast"></div>
 
   <script>
-const DATA = {"chapters": [{"id": "egyiptom", "title": "Ókori Egyiptom", "short": "Nílus + fáraó + piramis", "icon": "🧱"}, {"id": "hellasz", "title": "Ókori Hellász", "short": "polisz + Athén/Spárta", "icon": "🏛️"}, {"id": "roma", "title": "Ókori Róma", "short": "köztársaság + provincia", "icon": "🛡️"}, {"id": "had", "title": "Hadviselés", "short": "falanx + légió + Hannibál", "icon": "⚔️"}, {"id": "nepvand", "title": "Népvándorlás", "short": "395 / 451 / 476", "icon": "🐎"}, {"id": "evszamok", "title": "Évszámok", "short": "csak dátumok, gyorsan", "icon": "📅"}, {"id": "mix", "title": "Összefoglaló MIX", "short": "mindenből egy kicsi", "icon": "🧩"}], "questions": [{"id": "egy_01", "chapter": "egyiptom", "type": "mcq", "prompt": "Miért volt fontos a Nílus az egyiptomiaknak?", "options": ["Termékeny iszapot hozott és öntözött", "Mert ott volt Róma", "Mert jégtánc-pálya volt", "Mert a sivatagot hűtötte le"], "correct": 0, "explain": "A Nílus áradása termékeny iszapot hozott, ezért bő termésük lehetett."}, {"id": "egy_02", "chapter": "egyiptom", "type": "mcq", "prompt": "Ki volt a fáraó?", "options": ["Egyiptom uralkodója", "Híres görög költő", "Római szenátor", "Kereskedő"], "correct": 0, "explain": "A fáraó Egyiptom uralkodója volt."}, {"id": "egy_03", "chapter": "egyiptom", "type": "mcq", "prompt": "Mire szolgáltak a piramisok?", "options": ["Temetkezési helynek", "Iskolának", "Piacnak", "Hajógyárnak"], "correct": 0, "explain": "A piramisok királyi síremlékek voltak."}, {"id": "egy_04", "chapter": "egyiptom", "type": "input", "prompt": "Hogy hívták az egyiptomi írásjelek rendszerét?", "answers": ["hieroglifa", "hieroglifák"], "explain": "Az egyiptomi írás: hieroglifák."}, {"id": "egy_05", "chapter": "egyiptom", "type": "mcq", "prompt": "Mi volt a papirusz?", "options": ["Írásra használt növényből készült „papír”", "Fegyver", "Templom", "Római pénz"], "correct": 0, "explain": "A papiruszból íróanyagot készítettek."}, {"id": "egy_06", "chapter": "egyiptom", "type": "mcq", "prompt": "Miért mumifikálták a holttesteket?", "options": ["A túlvilági életre készültek", "Hogy gyorsabban lebomoljanak", "Hogy könnyebb legyen szállítani", "Mert így törvény írta elő"], "correct": 0, "explain": "Hitük szerint a túlvilági élethez fontos volt a test megőrzése."}, {"id": "egy_07", "chapter": "egyiptom", "type": "mcq", "prompt": "Kik dolgoztak gyakran a hivatalokban és számoltak?", "options": ["Írnokok", "Kalózok", "Gladiátorok", "Vikingek"], "correct": 0, "explain": "Az írnokok tudtak írni-olvasni, ők vezették a feljegyzéseket."}, {"id": "egy_08", "chapter": "egyiptom", "type": "mcq", "prompt": "Mi volt a szarkofág?", "options": ["Kőkoporsó", "Kenyeres kosár", "Sisak", "Íróvessző"], "correct": 0, "explain": "A szarkofág a múmia/holttest kőkoporsója."}, {"id": "egy_09", "chapter": "egyiptom", "type": "mcq", "prompt": "Mi volt a templomok szerepe Egyiptomban?", "options": ["Vallási központok", "Csak sportpályák", "Csak raktárak", "Csak börtönök"], "correct": 0, "explain": "A templomokban az isteneket tisztelték."}, {"id": "egy_10", "chapter": "egyiptom", "type": "mcq", "prompt": "Gíza miről híres?", "options": ["Piramisokról", "Olimpiáról", "Szenátusról", "Limesről"], "correct": 0, "explain": "Gíza a legismertebb piramisok helyszíne."}, {"id": "hel_01", "chapter": "hellasz", "type": "mcq", "prompt": "Mi a polisz?", "options": ["Görög városállam", "Folyó", "Hegy", "Templom"], "correct": 0, "explain": "A polisz görög városállam (például Athén, Spárta)."}, {"id": "hel_02", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik városállam volt híres demokráciájáról?", "options": ["Athén", "Spárta", "Theba", "Trója"], "correct": 0, "explain": "Athénban alakult ki a demokrácia (korlátozott formában)."}, {"id": "hel_03", "chapter": "hellasz", "type": "mcq", "prompt": "Spárta melyik dologról híres?", "options": ["Katonai nevelésről", "Piramisokról", "Szenátusról", "Nílus-áradásról"], "correct": 0, "explain": "Spárta katonás rendjéről ismert."}, {"id": "hel_04", "chapter": "hellasz", "type": "mcq", "prompt": "Mi az agora?", "options": ["Piac és közösségi tér", "Temető", "Kőbánya", "Katonai tábor"], "correct": 0, "explain": "Az agora a piac és találkozóhely volt."}, {"id": "hel_05", "chapter": "hellasz", "type": "mcq", "prompt": "Miért volt fontos a tenger a görögöknek?", "options": ["Kereskedelem és gyarmatosítás miatt", "Mert ott termett a búza", "Mert ott folyt a Nílus", "Mert ott épültek a piramisok"], "correct": 0, "explain": "A görögök sokat hajóztak, kereskedtek és gyarmatokat alapítottak."}, {"id": "hel_06", "chapter": "hellasz", "type": "mcq", "prompt": "Mi volt az olimpiai játékok eredetileg?", "options": ["Sportversenyek vallási ünnepen", "Királyválasztás", "Adóverseny", "Hajóépítő kiállítás"], "correct": 0, "explain": "Vallási ünnepekhez kötött sportversenyek voltak."}, {"id": "rom_01", "chapter": "roma", "type": "mcq", "prompt": "Mi volt a római köztársaság egyik fő intézménye?", "options": ["Szenátus", "Fáraó udvara", "Polisz", "Obeliszk-tanács"], "correct": 0, "explain": "A szenátus fontos testület volt a köztársaságban."}, {"id": "rom_02", "chapter": "roma", "type": "mcq", "prompt": "Mi a provincia?", "options": ["Római tartomány", "Templom", "Folyó", "Kőkoporsó"], "correct": 0, "explain": "A provincia római tartomány."}, {"id": "rom_03", "chapter": "roma", "type": "mcq", "prompt": "Miért voltak fontosak a római utak?", "options": ["Gyors mozgás hadseregnek és kereskedelemnek", "Puha szőnyegek voltak", "A hunok építették", "Csak dísznek voltak"], "correct": 0, "explain": "Az utak segítették a gyors közlekedést."}, {"id": "rom_04", "chapter": "roma", "type": "mcq", "prompt": "Mi volt a legionárius?", "options": ["Római katona", "Görög pap", "Egyiptomi írnok", "Hun lovas"], "correct": 0, "explain": "A legionárius a római légió katonája."}, {"id": "rom_05", "chapter": "roma", "type": "input", "prompt": "Hogy hívták a római hadsereg nagy egységét?", "answers": ["légió", "legio"], "explain": "A római hadsereg nagy egysége: légió."}, {"id": "rom_06", "chapter": "roma", "type": "mcq", "prompt": "Mi volt a Colosseum?", "options": ["Amfiteátrum", "Piramis", "Könyvtár", "Híd"], "correct": 0, "explain": "A Colosseum amfiteátrum volt, ahol játékokat tartottak."}, {"id": "had_01", "chapter": "had", "type": "mcq", "prompt": "Mi volt a falanx?", "options": ["Görög harcrend, zárt lándzsás sorfal", "Római pénz", "Egyiptomi írás", "Hun ünnep"], "correct": 0, "explain": "A falanx zárt sorfal, pajzsokkal és lándzsákkal."}, {"id": "had_02", "chapter": "had", "type": "mcq", "prompt": "Ki volt Hannibál?", "options": ["Karthágói hadvezér", "Római császár", "Görög isten", "Egyiptomi pap"], "correct": 0, "explain": "Hannibál Karthágó hadvezére volt."}, {"id": "had_03", "chapter": "had", "type": "mcq", "prompt": "Hannibál melyik hegységen kelt át (hagyományosan)?", "options": ["Alpok", "Kárpátok", "Himalája", "Andok"], "correct": 0, "explain": "Az Alpokon kelt át (hagyomány szerint)."}, {"id": "had_04", "chapter": "had", "type": "mcq", "prompt": "Miben volt erős a római légió?", "options": ["Fegyelem és szervezettség", "Sivatagi öntözés", "Hieroglifák", "Tenger alatti csaták"], "correct": 0, "explain": "A légió fegyelmezett és jól szervezett hadsereg volt."}, {"id": "nep_01", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelöl 476?", "options": ["Nyugatrómai Birodalom bukása", "Róma alapítása", "Első olimpia", "Marathóni csata"], "correct": 0, "explain": "476: a Nyugatrómai Birodalom bukása (hagyomány)."}, {"id": "nep_02", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelent 395?", "options": ["A birodalom kettéosztása (kelet–nyugat)", "Róma alapítása", "Carthago elpusztítása", "Thermopülai csata"], "correct": 0, "explain": "395: a birodalom két részre szakadt."}, {"id": "nep_03", "chapter": "nepvand", "type": "mcq", "prompt": "Mi történt 451-ben?", "options": ["Catalaunumi csata (hunok megállítása)", "Milánói ediktum", "Róma alapítása", "Alexandrosz halála"], "correct": 0, "explain": "451: catalaunumi csata."}, {"id": "nep_04", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelent a 'limes' szó a rómaiaknál?", "options": ["Határvonal, erődrendszer", "Piramis", "Színház", "Írnokiskola"], "correct": 0, "explain": "A limes a határ védelmének rendszere volt."}, {"id": "ev_01", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 753 – mihez köthető?", "options": ["Róma alapítása", "Nyugatróma bukása", "Milánói ediktum", "Első olimpia"], "correct": 0, "explain": "Kr. e. 753: Róma alapítása (hagyomány)."}, {"id": "ev_02", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 776 – miért fontos?", "options": ["Thermopülai csata", "Első olimpiai játékok", "Carthago elpusztítása", "Birodalom kettéosztása"], "correct": 1, "explain": "Kr. e. 776: az első olimpia hagyományos dátuma."}, {"id": "ev_03", "chapter": "evszamok", "type": "mcq", "prompt": "313 – mit jelent?", "options": ["Milánói ediktum (vallásszabadság)", "Nyugatróma bukása", "Róma alapítása", "Első olimpia"], "correct": 0, "explain": "313: milánói ediktum."}, {"id": "ev_04", "chapter": "evszamok", "type": "mcq", "prompt": "330 – mi történt?", "options": ["Konstantinápoly felavatása", "Carthago elpusztítása", "Caesar meggyilkolása", "Alexandrosz halála"], "correct": 0, "explain": "330: Konstantinápoly felavatása."}, {"id": "ev_05", "chapter": "evszamok", "type": "mcq", "prompt": "395 – mi történt?", "options": ["Birodalom kettéosztása", "Első olimpia", "Róma alapítása", "Milánói ediktum"], "correct": 0, "explain": "395: Kelet–Nyugat kettéválás."}, {"id": "ev_06", "chapter": "evszamok", "type": "mcq", "prompt": "451 – mi történt?", "options": ["Catalaunumi csata", "Nyugatróma bukása", "Róma alapítása", "Marathón"], "correct": 0, "explain": "451: catalaunumi csata."}, {"id": "ev_07", "chapter": "evszamok", "type": "mcq", "prompt": "476 – mi történt?", "options": ["Nyugatróma bukása", "Milánói ediktum", "Első olimpia", "Thermopülai"], "correct": 0, "explain": "476: Nyugatrómai Birodalom bukása."}, {"id": "v_1001", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okbólért volt fontos a Nílus az egyiptomiaknak?", "options": ["Termékeny iszapot hozott és öntözött", "Mert ott volt Róma", "Mert jégtánc-pálya volt", "Mert a sivatagot hűtötte le"], "correct": 0, "explain": "A Nílus áradása termékeny iszapot hozott, ezért bő termésük lehetett."}, {"id": "v_1002", "chapter": "egyiptom", "type": "mcq", "prompt": "Igaz-e? Ki volt a fáraó?", "options": ["Egyiptom uralkodója", "Híres görög költő", "Római szenátor", "Kereskedő"], "correct": 0, "explain": "A fáraó Egyiptom uralkodója volt."}, {"id": "v_1003", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okbólre szolgáltak a piramisok?", "options": ["Temetkezési helynek", "Iskolának", "Piacnak", "Hajógyárnak"], "correct": 0, "explain": "A piramisok királyi síremlékek voltak."}, {"id": "v_1004", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okból volt a papirusz?", "options": ["Írásra használt növényből készült „papír”", "Fegyver", "Templom", "Római pénz"], "correct": 0, "explain": "A papiruszból íróanyagot készítettek."}, {"id": "v_1005", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okbólért mumifikálták a holttesteket?", "options": ["A túlvilági életre készültek", "Hogy gyorsabban lebomoljanak", "Hogy könnyebb legyen szállítani", "Mert így törvény írta elő"], "correct": 0, "explain": "Hitük szerint a túlvilági élethez fontos volt a test megőrzése."}, {"id": "v_1006", "chapter": "egyiptom", "type": "mcq", "prompt": "Igaz-e? Kik dolgoztak gyakran a hivatalokban és számoltak?", "options": ["Írnokok", "Kalózok", "Gladiátorok", "Vikingek"], "correct": 0, "explain": "Az írnokok tudtak írni-olvasni, ők vezették a feljegyzéseket."}, {"id": "v_1007", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okból volt a szarkofág?", "options": ["Kőkoporsó", "Kenyeres kosár", "Sisak", "Íróvessző"], "correct": 0, "explain": "A szarkofág a múmia/holttest kőkoporsója."}, {"id": "v_1008", "chapter": "egyiptom", "type": "mcq", "prompt": "Melyik okból volt a templomok szerepe Egyiptomban?", "options": ["Vallási központok", "Csak sportpályák", "Csak raktárak", "Csak börtönök"], "correct": 0, "explain": "A templomokban az isteneket tisztelték."}, {"id": "v_1009", "chapter": "egyiptom", "type": "mcq", "prompt": "Igaz-e? Gíza miről híres?", "options": ["Piramisokról", "Olimpiáról", "Szenátusról", "Limesről"], "correct": 0, "explain": "Gíza a legismertebb piramisok helyszíne."}, {"id": "v_1010", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik okból a polisz?", "options": ["Görög városállam", "Folyó", "Hegy", "Templom"], "correct": 0, "explain": "A polisz görög városállam (például Athén, Spárta)."}, {"id": "v_1011", "chapter": "hellasz", "type": "mcq", "prompt": "Igaz-e? Melyik városállam volt híres demokráciájáról?", "options": ["Athén", "Spárta", "Theba", "Trója"], "correct": 0, "explain": "Athénban alakult ki a demokrácia (korlátozott formában)."}, {"id": "v_1012", "chapter": "hellasz", "type": "mcq", "prompt": "Igaz-e? Spárta melyik dologról híres?", "options": ["Katonai nevelésről", "Piramisokról", "Szenátusról", "Nílus-áradásról"], "correct": 0, "explain": "Spárta katonás rendjéről ismert."}, {"id": "v_1013", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik okból az agora?", "options": ["Piac és közösségi tér", "Temető", "Kőbánya", "Katonai tábor"], "correct": 0, "explain": "Az agora a piac és találkozóhely volt."}, {"id": "v_1014", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik okbólért volt fontos a tenger a görögöknek?", "options": ["Kereskedelem és gyarmatosítás miatt", "Mert ott termett a búza", "Mert ott folyt a Nílus", "Mert ott épültek a piramisok"], "correct": 0, "explain": "A görögök sokat hajóztak, kereskedtek és gyarmatokat alapítottak."}, {"id": "v_1015", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik okból volt az olimpiai játékok eredetileg?", "options": ["Sportversenyek vallási ünnepen", "Királyválasztás", "Adóverseny", "Hajóépítő kiállítás"], "correct": 0, "explain": "Vallási ünnepekhez kötött sportversenyek voltak."}, {"id": "v_1016", "chapter": "roma", "type": "mcq", "prompt": "Melyik okból volt a római köztársaság egyik fő intézménye?", "options": ["Szenátus", "Fáraó udvara", "Polisz", "Obeliszk-tanács"], "correct": 0, "explain": "A szenátus fontos testület volt a köztársaságban."}, {"id": "v_1017", "chapter": "roma", "type": "mcq", "prompt": "Melyik okból a provincia?", "options": ["Római tartomány", "Templom", "Folyó", "Kőkoporsó"], "correct": 0, "explain": "A provincia római tartomány."}, {"id": "v_1018", "chapter": "roma", "type": "mcq", "prompt": "Melyik okbólért voltak fontosak a római utak?", "options": ["Gyors mozgás hadseregnek és kereskedelemnek", "Puha szőnyegek voltak", "A hunok építették", "Csak dísznek voltak"], "correct": 0, "explain": "Az utak segítették a gyors közlekedést."}, {"id": "v_1019", "chapter": "roma", "type": "mcq", "prompt": "Melyik okból volt a legionárius?", "options": ["Római katona", "Görög pap", "Egyiptomi írnok", "Hun lovas"], "correct": 0, "explain": "A legionárius a római légió katonája."}, {"id": "v_1020", "chapter": "roma", "type": "mcq", "prompt": "Melyik okból volt a Colosseum?", "options": ["Amfiteátrum", "Piramis", "Könyvtár", "Híd"], "correct": 0, "explain": "A Colosseum amfiteátrum volt, ahol játékokat tartottak."}]};
+const DATA = {"chapters": [{"id": "egyiptom", "title": "Ókori Egyiptom", "short": "Nílus + fáraó + piramis", "icon": "🧱"}, {"id": "hellasz", "title": "Ókori Hellász", "short": "polisz + Athén/Spárta", "icon": "🏛️"}, {"id": "roma", "title": "Ókori Róma", "short": "köztársaság + provincia", "icon": "🛡️"}, {"id": "had", "title": "Hadviselés", "short": "falanx + légió + Hannibál", "icon": "⚔️"}, {"id": "nepvand", "title": "Népvándorlás", "short": "395 / 451 / 476", "icon": "🐎"}, {"id": "evszamok", "title": "Évszámok", "short": "csak dátumok, gyorsan", "icon": "📅"}, {"id": "mix", "title": "Összefoglaló MIX", "short": "mindenből egy kicsi", "icon": "🧩"}], "questions": [{"id": "egy_01", "chapter": "egyiptom", "type": "mcq", "prompt": "Miért volt fontos a Nílus az egyiptomiaknak?", "options": ["Mert hegyet másztak rajta", "Mert termékeny iszapot hozott és öntözött", "Mert tengeri csatahelyszín volt", "Mert ott volt Róma"], "correct": 1, "explain": "A Nílus áradása termékeny iszapot hozott, így lehetett földet művelni."}, {"id": "egy_02", "chapter": "egyiptom", "type": "mcq", "prompt": "Ki volt a fáraó?", "options": ["Papírkészítő mester", "Egyiptom uralkodója", "Görög filozófus", "Római szenátor"], "correct": 1, "explain": "A fáraó Egyiptom uralkodója volt."}, {"id": "egy_03", "chapter": "egyiptom", "type": "mcq", "prompt": "Mire szolgáltak a piramisok?", "options": ["Piacnak", "Temetkezési helynek", "Kikötőnek", "Könyvtárnak"], "correct": 1, "explain": "A piramisok királyi síremlékek voltak."}, {"id": "egy_04", "chapter": "egyiptom", "type": "input", "prompt": "Hogy hívták az egyiptomi írásjelek rendszerét?", "answers": ["hieroglifa", "hieroglifák"], "explain": "Az egyiptomi írás: hieroglifák."}, {"id": "hel_01", "chapter": "hellasz", "type": "mcq", "prompt": "Mi a polisz?", "options": ["Egy folyó", "Városállam", "Templom", "Római út"], "correct": 1, "explain": "A polisz görög városállam."}, {"id": "hel_02", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik városállam volt híres demokráciájáról?", "options": ["Athén", "Spárta", "Memphisz", "Carthago"], "correct": 0, "explain": "Athénban alakult ki a (korlátozott) demokrácia."}, {"id": "hel_03", "chapter": "hellasz", "type": "mcq", "prompt": "Spárta melyik dologról híres?", "options": ["Kereskedelmi flottáról", "Katonai nevelésről", "Piramisokról", "Szenátusról"], "correct": 1, "explain": "Spárta a katonai neveléséről ismert."}, {"id": "rom_01", "chapter": "roma", "type": "mcq", "prompt": "Mi volt a római köztársaság egyik fő intézménye?", "options": ["Szultanátus", "Szenátus", "Fáraói udvar", "Törzsfőnök tanács"], "correct": 1, "explain": "A szenátus fontos testület volt a köztársaságban."}, {"id": "rom_02", "chapter": "roma", "type": "mcq", "prompt": "Mi a provincia?", "options": ["Kikötő", "Róma által irányított tartomány", "Piramistér", "Spártai tornaterem"], "correct": 1, "explain": "A provincia római tartomány."}, {"id": "rom_03", "chapter": "roma", "type": "mcq", "prompt": "Miért voltak fontosak a római utak?", "options": ["Puha szőnyegek voltak", "Gyors mozgás hadseregnek és kereskedelemnek", "A hunok építették", "Ott voltak a piramisok"], "correct": 1, "explain": "Az utak segítették a hadsereg és a kereskedelem gyors mozgását."}, {"id": "had_01", "chapter": "had", "type": "mcq", "prompt": "Mi volt a falanx?", "options": ["Római híd", "Görög harcrend, zárt lándzsás sorfal", "Egyiptomi írás", "Hun tábor"], "correct": 1, "explain": "A falanx zárt görög harcrend."}, {"id": "had_02", "chapter": "had", "type": "mcq", "prompt": "Ki volt Hannibál?", "options": ["Római konzul", "Karthágói hadvezér", "Görög isten", "Egyiptomi fáraó"], "correct": 1, "explain": "Hannibál karthágói hadvezér."}, {"id": "nep_01", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelöl 476?", "options": ["Róma alapítása", "Nyugatrómai Birodalom bukása", "Első olimpia", "Marathóni csata"], "correct": 1, "explain": "476 a Nyugatrómai Birodalom bukásának dátuma."}, {"id": "nep_02", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelent 395?", "options": ["A birodalom kettéosztása (kelet–nyugat)", "Róma alapítása", "Carthago elpusztítása", "Thermopülai csata"], "correct": 0, "explain": "395-ben a Római Birodalom két részre szakadt."}, {"id": "nep_03", "chapter": "nepvand", "type": "mcq", "prompt": "Mi történt 451-ben?", "options": ["Milánói ediktum", "Catalaunumi csata (hunok megállítása)", "Róma alapítása", "Alexandrosz halála"], "correct": 1, "explain": "451-ben a catalaunumi csatában a hunokat megállították."}, {"id": "ev_01", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 753 – mihez köthető?", "options": ["Róma alapítása", "Nyugatróma bukása", "Milánói ediktum", "Első olimpia"], "correct": 0, "explain": "Kr. e. 753: Róma alapítása (hagyomány)."}, {"id": "ev_02", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 776 – miért fontos?", "options": ["Thermopülai csata", "Első olimpiai játékok", "Carthago elpusztítása", "Birodalom kettéosztása"], "correct": 1, "explain": "Kr. e. 776: az első olimpia hagyományos dátuma."}, {"id": "ev_03", "chapter": "evszamok", "type": "mcq", "prompt": "313 – mit jelent?", "options": ["Milánói ediktum (vallásszabadság)", "Nyugatróma bukása", "Róma alapítása", "Első olimpia"], "correct": 0, "explain": "313: milánói ediktum."}, {"id": "ev_04", "chapter": "evszamok", "type": "mcq", "prompt": "330 – mi történt?", "options": ["Konstantinápoly felavatása", "Carthago elpusztítása", "Caesar meggyilkolása", "Alexandrosz halála"], "correct": 0, "explain": "330: Konstantinápoly felavatása."}]};
 const state = {
   chapterId: null,
   mode: null,
@@ -312,9 +311,6 @@ const state = {
   score: 0,
   streak: 0,
   lives: 3,
-  attempted: 0,
-  correct: 0,
-  wrong: 0,
   lastCorrect: null,
   endTs: 0,
   timer: null,
@@ -348,22 +344,12 @@ function sparkBurst(x,y){
     d.addEventListener("animationend", ()=>d.remove(), {once:true});
   }
 }
-function randInt(max){
-  if(window.crypto && crypto.getRandomValues){
-    const buf = new Uint32Array(1);
-    crypto.getRandomValues(buf);
-    return buf[0] % max;
-  }
-  return Math.floor(Math.random()*max);
-}
 function shuffle(a){
   const arr=a.slice();
   for(let i=arr.length-1;i>0;i--){
-    const j=randInt(i+1);
+    const j=Math.floor(Math.random()*(i+1));
     [arr[i],arr[j]]=[arr[j],arr[i]];
   }
-  return arr;
-}
   return arr;
 }
 function getQuestions(chapterId, mode){
@@ -373,23 +359,47 @@ function getQuestions(chapterId, mode){
   if(mode==="blitz") qs = qs.slice(0, 12);
   return qs;
 }
-
-function updateProgress(){
-  const pill = $("pillQ");
-  if(!pill) return;
+function renderTiles(){
+  const box=$("tiles");
+  box.innerHTML="";
+  DATA.chapters.forEach(ch=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="tile"+(state.chapterId===ch.id?" active":"");
+    b.innerHTML = '<div class="ic">'+ch.icon+'</div><div><div class="t">'+ch.title+'</div><div class="s">'+ch.short+'</div></div>';
+    b.addEventListener("click", ()=>{
+      state.chapterId=ch.id;
+      renderTiles();
+      $("pillTema").textContent="Téma: "+ch.title;
+      $("qtitle").textContent="Téma kiválasztva";
+      $("qmeta").textContent="—";
+      $("qprompt").textContent="Most válassz módot bal oldalt (Gyakorlás / Tanulókártyák / Villámkör).";
+      resetQuestionUI();
+    });
+    box.appendChild(b);
+  });
+}
+function setMode(mode){
+  if(!state.chapterId){ showToast("Előbb válassz témát bal oldalt."); return; }
+  state.mode=mode;
+  $("pillMod").textContent="Mód: "+(mode==="practice"?"Gyakorlás":mode==="cards"?"Tanulókártyák":"Villámkör");
+  startRun();
+}
+function startRun(){
+  state.idx=0; state.score=0; state.streak=0; state.lives=3;
+  state.queue=getQuestions(state.chapterId, state.mode);
+  state.selected=null; state.phase="answer";
+  $("pillPont").textContent="Pont: 0";
+  $("pillSzeria").textContent="Széria: 0";
+  $("pillSziv").textContent="Szív: 3";
+  if(state.timer) clearInterval(state.timer);
   if(state.mode==="blitz"){
-    state.endTs = Date.now() + 60000; // exactly 60 seconds
-    $("pillIdo").textContent = "Idő: 60s";
-    $("pillSziv").textContent = "Szív: ∞";
-    if(state.timer) clearInterval(state.timer);
+    state.endTs = Date.now() + 60000;
     state.timer = setInterval(()=>{
-      const leftMs = Math.max(0, state.endTs - Date.now());
-      const left = Math.ceil(leftMs/1000);
-      $("pillIdo").textContent = "Idő: " + left + "s";
-      if(leftMs<=0){
-        finishRun(true);
-      }
-    }, 200);
+      const left = Math.max(0, state.endTs - Date.now());
+      $("pillIdo").textContent="Idő: "+Math.ceil(left/1000)+"s";
+      if(left<=0) finishRun(true);
+    }, 250);
   } else {
     $("pillIdo").textContent="";
   }
@@ -412,20 +422,14 @@ function updateOKLabel(){ $("btnOK").textContent = (state.phase==="answer" ? "OK
 function renderMCQ(q){
   $("inputWrap").style.display="none";
   $("answers").innerHTML="";
-
-  const idxs = q.options.map((_,i)=>i);
-  const sh = shuffle(idxs);
-  q._shuffled = sh;
-
-  sh.forEach((origIdx, pos)=>{
-    const opt = q.options[origIdx];
+  q.options.forEach((opt,i)=>{
     const b=document.createElement("button");
     b.type="button";
     b.className="ans";
-    b.innerHTML = "<strong>"+String.fromCharCode(65+pos)+"</strong> &nbsp; "+opt;
+    b.innerHTML = "<strong>"+String.fromCharCode(65+i)+"</strong> &nbsp; "+opt;
     b.addEventListener("click", ()=>{
       if(state.phase!=="answer") return;
-      state.selected=pos;
+      state.selected=i;
       [...$("answers").children].forEach(x=>x.classList.remove("selected"));
       b.classList.add("selected");
       $("btnOK").disabled=false;
@@ -451,24 +455,11 @@ function normalize(s){
 }
 function applyResult(correct){
   if(state.mode==="cards") return;
-
-  if(state.mode==="blitz"){
-    state.attempted += 1;
-    if(correct){ state.correct += 1; state.streak += 1; }
-    else { state.wrong += 1; state.streak = 0; }
-    $("pillPont").textContent="Pont: "+state.correct;
-    $("pillSzeria").textContent="Széria: "+state.streak;
-    $("pillSziv").textContent="Szív: ∞";
-    updateProgress();
-    return;
-  }
-
   if(correct){ state.score+=1; state.streak+=1; }
   else { state.streak=0; state.lives-=1; }
   $("pillPont").textContent="Pont: "+state.score;
   $("pillSzeria").textContent="Széria: "+state.streak;
   $("pillSziv").textContent="Szív: "+state.lives;
-  updateProgress();
   if(state.lives<=0) finishRun(false);
 }
 function reveal(q){
@@ -496,12 +487,7 @@ function reveal(q){
   }
 }
 function nextQuestion(){
-  if(state.mode==="blitz" && state.queue.length){
-    if(state.idx >= state.queue.length) state.idx = 0; // recycle
-  } else {
-    if(state.idx >= state.queue.length) return finishRun(false);
-  }
-  updateProgress();
+  if(state.idx >= state.queue.length) return finishRun(false);
   state.selected=null; state.phase="answer";
   const q=currentQ();
   $("qtitle").textContent = q.prompt;
@@ -527,12 +513,10 @@ function onOK(){
     state.lastCorrect = null;
   } else if(q.type==="mcq"){
     if(state.selected==null){ showToast("Válassz egy választ."); return; }
-    const chosenOrig = (q._shuffled && q._shuffled[state.selected] != null) ? q._shuffled[state.selected] : state.selected;
-    correct = chosenOrig===q.correct;
+    correct = state.selected===q.correct;
     [...$("answers").children].forEach((node,i)=>{
       node.classList.remove("selected","good","bad");
-      const orig = (q._shuffled && q._shuffled[i] != null) ? q._shuffled[i] : i;
-      const cls = (orig===q.correct) ? "good" : (i===state.selected ? "bad" : null);
+      const cls = (i===q.correct) ? "good" : (i===state.selected ? "bad" : null);
       if(cls) node.classList.add(cls);
       node.disabled=true;
     });
@@ -545,22 +529,10 @@ function onOK(){
   state.lastCorrect = correct;
   applyResult(correct);
   reveal(q);
-  if(state.mode==="blitz"){
-    setTimeout(()=>{
-      if(Date.now() < state.endTs){
-        state.idx += 1;
-        nextQuestion();
-      }
-    }, 500);
-  }
 }
 function onSkip(){
   if(!state.mode){ showToast("Válassz módot bal oldalt."); return; }
-  if(state.mode==="blitz"){
-    state.attempted += 1;
-    state.wrong += 1;
-    updateProgress();
-  }
+  state.lastCorrect = null;
   state.idx += 1;
   nextQuestion();
 }
@@ -585,11 +557,6 @@ function finishRun(timeout){
   $("qmeta").textContent = "Eredmény";
   if(state.mode==="cards"){
     $("qprompt").textContent = "Tanulókártyák: válassz új témát/módot a folytatáshoz.";
-  } else if(state.mode==="blitz"){
-    $("qprompt").textContent =
-      "Villámkör vége • Helyes: " + state.correct +
-      " • Hibás/Kihagyott: " + state.wrong +
-      " • Próbálkozás: " + state.attempted + ".";
   } else {
     const pct = Math.round((state.score/total)*100);
     $("qprompt").textContent = "Pont: "+state.score+"/"+total+" • Széria: "+state.streak+" • Szív: "+state.lives+" • "+pct+"%";
@@ -605,7 +572,6 @@ function onReset(){
   $("pillPont").textContent="Pont: 0";
   $("pillSzeria").textContent="Széria: 0";
   $("pillSziv").textContent="Szív: 3";
-  updateProgress();
   $("pillIdo").textContent="";
   $("pillMod").textContent="Mód: várakozás";
   $("pillTema").textContent="Téma: —";
@@ -625,7 +591,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
   $("btnReset").addEventListener("click", onReset);
   renderTiles();
   resetQuestionUI();
-  updateProgress();
 });
 </script>
 </body>
