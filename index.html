@@ -130,7 +130,7 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
       <div class="brand">
         <div class="logo" aria-hidden="true">⏳</div>
         <div class="brandText">
-          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v12</span></h1>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v13</span></h1>
           <p>Most már azonnal indul a kiválasztott témával, és az <b>OK/TOVÁBB</b> biztosan működik.</p>
         </div>
       </div>
@@ -253,16 +253,14 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
     </main>
 
     <footer class="footer">
-      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v12 kifejezetten cache ellen készült.)</div>
+      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v13 kifejezetten cache ellen készült.)</div>
     </footer>
   </div>
 
-  <script src="./data.js?v=20260111202610"></script>
-  <script src="./app.js?v=20260111202610"></script>
-
+  
 
 <script>
-// v12: beágyazott data.js (sanitized, nem tudja lezárni a script taget)
+// v13 inline DATA (no external data.js load)
 // Ókori Küldi – kérdésbank (bővíthető)
 window.OKOR_DATA = {
   chapters: [
@@ -519,7 +517,7 @@ window.OKOR_DATA = {
 </script>
 
 <script>
-// v12: beágyazott app.js (sanitized, különösen a nyomtatásnál volt </script> a stringben)
+// v13 inline APP (no external app.js load)
 (function(){
   "use strict";
   // v9 guard: prevent DOMTokenList.add('') runtime crash (some browsers throw on empty tokens)
@@ -1078,84 +1076,39 @@ const $ = (id) => document.getElementById(id);
 
   function escapeHtml(s){ return (s||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
 
+  
   if(els.btnPrint){
     els.btnPrint.addEventListener("click", () => {
-      const rows = els.exportText.value.split(/\n/).map(line => line.split(/\t/));
-      const html = `
-        <html><head><meta charset="utf-8"/><title>Tanulókártyák</title>
-        <style>
-          body{font-family:Arial,sans-serif;padding:16px}
-          .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-          .card{border:1px solid #ddd;border-radius:10px;padding:10px;page-break-inside:avoid}
-          .q{font-weight:700}.a{margin-top:6px;color:#111}
-          .muted{color:#666;font-size:12px;margin:8px 0}
-          @media print{.muted{display:none}}
-        </style></head><body>
-        <h1>Ókori Küldi – Tanulókártyák</h1>
-        <div class="muted">Kérdés / válasz – nyomtatás után kivágható.</div>
-        <div class="grid">
-          ${rows.map(r => `<div class="card"><div class="q">${escapeHtml(r[0]||"")}</div><div class="a">${escapeHtml(r[1]||"")}</div></div>`).join("")}
-        </div>
-        <script>window.onload=()=>window.print();<\/script>
-        </body></html>`;
+      const rows = els.exportText.value.split(/
+/).map(line => line.split(/	/));
+      const cards = rows.map(r => {
+        const q = escapeHtml((r[0]||""));
+        const a = escapeHtml((r[1]||""));
+        return '<div class="card"><div class="q">'+q+'</div><div class="a">'+a+'</div></div>';
+      }).join("");
+      const html =
+        '<html><head><meta charset="utf-8"/><title>Ókori Küldi – Tanulókártyák</title>' +
+        '<style>' +
+        'body{font-family:Arial,sans-serif;padding:16px}' +
+        '.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}' +
+        '.card{border:1px solid #ddd;border-radius:10px;padding:10px;page-break-inside:avoid}' +
+        '.q{font-weight:700}.a{margin-top:6px;color:#111}' +
+        '.muted{color:#666;font-size:12px;margin:8px 0}' +
+        '@media print{.muted{display:none}}' +
+        '</style></head><body>' +
+        '<h1>Ókori Küldi – Tanulókártyák</h1>' +
+        '<div class="muted">Kérdés / válasz – nyomtatás után kivágható.</div>' +
+        '<div class="grid">' + cards + '</div>' +
+        '<script>window.onload=function(){window.print();};<\/script>' +
+        '</body></html>';
       const w = window.open("", "_blank");
-      w.document.open(); w.document.write(html); w.document.close();
+      if(!w){ alert("A böngésző blokkolta az új ablakot. Engedélyezd a pop-upot."); return; }
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
     });
   }
-
-  if(els.btnCloseExport){
-    els.btnCloseExport.addEventListener("click", () => {
-      els.exportBox.style.display="none";
-      els.qbox.style.display="block";
-      updateProgress();
-    });
-  }
-
-  els.btnReset.addEventListener("click", () => {
-    if(!confirm("Biztosan nullázod?")) return;
-    persist = {...defaultPersist};
-    savePersist();
-    updatePills();
-    session.chapterId = persist.chapterId;
-    session.mode="idle";
-    session.phase="idle";
-    renderChapterTiles();
-    pickNpc(persist.chapterId);
-    setTags();
-    els.summaryBox.style.display="none";
-    els.exportBox.style.display="none";
-    els.qbox.style.display="block";
-    els.qtitle.textContent="Készen állsz?";
-    safeText(els.qmeta, "—");
-    els.qprompt.textContent="Bal oldalon válassz témát és módot.";
-    els.answers.innerHTML="";
-    els.feedback.style.display="none";
-    els.inputArea.style.display="none";
-    els.orderArea.style.display="none";
-    setNext("OK", false);
-    updateProgress();
-  });
-
-  if(els.btnPlayAgain){
-    els.btnPlayAgain.addEventListener("click", () => startMode("practice"));
-  }
-  if(els.btnBack){
-    els.btnBack.addEventListener("click", () => {
-      els.summaryBox.style.display="none";
-      els.qbox.style.display="block";
-      session.mode="idle";
-      session.phase="idle";
-      setTags();
-      updateProgress();
-    });
-  }
-
-  // Timer tick
-  setInterval(() => {
-    if(session.mode==="sprint" || session.mode==="boss"){
-      updateProgress();
-    }
-  }, 250);
+, 250);
 
   // INIT
   renderChapterTiles();
