@@ -1,1124 +1,405 @@
 <!doctype html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Ókori Küldi – Lili Témázáró Játék</title>
-  <meta name="description" content="Játékos, vicces gyakorló az ókor témázáróra." />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
   <style>
+/* v15 rebuilt stable */
+ 
 :root{
-  --bg:#0b1220;
-  --text:#e7eefc;
-  --muted:#a9b7d6;
-  --good:#3ddc97;
-  --bad:#ff5a7a;
-  --shadow: 0 14px 40px rgba(0,0,0,.35);
-  --radius: 18px;
+  --bg1:#050814; --bg2:#0a1126;
+  --stroke:rgba(255,255,255,.10);
+  --text:#e8ecff; --muted:rgba(232,236,255,.70);
+  --shadow:0 18px 55px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1100px 650px at 20% -10%, rgba(122,162,255,.35), transparent 55%),
-              radial-gradient(1100px 650px at 100% 20%, rgba(167,139,250,.28), transparent 60%),
-              linear-gradient(180deg, #070b14, var(--bg));
-  color: var(--text);
-  min-height:100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 20% 20%, rgba(141,165,255,.22), transparent 55%),
+              radial-gradient(900px 520px at 80% 30%, rgba(255, 122, 196, .10), transparent 60%),
+              linear-gradient(180deg, var(--bg1), var(--bg2));
 }
-.wrap{max-width:1120px;margin:0 auto;padding:20px 18px 40px}
-.header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 18px 28px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg, rgba(122,162,255,.95), rgba(167,139,250,.9));display:grid;place-items:center;box-shadow:var(--shadow);font-size:22px}
-.brandText h1{font-size:18px;margin:0;letter-spacing:.2px}
-.brandText p{margin:2px 0 0;font-size:13px;color:var(--muted)}
-.ver{font-size:12px;color:var(--muted);font-weight:900;margin-left:6px}
-.topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px;backdrop-filter:blur(8px)}
-.pill b{color:var(--text);font-weight:800}
-.btn{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.08);color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;box-shadow:0 10px 22px rgba(0,0,0,.18);transition:transform .06s ease, background .15s ease;font-weight:750}
-.btn:hover{background:rgba(255,255,255,.12)}
-.btn:active{transform:translateY(1px)}
-.btn.primary{background:linear-gradient(135deg, rgba(122,162,255,.95), rgba(167,139,250,.88));border-color:rgba(255,255,255,.18);min-width:120px}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.grid{display:grid;grid-template-columns:360px 1fr;gap:14px;margin-top:14px}
-@media (max-width:980px){.grid{grid-template-columns:1fr}}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.045));border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.hd{padding:14px 16px;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:10px}
-.hd h2{margin:0;font-size:14px;letter-spacing:.3px;color:var(--muted);font-weight:800;text-transform:uppercase}
-.bd{padding:14px 16px}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{padding:12px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:rgba(15,23,41,.55);cursor:pointer;transition:background .15s ease, transform .06s ease, border-color .15s ease;min-height:78px;display:flex;flex-direction:column;justify-content:center;gap:4px}
-.tile:hover{background:rgba(15,23,41,.72)}
-.tile:active{transform:translateY(1px)}
-.tile.active{border-color:rgba(122,162,255,.55);background:rgba(122,162,255,.14)}
-.tile .t{display:flex;align-items:center;gap:8px;font-weight:900}
-.tile .t span{font-size:18px}
-.tile .s{font-size:12px;color:var(--muted);line-height:1.2}
-.npc{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);margin-top:12px}
-.face{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:22px;border:1px solid rgba(255,255,255,.10)}
-.msg{flex:1;line-height:1.32;font-size:14px}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:var(--muted)}
-.muted{color:var(--muted)}
-.hr{height:1px;background:rgba(255,255,255,.08);margin:12px 0}
-.miniHelp{margin-top:10px;padding:10px 12px;border-radius:14px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08)}
-.statusRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.progress{flex:1;min-width:220px;height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;border:1px solid rgba(255,255,255,.10)}
-.progress>div{height:100%;width:0%;background:linear-gradient(90deg, rgba(122,162,255,.95), rgba(167,139,250,.88))}
-.qbox{padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:rgba(15,23,41,.45)}
-.qhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.qtitle{font-weight:950;font-size:16px;letter-spacing:.2px}
-.tag{font-size:12px;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--muted);white-space:nowrap}
-.qprompt{line-height:1.4}
+.logo{
+  width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg, rgba(141,165,255,.95), rgba(141,165,255,.35));
+  display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:var(--shadow)
+}
+.brand h1{font-size:18px;margin:0}
+.brand p{margin:2px 0 0 0;color:var(--muted);font-size:12px}
+.topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--stroke);font-size:12px;color:var(--muted)}
+.btn{padding:10px 12px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}
+.btn.primary{background:linear-gradient(135deg, rgba(141,165,255,.95), rgba(141,165,255,.55));border:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:380px 1fr;gap:14px}
+.card{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:18px;box-shadow:var(--shadow)}
+.card .hd{padding:14px 14px 10px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between}
+.card .hd h2{margin:0;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.card .bd{padding:14px}
+.tip{font-size:12px;color:var(--muted);margin-bottom:10px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{display:flex;gap:10px;align-items:center;padding:12px;border-radius:16px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);cursor:pointer;min-height:64px}
+.tile:hover{background:rgba(255,255,255,.08)}
+.tile.active{outline:2px solid rgba(141,165,255,.55);background:rgba(141,165,255,.12)}
+.tile .ic{font-size:18px}
+.tile .t{font-weight:700}
+.tile .s{font-size:12px;color:var(--muted)}
+.modes{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.qtitle{font-size:18px;margin:0 0 6px 0}
+.qmeta{color:var(--muted);font-size:12px;margin-bottom:10px}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-@media (max-width:620px){.answers{grid-template-columns:1fr}}
-.ans{text-align:left;padding:11px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06);color:var(--text);cursor:pointer;transition:transform .06s ease, background .15s ease, border-color .15s ease;min-height:44px;display:flex;align-items:center;gap:10px;font-weight:800}
-.ans:hover{background:rgba(255,255,255,.10)}
-.ans:active{transform:translateY(1px)}
-.ans.selected{border-color:rgba(255,209,102,.55);background:rgba(255,209,102,.14)}
-.ans.good{border-color:rgba(61,220,151,.45);background:rgba(61,220,151,.14)}
-.ans.bad{border-color:rgba(255,90,122,.45);background:rgba(255,90,122,.14)}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.18);color:var(--muted);line-height:1.35}
-.footerRow{margin-top:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.inputArea{display:flex;gap:10px;align-items:center;margin-top:10px}
-.inputArea input{flex:1;min-width:180px;padding:11px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.22);color:var(--text);outline:none}
-.inputArea input:focus{border-color:rgba(122,162,255,.45)}
-.orderPool{display:flex;flex-wrap:wrap;gap:10px}
-.chip{padding:9px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);cursor:pointer;font-weight:800}
-.chip:hover{background:rgba(255,255,255,.10)}
-.chip.picked{opacity:.55;cursor:not-allowed}
-.cardish{margin-top:12px;padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.18)}
-.cardish h3{margin:0 0 8px;font-size:16px}
-textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.24);color:var(--text);outline:none;resize:vertical}
-.footer{margin-top:16px;padding:8px 2px}
-.toast{margin-top:12px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,90,122,.45);background:rgba(255,90,122,.12);color:var(--text);line-height:1.35}
-
-
-/* v10 iPhone/mobile tuning */
+.ans{padding:12px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);cursor:pointer;text-align:left}
+.ans.selected{outline:2px solid rgba(141,165,255,.55)}
+.ans.good{background:rgba(98, 210, 158, .25)}
+.ans.bad{background:rgba(255, 109, 109, .22)}
+.inputRow{display:flex;gap:10px;margin-top:10px}
+.inputRow input{flex:1;padding:12px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.22);color:var(--text);font-size:15px}
+.footerRow{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:12px}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.22);color:var(--muted);min-height:44px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:min(720px, calc(100% - 24px));
+  padding:12px 14px;border-radius:16px;background:rgba(255, 109, 109, .16);border:1px solid rgba(255, 109, 109, .35);
+  color:var(--text);display:none
+}
+.small{font-size:12px;color:var(--muted)}
+@media (max-width: 980px){.grid{grid-template-columns:1fr}}
 @media (max-width: 520px){
   .wrap{padding:14px 12px 28px}
-  .header{gap:10px}
-  .brandText h1{font-size:16px}
-  .topbar{justify-content:flex-start}
-  .grid{gap:12px}
-  .bd{padding:12px}
-  .tabs{grid-template-columns:1fr;}
-  .tile{min-height:70px}
-  .answers{grid-template-columns:1fr;}
-  .ans{min-height:52px;font-size:15px}
-  .btn{padding:12px 12px;border-radius:14px}
-  .btn.primary{min-width:140px}
-  .qbox{padding:12px}
-  .footerRow{position:sticky;bottom:0;
-      padding:10px 8px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(11,18,32,.85);
-      backdrop-filter: blur(10px);
-      border-top:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
+  .tiles{grid-template-columns:1fr}
+  .answers{grid-template-columns:1fr}
+  .footerRow{position:sticky;bottom:0;padding:10px 8px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(11,18,32,.85);backdrop-filter: blur(10px);
+    border-top:1px solid rgba(255,255,255,.08);border-radius:14px;
   }
+  .btn{padding:12px 12px;border-radius:14px}
 }
-
-  </style>
+</style>
 </head>
 <body>
-
   <div class="wrap">
-    <header class="header">
+    <div class="header">
       <div class="brand">
-        <div class="logo" aria-hidden="true">⏳</div>
-        <div class="brandText">
-          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v13</span></h1>
-          <p>Most már azonnal indul a kiválasztott témával, és az <b>OK/TOVÁBB</b> biztosan működik.</p>
+        <div class="logo">⏳</div>
+        <div>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="small">v15</span></h1>
+          <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
       <div class="topbar">
-        <div class="pill"><span class="muted">Pont:</span> <b id="scorePill">0</b></div>
-        <div class="pill"><span class="muted">Széria:</span> <b id="streakPill">0</b></div>
-        <div class="pill"><span class="muted">Szív:</span> <b id="heartsPill">3</b></div>
-        <button class="btn" id="btnReset" title="Mindent nulláz">Nullázás</button>
-        <button class="btn primary" id="btnBoss" title="10 kérdés, MIX">Főellenség</button>
+        <div class="pill" id="pillPont">Pont: 0</div>
+        <div class="pill" id="pillSzeria">Széria: 0</div>
+        <div class="pill" id="pillSziv">Szív: 3</div>
+        <div class="pill" id="pillIdo"></div>
+        <div class="pill" id="pillMod">Mód: várakozás</div>
+        <div class="pill" id="pillTema">Téma: —</div>
+        <button class="btn" id="btnReset" type="button">Nullázás</button>
       </div>
-    </header>
+    </div>
 
-    <main class="grid">
-      <section class="card">
-        <div class="hd">
-          <h2>Küldetés választó</h2>
-          <div class="row"><span class="kbd">Tipp:</span><span class="muted">Válassz témát, majd módot.</span></div>
-        </div>
+    <div class="grid">
+      <div class="card">
+        <div class="hd"><h2>Küldetés választó</h2><div class="pill">Tipp: válassz témát, majd módot</div></div>
         <div class="bd">
-          <div class="tabs" id="chapterTiles"></div>
-
-          <div class="npc" id="npcBox">
-            <div class="face" id="npcFace" aria-hidden="true">🧠</div>
-            <div class="msg">
-              <div><b id="npcName">Professzor Pörkölő</b> <span class="muted">— Időgép üzemeltető</span></div>
-              <div id="npcText" class="muted" style="margin-top:6px;">
-                Válassz témát. Válassz módot. A játéktér azonnal frissül.
-              </div>
-              <div class="hr"></div>
-              <div class="row">
-                <button class="btn" id="btnPractice">Gyakorlás</button>
-                <button class="btn" id="btnCards">Tanulókártyák</button>
-                <button class="btn" id="btnSprint">Villámkör</button>
-                <button class="btn" id="btnExport">Export</button>
-              </div>
-            </div>
+          <div class="tip">Most már a kategóriák fixen megjelennek, és a gombok azonnal reagálnak.</div>
+          <div class="tiles" id="tiles"></div>
+          <div class="modes">
+            <button class="btn primary" id="btnPractice" type="button">Gyakorlás</button>
+            <button class="btn" id="btnCards" type="button">Tanulókártyák</button>
+            <button class="btn" id="btnBlitz" type="button">Villámkör (60s)</button>
           </div>
-
-          <div class="miniHelp">
-            <div class="muted">
-              <b>Használat:</b> válasz kiválasztása → <b>OK</b> → magyarázat → <b>TOVÁBB</b>.
-            </div>
-          </div>
+          <div class="tip" style="margin-top:10px">Évszámokhoz válaszd a 📅 <strong>Évszámok</strong> témát.</div>
         </div>
-      </section>
+      </div>
 
-      <section class="card">
-        <div class="hd">
-          <h2>Játéktér</h2>
-          <div class="row">
-            <span class="tag" id="modeTag">Mód: várakozás</span>
-            <span class="tag" id="chapterTag">Téma: —</span>
-          </div>
-        </div>
-
+      <div class="card">
+        <div class="hd"><h2>Játéktér</h2><div class="pill">OK/TOVÁBB</div></div>
         <div class="bd">
-          <div class="statusRow">
-            <div class="progress"><div id="progressBar"></div></div>
-            <div class="muted" id="progressText">Válassz témát és módot.</div>
+          <h3 class="qtitle" id="qtitle">Készen állsz?</h3>
+          <div class="qmeta" id="qmeta">Válassz témát és módot.</div>
+          <div class="small" id="qprompt">Bal oldalon válassz témát (pl. Ókori Róma), majd módot (pl. Gyakorlás).</div>
+
+          <div id="inputWrap" class="inputRow" style="display:none">
+            <input id="inputAnswer" placeholder="Írd be a választ…"/>
           </div>
 
-          <div class="qbox" id="qbox">
-            <div class="qhead">
-              <div class="qtitle" id="qtitle">Készen állsz?</div>
-              <div class="tag" id="qmeta">—</div>
-            </div>
+          <div id="answers" class="answers"></div>
 
-            <div id="qprompt" class="qprompt muted">
-              Bal oldalon válassz témát (pl. Ókori Róma), majd módot (pl. Gyakorlás).
-            </div>
+          <div class="feedback" id="feedback"></div>
 
-            <div id="answers" class="answers"></div>
-
-            <div id="inputArea" class="inputArea" style="display:none;">
-              <input id="textAnswer" type="text" placeholder="Írd be a választ..." autocomplete="off" />
-            </div>
-
-            <div id="orderArea" class="orderArea" style="display:none;">
-              <div class="muted" style="margin-bottom:8px;">Kattints sorban!</div>
-              <div id="orderPool" class="orderPool"></div>
-              <div class="hr"></div>
-              <div class="muted" id="orderPick">Választási sorrend: —</div>
-              <div class="row" style="margin-top:10px;">
-                <button class="btn" id="btnOrderUndo">Vissza</button>
-              </div>
-            </div>
-
-            <div class="feedback" id="feedback" style="display:none;"></div>
-
-            <div class="footerRow">
-              <button class="btn" id="btnHint">Súgás</button>
-              <button class="btn" id="btnSkip">Kihagyom</button>
-              <button class="btn primary" id="btnNext" disabled>OK</button>
-            </div>
+          <div class="footerRow">
+            <button class="btn" id="btnHint" type="button">Súgás</button>
+            <button class="btn" id="btnSkip" type="button">Kihagyom</button>
+            <button class="btn primary" id="btnOK" type="button" disabled>OK</button>
           </div>
-
-          <div class="cardish" id="summaryBox" style="display:none;">
-            <h3>Összegzés</h3>
-            <div class="muted" id="summaryText"></div>
-            <div class="row" style="margin-top:12px;">
-              <button class="btn primary" id="btnPlayAgain">Még egy menet</button>
-              <button class="btn" id="btnBack">Vissza</button>
-            </div>
-          </div>
-
-          <div class="cardish" id="exportBox" style="display:none;">
-            <h3>Export</h3>
-            <p class="muted">Anki / nyomtatás (TSV)</p>
-            <div class="row" style="margin-bottom:10px;">
-              <button class="btn primary" id="btnCopyTSV">TSV másolás</button>
-              <button class="btn" id="btnPrint">Nyomtatás</button>
-              <button class="btn" id="btnCloseExport">Bezár</button>
-            </div>
-            <textarea id="exportText" spellcheck="false"></textarea>
-          </div>
-
-          <div class="toast" id="toast" style="display:none;"></div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
 
-    <footer class="footer">
-      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v13 kifejezetten cache ellen készült.)</div>
-    </footer>
+    <div class="small" style="margin-top:12px">Ha valami furcsán viselkedik: frissíts Ctrl+F5-tel (GitHub Pages cache).</div>
   </div>
 
-  
+  <div id="toast" class="toast"></div>
 
-<script>
-// v13 inline DATA (no external data.js load)
-// Ókori Küldi – kérdésbank (bővíthető)
-window.OKOR_DATA = {
-  chapters: [
-    { id: "egyiptom", title: "Ókori Egyiptom", short: "Nílus + fáraó + piramis", icon: "🧱" },
-    { id: "hellasz", title: "Ókori Hellász", short: "polisz + Athén/Spárta", icon: "🏛️" },
-    { id: "roma", title: "Ókori Róma", short: "köztársaság + provincia", icon: "🛡️" },
-    { id: "had", title: "Hadviselés", short: "falanx + légió + Hannibál", icon: "⚔️" },
-    { id: "nepvand", title: "Népvándorlás", short: "395 / 451 / 476", icon: "🐎" },    { id: "evszamok", title: "Évszámok", short: "csak dátumok, gyorsan", icon: "📅" },
-    { id: "mix", title: "Összefoglaló MIX", short: "mindenből egy kicsi", icon: "🎛️" }
-  ],
-
-  npcs: [
-    { name:"Professzor Pörkölő", face:"🧠", lines:[
-      "Üdv az Időgépben! Ma tanulunk… de úgy, hogy közben nem vesszük észre.",
-      "A történelem nem unalmas. Csak néha álruhában van.",
-      "Ha jól válaszolsz, a kréta tapsol. (Képzeletben.)"
-    ]},
-    { name:"Kőműves Kheopsz", face:"🧱", lines:[
-      "Ha 2 300 000 kőtömb ment, akkor 10 kérdés is menni fog.",
-      "Piramis: hegyes. Kérdés: néha az is.",
-      "Az áradás jön, az iszap marad. A tudás is."
-    ]},
-    { name:"Spártai Szigor", face:"🥊", lines:[
-      "Spártában nincs 'ma nincs kedvem'. Itt van, de csak 5 percig.",
-      "Edzés: kérdés → válasz → dicséret. Néha.",
-      "A fegyelem erő. A jó válasz még jobb."
-    ]},
-    { name:"Légiós Laci", face:"🛡️", lines:[
-      "A légiós viszi a málháját. Te csak a jó választ vidd el.",
-      "Provincia = tartomány. Ennyi. Menetelünk tovább.",
-      "Fegyelem + szervezettség = római életérzés."
-    ]},
-    { name:"Hun Huba", face:"🐎", lines:[
-      "395, 451, 476 – ha ezt tudod, nyeregbe!",
-      "Ha eltévedsz az idővonalon, visszafordítom az Időgépet.",
-      "Attila nem kérdezett. Mi kérdezünk – viccesen."
-    ]}
-  ],
-
-  // type: mcq | input | order
-  questions: [
-    // Egyiptom
-    { id:"E1", chapter:"egyiptom", type:"mcq",
-      prompt:"Miért volt életmentő a Nílus áradása?",
-      options:["Havat hozott","Vizet és termékeny iszapot hozott","Elvitte a piramisokat","Kékre festette az eget"],
-      correct:1,
-      explain:"Az áradás vízzel és iszappal tette termékennyé a földeket.",
-      joke:"A sivatagban az eső ritka, mint a 'ma még gyorsan mindent megtanulok' mondat."
-    },
-    { id:"E2", chapter:"egyiptom", type:"input",
-      prompt:"Hogy hívjuk, amikor a földeket szervezetten vízzel látják el (eső helyett)?",
-      answers:["öntözéses földművelés","ontozeses foldmuveles","öntözés","ontozes"],
-      explain:"Öntözéses földművelés: csatornákkal, tárolókkal juttatnak vizet a földekre.",
-      joke:"Nílus: a világ legrégebbi 'öntöző-alkalmazása'."
-    },
-    { id:"E3", chapter:"egyiptom", type:"mcq",
-      prompt:"Ki volt a legfőbb uralkodó Egyiptomban?",
-      options:["Szenátor","Fáraó","Polisz-bíró","Gladiátor főnök"],
-      correct:1,
-      explain:"A fáraó volt az uralkodó; halála után istenként is tisztelték.",
-      joke:"A fáraó: HR-ben 'isteni juttatások'."
-    },
-    { id:"E4", chapter:"egyiptom", type:"mcq",
-      prompt:"Mire szolgált a piramis?",
-      options:["Edzőterem","Fáraók sírja","Tornádó-elhárító","Óriási homokozó"],
-      correct:1,
-      explain:"A piramisok hatalmas sírépítmények voltak.",
-      joke:"Edzőteremnek is jó lenne, de a belépő meredek."
-    },
-    { id:"E5", chapter:"egyiptom", type:"mcq",
-      prompt:"Mi a hieroglifa?",
-      options:["Képszerű írásjel","Egyiptomi süti","Római kard","Spártai edzésterv"],
-      correct:0,
-      explain:"Képszerű írásjelek.",
-      joke:"Hieroglifa: 'rajzolt betű', néha olyan, mint a matek."
-    },
-    { id:"E6", chapter:"egyiptom", type:"order",
-      prompt:"Rendezd sorba: Nílus → termés (egyszerűsítve)!",
-      items:["Áradás jön","Iszap a földeken","Öntözés/csatornák","Vetnek és aratnak"],
-      correctOrder:[0,1,2,3],
-      explain:"Áradás → iszap → öntözés → termés.",
-      joke:"Nílus futár: 'csomag kézbesítve: víz + iszap'."
-    },
-    { id:"E7", chapter:"egyiptom", type:"mcq",
-      prompt:"Kr. e. 3000 körül mi történt (nagyságrendileg)?",
-      options:["Róma bukott","Egyiptom egyesítése","Marathón","Konstantinápoly alapítása"],
-      correct:1,
-      explain:"Kr. e. 3000 körül: Egyiptom egyesítése.",
-      joke:"Kr. e. 3000: amikor a wifi helyett a Nílus jelzett."
-    },
-
-    // Hellász
-    { id:"H1", chapter:"hellasz", type:"input",
-      prompt:"Mi a görög városállam neve? (1 szó)",
-      answers:["polisz","polis"],
-      explain:"Polisz = görög városállam.",
-      joke:"Polisz: nem rendőr, hanem városállam."
-    },
-    { id:"H2", chapter:"hellasz", type:"mcq",
-      prompt:"Miért alakult ki sok polisz Hellászban?",
-      options:["Mert mindenki utálta a várost","Tagolt földrajz (hegyek, szigetek) miatt","A piramisok költöztek","A hunok kérték"],
-      correct:1,
-      explain:"A hegyek és szigetek miatt elkülönültek a közösségek.",
-      joke:"A hegy: természetes 'ne szomszédolj túl sokat' kerítés."
-    },
-    { id:"H3", chapter:"hellasz", type:"mcq",
-      prompt:"Melyik igaz Spártára?",
-      options:["Népgyűlés és vita","Katonás fegyelem és nevelés","Piramisépítés","Hun lovasság"],
-      correct:1,
-      explain:"Spárta katonás rend és fegyelmezett nevelés.",
-      joke:"Spárta: reggeli jóga helyett harci alakzat."
-    },
-    { id:"H4", chapter:"hellasz", type:"mcq",
-      prompt:"Mi a demokrácia lényege (athéni példa)?",
-      options:["A polgárok részt vesznek a döntésekben","Csak király dönt","Mindenki hallgat","A fáraó dönt"],
-      correct:0,
-      explain:"A polgárok részt vehettek a döntéshozatalban.",
-      joke:"Athén: a vita néha hosszabb volt, mint egy nagybevásárlás."
-    },
-
-    // Róma
-    { id:"R1", chapter:"roma", type:"mcq",
-      prompt:"Mit jelent: köztársaság?",
-      options:["Király uralkodik","Választott vezetők irányítanak","Fáraó irányít","Polisz irányít"],
-      correct:1,
-      explain:"Köztársaságban nincs király; választott vezetők irányítanak.",
-      joke:"Köztársaság: a főnök is lecserélhető (elvileg)."
-    },
-    { id:"R2", chapter:"roma", type:"input",
-      prompt:"Hogy hívták a római köztársaság vezetőit? (többes)",
-      answers:["konzulok","konzul"],
-      explain:"Konzulok = vezető tisztségviselők.",
-      joke:"Konzul: nem konzol, de mindkettőhöz kell fegyelem."
-    },
-    { id:"R3", chapter:"roma", type:"input",
-      prompt:"Mi a provincia? (1 szó is elég)",
-      answers:["tartomány","tartomany","provincia"],
-      explain:"Provincia = római tartomány.",
-      joke:"Provincia: a római 'kihelyezett telephely'."
-    },
-    { id:"R4", chapter:"roma", type:"mcq",
-      prompt:"Miért voltak fontosak a római utak?",
-      options:["Puhák voltak","Gyors mozgás (hadsereg, kereskedelem, hírek)","A hunok építették","Ott voltak a piramisok"],
-      correct:1,
-      explain:"Az utak összekötötték a birodalmat.",
-      joke:"Római út: Google Maps ókori verzió, hangosabb szandálban."
-    },
-
-    // Hadviselés
-    { id:"HV1", chapter:"had", type:"mcq",
-      prompt:"Kr. e. 490 – melyik csata?",
-      options:["Catalaunum","Marathón","476","Kr. e. 3000"],
-      correct:1,
-      explain:"Kr. e. 490: marathóni csata.",
-      joke:"Marathón: amikor a 'futás' történelmi lett."
-    },
-    { id:"HV2", chapter:"had", type:"mcq",
-      prompt:"Mi a falanx?",
-      options:["Zárt gyalogos alakzat pajzsokkal","Római adó","Egyiptomi írás","Hun nyereg"],
-      correct:0,
-      explain:"Falanx: zárt gyalogos harci rend pajzsfallal.",
-      joke:"Falanx: 'ne lógj ki a sorból' – eredetiben."
-    },
-    { id:"HV3", chapter:"had", type:"input",
-      prompt:"Mi a római hadsereg alapegysége?",
-      answers:["légió","legio","legió "],
-      explain:"Légió = a római hadsereg alapegysége.",
-      joke:"Légió: a csapatmunka nem csak csoportmunkán létezik."
-    },
-    { id:"HV4", chapter:"had", type:"mcq",
-      prompt:"Ki volt Hannibál?",
-      options:["Római konzul","Karthágói hadvezér","Görög isten","Egyiptomi fáraó"],
-      correct:1,
-      explain:"Hannibál karthágói hadvezér; híres az Alpokon való átkelésről.",
-      joke:"Hannibál: 'térkép? minek!'"
-    },
-
-    // Népvándorlás
-    { id:"NV1", chapter:"nepvand", type:"mcq",
-      prompt:"Kr. u. 395 – mi történt?",
-      options:["Róma kettéosztása","Marathón","Egyiptom egyesítése","Attila halála"],
-      correct:0,
-      explain:"395: a Római Birodalom kettéosztása.",
-      joke:"395: kettéosztották – mint a csokit, csak kevésbé finoman."
-    },
-    { id:"NV2", chapter:"nepvand", type:"mcq",
-      prompt:"Kr. u. 476 – mihez kötjük?",
-      options:["Nyugatrómai Birodalom bukása","Hunok érkezése","Olümpia","Kheopsz piramisa"],
-      correct:0,
-      explain:"476: a Nyugatrómai Birodalom bukása.",
-      joke:"476: a nyugati rész kilépett a chatből."
-    },
-    { id:"NV3", chapter:"nepvand", type:"order",
-      prompt:"Rendezd időrendbe: 395, 451, 453, 476!",
-      items:["395","451","453","476"],
-      correctOrder:[0,1,2,3],
-      explain:"395 → 451 → 453 → 476.",
-      joke:"Ha ezt tudod, az Időgép felvesz pilótának is. Majdnem."
-    },
-
-    // Mix
-    { id:"M1", chapter:"mix", type:"mcq",
-      prompt:"Melyik páros illik össze?",
-      options:["Polisz – görög városállam","Fáraó – légió","Hieroglifa – római út","Provincia – spártai edzés"],
-      correct:0,
-      explain:"Polisz = görög városállam.",
-      joke:"A Professzor szerint ez 'alap beállítás'."
-    }
-
-  // Évszámok – külön kérdéssor
-    { id: "evsz_395", chapter: "evszamok", type: "mcq", prompt: "Mit jelent a 395-ös év a Római Birodalomban?",
-      options: ["A piramisok befejezése", "A birodalom kettéosztása (kelet–nyugat)", "Hannibál átkelt az Alpokon", "Athén megalapítása"], correct: 1,
-      explain: "395-ben a Római Birodalom végleg két részre szakadt: Kelet- és Nyugatrómai Birodalomra.", joke: "395: két rész, mint a csoki, csak kevésbé finom." },
-    { id: "evsz_451", chapter: "evszamok", type: "mcq", prompt: "Mi történt 451-ben?",
-      options: ["A Nyugatrómai Birodalom bukása", "A hunok megállítása a catalaunumi csatában", "Róma alapítása", "Az első olimpia"], correct: 1,
-      explain: "451-ben a catalaunumi csatában Attila hunjai megállításra kerültek.", joke: "451: Attila megáll… legalább egyszer." },
-    { id: "evsz_476", chapter: "evszamok", type: "mcq", prompt: "Mit jelöl a 476-os év?",
-      options: ["A Nyugatrómai Birodalom bukása", "A Nílus első áradása", "Spárta győzelme Athén felett", "Julius Caesar születése"], correct: 0,
-      explain: "476-ban bukott meg a Nyugatrómai Birodalom (hagyományos dátum).", joke: "476: a 'nyugati rész' lekapcsolva." },
-    { id: "evsz_753", chapter: "evszamok", type: "mcq", prompt: "A hagyomány szerint mikor alapították Rómát?",
-      options: ["776", "753", "395", "476"], correct: 1,
-      explain: "A hagyomány szerint Róma alapítása Kr. e. 753.", joke: "753: Róma születésnapja. Tortát nem ígérünk." },
-    { id: "evsz_44bc", chapter: "evszamok", type: "mcq", prompt: "Mihez kapcsolódik Kr. e. 44?",
-      options: ["Julius Caesar meggyilkolása", "Augustus császár halála", "A piramisok építésének kezdete", "A trójai háború"], correct: 0,
-      explain: "Kr. e. 44-ben meggyilkolták Julius Caesart.", joke: "Kr. e. 44: Caesar – nagy ötlet volt? Hát…" },
-    { id: "evsz_27bc", chapter: "evszamok", type: "mcq", prompt: "Mihez köthető Kr. e. 27?",
-      options: ["A köztársaság kezdete", "Augustus egyeduralmának kezdete (császárkor)", "A spártai nevelés vége", "A Nílus kiszáradása"], correct: 1,
-      explain: "Kr. e. 27-től számítjuk Augustus egyeduralmát, a császárkor kezdetét.", joke: "Kr. e. 27: Augustus beül a főnöki székbe." },
-    { id: "evsz_490", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 490 – melyik csata?",
-      options: ["Thermopülai", "Marathón", "Cannae", "Záma"], correct: 1,
-      explain: "Kr. e. 490: a marathóni csata (perzsák ellen).", joke: "490: Marathón – innen a maraton szó is ismerős." },
-    { id: "evsz_480", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 480 – mi jut róla eszedbe?",
-      options: ["Thermopülai csata", "Róma alapítása", "Nyugat-Róma bukása", "Alexandrosz halála"], correct: 0,
-      explain: "Kr. e. 480: Thermopülai csata (spártai hősies ellenállás).", joke: "480: 'This is Sparta!' – kb. innen." },
-    { id: "evsz_776", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 776 – miért fontos?",
-      options: ["Az első olimpiai játékok", "A Nílus szabályozása", "Carthago alapítása", "A hunok Európába érkezése"], correct: 0,
-      explain: "Kr. e. 776: az első olimpiai játékok hagyományos dátuma.", joke: "776: olimpia. Akkor még nem volt VAR." },
-    { id: "evsz_323bc", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 323 – mi történt?",
-      options: ["Alexandrosz (Nagy Sándor) halála", "Julius Caesar születése", "A római utak építése", "A piramisok befejezése"], correct: 0,
-      explain: "Kr. e. 323-ban meghalt Alexandrosz, birodalma feldarabolódott.", joke: "323: a birodalom 'szétszedős' módba kapcsol." },
-    { id: "evsz_146bc", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 146 – melyik nagy esemény?",
-      options: ["Carthago elpusztítása", "Róma alapítása", "A birodalom kettéosztása", "Attila halála"], correct: 0,
-      explain: "Kr. e. 146: Carthago elpusztítása (és a római hatalom erősödése).", joke: "146: Carthago… nem nyerte meg." },
-    { id: "evsz_313", chapter: "evszamok", type: "mcq", prompt: "313 – mit jelent a kereszténység szempontjából?",
-      options: ["A császárváltás éve", "A milánói ediktum (vallásszabadság)", "A hunok megjelenése", "A piramisok építése"], correct: 1,
-      explain: "313: a milánói ediktum vallásszabadságot adott a keresztényeknek.", joke: "313: 'Oké, lehet így is hinni.'" },
-    { id: "evsz_330", chapter: "evszamok", type: "mcq", prompt: "330 – mi történt?",
-      options: ["Konstantinápoly felavatása", "A Nyugatrómai Birodalom bukása", "A trójai faló", "A marathóni csata"], correct: 0,
-      explain: "330: Konstantinápoly felavatása, a Kelet központja.", joke: "330: új főváros – új wifi… ja nem." },
-
-  ]
+  <script>
+const DATA = {"chapters": [{"id": "egyiptom", "title": "Ókori Egyiptom", "short": "Nílus + fáraó + piramis", "icon": "🧱"}, {"id": "hellasz", "title": "Ókori Hellász", "short": "polisz + Athén/Spárta", "icon": "🏛️"}, {"id": "roma", "title": "Ókori Róma", "short": "köztársaság + provincia", "icon": "🛡️"}, {"id": "had", "title": "Hadviselés", "short": "falanx + légió + Hannibál", "icon": "⚔️"}, {"id": "nepvand", "title": "Népvándorlás", "short": "395 / 451 / 476", "icon": "🐎"}, {"id": "evszamok", "title": "Évszámok", "short": "csak dátumok, gyorsan", "icon": "📅"}, {"id": "mix", "title": "Összefoglaló MIX", "short": "mindenből egy kicsi", "icon": "🧩"}], "questions": [{"id": "egy_01", "chapter": "egyiptom", "type": "mcq", "prompt": "Miért volt fontos a Nílus az egyiptomiaknak?", "options": ["Mert hegyet másztak rajta", "Mert termékeny iszapot hozott és öntözött", "Mert tengeri csatahelyszín volt", "Mert ott volt Róma"], "correct": 1, "explain": "A Nílus áradása termékeny iszapot hozott, így lehetett földet művelni."}, {"id": "egy_02", "chapter": "egyiptom", "type": "mcq", "prompt": "Ki volt a fáraó?", "options": ["Papírkészítő mester", "Egyiptom uralkodója", "Görög filozófus", "Római szenátor"], "correct": 1, "explain": "A fáraó Egyiptom uralkodója volt."}, {"id": "egy_03", "chapter": "egyiptom", "type": "mcq", "prompt": "Mire szolgáltak a piramisok?", "options": ["Piacnak", "Temetkezési helynek", "Kikötőnek", "Könyvtárnak"], "correct": 1, "explain": "A piramisok királyi síremlékek voltak."}, {"id": "egy_04", "chapter": "egyiptom", "type": "input", "prompt": "Hogy hívták az egyiptomi írásjelek rendszerét?", "answers": ["hieroglifa", "hieroglifák"], "explain": "Az egyiptomi írás: hieroglifák."}, {"id": "hel_01", "chapter": "hellasz", "type": "mcq", "prompt": "Mi a polisz?", "options": ["Egy folyó", "Városállam", "Templom", "Római út"], "correct": 1, "explain": "A polisz görög városállam."}, {"id": "hel_02", "chapter": "hellasz", "type": "mcq", "prompt": "Melyik városállam volt híres demokráciájáról?", "options": ["Athén", "Spárta", "Memphisz", "Carthago"], "correct": 0, "explain": "Athénban alakult ki a (korlátozott) demokrácia."}, {"id": "hel_03", "chapter": "hellasz", "type": "mcq", "prompt": "Spárta melyik dologról híres?", "options": ["Kereskedelmi flottáról", "Katonai nevelésről", "Piramisokról", "Szenátusról"], "correct": 1, "explain": "Spárta a katonai neveléséről ismert."}, {"id": "rom_01", "chapter": "roma", "type": "mcq", "prompt": "Mi volt a római köztársaság egyik fő intézménye?", "options": ["Szultanátus", "Szenátus", "Fáraói udvar", "Törzsfőnök tanács"], "correct": 1, "explain": "A szenátus fontos testület volt a köztársaságban."}, {"id": "rom_02", "chapter": "roma", "type": "mcq", "prompt": "Mi a provincia?", "options": ["Kikötő", "Róma által irányított tartomány", "Piramistér", "Spártai tornaterem"], "correct": 1, "explain": "A provincia római tartomány."}, {"id": "rom_03", "chapter": "roma", "type": "mcq", "prompt": "Miért voltak fontosak a római utak?", "options": ["Puha szőnyegek voltak", "Gyors mozgás hadseregnek és kereskedelemnek", "A hunok építették", "Ott voltak a piramisok"], "correct": 1, "explain": "Az utak segítették a hadsereg és a kereskedelem gyors mozgását."}, {"id": "had_01", "chapter": "had", "type": "mcq", "prompt": "Mi volt a falanx?", "options": ["Római híd", "Görög harcrend, zárt lándzsás sorfal", "Egyiptomi írás", "Hun tábor"], "correct": 1, "explain": "A falanx zárt görög harcrend."}, {"id": "had_02", "chapter": "had", "type": "mcq", "prompt": "Ki volt Hannibál?", "options": ["Római konzul", "Karthágói hadvezér", "Görög isten", "Egyiptomi fáraó"], "correct": 1, "explain": "Hannibál karthágói hadvezér."}, {"id": "nep_01", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelöl 476?", "options": ["Róma alapítása", "Nyugatrómai Birodalom bukása", "Első olimpia", "Marathóni csata"], "correct": 1, "explain": "476 a Nyugatrómai Birodalom bukásának dátuma."}, {"id": "nep_02", "chapter": "nepvand", "type": "mcq", "prompt": "Mit jelent 395?", "options": ["A birodalom kettéosztása (kelet–nyugat)", "Róma alapítása", "Carthago elpusztítása", "Thermopülai csata"], "correct": 0, "explain": "395-ben a Római Birodalom két részre szakadt."}, {"id": "nep_03", "chapter": "nepvand", "type": "mcq", "prompt": "Mi történt 451-ben?", "options": ["Milánói ediktum", "Catalaunumi csata (hunok megállítása)", "Róma alapítása", "Alexandrosz halála"], "correct": 1, "explain": "451-ben a catalaunumi csatában a hunokat megállították."}, {"id": "ev_01", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 753 – mihez köthető?", "options": ["Róma alapítása", "Nyugatróma bukása", "Milánói ediktum", "Első olimpia"], "correct": 0, "explain": "Kr. e. 753: Róma alapítása (hagyomány)."}, {"id": "ev_02", "chapter": "evszamok", "type": "mcq", "prompt": "Kr. e. 776 – miért fontos?", "options": ["Thermopülai csata", "Első olimpiai játékok", "Carthago elpusztítása", "Birodalom kettéosztása"], "correct": 1, "explain": "Kr. e. 776: az első olimpia hagyományos dátuma."}, {"id": "ev_03", "chapter": "evszamok", "type": "mcq", "prompt": "313 – mit jelent?", "options": ["Milánói ediktum (vallásszabadság)", "Nyugatróma bukása", "Róma alapítása", "Első olimpia"], "correct": 0, "explain": "313: milánói ediktum."}, {"id": "ev_04", "chapter": "evszamok", "type": "mcq", "prompt": "330 – mi történt?", "options": ["Konstantinápoly felavatása", "Carthago elpusztítása", "Caesar meggyilkolása", "Alexandrosz halála"], "correct": 0, "explain": "330: Konstantinápoly felavatása."}]};
+const state = {
+  chapterId: null,
+  mode: null,
+  idx: 0,
+  queue: [],
+  selected: null,
+  phase: "answer",
+  score: 0,
+  streak: 0,
+  lives: 3,
+  endTs: 0,
+  timer: null,
 };
+const $ = (id)=>document.getElementById(id);
 
-</script>
-
-<script>
-// v13 inline APP (no external app.js load)
-(function(){
-  "use strict";
-  // v9 guard: prevent DOMTokenList.add('') runtime crash (some browsers throw on empty tokens)
-  try{
-    const _add = DOMTokenList.prototype.add;
-    DOMTokenList.prototype.add = function(...tokens){
-      const safe = tokens.filter(t => typeof t === "string" && t.trim().length > 0);
-      if(safe.length === 0) return;
-      return _add.apply(this, safe);
-    };
-  }catch(e){ /* ignore */ }
-const $ = (id) => document.getElementById(id);
-
-  const toast = $("toast");
-  function showToast(msg){
-    if(!toast) return;
-    toast.style.display="block";
-    toast.textContent = msg;
+function showToast(msg){
+  const t = $("toast");
+  t.textContent = msg;
+  t.style.display = "block";
+  clearTimeout(showToast._h);
+  showToast._h = setTimeout(()=>t.style.display="none", 4200);
+}
+function shuffle(a){
+  const arr=a.slice();
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
   }
-  window.addEventListener("error", (e) => {
-    showToast("Hiba a kódban: " + (e && e.message ? e.message : "ismeretlen") + " (nyomj Ctrl+F5-öt).");
+  return arr;
+}
+function getQuestions(chapterId, mode){
+  let qs = DATA.questions;
+  if(chapterId && chapterId!=="mix") qs = qs.filter(q=>q.chapter===chapterId);
+  qs = shuffle(qs);
+  if(mode==="blitz") qs = qs.slice(0, 12);
+  return qs;
+}
+function renderTiles(){
+  const box=$("tiles");
+  box.innerHTML="";
+  DATA.chapters.forEach(ch=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="tile"+(state.chapterId===ch.id?" active":"");
+    b.innerHTML = '<div class="ic">'+ch.icon+'</div><div><div class="t">'+ch.title+'</div><div class="s">'+ch.short+'</div></div>';
+    b.addEventListener("click", ()=>{
+      state.chapterId=ch.id;
+      renderTiles();
+      $("pillTema").textContent="Téma: "+ch.title;
+      $("qtitle").textContent="Téma kiválasztva";
+      $("qmeta").textContent="—";
+      $("qprompt").textContent="Most válassz módot bal oldalt (Gyakorlás / Tanulókártyák / Villámkör).";
+      resetQuestionUI();
+    });
+    box.appendChild(b);
   });
-
-  const DATA = window.OKOR_DATA;
-  if(!DATA || !Array.isArray(DATA.questions)){
-    showToast("Hiányzik vagy hibás a data.js.");
-    return;
+}
+function setMode(mode){
+  if(!state.chapterId){ showToast("Előbb válassz témát bal oldalt."); return; }
+  state.mode=mode;
+  $("pillMod").textContent="Mód: "+(mode==="practice"?"Gyakorlás":mode==="cards"?"Tanulókártyák":"Villámkör");
+  startRun();
+}
+function startRun(){
+  state.idx=0; state.score=0; state.streak=0; state.lives=3;
+  state.queue=getQuestions(state.chapterId, state.mode);
+  state.selected=null; state.phase="answer";
+  $("pillPont").textContent="Pont: 0";
+  $("pillSzeria").textContent="Széria: 0";
+  $("pillSziv").textContent="Szív: 3";
+  if(state.timer) clearInterval(state.timer);
+  if(state.mode==="blitz"){
+    state.endTs = Date.now() + 60000;
+    state.timer = setInterval(()=>{
+      const left = Math.max(0, state.endTs - Date.now());
+      $("pillIdo").textContent="Idő: "+Math.ceil(left/1000)+"s";
+      if(left<=0) finishRun(true);
+    }, 250);
+  } else {
+    $("pillIdo").textContent="";
   }
-
-  const els = {
-    chapterTiles: $("chapterTiles"),
-    npcFace: $("npcFace"),
-    npcName: $("npcName"),
-    npcText: $("npcText"),
-    btnPractice: $("btnPractice"),
-    btnCards: $("btnCards"),
-    btnSprint: $("btnSprint"),
-    btnExport: $("btnExport"),
-    btnBoss: $("btnBoss"),
-    btnReset: $("btnReset"),
-    modeTag: $("modeTag"),
-    chapterTag: $("chapterTag"),
-    qtitle: $("qtitle"),
-    qmeta: $("qmeta"),
-    qprompt: $("qprompt"),
-    answers: $("answers"),
-    feedback: $("feedback"),
-    btnHint: $("btnHint"),
-    btnSkip: $("btnSkip"),
-    btnNext: $("btnNext"),
-    inputArea: $("inputArea"),
-    textAnswer: $("textAnswer"),
-    orderArea: $("orderArea"),
-    orderPool: $("orderPool"),
-    orderPick: $("orderPick"),
-    btnOrderUndo: $("btnOrderUndo"),
-    progressBar: $("progressBar"),
-    progressText: $("progressText"),
-    scorePill: $("scorePill"),
-    streakPill: $("streakPill"),
-    heartsPill: $("heartsPill"),
-    summaryBox: $("summaryBox"),
-    summaryText: $("summaryText"),
-    btnPlayAgain: $("btnPlayAgain"),
-    btnBack: $("btnBack"),
-    exportBox: $("exportBox"),
-    exportText: $("exportText"),
-    btnCopyTSV: $("btnCopyTSV"),
-    btnPrint: $("btnPrint"),
-    btnCloseExport: $("btnCloseExport"),
-    qbox: $("qbox"),
+  nextQuestion();
+}
+function resetQuestionUI(){
+  $("answers").innerHTML="";
+  $("inputWrap").style.display="none";
+  $("inputAnswer").value="";
+  $("inputAnswer").disabled=false;
+  $("inputAnswer").style.background="rgba(0,0,0,.22)";
+  $("feedback").textContent="";
+  $("btnOK").disabled=true;
+  $("btnSkip").disabled=false;
+  $("btnHint").disabled=false;
+}
+function currentQ(){ return state.queue[state.idx]; }
+function updateOKLabel(){ $("btnOK").textContent = (state.phase==="answer" ? "OK" : "TOVÁBB"); }
+function renderMCQ(q){
+  $("inputWrap").style.display="none";
+  $("answers").innerHTML="";
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="ans";
+    b.innerHTML = "<strong>"+String.fromCharCode(65+i)+"</strong> &nbsp; "+opt;
+    b.addEventListener("click", ()=>{
+      if(state.phase!=="answer") return;
+      state.selected=i;
+      [...$("answers").children].forEach(x=>x.classList.remove("selected"));
+      b.classList.add("selected");
+      $("btnOK").disabled=false;
+    });
+    $("answers").appendChild(b);
+  });
+}
+function renderInput(q){
+  $("answers").innerHTML="";
+  $("inputWrap").style.display="flex";
+  $("inputAnswer").value="";
+  $("inputAnswer").focus();
+  $("inputAnswer").oninput=()=>{
+    if(state.phase!=="answer") return;
+    $("btnOK").disabled = $("inputAnswer").value.trim().length===0;
   };
-  function safeText(el, value){
-    if(!el) return;
-    el.textContent = value;
+  $("inputAnswer").onkeydown=(e)=>{ if(e.key==="Enter") onOK(); };
+}
+function normalize(s){
+  return (s||"").trim().toLowerCase()
+    .replaceAll("á","a").replaceAll("é","e").replaceAll("í","i").replaceAll("ó","o").replaceAll("ö","o").replaceAll("ő","o")
+    .replaceAll("ú","u").replaceAll("ü","u").replaceAll("ű","u");
+}
+function applyResult(correct){
+  if(state.mode==="cards") return;
+  if(correct){ state.score+=1; state.streak+=1; }
+  else { state.streak=0; state.lives-=1; }
+  $("pillPont").textContent="Pont: "+state.score;
+  $("pillSzeria").textContent="Széria: "+state.streak;
+  $("pillSziv").textContent="Szív: "+state.lives;
+  if(state.lives<=0) finishRun(false);
+}
+function reveal(q){
+  state.phase="reveal";
+  updateOKLabel();
+  $("btnOK").disabled=false;
+  $("btnSkip").disabled=true;
+  $("btnHint").disabled=true;
+  $("feedback").textContent = q.explain || "";
+}
+function nextQuestion(){
+  if(state.idx >= state.queue.length) return finishRun(false);
+  state.selected=null; state.phase="answer";
+  const q=currentQ();
+  $("qtitle").textContent = q.prompt;
+  const chapTitle = (DATA.chapters.find(c=>c.id===q.chapter)||{}).title || "";
+  $("qmeta").textContent = (q.type==="mcq"?"Feleletválasztós":"Beírás") + " • " + chapTitle;
+  $("qprompt").textContent = (state.mode==="cards")
+    ? "Tanulókártya mód: kattints OK-ra a válaszhoz, majd TOVÁBB."
+    : "Válaszolj, majd OK → magyarázat → TOVÁBB.";
+  resetQuestionUI();
+  if(q.type==="mcq") renderMCQ(q); else renderInput(q);
+  updateOKLabel();
+}
+function onOK(){
+  if(!state.mode){ showToast("Válassz módot bal oldalt."); return; }
+  const q=currentQ(); if(!q) return;
+  if(state.phase==="reveal"){
+    state.idx += 1;
+    return nextQuestion();
   }
-
-
-  // hard guard for missing critical nodes
-  const critical = ["chapterTiles","btnPractice","btnCards","btnSprint","btnNext","btnSkip","answers","qtitle","qmeta","qprompt"];
-  for(const k of critical){
-    if(!els[k]){
-      showToast("Hiányzó UI elem: " + k + ". Töltsd fel újra a fájlokat a repo gyökerébe.");
-      return;
-    }
-  }
-
-  const LS_KEY = "okor_kuldi_state_v7";
-  const defaultPersist = { score:0, streak:0, hearts:3, chapterId:"mix", wrongCounts:{}, seenCounts:{} };
-
-  let persist = loadPersist();
-
-  function loadPersist(){
-    try{
-      const raw = localStorage.getItem(LS_KEY);
-      if(!raw) return {...defaultPersist};
-      const obj = JSON.parse(raw);
-      return {...defaultPersist, ...obj};
-    }catch(e){ return {...defaultPersist}; }
-  }
-  function savePersist(){ localStorage.setItem(LS_KEY, JSON.stringify(persist)); }
-
-  const MODES = { idle:"várakozás", practice:"Gyakorlás", cards:"Tanulókártyák", sprint:"Villámkör", boss:"Főellenség" };
-
-  const session = {
-    mode:"idle",
-    phase:"idle", // "answer" | "review"
-    chapterId: persist.chapterId,
-    queue: [],
-    index: 0,
-    correct: 0,
-    wrong: 0,
-    timeLimitSec: 0,
-    startTs: 0,
-    current: null,
-    hintUsed: false,
-    selectedIdx: null,
-    orderPickedIdx: [],
-    orderPickedText: []
-  };
-
-  function randInt(n){ return Math.floor(Math.random()*n); }
-
-  function pickNpc(chapterId){
-    const map = { egyiptom:[1,0], hellasz:[2,0], roma:[3,0], had:[3,0], nepvand:[4,0], mix:[0,3] };
-    const cand = map[chapterId] || [0];
-    const npc = DATA.npcs && DATA.npcs.length ? DATA.npcs[cand[randInt(cand.length)] % DATA.npcs.length] : null;
-    if(!npc) return;
-    const line = npc.lines[randInt(npc.lines.length)];
-    if(els.npcFace) els.npcFace.textContent = npc.face;
-    if(els.npcName) els.npcName.textContent = npc.name;
-    if(els.npcText) els.npcText.textContent = line;
-  }
-
-  function setTags(){
-    els.modeTag.textContent = "Mód: " + MODES[session.mode];
-    const ch = (DATA.chapters || []).find(c => c.id === session.chapterId);
-    els.chapterTag.textContent = "Téma: " + (ch ? ch.title : "—");
-  }
-
-  function updatePills(){
-    if(els.scorePill) els.scorePill.textContent = persist.score;
-    if(els.streakPill) els.streakPill.textContent = persist.streak;
-    if(els.heartsPill) els.heartsPill.textContent = persist.hearts;
-  }
-
-  function normalizeText(s){
-    return (s||"").toString().trim().toLowerCase()
-      .replaceAll("á","a").replaceAll("é","e").replaceAll("í","i")
-      .replaceAll("ó","o").replaceAll("ö","o").replaceAll("ő","o")
-      .replaceAll("ú","u").replaceAll("ü","u").replaceAll("ű","u");
-  }
-
-  function difficultyWeight(q){
-    const wrong = persist.wrongCounts[q.id] || 0;
-    const seen = persist.seenCounts[q.id] || 0;
-    return 2 + wrong*2.2 + (seen===0 ? 2.5 : 0) - Math.min(seen,6)*0.15;
-  }
-
-  function weightedPick(arr){
-    const pool = arr.map(q => ({q, w: Math.max(0.6, difficultyWeight(q))}));
-    const total = pool.reduce((s,x)=>s+x.w,0);
-    let r = Math.random()*total;
-    for(const it of pool){
-      r -= it.w;
-      if(r<=0) return it.q;
-    }
-    return pool.length ? pool[pool.length-1].q : null;
-  }
-
-  function buildQueue(mode, chapterId){
-    let qs = (chapterId === "mix") ? DATA.questions.slice() : DATA.questions.filter(q => q.chapter === chapterId);
-    if(mode === "boss"){
-      qs = DATA.questions.slice();
-    }
-    const take = (mode==="cards") ? 14 : (mode==="practice") ? 18 : (mode==="sprint") ? 12 : (mode==="boss") ? 10 : 12;
-    const out = [];
-    const used = new Set();
-    while(out.length < Math.min(take, qs.length)){
-      const q = weightedPick(qs.filter(x => !used.has(x.id)));
-      if(!q) break;
-      out.push(q);
-      used.add(q.id);
-    }
-    // if not enough unique, fill randomly
-    while(out.length < Math.min(take, qs.length)){
-      out.push(qs[randInt(qs.length)]);
-    }
-    return out;
-  }
-
-  function updateProgress(){
-    if(session.mode === "idle"){
-      els.progressBar.style.width = "0%";
-      els.progressText.textContent = "Válassz témát és módot.";
-      return;
-    }
-    const total = session.queue.length || 1;
-    const done = Math.min(session.index, total);
-    const pct = Math.round((done/total)*100);
-    els.progressBar.style.width = pct + "%";
-
-    let extra = "";
-    if(session.timeLimitSec){
-      const elapsed = Math.floor((Date.now()-session.startTs)/1000);
-      const left = Math.max(0, session.timeLimitSec - elapsed);
-      extra = " | Idő: " + left + "s";
-      if(left === 0){
-        finishRun(true);
-        return;
-      }
-    }
-    els.progressText.textContent = `Haladás: ${done}/${total}${extra}`;
-  }
-
-  function setNext(label, enabled){
-    els.btnNext.textContent = label;
-    els.btnNext.disabled = !enabled;
-  }
-
-  function showFeedback(ok, text){
-    els.feedback.style.display="block";
-    els.feedback.innerHTML = (ok
-      ? `<b style="color: var(--good)">Helyes!</b> `
-      : `<b style="color: var(--bad)">Nem most…</b> `) + (text || "");
-  }
-
-  function applyOutcome(ok){
-    if(ok){
-      session.correct++;
-      persist.score += session.hintUsed ? 1 : 2;
-      persist.streak += 1;
-    }else{
-      session.wrong++;
-      persist.streak = 0;
-      persist.hearts = Math.max(0, persist.hearts - 1);
-      persist.wrongCounts[session.current.id] = (persist.wrongCounts[session.current.id] || 0) + 1;
-    }
-    savePersist();
-    updatePills();
-    if(persist.hearts === 0){
-      persist.hearts = 3;
-      savePersist();
-      updatePills();
-      pickNpc(session.chapterId);
-    }
-  }
-
-  function renderMCQ(q){
-    els.answers.innerHTML="";
-    q.options.forEach((opt, idx) => {
-      const b = document.createElement("button");
-      b.className="ans";
-      b.innerHTML = `<span class="kbd">${String.fromCharCode(65+idx)}</span> ${opt}`;
-      b.addEventListener("click", () => {
-        if(session.phase !== "answer") return;
-        session.selectedIdx = idx;
-        [...els.answers.children].forEach((node, i) => node.classList.toggle("selected", i===idx));
-        setNext("OK", true);
-      });
-      els.answers.appendChild(b);
+  let correct=false;
+  if(state.mode==="cards"){
+    correct=true;
+  } else if(q.type==="mcq"){
+    if(state.selected==null){ showToast("Válassz egy választ."); return; }
+    correct = state.selected===q.correct;
+    [...$("answers").children].forEach((node,i)=>{
+      node.classList.remove("selected","good","bad");
+      const cls = (i===q.correct) ? "good" : (i===state.selected ? "bad" : null);
+      if(cls) node.classList.add(cls);
+      node.disabled=true;
     });
+  } else {
+    const val=normalize($("inputAnswer").value);
+    correct = (q.answers||[]).map(normalize).includes(val);
+    $("inputAnswer").disabled=true;
+    $("inputAnswer").style.background = correct ? "rgba(98,210,158,.18)" : "rgba(255,109,109,.16)";
   }
-
-  function renderInput(q){
-    els.inputArea.style.display="flex";
-    els.textAnswer.value="";
-    els.textAnswer.focus();
-    els.textAnswer.oninput = () => {
-      if(session.phase !== "answer") return;
-      setNext("OK", normalizeText(els.textAnswer.value).length > 0);
-    };
-    els.textAnswer.onkeydown = (e) => {
-      if(e.key === "Enter" && !els.btnNext.disabled){
-        els.btnNext.click();
-      }
-    };
-    setNext("OK", false);
+  applyResult(correct);
+  reveal(q);
+}
+function onSkip(){
+  if(!state.mode){ showToast("Válassz módot bal oldalt."); return; }
+  state.idx += 1;
+  nextQuestion();
+}
+function onHint(){
+  const q=currentQ(); if(!q) return;
+  let hint="";
+  if(q.type==="mcq"){
+    const wrong = q.options.map((_,i)=>i).filter(i=>i!==q.correct);
+    const pick = wrong[Math.floor(Math.random()*wrong.length)];
+    hint = "Tipp: a(z) " + String.fromCharCode(65+pick) + " biztosan nem jó.";
+  } else {
+    hint = "Tipp: rövid szó. Ékezet nélkül is elfogadom.";
   }
-
-  function renderOrder(q){
-    els.orderArea.style.display="block";
-    els.orderPool.innerHTML="";
-    els.orderPick.textContent="Választási sorrend: —";
-    session.orderPickedIdx=[];
-    session.orderPickedText=[];
-
-    // shuffle items
-    const items = q.items.map((t, idx) => ({t, idx}));
-    for(let i=items.length-1;i>0;i--){
-      const j = randInt(i+1);
-      [items[i], items[j]] = [items[j], items[i]];
-    }
-
-    function updatePick(){
-      els.orderPick.textContent = session.orderPickedText.length
-        ? "Választási sorrend: " + session.orderPickedText.join(" → ")
-        : "Választási sorrend: —";
-      setNext("OK", session.orderPickedIdx.length === q.correctOrder.length);
-    }
-
-    items.forEach(it => {
-      const c = document.createElement("button");
-      c.className="chip";
-      c.textContent = it.t;
-      c.addEventListener("click", () => {
-        if(session.phase !== "answer") return;
-        if(session.orderPickedIdx.includes(it.idx)) return;
-        session.orderPickedIdx.push(it.idx);
-        session.orderPickedText.push(it.t);
-        c.classList.add("picked");
-        updatePick();
-      });
-      els.orderPool.appendChild(c);
-    });
-
-    els.btnOrderUndo.onclick = () => {
-      if(session.phase !== "answer") return;
-      const lastIdx = session.orderPickedIdx.pop();
-      const lastText = session.orderPickedText.pop();
-      if(lastIdx === undefined) return;
-      [...els.orderPool.children].forEach(btn => {
-        if(btn.textContent === lastText && btn.classList.contains("picked")){
-          btn.classList.remove("picked");
-          // allow re-pick
-        }
-      });
-      updatePick();
-    };
-
-    updatePick();
+  $("feedback").textContent = hint;
+}
+function finishRun(timeout){
+  if(state.timer) clearInterval(state.timer);
+  state.timer=null;
+  $("pillIdo").textContent="";
+  const total = state.queue.length || 1;
+  $("qtitle").textContent = timeout ? "Lejárt az idő!" : "Kész!";
+  $("qmeta").textContent = "Eredmény";
+  if(state.mode==="cards"){
+    $("qprompt").textContent = "Tanulókártyák: válassz új témát/módot a folytatáshoz.";
+  } else {
+    const pct = Math.round((state.score/total)*100);
+    $("qprompt").textContent = "Pont: "+state.score+"/"+total+" • Széria: "+state.streak+" • Szív: "+state.lives+" • "+pct+"%";
   }
-
-  function renderQuestion(q){
-    session.current = q;
-    session.phase = "answer";
-    session.hintUsed = false;
-    session.selectedIdx = null;
-    session.orderPickedIdx = [];
-    session.orderPickedText = [];
-
-    const ch = (DATA.chapters || []).find(c => c.id === q.chapter) || {title:"—"};
-    const typeLabel = (q.type==="mcq") ? "Feleletválasztós" : (q.type==="input") ? "Beírás" : "Sorrend";
-    els.qtitle.textContent = q.prompt;
-    els.qmeta.textContent = `${typeLabel} • ${ch.title}`;
-    els.qprompt.textContent = q.joke || "";
-    els.feedback.style.display="none";
-    els.inputArea.style.display="none";
-    els.orderArea.style.display="none";
-
-    // default next state
-    setNext("OK", false);
-
-    if(q.type==="mcq") renderMCQ(q);
-    else if(q.type==="input") renderInput(q);
-    else if(q.type==="order") renderOrder(q);
-    else showToast("Ismeretlen kérdéstípus: " + q.type);
-
-    updateProgress();
-  }
-
-  function nextQuestion(){
-    if(session.index >= session.queue.length){
-      finishRun(false);
-      return;
-    }
-    const q = session.queue[session.index];
-    persist.seenCounts[q.id] = (persist.seenCounts[q.id] || 0) + 1;
-    savePersist();
-    renderQuestion(q);
-  }
-
-  function finishRun(timeOut){
-    session.mode="idle";
-    session.phase="idle";
-    setTags();
-    updateProgress();
-
-    els.qbox.style.display="none";
-    els.exportBox.style.display="none";
-    els.summaryBox.style.display="block";
-
-    const total = session.queue.length || 0;
-    const acc = total ? Math.round((session.correct/total)*100) : 0;
-    const elapsed = Math.max(1, Math.floor((Date.now()-session.startTs)/1000));
-    let rank="Tanonc Írnok";
-    if(acc>=90) rank="Időgép Kapitány";
-    else if(acc>=75) rank="Római Stratéga";
-    else if(acc>=60) rank="Spártai Túlélő";
-    else rank="Kezdő Múmia-Kibontó";
-
-    const parts = [];
-    parts.push(`<b>Eredmény:</b> ${session.correct}/${total} jó (${acc}%).`);
-    parts.push(`Idő: ${elapsed} mp.`);
-    if(timeOut) parts.push(`<b>Lejárt az idő.</b>`);
-    parts.push(`<b>Rang:</b> ${rank}.`);
-    els.summaryText.innerHTML = parts.join("<br/>");
-  }
-
-  function startMode(mode){
-    // ensure we are not in export/summary
-    els.summaryBox.style.display="none";
-    els.exportBox.style.display="none";
-    els.qbox.style.display="block";
-
-    session.mode = mode;
-    session.phase="answer";
-    session.index = 0;
-    session.correct = 0;
-    session.wrong = 0;
-    session.startTs = Date.now();
-    session.timeLimitSec = (mode==="sprint") ? 120 : (mode==="boss") ? 160 : 0;
-
-    const chapterId = (mode==="boss") ? "mix" : session.chapterId;
-    if(mode==="boss"){
-      session.chapterId="mix";
-      persist.chapterId="mix";
-      savePersist();
-      renderChapterTiles();
-    }
-    session.queue = buildQueue(mode, chapterId);
-    setTags();
-    updateProgress();
-    nextQuestion();
-
-    // scroll game into view
-    try{ els.qbox.scrollIntoView({behavior:"smooth", block:"start"}); }catch(e){}
-  }
-
-  function buildTSV(chapterId){
-    const qs = (chapterId==="mix") ? DATA.questions.slice() : DATA.questions.filter(q=>q.chapter===chapterId);
-    return qs.map(q => {
-      let a = "";
-      if(q.type==="mcq") a = q.options[q.correct];
-      else if(q.type==="input") a = q.answers[0];
-      else if(q.type==="order") a = q.correctOrder.map(i => q.items[i]).join(" → ");
-      return q.prompt.replace(/\t|\n/g," ").trim() + "\t" + String(a).replace(/\t|\n/g," ").trim();
-    }).join("\n");
-  }
-
-  function openExport(){
-    els.exportBox.style.display="block";
-    els.summaryBox.style.display="none";
-    els.qbox.style.display="none";
-    els.exportText.value = buildTSV(persist.chapterId);
-  }
-
-  function renderChapterTiles(){
-    els.chapterTiles.innerHTML="";
-    (DATA.chapters || []).forEach(ch => {
-      const div = document.createElement("div");
-      div.className = "tile" + (ch.id === persist.chapterId ? " active" : "");
-      div.innerHTML = `<div class="t"><span>${ch.icon}</span> ${ch.title}</div><div class="s">${ch.short}</div>`;
-      div.addEventListener("click", () => {
-        persist.chapterId = ch.id;
-        session.chapterId = ch.id;
-        savePersist();
-        renderChapterTiles();
-        pickNpc(ch.id);
-        setTags();
-        // Important: do NOT wait for "Kihagyom" - keep the board consistent
-        safeText(els.qtitle, "Téma kiválasztva");
-        safeText(els.qmeta, "—");
-        safeText(els.qprompt, `Kiválasztva: ${ch.title}. Most válassz módot (Gyakorlás / Tanulókártyák / Villámkör).`);
-        els.answers.innerHTML="";
-        els.feedback.style.display="none";
-        els.inputArea.style.display="none";
-        els.orderArea.style.display="none";
-        setNext("OK", false);
-        updateProgress();
-      });
-      els.chapterTiles.appendChild(div);
-    });
-  }
-
-  // Main button behaviors
-  els.btnPractice.addEventListener("click", () => startMode("practice"));
-  els.btnCards.addEventListener("click", () => startMode("cards"));
-  els.btnSprint.addEventListener("click", () => startMode("sprint"));
-  els.btnBoss.addEventListener("click", () => startMode("boss"));
-  els.btnExport.addEventListener("click", () => openExport());
-
-  els.btnSkip.addEventListener("click", () => {
-    if(session.mode==="idle") return;
-    session.index++;
-    nextQuestion();
-  });
-
-  els.btnHint.addEventListener("click", () => {
-    if(session.mode==="idle" || session.phase!=="answer" || !session.current) return;
-    session.hintUsed = true;
-    const q = session.current;
-    let hint="";
-    if(q.type==="mcq"){
-      const wrong = q.options.map((_,i)=>i).filter(i=>i!==q.correct);
-      const remove = wrong[randInt(wrong.length)];
-      hint = `Súgás: a <b>${String.fromCharCode(65+remove)}</b> biztosan nem jó.`;
-    }else if(q.type==="input"){
-      const ans = (q.answers && q.answers[0]) ? q.answers[0].trim() : "";
-      hint = `Súgás: első betű: <b>${ans.charAt(0).toUpperCase()}</b>`;
-    }else{
-      hint = `Súgás: az első elem: <b>${q.items[q.correctOrder[0]]}</b>`;
-    }
-    showFeedback(true, hint + "<br/><span class='muted'>Súgással is jár pont, csak kevesebb.</span>");
-  });
-
-  els.btnNext.addEventListener("click", () => {
-    if(session.mode==="idle" || !session.current) return;
-
-    const q = session.current;
-
-    if(session.phase === "review"){
-      session.index++;
-      nextQuestion();
-      return;
-    }
-
-    // SUBMIT phase
-    let ok=false;
-    if(q.type==="mcq"){
-      if(session.selectedIdx === null) return;
-      ok = session.selectedIdx === q.correct;
-      // paint
-      [...els.answers.children].forEach((node, i) => {
-        node.classList.remove("selected");
-        node.classList.add((() => { const cls = i===q.correct ? "good" : (i===session.selectedIdx ? "bad" : ""); return (cls && cls.length) ? cls : null; })());
-        node.disabled = true;
-      });
-    }else if(q.type==="input"){
-      const val = normalizeText(els.textAnswer.value);
-      ok = q.answers.map(normalizeText).includes(val);
-      els.textAnswer.disabled = true;
-    }else if(q.type==="order"){
-      ok = session.orderPickedIdx.length === q.correctOrder.length &&
-           session.orderPickedIdx.every((v,i)=>v===q.correctOrder[i]);
-      [...els.orderPool.querySelectorAll("button")].forEach(b => b.disabled = true);
-      els.btnOrderUndo.disabled = true;
-    }
-
-    showFeedback(ok, q.explain || "");
-    applyOutcome(ok);
-
-    session.phase="review";
-    setNext("TOVÁBB", true);
-  });
-
-  // Export buttons
-  if(els.btnCopyTSV){
-    els.btnCopyTSV.addEventListener("click", async () => {
-      try{
-        await navigator.clipboard.writeText(els.exportText.value);
-        alert("TSV kimásolva! Anki Import: elválasztó TAB, mezők 2.");
-      }catch(e){ alert("Nem sikerült a vágólap. Jelöld ki és Ctrl+C."); }
-    });
-  }
-
-  function escapeHtml(s){ return (s||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
-
-  
-  if(els.btnPrint){
-    els.btnPrint.addEventListener("click", () => {
-      const rows = els.exportText.value.split(/
-/).map(line => line.split(/	/));
-      const cards = rows.map(r => {
-        const q = escapeHtml((r[0]||""));
-        const a = escapeHtml((r[1]||""));
-        return '<div class="card"><div class="q">'+q+'</div><div class="a">'+a+'</div></div>';
-      }).join("");
-      const html =
-        '<html><head><meta charset="utf-8"/><title>Ókori Küldi – Tanulókártyák</title>' +
-        '<style>' +
-        'body{font-family:Arial,sans-serif;padding:16px}' +
-        '.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}' +
-        '.card{border:1px solid #ddd;border-radius:10px;padding:10px;page-break-inside:avoid}' +
-        '.q{font-weight:700}.a{margin-top:6px;color:#111}' +
-        '.muted{color:#666;font-size:12px;margin:8px 0}' +
-        '@media print{.muted{display:none}}' +
-        '</style></head><body>' +
-        '<h1>Ókori Küldi – Tanulókártyák</h1>' +
-        '<div class="muted">Kérdés / válasz – nyomtatás után kivágható.</div>' +
-        '<div class="grid">' + cards + '</div>' +
-        '<script>window.onload=function(){window.print();};<\/script>' +
-        '</body></html>';
-      const w = window.open("", "_blank");
-      if(!w){ alert("A böngésző blokkolta az új ablakot. Engedélyezd a pop-upot."); return; }
-      w.document.open();
-      w.document.write(html);
-      w.document.close();
-    });
-  }
-, 250);
-
-  // INIT
-  renderChapterTiles();
-  updatePills();
-  pickNpc(persist.chapterId);
-  setTags();
-  updateProgress();
-  setNext("OK", false);
-})();
+  resetQuestionUI();
+  $("btnOK").disabled=true;
+}
+function onReset(){
+  if(state.timer) clearInterval(state.timer);
+  state.timer=null;
+  state.mode=null; state.idx=0; state.queue=[]; state.selected=null; state.phase="answer";
+  state.score=0; state.streak=0; state.lives=3;
+  $("pillPont").textContent="Pont: 0";
+  $("pillSzeria").textContent="Széria: 0";
+  $("pillSziv").textContent="Szív: 3";
+  $("pillIdo").textContent="";
+  $("pillMod").textContent="Mód: várakozás";
+  $("pillTema").textContent="Téma: —";
+  $("qtitle").textContent="Készen állsz?";
+  $("qmeta").textContent="Válassz témát és módot.";
+  $("qprompt").textContent="Bal oldalon válassz témát (pl. Ókori Róma), majd módot (pl. Gyakorlás).";
+  resetQuestionUI();
+  renderTiles();
+}
+window.addEventListener("DOMContentLoaded", ()=>{
+  $("btnPractice").addEventListener("click", ()=>setMode("practice"));
+  $("btnCards").addEventListener("click", ()=>setMode("cards"));
+  $("btnBlitz").addEventListener("click", ()=>setMode("blitz"));
+  $("btnOK").addEventListener("click", onOK);
+  $("btnSkip").addEventListener("click", onSkip);
+  $("btnHint").addEventListener("click", onHint);
+  $("btnReset").addEventListener("click", onReset);
+  renderTiles();
+  resetQuestionUI();
+});
 </script>
-
 </body>
 </html>
