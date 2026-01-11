@@ -26,10 +26,10 @@ Build: 20260111211556
 - Helyes válasznál mini „csillagszóró” animáció.
 
 
-## v19
-- Témakörök biztosan megjelennek (v17-es alapra építve).
-- Több kérdés.
-- Kérdés számláló (X/Y), villámkörben X/∞.
-- Kérdések és válaszopciók keverve.
-- Villámkör: pontos 60s visszaszámlálás, cél: minél több helyes 1 perc alatt.
-Build: 2026-01-11 22:12
+## v20
+- v17 stabil alap (témacsempék biztosan megjelennek).
+- Több kérdés + Évszámok blokk.
+- Kérdés-számláló: Kérdés X/Y (villámkörben X/∞).
+- Keverés: kérdések és válaszopciók random sorrendben.
+- Villámkör: pontosan 60s visszaszámlálás, cél: minél több helyes 1 perc alatt.
+Build: 2026-01-11 22:29
