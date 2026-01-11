@@ -14,3 +14,8 @@
 
 ## Debug
 Ha valamiért mégsem futna, a jobb oldali panel alján megjelenik egy piros hibaüzenet (toast), ami segít megmondani, mi hiányzik.
+
+
+## v8 javítás
+- Javítva: `classList.add('')` hiba (üres CSS class). Most nem dob hibát a válasz kiértékelésénél.
+- Cache-buster frissítve: 20260111201323

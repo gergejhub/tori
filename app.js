@@ -509,7 +509,7 @@
       // paint
       [...els.answers.children].forEach((node, i) => {
         node.classList.remove("selected");
-        node.classList.add(i===q.correct ? "good" : (i===session.selectedIdx ? "bad" : ""));
+        node.classList.add((() => { const cls = i===q.correct ? "good" : (i===session.selectedIdx ? "bad" : ""); return (cls && cls.length) ? cls : null; })());
         node.disabled = true;
       });
     }else if(q.type==="input"){
