@@ -33,6 +33,9 @@ Ha valamiért mégsem futna, a jobb oldali panel alján megjelenik egy piros hib
 - Cache-buster frissítve: 20260111202610
 
 
-## v11
-- Egyfájlos (inline) build: az `index.html` önmagában tartalmaz mindent. Ha a `data.js` hiányzik/404, ez akkor is működik.
-- Build stamp: 20260111203031
+## v12 (single-file, HTML-parser safe)
+A v11-ben a JavaScript-ben volt egy olyan string, ami tartalmazta a `</script>` szöveget (nyomtatás funkció), ezért a böngésző **idő előtt lezárta** a script taget → `Unexpected end of input`.
+A v12-ben a beágyazott kód **sanitized** (a `</script>` → `<\/script>`), így nem tud elhasalni.
+
+Telepítéshez elég az `index.html` feltöltése a repo gyökerébe.
+Build stamp: 20260111204544

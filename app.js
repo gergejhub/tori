@@ -574,7 +574,7 @@ const $ = (id) => document.getElementById(id);
         <div class="grid">
           ${rows.map(r => `<div class="card"><div class="q">${escapeHtml(r[0]||"")}</div><div class="a">${escapeHtml(r[1]||"")}</div></div>`).join("")}
         </div>
-        <script>window.onload=()=>window.print();</script>
+        <script>window.onload=()=>window.print();<\/script>
         </body></html>`;
       const w = window.open("", "_blank");
       w.document.open(); w.document.write(html); w.document.close();
