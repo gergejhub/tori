@@ -33,3 +33,14 @@ Build: 20260111211556
 - Keverés: kérdések és válaszopciók random sorrendben.
 - Villámkör: pontosan 60s visszaszámlálás, cél: minél több helyes 1 perc alatt.
 Build: 2026-01-11 22:29
+
+
+## v21
+- Fix: mód gombok biztosan működnek (inline onclick fallback + window.setMode).
+- Hibakezelés: indítási hiba toastban.
+Build: 2026-01-11 22:43
+
+
+## v22
+- Fix: updateProgress definíció hozzáadva (és védett hívás), így nem akad el indításkor.
+Build: 2026-01-11 22:46
