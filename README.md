@@ -21,3 +21,10 @@ A „KIHAGYOM” maradt külön gomb.
 - data.js
 - app.js
 - README.md
+
+
+## Cache / frissítés (fontos!)
+Ha GitHub Pages-en nem látod az új gombokat:
+- Nyisd meg a Pages oldalt és nyomj **Ctrl+F5** (hard refresh)
+- Vagy a URL végére tegyél egy kérdőjelet pl.: `?v=20260111193629`
+- A fájlok most cache-busterrel vannak betöltve: `app.js?v=...`
