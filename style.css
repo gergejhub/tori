@@ -84,3 +84,28 @@ body{
 textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.24);color:var(--text);outline:none;resize:vertical}
 .footer{margin-top:16px;padding:8px 2px}
 .toast{margin-top:12px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,90,122,.45);background:rgba(255,90,122,.12);color:var(--text);line-height:1.35}
+
+
+/* v10 iPhone/mobile tuning */
+@media (max-width: 520px){
+  .wrap{padding:14px 12px 28px}
+  .header{gap:10px}
+  .brandText h1{font-size:16px}
+  .topbar{justify-content:flex-start}
+  .grid{gap:12px}
+  .bd{padding:12px}
+  .tabs{grid-template-columns:1fr;}
+  .tile{min-height:70px}
+  .answers{grid-template-columns:1fr;}
+  .ans{min-height:52px;font-size:15px}
+  .btn{padding:12px 12px;border-radius:14px}
+  .btn.primary{min-width:140px}
+  .qbox{padding:12px}
+  .footerRow{position:sticky;bottom:0;
+      padding:10px 8px calc(10px + env(safe-area-inset-bottom));
+      background:rgba(11,18,32,.85);
+      backdrop-filter: blur(10px);
+      border-top:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+  }
+}

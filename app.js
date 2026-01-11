@@ -1,6 +1,15 @@
 (function(){
   "use strict";
-  const $ = (id) => document.getElementById(id);
+  // v9 guard: prevent DOMTokenList.add('') runtime crash (some browsers throw on empty tokens)
+  try{
+    const _add = DOMTokenList.prototype.add;
+    DOMTokenList.prototype.add = function(...tokens){
+      const safe = tokens.filter(t => typeof t === "string" && t.trim().length > 0);
+      if(safe.length === 0) return;
+      return _add.apply(this, safe);
+    };
+  }catch(e){ /* ignore */ }
+const $ = (id) => document.getElementById(id);
 
   const toast = $("toast");
   function showToast(msg){
@@ -61,6 +70,11 @@
     btnCloseExport: $("btnCloseExport"),
     qbox: $("qbox"),
   };
+  function safeText(el, value){
+    if(!el) return;
+    el.textContent = value;
+  }
+
 
   // hard guard for missing critical nodes
   const critical = ["chapterTiles","btnPractice","btnCards","btnSprint","btnNext","btnSkip","answers","qtitle","qmeta","qprompt"];
@@ -267,7 +281,7 @@
   function renderOrder(q){
     els.orderArea.style.display="block";
     els.orderPool.innerHTML="";
-    els.orderPickedText.textContent="Választási sorrend: —";
+    els.orderPick.textContent="Választási sorrend: —";
     session.orderPickedIdx=[];
     session.orderPickedText=[];
 
@@ -445,9 +459,9 @@
         pickNpc(ch.id);
         setTags();
         // Important: do NOT wait for "Kihagyom" - keep the board consistent
-        els.qtitle.textContent = "Téma kiválasztva";
-        els.qmeta.textContent = "—";
-        els.qprompt.textContent = `Kiválasztva: ${ch.title}. Most válassz módot (Gyakorlás / Tanulókártyák / Villámkör).`;
+        safeText(els.qtitle, "Téma kiválasztva");
+        safeText(els.qmeta, "—");
+        safeText(els.qprompt, `Kiválasztva: ${ch.title}. Most válassz módot (Gyakorlás / Tanulókártyák / Villámkör).`);
         els.answers.innerHTML="";
         els.feedback.style.display="none";
         els.inputArea.style.display="none";
@@ -590,7 +604,7 @@
     els.exportBox.style.display="none";
     els.qbox.style.display="block";
     els.qtitle.textContent="Készen állsz?";
-    els.qmeta.textContent="—";
+    safeText(els.qmeta, "—");
     els.qprompt.textContent="Bal oldalon válassz témát és módot.";
     els.answers.innerHTML="";
     els.feedback.style.display="none";

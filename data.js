@@ -5,7 +5,7 @@ window.OKOR_DATA = {
     { id: "hellasz", title: "Ókori Hellász", short: "polisz + Athén/Spárta", icon: "🏛️" },
     { id: "roma", title: "Ókori Róma", short: "köztársaság + provincia", icon: "🛡️" },
     { id: "had", title: "Hadviselés", short: "falanx + légió + Hannibál", icon: "⚔️" },
-    { id: "nepvand", title: "Népvándorlás", short: "395 / 451 / 476", icon: "🐎" },
+    { id: "nepvand", title: "Népvándorlás", short: "395 / 451 / 476", icon: "🐎" },    { id: "evszamok", title: "Évszámok", short: "csak dátumok, gyorsan", icon: "📅" },
     { id: "mix", title: "Összefoglaló MIX", short: "mindenből egy kicsi", icon: "🎛️" }
   ],
 
@@ -206,5 +206,47 @@ window.OKOR_DATA = {
       explain:"Polisz = görög városállam.",
       joke:"A Professzor szerint ez 'alap beállítás'."
     }
+
+  // Évszámok – külön kérdéssor
+    { id: "evsz_395", chapter: "evszamok", type: "mcq", prompt: "Mit jelent a 395-ös év a Római Birodalomban?",
+      options: ["A piramisok befejezése", "A birodalom kettéosztása (kelet–nyugat)", "Hannibál átkelt az Alpokon", "Athén megalapítása"], correct: 1,
+      explain: "395-ben a Római Birodalom végleg két részre szakadt: Kelet- és Nyugatrómai Birodalomra.", joke: "395: két rész, mint a csoki, csak kevésbé finom." },
+    { id: "evsz_451", chapter: "evszamok", type: "mcq", prompt: "Mi történt 451-ben?",
+      options: ["A Nyugatrómai Birodalom bukása", "A hunok megállítása a catalaunumi csatában", "Róma alapítása", "Az első olimpia"], correct: 1,
+      explain: "451-ben a catalaunumi csatában Attila hunjai megállításra kerültek.", joke: "451: Attila megáll… legalább egyszer." },
+    { id: "evsz_476", chapter: "evszamok", type: "mcq", prompt: "Mit jelöl a 476-os év?",
+      options: ["A Nyugatrómai Birodalom bukása", "A Nílus első áradása", "Spárta győzelme Athén felett", "Julius Caesar születése"], correct: 0,
+      explain: "476-ban bukott meg a Nyugatrómai Birodalom (hagyományos dátum).", joke: "476: a 'nyugati rész' lekapcsolva." },
+    { id: "evsz_753", chapter: "evszamok", type: "mcq", prompt: "A hagyomány szerint mikor alapították Rómát?",
+      options: ["776", "753", "395", "476"], correct: 1,
+      explain: "A hagyomány szerint Róma alapítása Kr. e. 753.", joke: "753: Róma születésnapja. Tortát nem ígérünk." },
+    { id: "evsz_44bc", chapter: "evszamok", type: "mcq", prompt: "Mihez kapcsolódik Kr. e. 44?",
+      options: ["Julius Caesar meggyilkolása", "Augustus császár halála", "A piramisok építésének kezdete", "A trójai háború"], correct: 0,
+      explain: "Kr. e. 44-ben meggyilkolták Julius Caesart.", joke: "Kr. e. 44: Caesar – nagy ötlet volt? Hát…" },
+    { id: "evsz_27bc", chapter: "evszamok", type: "mcq", prompt: "Mihez köthető Kr. e. 27?",
+      options: ["A köztársaság kezdete", "Augustus egyeduralmának kezdete (császárkor)", "A spártai nevelés vége", "A Nílus kiszáradása"], correct: 1,
+      explain: "Kr. e. 27-től számítjuk Augustus egyeduralmát, a császárkor kezdetét.", joke: "Kr. e. 27: Augustus beül a főnöki székbe." },
+    { id: "evsz_490", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 490 – melyik csata?",
+      options: ["Thermopülai", "Marathón", "Cannae", "Záma"], correct: 1,
+      explain: "Kr. e. 490: a marathóni csata (perzsák ellen).", joke: "490: Marathón – innen a maraton szó is ismerős." },
+    { id: "evsz_480", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 480 – mi jut róla eszedbe?",
+      options: ["Thermopülai csata", "Róma alapítása", "Nyugat-Róma bukása", "Alexandrosz halála"], correct: 0,
+      explain: "Kr. e. 480: Thermopülai csata (spártai hősies ellenállás).", joke: "480: 'This is Sparta!' – kb. innen." },
+    { id: "evsz_776", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 776 – miért fontos?",
+      options: ["Az első olimpiai játékok", "A Nílus szabályozása", "Carthago alapítása", "A hunok Európába érkezése"], correct: 0,
+      explain: "Kr. e. 776: az első olimpiai játékok hagyományos dátuma.", joke: "776: olimpia. Akkor még nem volt VAR." },
+    { id: "evsz_323bc", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 323 – mi történt?",
+      options: ["Alexandrosz (Nagy Sándor) halála", "Julius Caesar születése", "A római utak építése", "A piramisok befejezése"], correct: 0,
+      explain: "Kr. e. 323-ban meghalt Alexandrosz, birodalma feldarabolódott.", joke: "323: a birodalom 'szétszedős' módba kapcsol." },
+    { id: "evsz_146bc", chapter: "evszamok", type: "mcq", prompt: "Kr. e. 146 – melyik nagy esemény?",
+      options: ["Carthago elpusztítása", "Róma alapítása", "A birodalom kettéosztása", "Attila halála"], correct: 0,
+      explain: "Kr. e. 146: Carthago elpusztítása (és a római hatalom erősödése).", joke: "146: Carthago… nem nyerte meg." },
+    { id: "evsz_313", chapter: "evszamok", type: "mcq", prompt: "313 – mit jelent a kereszténység szempontjából?",
+      options: ["A császárváltás éve", "A milánói ediktum (vallásszabadság)", "A hunok megjelenése", "A piramisok építése"], correct: 1,
+      explain: "313: a milánói ediktum vallásszabadságot adott a keresztényeknek.", joke: "313: 'Oké, lehet így is hinni.'" },
+    { id: "evsz_330", chapter: "evszamok", type: "mcq", prompt: "330 – mi történt?",
+      options: ["Konstantinápoly felavatása", "A Nyugatrómai Birodalom bukása", "A trójai faló", "A marathóni csata"], correct: 0,
+      explain: "330: Konstantinápoly felavatása, a Kelet központja.", joke: "330: új főváros – új wifi… ja nem." },
+
   ]
 };
