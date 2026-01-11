@@ -6,14 +6,12 @@
     npcFace: $("npcFace"),
     npcName: $("npcName"),
     npcText: $("npcText"),
-
     btnPractice: $("btnPractice"),
     btnCards: $("btnCards"),
     btnSprint: $("btnSprint"),
     btnExport: $("btnExport"),
     btnBoss: $("btnBoss"),
     btnReset: $("btnReset"),
-
     modeTag: $("modeTag"),
     chapterTag: $("chapterTag"),
     qtitle: $("qtitle"),
@@ -24,29 +22,23 @@
     btnHint: $("btnHint"),
     btnSkip: $("btnSkip"),
     btnNext: $("btnNext"),
-
     inputArea: $("inputArea"),
     textAnswer: $("textAnswer"),
     btnSubmitText: $("btnSubmitText"),
-
     orderArea: $("orderArea"),
     orderPool: $("orderPool"),
     orderPick: $("orderPick"),
     btnOrderUndo: $("btnOrderUndo"),
     btnOrderCheck: $("btnOrderCheck"),
-
     progressBar: $("progressBar"),
     progressText: $("progressText"),
-
     scorePill: $("scorePill"),
     streakPill: $("streakPill"),
     heartsPill: $("heartsPill"),
-
     summaryBox: $("summaryBox"),
     summaryText: $("summaryText"),
     btnPlayAgain: $("btnPlayAgain"),
     btnBack: $("btnBack"),
-
     exportBox: $("exportBox"),
     exportText: $("exportText"),
     btnCopyTSV: $("btnCopyTSV"),
@@ -57,7 +49,7 @@
   const DATA = window.OKOR_DATA;
   if(!DATA){ alert("Hiányzik a data.js"); return; }
 
-  const LS_KEY = "okor_kuldi_state_v1";
+  const LS_KEY = "okor_kuldi_state_v2";
   const defaultPersist = { score:0, streak:0, hearts:3, chapterId:"mix", wrongCounts:{}, seenCounts:{} };
 
   function loadPersist(){
@@ -74,15 +66,24 @@
 
   const MODES = { idle:"várakozás", practice:"Gyakorlás", cards:"Tanulókártyák", sprint:"Villámkör", boss:"Főellenség" };
 
+  // phase:
+  // - "answer": user is choosing / typing
+  // - "review": answer evaluated, show explanation, next button advances
   let session = {
     mode:"idle",
     chapterId:persist.chapterId,
-    queue:[], index:0,
-    correct:0, wrong:0,
-    startTs:0, timeLimitSec:0,
-    answered:false, current:null,
+    queue:[],
+    index:0,
+    correct:0,
+    wrong:0,
+    startTs:0,
+    timeLimitSec:0,
+    current:null,
     hintUsed:false,
-    orderPicked:[], orderPickedIdx:[]
+    phase:"answer",
+    selectedIdx:null,     // for mcq
+    orderPicked:[],
+    orderPickedIdx:[]
   };
 
   function randInt(n){ return Math.floor(Math.random()*n); }
@@ -176,7 +177,6 @@
     const done = Math.min(session.index, total);
     const pct = Math.round((done/total)*100);
     els.progressBar.style.width = pct + "%";
-
     let extra = "";
     if(session.timeLimitSec){
       const elapsed = Math.floor((Date.now()-session.startTs)/1000);
@@ -190,7 +190,7 @@
   function finishRun(timeOut=false){
     session.mode = "idle";
     setTags();
-    $("qbox").style.display = "none";
+    els.qbox.style.display = "none";
     els.exportBox.style.display = "none";
     els.summaryBox.style.display = "block";
 
@@ -216,29 +216,35 @@
     els.summaryText.innerHTML = msg.join("<br/>");
   }
 
+  function setNextButton(label, enabled){
+    els.btnNext.textContent = label;
+    els.btnNext.disabled = !enabled;
+  }
+
   function idleScreen(){
     session.mode = "idle";
+    session.phase = "answer";
     setTags();
     els.summaryBox.style.display = "none";
     els.exportBox.style.display = "none";
-    $("qbox").style.display = "block";
+    els.qbox.style.display = "block";
+
     els.qtitle.textContent = "Készen állsz?";
     els.qmeta.textContent = "—";
     els.qprompt.textContent = "Válassz témát és módot bal oldalon. A Professzor már beélesítette a krétát.";
     els.answers.innerHTML = "";
     els.feedback.style.display = "none";
-    els.btnNext.style.display = "none";
     els.inputArea.style.display = "none";
     els.orderArea.style.display = "none";
+    setNextButton("OK", false);
     updateProgress();
   }
 
   function showFeedback(ok, extra){
     els.feedback.style.display = "block";
-    els.feedback.innerHTML = (ok
-      ? `<b style="color: var(--good)">Helyes!</b> `
-      : `<b style="color: var(--bad)">Nem most… de mindjárt.</b> `
-    ) + extra;
+    els.feedback.innerHTML =
+      (ok ? `<b style="color: var(--good)">Helyes!</b> ` : `<b style="color: var(--bad)">Nem most… de mindjárt.</b> `)
+      + (extra || "");
   }
 
   function applyOutcome(ok){
@@ -254,17 +260,84 @@
     }
     savePersist();
     updatePills();
-    session.answered = true;
-    els.btnNext.style.display = "inline-flex";
-    updateProgress();
-
     if(persist.hearts === 0){
-      // gyerekbarát: visszatöltjük a szíveket, de a „bünti” megmarad érzésre
       persist.hearts = 3;
       savePersist();
       updatePills();
       pickNpc(session.chapterId);
     }
+  }
+
+  function renderQuestion(q){
+    const ch = DATA.chapters.find(c => c.id === q.chapter) || {title:"—"};
+    const typeLabel = (q.type==="mcq") ? "Feleletválasztós" : (q.type==="input") ? "Beírás" : "Sorrend";
+    els.qtitle.textContent = q.prompt;
+    els.qmeta.textContent = `${typeLabel} • ${ch.title}`;
+    els.qprompt.textContent = q.joke || "";
+    els.feedback.style.display = "none";
+
+    session.phase = "answer";
+    session.hintUsed = false;
+    session.selectedIdx = null;
+    session.orderPicked = [];
+    session.orderPickedIdx = [];
+
+    els.answers.innerHTML = "";
+    els.inputArea.style.display = "none";
+    els.orderArea.style.display = "none";
+
+    // Default: Next acts as OK (submit) but disabled until ready
+    if(q.type === "mcq"){
+      setNextButton("OK", false);
+    }else{
+      // For input/order, OK buttons exist inside areas; Next becomes TOVÁBB after evaluation
+      setNextButton("TOVÁBB", false);
+    }
+
+    if(q.type==="mcq") renderMCQ(q);
+    else if(q.type==="input") renderInput(q);
+    else if(q.type==="order") renderOrder(q);
+  }
+
+  function nextQuestion(){
+    const q = session.queue[session.index];
+    if(!q){ finishRun(false); return; }
+    session.current = q;
+    persist.seenCounts[q.id] = (persist.seenCounts[q.id] || 0) + 1;
+    savePersist();
+    renderQuestion(q);
+    updateProgress();
+  }
+
+  function startMode(mode){
+    session.mode = mode;
+    session.index = 0;
+    session.correct = 0;
+    session.wrong = 0;
+    session.startTs = Date.now();
+    session.timeLimitSec = (mode==="sprint") ? 120 : (mode==="boss") ? 160 : 0;
+
+    let qs = getQuestionsForChapter(session.chapterId);
+    if(mode==="cards") qs = weightedShuffle(qs).slice(0, Math.min(14, qs.length));
+    else if(mode==="practice") qs = weightedShuffle(qs).slice(0, Math.min(18, qs.length));
+    else if(mode==="sprint") qs = weightedShuffle(qs).slice(0, Math.min(12, qs.length));
+    else if(mode==="boss"){
+      qs = weightedShuffle(DATA.questions.slice()).slice(0, 10);
+      session.chapterId = "mix";
+      persist.chapterId = "mix";
+      savePersist();
+      renderChapterTiles();
+    }
+    session.queue = qs;
+    setTags();
+    els.summaryBox.style.display = "none";
+    els.exportBox.style.display = "none";
+    els.qbox.style.display = "block";
+    nextQuestion();
+  }
+
+  function lockMCQ(){
+    [...els.answers.children].forEach(btn => btn.disabled = true);
   }
 
   function renderMCQ(q){
@@ -273,14 +346,13 @@
       b.className = "ans";
       b.innerHTML = `<span class="kbd">${String.fromCharCode(65+idx)}</span> ${opt}`;
       b.onclick = () => {
-        if(session.answered) return;
-        const ok = idx === q.correct;
+        if(session.phase !== "answer") return;
+        session.selectedIdx = idx;
+        // highlight selection
         [...els.answers.children].forEach((node, i) => {
-          node.classList.add(i===q.correct ? "good" : (i===idx ? "bad" : ""));
-          node.disabled = true;
+          node.classList.toggle("selected", i === idx);
         });
-        showFeedback(ok, `${q.explain || ""}<br/><span class="muted">${q.joke || ""}</span>`);
-        applyOutcome(ok);
+        setNextButton("OK", true);
       };
       els.answers.appendChild(b);
     });
@@ -293,23 +365,24 @@
     els.btnSubmitText.disabled = false;
 
     const submit = () => {
-      if(session.answered) return;
+      if(session.phase !== "answer") return;
       const val = normalizeText(els.textAnswer.value);
       const ok = q.answers.map(normalizeText).includes(val);
-      showFeedback(ok, `${q.explain || ""}<br/><span class="muted">${q.joke || ""}</span>`);
+      showFeedback(ok, q.explain || "");
       applyOutcome(ok);
+      session.phase = "review";
       els.btnSubmitText.disabled = true;
+      setNextButton("TOVÁBB", true);
     };
 
     els.btnSubmitText.onclick = submit;
-    els.textAnswer.onkeydown = (e) => { if(e.key === "Enter") submit(); };
+    els.textAnswer.onkeydown = (e) => { if(e.key==="Enter") submit(); };
   }
 
   function renderOrder(q){
     els.orderArea.style.display = "block";
     els.orderPool.innerHTML = "";
-    session.orderPicked = [];
-    session.orderPickedIdx = [];
+    els.orderPick.textContent = "Választási sorrend: —";
 
     const items = q.items.map((t, idx) => ({t, idx}));
     for(let i=items.length-1;i>0;i--){
@@ -328,18 +401,20 @@
       c.className = "chip";
       c.textContent = it.t;
       c.onclick = () => {
-        if(session.answered) return;
+        if(session.phase !== "answer") return;
         if(session.orderPickedIdx.includes(it.idx)) return;
         session.orderPickedIdx.push(it.idx);
         session.orderPicked.push(it.t);
         c.classList.add("picked");
         updatePick();
+        // enable OK if at least one picked
+        els.btnOrderCheck.disabled = (session.orderPickedIdx.length === 0);
       };
       els.orderPool.appendChild(c);
     });
 
     els.btnOrderUndo.onclick = () => {
-      if(session.answered) return;
+      if(session.phase !== "answer") return;
       const lastIdx = session.orderPickedIdx.pop();
       const lastText = session.orderPicked.pop();
       if(lastIdx === undefined) return;
@@ -347,154 +422,90 @@
         if(btn.textContent === lastText && btn.classList.contains("picked")) btn.classList.remove("picked");
       });
       updatePick();
+      els.btnOrderCheck.disabled = (session.orderPickedIdx.length === 0);
     };
 
-    els.btnOrderCheck.disabled = false;
+    els.btnOrderCheck.disabled = true;
     els.btnOrderCheck.onclick = () => {
-      if(session.answered) return;
+      if(session.phase !== "answer") return;
       const picked = session.orderPickedIdx.slice();
       const ok = picked.length === q.correctOrder.length && picked.every((v,i)=>v===q.correctOrder[i]);
       [...els.orderPool.querySelectorAll("button")].forEach(b => b.disabled = true);
-      showFeedback(ok, `${q.explain || ""}<br/><span class="muted">${q.joke || ""}</span>`);
+      showFeedback(ok, q.explain || "");
       applyOutcome(ok);
+      session.phase = "review";
       els.btnOrderCheck.disabled = true;
+      setNextButton("TOVÁBB", true);
     };
 
     updatePick();
   }
 
-  function renderQuestion(q){
-    const ch = DATA.chapters.find(c => c.id === q.chapter) || {title:"—"};
-    const typeLabel = (q.type === "mcq") ? "Feleletválasztós" : (q.type === "input") ? "Beírás" : "Sorrend";
-    els.qtitle.textContent = q.prompt;
-    els.qmeta.textContent = `${typeLabel} • ${ch.title}`;
-    els.qprompt.textContent = q.joke || "";
+  // Main OK/TOVÁBB button behavior
+  els.btnNext.onclick = () => {
+    if(session.mode === "idle") return;
 
-    els.feedback.style.display = "none";
-    els.btnNext.style.display = "none";
-    els.answers.innerHTML = "";
-    els.inputArea.style.display = "none";
-    els.orderArea.style.display = "none";
+    const q = session.current;
+    if(!q) return;
 
-    if(q.type === "mcq") renderMCQ(q);
-    else if(q.type === "input") renderInput(q);
-    else if(q.type === "order") renderOrder(q);
-  }
-
-  function nextQuestion(){
-    session.answered = false;
-    session.hintUsed = false;
-
-    const q = session.queue[session.index];
-    if(!q){ finishRun(false); return; }
-
-    session.current = q;
-    persist.seenCounts[q.id] = (persist.seenCounts[q.id] || 0) + 1;
-    savePersist();
-
-    renderQuestion(q);
-    updateProgress();
-  }
-
-  function startMode(mode){
-    session.mode = mode;
-    session.index = 0;
-    session.correct = 0;
-    session.wrong = 0;
-    session.startTs = Date.now();
-    session.timeLimitSec = (mode === "sprint") ? 120 : (mode === "boss") ? 160 : 0;
-
-    let qs = getQuestionsForChapter(session.chapterId);
-    if(mode === "cards") qs = weightedShuffle(qs).slice(0, Math.min(14, qs.length));
-    else if(mode === "practice") qs = weightedShuffle(qs).slice(0, Math.min(18, qs.length));
-    else if(mode === "sprint") qs = weightedShuffle(qs).slice(0, Math.min(12, qs.length));
-    else if(mode === "boss"){
-      qs = weightedShuffle(DATA.questions.slice()).slice(0, 10);
-      session.chapterId = "mix";
-      persist.chapterId = "mix";
-      savePersist();
-      renderChapterTiles();
+    // If reviewing: TOVÁBB
+    if(session.phase === "review"){
+      session.index++;
+      updateProgress();
+      nextQuestion();
+      return;
     }
 
-    session.queue = qs;
-    setTags();
-    els.summaryBox.style.display = "none";
-    els.exportBox.style.display = "none";
-    $("qbox").style.display = "block";
-    nextQuestion();
-  }
+    // If answering: for MCQ we evaluate here
+    if(q.type === "mcq"){
+      if(session.selectedIdx === null) return;
+      const ok = session.selectedIdx === q.correct;
+
+      // lock + show correct/wrong coloring
+      [...els.answers.children].forEach((node, i) => {
+        node.classList.remove("selected");
+        node.classList.add(i===q.correct ? "good" : (i===session.selectedIdx ? "bad" : ""));
+      });
+      lockMCQ();
+
+      showFeedback(ok, q.explain || "");
+      applyOutcome(ok);
+
+      session.phase = "review";
+      setNextButton("TOVÁBB", true);
+      return;
+    }
+
+    // For input/order, OK is handled by their own OK buttons; Next should be disabled until review.
+  };
+
+  // Buttons
+  els.btnPractice.onclick = () => startMode("practice");
+  els.btnCards.onclick = () => startMode("cards");
+  els.btnSprint.onclick = () => startMode("sprint");
+  els.btnBoss.onclick = () => startMode("boss");
+
+  function escapeHtml(s){ return (s||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
 
   function buildTSV(chapterId){
-    const qs = (chapterId === "mix") ? DATA.questions.slice() : DATA.questions.filter(q=>q.chapter===chapterId);
+    const qs = (chapterId==="mix") ? DATA.questions.slice() : DATA.questions.filter(q=>q.chapter===chapterId);
     return qs.map(q => {
       let a = "";
-      if(q.type === "mcq") a = q.options[q.correct];
-      else if(q.type === "input") a = q.answers[0];
-      else if(q.type === "order") a = q.correctOrder.map(i => q.items[i]).join(" → ");
+      if(q.type==="mcq") a = q.options[q.correct];
+      else if(q.type==="input") a = q.answers[0];
+      else if(q.type==="order") a = q.correctOrder.map(i => q.items[i]).join(" → ");
       return q.prompt.replace(/\t|\n/g," ").trim() + "\t" + String(a).replace(/\t|\n/g," ").trim();
     }).join("\n");
-  }
-
-  function escapeHtml(s){
-    return (s||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
   }
 
   function openExport(){
     els.exportBox.style.display = "block";
     els.summaryBox.style.display = "none";
-    $("qbox").style.display = "none";
+    els.qbox.style.display = "none";
     els.exportText.value = buildTSV(persist.chapterId);
   }
 
-  // --- UI events ---
-  els.btnPractice.onclick = () => startMode("practice");
-  els.btnCards.onclick = () => startMode("cards");
-  els.btnSprint.onclick = () => startMode("sprint");
-  els.btnBoss.onclick = () => startMode("boss");
   els.btnExport.onclick = () => openExport();
-
-  els.btnHint.onclick = () => {
-    if(session.mode === "idle" || !session.current || session.answered) return;
-    session.hintUsed = true;
-    const q = session.current;
-    let hint = "";
-    if(q.type === "mcq"){
-      const wrong = q.options.map((_,i)=>i).filter(i=>i!==q.correct);
-      const remove = wrong[randInt(wrong.length)];
-      hint = `Súgás: a <b>${String.fromCharCode(65+remove)}</b> biztosan nem jó.`;
-    }else if(q.type === "input"){
-      const ans = (q.answers && q.answers[0]) ? q.answers[0].trim() : "";
-      hint = `Súgás: első betű: <b>${ans.charAt(0).toUpperCase()}</b>`;
-    }else{
-      hint = `Súgás: az első elem: <b>${q.items[q.correctOrder[0]]}</b>`;
-    }
-    showFeedback(true, hint + "<br/><span class='muted'>Súgással is jár pont, csak kevesebb.</span>");
-  };
-
-  els.btnSkip.onclick = () => {
-    if(session.mode === "idle" || session.answered) return;
-    session.index++;
-    nextQuestion();
-  };
-
-  els.btnNext.onclick = () => {
-    if(!session.answered) return;
-    session.index++;
-    nextQuestion();
-  };
-
-  els.btnReset.onclick = () => {
-    if(!confirm("Biztosan nullázod a pontokat és a statisztikát?")) return;
-    persist = {...defaultPersist};
-    savePersist();
-    updatePills();
-    renderChapterTiles();
-    pickNpc(persist.chapterId);
-    idleScreen();
-  };
-
-  els.btnPlayAgain.onclick = () => startMode("practice");
-  els.btnBack.onclick = () => idleScreen();
 
   els.btnCopyTSV.onclick = async () => {
     try{
@@ -528,21 +539,54 @@
     w.document.open(); w.document.write(html); w.document.close();
   };
 
-  els.btnCloseExport.onclick = () => {
-    els.exportBox.style.display = "none";
-    $("qbox").style.display = "block";
+  els.btnCloseExport.onclick = () => { els.exportBox.style.display = "none"; els.qbox.style.display = "block"; idleScreen(); };
+
+  els.btnReset.onclick = () => {
+    if(!confirm("Biztosan nullázod a pontokat és a statisztikát?")) return;
+    persist = {...defaultPersist};
+    savePersist();
+    updatePills();
+    renderChapterTiles();
+    pickNpc(persist.chapterId);
     idleScreen();
   };
 
-  // timer tick
-  setInterval(() => {
-    if(session.mode === "sprint" || session.mode === "boss") updateProgress();
-  }, 250);
+  els.btnPlayAgain.onclick = () => startMode("practice");
+  els.btnBack.onclick = () => idleScreen();
 
-  // init
+  els.btnHint.onclick = () => {
+    if(session.mode==="idle" || !session.current || session.phase!=="answer") return;
+    session.hintUsed = true;
+    const q = session.current;
+    let hint = "";
+    if(q.type==="mcq"){
+      const wrong = q.options.map((_,i)=>i).filter(i=>i!==q.correct);
+      const remove = wrong[randInt(wrong.length)];
+      hint = `Súgás: a <b>${String.fromCharCode(65+remove)}</b> biztosan nem jó.`;
+    }else if(q.type==="input"){
+      const ans = (q.answers && q.answers[0]) ? q.answers[0].trim() : "";
+      hint = `Súgás: első betű: <b>${ans.charAt(0).toUpperCase()}</b>`;
+    }else{
+      hint = `Súgás: az első elem: <b>${q.items[q.correctOrder[0]]}</b>`;
+    }
+    showFeedback(true, hint + "<br/><span class='muted'>Súgással is jár pont, csak kevesebb.</span>");
+  };
+
+  els.btnSkip.onclick = () => {
+    if(session.mode==="idle") return;
+    // skip always advances without scoring
+    session.index++;
+    updateProgress();
+    nextQuestion();
+  };
+
+  // Timer tick for sprint/boss
+  setInterval(() => { if(session.mode==="sprint" || session.mode==="boss") updateProgress(); }, 250);
+
+  // Init
   renderChapterTiles();
   updatePills();
   pickNpc(persist.chapterId);
   idleScreen();
-  setTags();
+
 })();

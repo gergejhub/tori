@@ -1,29 +1,23 @@
-# Ókori Küldi – Lili Témázáró Játék (GitHub Pages)
+# Ókori Küldi – Lili Témázáró Játék (GitHub Pages) – v3
 
-Ez a csomag egy **backend nélküli** (csak HTML/CSS/JS) webapp, amit fel tudsz tölteni GitHub-ra, és **GitHub Pages**-en futtatni.
+## Mi változott?
+- Feleletválasztósnál most már **két lépés van**:
+  1) kiválasztod a választ
+  2) megnyomod az **OK**-t
+  3) elolvasod a magyarázatot
+  4) megnyomod a **TOVÁBB**-ot
 
-## Tartalom
-- `index.html` – főoldal
-- `style.css` – dizájn
-- `data.js` – kérdésbank
-- `app.js` – játéklogika
-- `README.md` – leírás
+A „KIHAGYOM” maradt külön gomb.
 
-## Telepítés GitHub Pages-re (lépésről lépésre)
-1. GitHub → **New repository**
-   - Név pl.: `okor-kuldi`
-2. Repo → **Add file → Upload files**
-   - A ZIP-et csomagold ki, és az **összes fájlt** töltsd fel (index.html, style.css, data.js, app.js, README.md)
-   - Commit
-3. Repo → **Settings → Pages**
-   - Source: **Deploy from a branch**
-   - Branch: **main** / **(root)**
-   - Save
-4. A Pages oldalon megjelenik a link (pl. `https://<user>.github.io/okor-kuldi/`)
+## Telepítés GitHub Pages-re
+1) GitHub → New repository  
+2) Add file → Upload files (a ZIP kicsomagolt tartalma)  
+3) Settings → Pages → Deploy from branch → main /(root) → Save  
+4) Megnyitod a kapott Pages URL-t.
 
-## Offline futtatás
-Nyisd meg az `index.html`-t dupla kattintással.
-
-## Kérdések bővítése
-A `data.js` fájlban, a `questions` tömbbe tudsz új kérdéseket felvenni.
-Típusok: `mcq`, `input`, `order`.
+## Fájlok
+- index.html
+- style.css
+- data.js
+- app.js
+- README.md

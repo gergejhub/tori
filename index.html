@@ -14,7 +14,7 @@
         <div class="logo" aria-hidden="true">⏳</div>
         <div class="brandText">
           <h1>Ókori Küldi – Lili Témázáró Játék</h1>
-          <p>Vicces küldetések + kérdések. A cél: 5-ös, és közben ne unjuk halálra magunkat.</p>
+          <p>Vicces küldetések + kérdések. Most már van külön <b>OK</b> és <b>TOVÁBB</b> lépés is.</p>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
             <div class="msg">
               <div><b id="npcName">Professzor Pörkölő</b> <span class="muted">— az Időgép-üzemeltető</span></div>
               <div id="npcText" class="muted" style="margin-top:6px;">
-                Válassz témát. Ha jól válaszolsz, kapsz pontot. Ha rosszul, a szívek fogyogatnak… de csak játékból!
+                Válassz témát. Válaszolj. Nyomj <b>OK</b>-t. Aztán <b>TOVÁBB</b>. Rend van.
               </div>
               <div class="hr"></div>
               <div class="row">
@@ -58,7 +58,7 @@
 
           <div class="miniHelp">
             <div class="muted">
-              <b>Hogyan működik?</b> A játék “okos”: ami nehezebben megy, azt gyakrabban hozza vissza. A magyarázatot mindig elolvashatod.
+              <b>Hogyan működik?</b> Feleletválasztósnál: katt a válaszra → <b>OK</b> → elolvasod a magyarázatot → <b>TOVÁBB</b>.
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
 
             <div id="inputArea" class="inputArea" style="display:none;">
               <input id="textAnswer" type="text" placeholder="Írd be a választ..." autocomplete="off" />
-              <button class="btn primary" id="btnSubmitText">Ellenőrzés</button>
+              <button class="btn primary" id="btnSubmitText">OK</button>
             </div>
 
             <div id="orderArea" class="orderArea" style="display:none;">
@@ -105,16 +105,16 @@
               <div class="muted" id="orderPick">Választási sorrend: —</div>
               <div class="row" style="margin-top:10px;">
                 <button class="btn" id="btnOrderUndo">Vissza</button>
-                <button class="btn primary" id="btnOrderCheck">Ellenőrzés</button>
+                <button class="btn primary" id="btnOrderCheck">OK</button>
               </div>
             </div>
 
             <div class="feedback" id="feedback" style="display:none;"></div>
 
             <div class="footerRow">
-              <button class="btn" id="btnHint" title="Kis segítség (pontlevonás nélküli)">Súgás</button>
-              <button class="btn" id="btnSkip" title="Kihagyás (később visszajön)">Kihagyom</button>
-              <button class="btn primary" id="btnNext" title="Következő kérdés" style="display:none;">Következő</button>
+              <button class="btn" id="btnHint" title="Kis segítség (kevesebb pont)">Súgás</button>
+              <button class="btn" id="btnSkip" title="Kihagyás (később visszajön)">KIHAGYOM</button>
+              <button class="btn primary" id="btnNext" title="OK / TOVÁBB">OK</button>
             </div>
           </div>
 
@@ -143,7 +143,9 @@
     </main>
 
     <footer class="footer">
-      <div class="muted">Tipp szülőknek: 10–15 perc játék / nap bőven elég, a lényeg a rendszeresség.</div>
+      <div class="muted">
+        Tipp: a „Főellenség” jó próba dolgozat előtt.
+      </div>
     </footer>
   </div>
 

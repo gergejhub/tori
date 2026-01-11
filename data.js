@@ -1,6 +1,4 @@
-// Ókori Küldi – kérdésbank (rövid, bővíthető)
-// Megjegyzés: a válaszok/évszámok a 5.-es tananyag logikájához vannak igazítva.
-
+// Ókori Küldi – kérdésbank (bővíthető)
 window.OKOR_DATA = {
   chapters: [
     { id: "egyiptom", title: "Ókori Egyiptom", short: "Nílus + fáraó + piramis", icon: "🧱" },
@@ -39,9 +37,9 @@ window.OKOR_DATA = {
     ]}
   ],
 
-  // kérdések: type: mcq | input | order
+  // type: mcq | input | order
   questions: [
-    // EGYIPTOM
+    // Egyiptom
     { id:"E1", chapter:"egyiptom", type:"mcq",
       prompt:"Miért volt életmentő a Nílus áradása?",
       options:["Havat hozott","Vizet és termékeny iszapot hozott","Elvitte a piramisokat","Kékre festette az eget"],
@@ -91,7 +89,7 @@ window.OKOR_DATA = {
       joke:"Kr. e. 3000: amikor a wifi helyett a Nílus jelzett."
     },
 
-    // HELLÁSZ
+    // Hellász
     { id:"H1", chapter:"hellasz", type:"input",
       prompt:"Mi a görög városállam neve? (1 szó)",
       answers:["polisz","polis"],
@@ -120,7 +118,7 @@ window.OKOR_DATA = {
       joke:"Athén: a vita néha hosszabb volt, mint egy nagybevásárlás."
     },
 
-    // RÓMA
+    // Róma
     { id:"R1", chapter:"roma", type:"mcq",
       prompt:"Mit jelent: köztársaság?",
       options:["Király uralkodik","Választott vezetők irányítanak","Fáraó irányít","Polisz irányít"],
@@ -148,7 +146,7 @@ window.OKOR_DATA = {
       joke:"Római út: Google Maps ókori verzió, hangosabb szandálban."
     },
 
-    // HADVISELÉS
+    // Hadviselés
     { id:"HV1", chapter:"had", type:"mcq",
       prompt:"Kr. e. 490 – melyik csata?",
       options:["Catalaunum","Marathón","476","Kr. e. 3000"],
@@ -177,7 +175,7 @@ window.OKOR_DATA = {
       joke:"Hannibál: 'térkép? minek!'"
     },
 
-    // NÉPVÁNDORLÁS
+    // Népvándorlás
     { id:"NV1", chapter:"nepvand", type:"mcq",
       prompt:"Kr. u. 395 – mi történt?",
       options:["Róma kettéosztása","Marathón","Egyiptom egyesítése","Attila halála"],
@@ -200,7 +198,7 @@ window.OKOR_DATA = {
       joke:"Ha ezt tudod, az Időgép felvesz pilótának is. Majdnem."
     },
 
-    // MIX
+    // Mix
     { id:"M1", chapter:"mix", type:"mcq",
       prompt:"Melyik páros illik össze?",
       options:["Polisz – görög városállam","Fáraó – légió","Hieroglifa – római út","Provincia – spártai edzés"],
