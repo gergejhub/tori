@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Témazáró Játék v23</title>
+  <title>Témazáró Játék v22</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
   <meta http-equiv="Pragma" content="no-cache"/>
   <meta http-equiv="Expires" content="0"/>
   <style>@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap');
 
-/* v23 rebuilt stable */
+/* v22 rebuilt stable */
  
 :root{
   --bg0:#050714;
@@ -180,7 +180,7 @@ body{
   .btn{padding:12px 12px;border-radius:14px}
 }
 
-/* v23 readability + clear correct/incorrect colors */
+/* v22 readability + clear correct/incorrect colors */
 body{font-size:16px; line-height:1.45}
 .brand p{font-size:13px}
 .pill{font-size:13px}
@@ -242,7 +242,7 @@ body::before{
       <div class="brand">
         <div class="logo">⏳</div>
         <div>
-          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v23</span></h1>
+          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v22</span></h1>
           <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
@@ -425,17 +425,6 @@ function setMode(mode){
 }
 function startRun(){
   state.idx=0; state.score=0; state.streak=0; state.lives=3;
-const pool = getQuestions(state.chapterId);
-  if(state.mode==="practice"){
-    // 10 kérdés / gyakorlás, ismétlés nélkül
-    state.queue = shuffle(pool).slice(0, Math.min(PRACTICE_LIMIT, pool.length));
-  } else if(state.mode==="blitz"){
-    // Villámkör: amíg van kérdés, ismétlés nélkül (ha elfogy, vége)
-    state.queue = shuffle(pool);
-  } else {
-    // Tanulókártyák: teljes lista, ismétlés nélkül
-    state.queue = shuffle(pool);
-  }
   state.attempted=0; state.correct=0; state.wrong=0;
   state.queue=getQuestions(state.chapterId, state.mode);
   state.selected=null; state.phase="answer";
@@ -559,8 +548,10 @@ function reveal(q){
   }
 }
 function nextQuestion(){
-  if(state.idx >= state.queue.length){
-    return finishRun(true);
+  if(state.mode==="blitz" && state.queue.length){
+    if(state.idx >= state.queue.length) state.idx = 0;
+  } else {
+    if(state.idx >= state.queue.length) return finishRun(false);
   }
   if(typeof updateProgress==='function') updateProgress();
   state.selected=null; state.phase="answer";
@@ -644,7 +635,7 @@ function finishRun(timeout){
     $("qprompt").textContent = "Tanulókártyák: válassz új témát/módot a folytatáshoz.";
   } else if(state.mode==="blitz"){
     $("qprompt").textContent =
-      "Villámkör vége • " + (Date.now()<state.endTs ? "Elfogytak a kérdések. " : "") + "Helyes: " + state.correct +
+      "Villámkör (60s) vége • Helyes: " + state.correct +
       " • Hibás/Kihagyott: " + state.wrong +
       " • Próbálkozás: " + state.attempted + ".";
   } else {
