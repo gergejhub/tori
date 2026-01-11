@@ -97,7 +97,7 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
 .toast{margin-top:12px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,90,122,.45);background:rgba(255,90,122,.12);color:var(--text);line-height:1.35}
 
 
-/* v11 iPhone/mobile tuning */
+/* v10 iPhone/mobile tuning */
 @media (max-width: 520px){
   .wrap{padding:14px 12px 28px}
   .header{gap:10px}
@@ -130,7 +130,7 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
       <div class="brand">
         <div class="logo" aria-hidden="true">⏳</div>
         <div class="brandText">
-          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v11</span></h1>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v12</span></h1>
           <p>Most már azonnal indul a kiválasztott témával, és az <b>OK/TOVÁBB</b> biztosan működik.</p>
         </div>
       </div>
@@ -253,15 +253,16 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
     </main>
 
     <footer class="footer">
-      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v11 kifejezetten cache ellen készült.)</div>
+      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v12 kifejezetten cache ellen készült.)</div>
     </footer>
   </div>
 
   <script src="./data.js?v=20260111202610"></script>
   <script src="./app.js?v=20260111202610"></script>
 
+
 <script>
-// v11: beágyazott data.js (nincs külön fájl, így nem tud hiányozni)
+// v12: beágyazott data.js (sanitized, nem tudja lezárni a script taget)
 // Ókori Küldi – kérdésbank (bővíthető)
 window.OKOR_DATA = {
   chapters: [
@@ -516,8 +517,9 @@ window.OKOR_DATA = {
 };
 
 </script>
+
 <script>
-// v11: beágyazott app.js
+// v12: beágyazott app.js (sanitized, különösen a nyomtatásnál volt </script> a stringben)
 (function(){
   "use strict";
   // v9 guard: prevent DOMTokenList.add('') runtime crash (some browsers throw on empty tokens)
@@ -1094,7 +1096,7 @@ const $ = (id) => document.getElementById(id);
         <div class="grid">
           ${rows.map(r => `<div class="card"><div class="q">${escapeHtml(r[0]||"")}</div><div class="a">${escapeHtml(r[1]||"")}</div></div>`).join("")}
         </div>
-        <script>window.onload=()=>window.print();</script>
+        <script>window.onload=()=>window.print();<\/script>
         </body></html>`;
       const w = window.open("", "_blank");
       w.document.open(); w.document.write(html); w.document.close();
@@ -1164,5 +1166,6 @@ const $ = (id) => document.getElementById(id);
   setNext("OK", false);
 })();
 </script>
+
 </body>
 </html>
