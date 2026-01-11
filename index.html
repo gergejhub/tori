@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
   <title>Ókori Küldi – Lili Témázáró Játék</title>
-  <meta name="description" content="Játékos, vicces gyakorló az ókor témázáróra (Egyiptom, Hellász, Róma, hadviselés, népvándorlás)." />
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="description" content="Játékos, vicces gyakorló az ókor témázáróra." />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="./style.css?v=20260111200602" />
 </head>
 <body>
   <div class="wrap">
@@ -16,17 +16,16 @@
       <div class="brand">
         <div class="logo" aria-hidden="true">⏳</div>
         <div class="brandText">
-          <h1>Ókori Küldi – Lili Témázáró Játék <span style=\"font-size:12px;color:#a9b7d6;font-weight:800;\">v6</span></h1>
-          <p>Vicces küldetések + kérdések. Most már van külön <b>OK</b> és <b>TOVÁBB</b> lépés is.</p>
+          <h1>Ókori Küldi – Lili Témázáró Játék <span class="ver">v7</span></h1>
+          <p>Most már azonnal indul a kiválasztott témával, és az <b>OK/TOVÁBB</b> biztosan működik.</p>
         </div>
       </div>
-
       <div class="topbar">
         <div class="pill"><span class="muted">Pont:</span> <b id="scorePill">0</b></div>
         <div class="pill"><span class="muted">Széria:</span> <b id="streakPill">0</b></div>
         <div class="pill"><span class="muted">Szív:</span> <b id="heartsPill">3</b></div>
-        <button class="btn" id="btnReset" title="Mindent nulláz (pont, széria, haladás)">Nullázás</button>
-        <button class="btn primary" id="btnBoss" title="10 kérdés, gyorsan, mint egy légió!">Főellenség</button>
+        <button class="btn" id="btnReset" title="Mindent nulláz">Nullázás</button>
+        <button class="btn primary" id="btnBoss" title="10 kérdés, MIX">Főellenség</button>
       </div>
     </header>
 
@@ -34,10 +33,7 @@
       <section class="card">
         <div class="hd">
           <h2>Küldetés választó</h2>
-          <div class="row">
-            <span class="kbd">Tipp:</span>
-            <span class="muted">Válassz témát, aztán jöhet a móka.</span>
-          </div>
+          <div class="row"><span class="kbd">Tipp:</span><span class="muted">Válassz témát, majd módot.</span></div>
         </div>
         <div class="bd">
           <div class="tabs" id="chapterTiles"></div>
@@ -45,23 +41,23 @@
           <div class="npc" id="npcBox">
             <div class="face" id="npcFace" aria-hidden="true">🧠</div>
             <div class="msg">
-              <div><b id="npcName">Professzor Pörkölő</b> <span class="muted">— az Időgép-üzemeltető</span></div>
+              <div><b id="npcName">Professzor Pörkölő</b> <span class="muted">— Időgép üzemeltető</span></div>
               <div id="npcText" class="muted" style="margin-top:6px;">
-                Válassz témát. Válaszolj. Nyomj <b>OK</b>-t. Aztán <b>TOVÁBB</b>. Rend van.
+                Válassz témát. Válassz módot. A játéktér azonnal frissül.
               </div>
               <div class="hr"></div>
               <div class="row">
                 <button class="btn" id="btnPractice">Gyakorlás</button>
                 <button class="btn" id="btnCards">Tanulókártyák</button>
-                <button class="btn" id="btnSprint">Villámkör (időzített)</button>
-                <button class="btn" id="btnExport">Export (Anki / nyomtatás)</button>
+                <button class="btn" id="btnSprint">Villámkör</button>
+                <button class="btn" id="btnExport">Export</button>
               </div>
             </div>
           </div>
 
           <div class="miniHelp">
             <div class="muted">
-              <b>Hogyan működik?</b> Feleletválasztósnál: katt a válaszra → <b>OK</b> → elolvasod a magyarázatot → <b>TOVÁBB</b>.
+              <b>Használat:</b> válasz kiválasztása → <b>OK</b> → magyarázat → <b>TOVÁBB</b>.
             </div>
           </div>
         </div>
@@ -75,13 +71,11 @@
             <span class="tag" id="chapterTag">Téma: —</span>
           </div>
         </div>
-        <div class="bd">
 
+        <div class="bd">
           <div class="statusRow">
-            <div class="progress" aria-label="Haladás">
-              <div id="progressBar"></div>
-            </div>
-            <div class="muted" id="progressText">Válassz küldetést a bal oldalon.</div>
+            <div class="progress"><div id="progressBar"></div></div>
+            <div class="muted" id="progressText">Válassz témát és módot.</div>
           </div>
 
           <div class="qbox" id="qbox">
@@ -91,14 +85,13 @@
             </div>
 
             <div id="qprompt" class="qprompt muted">
-              Az Időgép már melegít. Válassz témát és módot bal oldalon.
+              Bal oldalon válassz témát (pl. Ókori Róma), majd módot (pl. Gyakorlás).
             </div>
 
             <div id="answers" class="answers"></div>
 
             <div id="inputArea" class="inputArea" style="display:none;">
               <input id="textAnswer" type="text" placeholder="Írd be a választ..." autocomplete="off" />
-              <button class="btn primary" id="btnSubmitText">OK</button>
             </div>
 
             <div id="orderArea" class="orderArea" style="display:none;">
@@ -108,16 +101,15 @@
               <div class="muted" id="orderPick">Választási sorrend: —</div>
               <div class="row" style="margin-top:10px;">
                 <button class="btn" id="btnOrderUndo">Vissza</button>
-                <button class="btn primary" id="btnOrderCheck">OK</button>
               </div>
             </div>
 
             <div class="feedback" id="feedback" style="display:none;"></div>
 
             <div class="footerRow">
-              <button class="btn" id="btnHint" title="Kis segítség (kevesebb pont)">Súgás</button>
-              <button class="btn" id="btnSkip" title="Kihagyás (később visszajön)">KIHAGYOM</button>
-              <button class="btn primary" id="btnNext" title="OK / TOVÁBB">OK</button>
+              <button class="btn" id="btnHint">Súgás</button>
+              <button class="btn" id="btnSkip">Kihagyom</button>
+              <button class="btn primary" id="btnNext" disabled>OK</button>
             </div>
           </div>
 
@@ -126,13 +118,13 @@
             <div class="muted" id="summaryText"></div>
             <div class="row" style="margin-top:12px;">
               <button class="btn primary" id="btnPlayAgain">Még egy menet</button>
-              <button class="btn" id="btnBack">Vissza a választóhoz</button>
+              <button class="btn" id="btnBack">Vissza</button>
             </div>
           </div>
 
           <div class="cardish" id="exportBox" style="display:none;">
             <h3>Export</h3>
-            <p class="muted">Másold ki Anki-hoz (TSV) vagy nyomtasd ki tanulókártyának.</p>
+            <p class="muted">Anki / nyomtatás (TSV)</p>
             <div class="row" style="margin-bottom:10px;">
               <button class="btn primary" id="btnCopyTSV">TSV másolás</button>
               <button class="btn" id="btnPrint">Nyomtatás</button>
@@ -141,18 +133,17 @@
             <textarea id="exportText" spellcheck="false"></textarea>
           </div>
 
+          <div class="toast" id="toast" style="display:none;"></div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="muted">
-        Tipp: a „Főellenség” jó próba dolgozat előtt.
-      </div>
+      <div class="muted">Ha valami nem indul: Ctrl+F5. (A v7 kifejezetten cache ellen készült.)</div>
     </footer>
   </div>
 
-  <script src="./data.js?v=20260111195036"></script>
-  <script src="./app.js?v=20260111195036"></script>
+  <script src="./data.js?v=20260111200602"></script>
+  <script src="./app.js?v=20260111200602"></script>
 </body>
 </html>
