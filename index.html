@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Témazáró Játék v21</title>
+  <title>Témazáró Játék v22</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
   <meta http-equiv="Pragma" content="no-cache"/>
   <meta http-equiv="Expires" content="0"/>
   <style>@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap');
 
-/* v21 rebuilt stable */
+/* v22 rebuilt stable */
  
 :root{
   --bg0:#050714;
@@ -180,7 +180,7 @@ body{
   .btn{padding:12px 12px;border-radius:14px}
 }
 
-/* v21 readability + clear correct/incorrect colors */
+/* v22 readability + clear correct/incorrect colors */
 body{font-size:16px; line-height:1.45}
 .brand p{font-size:13px}
 .pill{font-size:13px}
@@ -242,7 +242,7 @@ body::before{
       <div class="brand">
         <div class="logo">⏳</div>
         <div>
-          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v21</span></h1>
+          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v22</span></h1>
           <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
@@ -432,7 +432,7 @@ function startRun(){
   $("pillSzeria").textContent="Széria: 0";
   $("pillSziv").textContent="Szív: 3";
   if($("pillQ")) $("pillQ").textContent="Kérdés: 0/0";
-  updateProgress();
+  if(typeof updateProgress==='function') updateProgress();
   if(state.timer) clearInterval(state.timer);
   if(state.mode==="blitz"){
     state.endTs = Date.now() + 60000;
@@ -511,7 +511,7 @@ function applyResult(correct){
     $("pillPont").textContent="Pont: "+state.correct;
     $("pillSzeria").textContent="Széria: "+state.streak;
     $("pillSziv").textContent="Szív: ∞";
-    updateProgress();
+    if(typeof updateProgress==='function') updateProgress();
     return;
   }
 
@@ -520,7 +520,7 @@ function applyResult(correct){
   $("pillPont").textContent="Pont: "+state.score;
   $("pillSzeria").textContent="Széria: "+state.streak;
   $("pillSziv").textContent="Szív: "+state.lives;
-  updateProgress();
+  if(typeof updateProgress==='function') updateProgress();
   if(state.lives<=0) finishRun(false);
 }
 function reveal(q){
@@ -553,7 +553,7 @@ function nextQuestion(){
   } else {
     if(state.idx >= state.queue.length) return finishRun(false);
   }
-  updateProgress();
+  if(typeof updateProgress==='function') updateProgress();
   state.selected=null; state.phase="answer";
   const q=currentQ();
   $("qtitle").textContent = q.prompt;
@@ -654,7 +654,7 @@ function onReset(){
   $("pillSzeria").textContent="Széria: 0";
   $("pillSziv").textContent="Szív: 3";
   if($("pillQ")) $("pillQ").textContent="Kérdés: 0/0";
-  updateProgress();
+  if(typeof updateProgress==='function') updateProgress();
   $("pillIdo").textContent="";
   $("pillMod").textContent="Mód: várakozás";
   $("pillTema").textContent="Téma: —";
@@ -679,6 +679,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 // expose for inline onclick fallback
 window.setMode = setMode;
+
+window.updateProgress = updateProgress;
 </script>
 </body>
 </html>
