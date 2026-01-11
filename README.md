@@ -28,3 +28,8 @@ Ha GitHub Pages-en nem látod az új gombokat:
 - Nyisd meg a Pages oldalt és nyomj **Ctrl+F5** (hard refresh)
 - Vagy a URL végére tegyél egy kérdőjelet pl.: `?v=20260111193629`
 - A fájlok most cache-busterrel vannak betöltve: `app.js?v=...`
+
+
+## v5 javítás – ha eltűnik az OK/TOVÁBB
+- A kód most **automatikusan beinjektálja** az OK/TOVÁBB gombot, ha a böngésző régi index.html-t cache-elt.
+- A betöltés cache-busterrel történik: `app.js?v=20260111194211`.

@@ -21,7 +21,7 @@
     feedback: $("feedback"),
     btnHint: $("btnHint"),
     btnSkip: $("btnSkip"),
-    btnNext: $("btnNext"),
+    btnNext: document.getElementById("btnNext"),
     inputArea: $("inputArea"),
     textAnswer: $("textAnswer"),
     btnSubmitText: $("btnSubmitText"),
@@ -45,6 +45,23 @@
     btnPrint: $("btnPrint"),
     btnCloseExport: $("btnCloseExport"),
   };
+  // v5 safety: if the HTML was cached and missing the OK/TOVÁBB button, inject it.
+  (function ensureNextButton(){
+    let btn = document.getElementById("btnNext");
+    if(btn) return;
+    const footer = document.querySelector(".footerRow");
+    if(!footer) return;
+    btn = document.createElement("button");
+    btn.id = "btnNext";
+    btn.className = "btn primary";
+    btn.textContent = "OK";
+    btn.title = "OK / TOVÁBB";
+    footer.appendChild(btn);
+  })();
+
+  // v5 refresh reference after potential injection
+  els.btnNext = document.getElementById('btnNext');
+
 
   const DATA = window.OKOR_DATA;
   if(!DATA){ alert("Hiányzik a data.js"); return; }
