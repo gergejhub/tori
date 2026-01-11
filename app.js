@@ -100,7 +100,8 @@
     phase:"answer",
     selectedIdx:null,     // for mcq
     orderPicked:[],
-    orderPickedIdx:[]
+    orderPickedIdx:[],
+    submitFn:null
   };
 
   function randInt(n){ return Math.floor(Math.random()*n); }
@@ -299,6 +300,8 @@
     session.orderPicked = [];
     session.orderPickedIdx = [];
 
+    session.submitFn = null;
+
     els.answers.innerHTML = "";
     els.inputArea.style.display = "none";
     els.orderArea.style.display = "none";
@@ -350,7 +353,13 @@
     els.summaryBox.style.display = "none";
     els.exportBox.style.display = "none";
     els.qbox.style.display = "block";
+
+    // v6: render immediately, and also once more on next tick (some browsers cache/layout oddities)
     nextQuestion();
+    setTimeout(() => { if(session.current === null) nextQuestion(); }, 0);
+
+    // optional: bring the game area into view
+    try{ document.getElementById('qbox').scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
   }
 
   function lockMCQ(){
@@ -394,6 +403,10 @@
 
     els.btnSubmitText.onclick = submit;
     els.textAnswer.onkeydown = (e) => { if(e.key==="Enter") submit(); };
+
+    // v6: allow the big OK button to submit too
+    session.submitFn = submit;
+    setNextButton("OK", true);
   }
 
   function renderOrder(q){
@@ -455,17 +468,28 @@
       setNextButton("TOVÁBB", true);
     };
 
+    // v6: allow the big OK button to submit too
+    session.submitFn = () => {
+      if(session.phase !== "answer") return;
+      // require full length to avoid accidental submit
+      if(session.orderPickedIdx.length !== q.correctOrder.length){
+        showFeedback(false, `Rakd ki mindet sorban (${q.correctOrder.length} elem), aztán OK.`);
+        return;
+      }
+      els.btnOrderCheck.click();
+    };
+    setNextButton("OK", true);
+
+
     updatePick();
   }
 
   // Main OK/TOVÁBB button behavior
   els.btnNext.onclick = () => {
     if(session.mode === "idle") return;
-
     const q = session.current;
     if(!q) return;
 
-    // If reviewing: TOVÁBB
     if(session.phase === "review"){
       session.index++;
       updateProgress();
@@ -473,28 +497,22 @@
       return;
     }
 
-    // If answering: for MCQ we evaluate here
-    if(q.type === "mcq"){
-      if(session.selectedIdx === null) return;
-      const ok = session.selectedIdx === q.correct;
-
-      // lock + show correct/wrong coloring
-      [...els.answers.children].forEach((node, i) => {
-        node.classList.remove("selected");
-        node.classList.add(i===q.correct ? "good" : (i===session.selectedIdx ? "bad" : ""));
-      });
-      lockMCQ();
-
-      showFeedback(ok, q.explain || "");
-      applyOutcome(ok);
-
-      session.phase = "review";
-      setNextButton("TOVÁBB", true);
-      return;
+    // v6: unified OK submit
+    if(typeof session.submitFn === "function"){
+      session.submitFn();
     }
-
-    // For input/order, OK is handled by their own OK buttons; Next should be disabled until review.
   };
+
+  // v6: event delegation safety (in case of injected/cached HTML)
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest && e.target.closest("#btnNext");
+    if(t && t.id === "btnNext"){
+      // if browser didn't bind onclick for any reason
+      if(!t.onclick) els.btnNext.onclick();
+    }
+  });
+
+  // Buttons
 
   // Buttons
   els.btnPractice.onclick = () => startMode("practice");

@@ -72,3 +72,5 @@ textarea{width:100%;min-height:260px;padding:12px;border-radius:14px;border:1px 
 
 .footerRow{justify-content:space-between;}
 @media (max-width:520px){.footerRow{justify-content:flex-start;}}
+
+#btnNext:disabled{opacity:.45; cursor:not-allowed; filter:grayscale(20%);}

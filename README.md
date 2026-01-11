@@ -33,3 +33,7 @@ Ha GitHub Pages-en nem látod az új gombokat:
 ## v5 javítás – ha eltűnik az OK/TOVÁBB
 - A kód most **automatikusan beinjektálja** az OK/TOVÁBB gombot, ha a böngésző régi index.html-t cache-elt.
 - A betöltés cache-busterrel történik: `app.js?v=20260111194211`.
+
+
+## v6
+- Az OK/TOVÁBB gomb most *minden kérdéstípusnál* működik (MCQ/Input/Order), és biztonsági event-delegation is van.
