@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ókori Küldi – Lili Témázáró Játék</title>
+  <meta name="description" content="Játékos, vicces gyakorló az ókor témázáróra (Egyiptom, Hellász, Róma, hadviselés, népvándorlás)." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⏳</div>
+        <div class="brandText">
+          <h1>Ókori Küldi – Lili Témázáró Játék</h1>
+          <p>Vicces küldetések + kérdések. A cél: 5-ös, és közben ne unjuk halálra magunkat.</p>
+        </div>
+      </div>
+
+      <div class="topbar">
+        <div class="pill"><span class="muted">Pont:</span> <b id="scorePill">0</b></div>
+        <div class="pill"><span class="muted">Széria:</span> <b id="streakPill">0</b></div>
+        <div class="pill"><span class="muted">Szív:</span> <b id="heartsPill">3</b></div>
+        <button class="btn" id="btnReset" title="Mindent nulláz (pont, széria, haladás)">Nullázás</button>
+        <button class="btn primary" id="btnBoss" title="10 kérdés, gyorsan, mint egy légió!">Főellenség</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <div class="hd">
+          <h2>Küldetés választó</h2>
+          <div class="row">
+            <span class="kbd">Tipp:</span>
+            <span class="muted">Válassz témát, aztán jöhet a móka.</span>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="tabs" id="chapterTiles"></div>
+
+          <div class="npc" id="npcBox">
+            <div class="face" id="npcFace" aria-hidden="true">🧠</div>
+            <div class="msg">
+              <div><b id="npcName">Professzor Pörkölő</b> <span class="muted">— az Időgép-üzemeltető</span></div>
+              <div id="npcText" class="muted" style="margin-top:6px;">
+                Válassz témát. Ha jól válaszolsz, kapsz pontot. Ha rosszul, a szívek fogyogatnak… de csak játékból!
+              </div>
+              <div class="hr"></div>
+              <div class="row">
+                <button class="btn" id="btnPractice">Gyakorlás</button>
+                <button class="btn" id="btnCards">Tanulókártyák</button>
+                <button class="btn" id="btnSprint">Villámkör (időzített)</button>
+                <button class="btn" id="btnExport">Export (Anki / nyomtatás)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="miniHelp">
+            <div class="muted">
+              <b>Hogyan működik?</b> A játék “okos”: ami nehezebben megy, azt gyakrabban hozza vissza. A magyarázatot mindig elolvashatod.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="hd">
+          <h2>Játéktér</h2>
+          <div class="row">
+            <span class="tag" id="modeTag">Mód: várakozás</span>
+            <span class="tag" id="chapterTag">Téma: —</span>
+          </div>
+        </div>
+        <div class="bd">
+
+          <div class="statusRow">
+            <div class="progress" aria-label="Haladás">
+              <div id="progressBar"></div>
+            </div>
+            <div class="muted" id="progressText">Válassz küldetést a bal oldalon.</div>
+          </div>
+
+          <div class="qbox" id="qbox">
+            <div class="qhead">
+              <div class="qtitle" id="qtitle">Készen állsz?</div>
+              <div class="tag" id="qmeta">—</div>
+            </div>
+
+            <div id="qprompt" class="qprompt muted">
+              Az Időgép már melegít. Válassz témát és módot bal oldalon.
+            </div>
+
+            <div id="answers" class="answers"></div>
+
+            <div id="inputArea" class="inputArea" style="display:none;">
+              <input id="textAnswer" type="text" placeholder="Írd be a választ..." autocomplete="off" />
+              <button class="btn primary" id="btnSubmitText">Ellenőrzés</button>
+            </div>
+
+            <div id="orderArea" class="orderArea" style="display:none;">
+              <div class="muted" style="margin-bottom:8px;">Kattints sorban!</div>
+              <div id="orderPool" class="orderPool"></div>
+              <div class="hr"></div>
+              <div class="muted" id="orderPick">Választási sorrend: —</div>
+              <div class="row" style="margin-top:10px;">
+                <button class="btn" id="btnOrderUndo">Vissza</button>
+                <button class="btn primary" id="btnOrderCheck">Ellenőrzés</button>
+              </div>
+            </div>
+
+            <div class="feedback" id="feedback" style="display:none;"></div>
+
+            <div class="footerRow">
+              <button class="btn" id="btnHint" title="Kis segítség (pontlevonás nélküli)">Súgás</button>
+              <button class="btn" id="btnSkip" title="Kihagyás (később visszajön)">Kihagyom</button>
+              <button class="btn primary" id="btnNext" title="Következő kérdés" style="display:none;">Következő</button>
+            </div>
+          </div>
+
+          <div class="cardish" id="summaryBox" style="display:none;">
+            <h3>Összegzés</h3>
+            <div class="muted" id="summaryText"></div>
+            <div class="row" style="margin-top:12px;">
+              <button class="btn primary" id="btnPlayAgain">Még egy menet</button>
+              <button class="btn" id="btnBack">Vissza a választóhoz</button>
+            </div>
+          </div>
+
+          <div class="cardish" id="exportBox" style="display:none;">
+            <h3>Export</h3>
+            <p class="muted">Másold ki Anki-hoz (TSV) vagy nyomtasd ki tanulókártyának.</p>
+            <div class="row" style="margin-bottom:10px;">
+              <button class="btn primary" id="btnCopyTSV">TSV másolás</button>
+              <button class="btn" id="btnPrint">Nyomtatás</button>
+              <button class="btn" id="btnCloseExport">Bezár</button>
+            </div>
+            <textarea id="exportText" spellcheck="false"></textarea>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="muted">Tipp szülőknek: 10–15 perc játék / nap bőven elég, a lényeg a rendszeresség.</div>
+    </footer>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
