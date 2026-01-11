@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Témazáró Játék v20</title>
+  <title>Témazáró Játék v21</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
   <meta http-equiv="Pragma" content="no-cache"/>
   <meta http-equiv="Expires" content="0"/>
   <style>@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap');
 
-/* v20 rebuilt stable */
+/* v21 rebuilt stable */
  
 :root{
   --bg0:#050714;
@@ -180,7 +180,7 @@ body{
   .btn{padding:12px 12px;border-radius:14px}
 }
 
-/* v20 readability + clear correct/incorrect colors */
+/* v21 readability + clear correct/incorrect colors */
 body{font-size:16px; line-height:1.45}
 .brand p{font-size:13px}
 .pill{font-size:13px}
@@ -232,6 +232,8 @@ body::before{
   from{ transform: translate3d(0,0,0) scale(1); opacity:1; }
   to{ transform: translate3d(var(--dx), var(--dy), 0) scale(.2); opacity:0; }
 }
+
+.btn.activeMode{outline:2px solid rgba(160,140,255,.95); box-shadow:0 0 0 6px rgba(160,140,255,.12);}
 </style>
 </head>
 <body>
@@ -240,7 +242,7 @@ body::before{
       <div class="brand">
         <div class="logo">⏳</div>
         <div>
-          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v20</span></h1>
+          <h1>Témazáró Játék <span style="opacity:.8;font-weight:800">v21</span></h1>
           <p>Válassz témát, majd módot. OK → magyarázat → TOVÁBB.</p>
         </div>
       </div>
@@ -263,9 +265,9 @@ body::before{
           <div class="tip">Most már a kategóriák fixen megjelennek, és a gombok azonnal reagálnak.</div>
           <div class="tiles" id="tiles"></div>
           <div class="modes">
-            <button class="btn primary" id="btnPractice" type="button">Gyakorlás</button>
-            <button class="btn" id="btnCards" type="button">Tanulókártyák</button>
-            <button class="btn" id="btnBlitz" type="button">Villámkör (60s)</button>
+            <button class="btn primary" id="btnPractice" type="button" onclick="setMode('practice')">Gyakorlás</button>
+            <button class="btn" id="btnCards" type="button" onclick="setMode('cards')">Tanulókártyák</button>
+            <button class="btn" id="btnBlitz" type="button" onclick="setMode('blitz')">Villámkör (60s)</button>
           </div>
           <div class="tip" style="margin-top:10px">Évszámokhoz válaszd a 📅 <strong>Évszámok</strong> témát.</div>
         </div>
@@ -327,6 +329,18 @@ function showToast(msg){
   t.style.display = "block";
   clearTimeout(showToast._h);
   showToast._h = setTimeout(()=>t.style.display="none", 4200);
+}
+
+function renderModeButtons(){
+  const map = {practice:"btnPractice", cards:"btnCards", blitz:"btnBlitz"};
+  Object.values(map).forEach(id=>{
+    const el = $(id);
+    if(!el) return;
+    el.classList.remove("activeMode");
+  });
+  if(state.mode && map[state.mode] && $(map[state.mode])){
+    $(map[state.mode]).classList.add("activeMode");
+  }
 }
 
 
@@ -392,6 +406,7 @@ function renderTiles(){
       $("qmeta").textContent="—";
       $("qprompt").textContent="Most válassz módot bal oldalt (Gyakorlás / Tanulókártyák / Villámkör).";
       resetQuestionUI();
+      renderModeButtons();
     });
     box.appendChild(b);
   });
@@ -400,7 +415,13 @@ function setMode(mode){
   if(!state.chapterId){ showToast("Előbb válassz témát bal oldalt."); return; }
   state.mode=mode;
   $("pillMod").textContent="Mód: "+(mode==="practice"?"Gyakorlás":mode==="cards"?"Tanulókártyák":"Villámkör");
-  startRun();
+  renderModeButtons();
+  try{
+    startRun();
+  }catch(e){
+    console.error(e);
+    showToast("Hiba indításkor: "+(e && e.message ? e.message : e));
+  }
 }
 function startRun(){
   state.idx=0; state.score=0; state.streak=0; state.lives=3;
@@ -653,7 +674,11 @@ window.addEventListener("DOMContentLoaded", ()=>{
   $("btnReset").addEventListener("click", onReset);
   renderTiles();
   resetQuestionUI();
+  renderModeButtons();
 });
+
+// expose for inline onclick fallback
+window.setMode = setMode;
 </script>
 </body>
 </html>
