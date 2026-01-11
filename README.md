@@ -1,41 +1,34 @@
-# Ókori Küldi – Lili Témázáró Játék (GitHub Pages) – v7
+# Ókori Küldi – Lili Témázáró Játék (v15)
 
-## Mi lett javítva (a te problémáidra)
-- A módválasztás (pl. Ókori Róma → Gyakorlás) **azonnal betölti az első kérdést**. Nincs több „csak Kihagyom után indul”.
-- Az **OK** gomb *mindig* működik: MCQ / beírás / sorrend.
-- Cache-buster van minden fájlon: `?v=20260111200602`.
+## Mit tud ez a verzió?
+- Stabil, újraírt motor: a kategóriák mindig megjelennek, a gombok működnek.
+- Mobil/iPhone optimalizálás.
+- Külön **Évszámok** témakör.
+- 3 mód: Gyakorlás, Tanulókártyák, Villámkör (60s).
 
-## Telepítés GitHub Pages-re
-1) ZIP kicsomagolás  
-2) GitHub repo → Add file → Upload files → **az összes fájlt a repo gyökerébe** (root)  
-3) Commit  
-4) Settings → Pages → Deploy from branch → main /(root)  
-5) Nyisd meg a Pages oldalt → **Ctrl+F5**
+## Telepítés
+1) Töltsd fel a repo gyökerébe (root) az `index.html`-t (felülírva a régit)
+2) Commit
+3) GitHub Pages → Ctrl+F5
 
-## Debug
-Ha valamiért mégsem futna, a jobb oldali panel alján megjelenik egy piros hibaüzenet (toast), ami segít megmondani, mi hiányzik.
+Build: 20260111211556
 
 
-## v8 javítás
-- Javítva: `classList.add('')` hiba (üres CSS class). Most nem dob hibát a válasz kiértékelésénél.
-- Cache-buster frissítve: 20260111201323
+## v16
+- Olvashatóbb szövegek (nagyobb betűméretek, jobb kontraszt).
+- Zöld/piros visszajelzés helyes/rossz válasznál.
+- Build: 2026-01-11 21:35
 
 
-## v9 hotfix
-- Globális védelem: DOMTokenList.add kiszűri az üres class tokeneket, így nem tud elszállni.
-- Cache-buster: 20260111201645
+## v17 (WOW UI)
+- Modern, csillogó glassmorphism stílus, élénk színátmenetek.
+- Kifejezetten gyerek-barát (Nunito font), nagy kontraszt, olvasható.
+- Helyes válasznál mini „csillagszóró” animáció.
 
 
-## v10
-- Javítva: iPhone-on jobb reszponzivitás (sticky gombsor, nagyobb tap-targetek).
-- Javítva: `Cannot set properties of undefined (textContent)` hiba.
-- Új kategória: **Évszámok** (külön kérdéssor csak dátumokból).
-- Cache-buster frissítve: 20260111202610
-
-
-## v12 (single-file, HTML-parser safe)
-A v11-ben a JavaScript-ben volt egy olyan string, ami tartalmazta a `</script>` szöveget (nyomtatás funkció), ezért a böngésző **idő előtt lezárta** a script taget → `Unexpected end of input`.
-A v12-ben a beágyazott kód **sanitized** (a `</script>` → `<\/script>`), így nem tud elhasalni.
-
-Telepítéshez elég az `index.html` feltöltése a repo gyökerébe.
-Build stamp: 20260111204544
+## v18
+- Sokkal több kérdés.
+- Kérdés-számláló: Kérdés: X/Y.
+- Válaszlehetőségek is keverve vannak.
+- Villámkör: pontosan 60s visszaszámlálással, a cél: minél több helyes válasz 1 perc alatt.
+- Build: 2026-01-11 22:02
