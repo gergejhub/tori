@@ -1,0 +1,5299 @@
+{
+  "meta": {
+    "title": "Történelem – Kereszténység és középkori egyház – gyakorló",
+    "version": "v1",
+    "created": "2026-02-17T21:13:24.697768+00:00",
+    "source": "Tankönyvi oldalak 58–81 (csatolt PDF-ek, beszkennelt) – kereszténység + középkor fejezet",
+    "language": "hu",
+    "generated_at": "2026-02-17T21:13:24.697791+00:00",
+    "cards": 130,
+    "qa": 130,
+    "updated_at": "2026-02-17T21:13:24Z",
+    "notes": "Irodalom app funkciók változatlanok; kérdésbank teljesen történelemre cserélve."
+  },
+  "cards": [
+    {
+      "id": "c001",
+      "front": "Mi a Biblia két fő része?",
+      "back": "Ószövetség és Újszövetség.",
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c002",
+      "front": "Mit nevezünk Ószövetségnek?",
+      "back": "A zsidó (héber) Biblia iratait; a keresztény Biblia első részét.",
+      "tags": [
+        "biblia",
+        "oszovetseg"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c003",
+      "front": "Mit jelent az 'evangélium' szó?",
+      "back": "Örömhír / jó hír.",
+      "tags": [
+        "ujszovetseg",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c004",
+      "front": "Kik voltak Ádám és Éva a bibliai teremtéstörténetben?",
+      "back": "Az első emberpár.",
+      "tags": [
+        "biblia",
+        "teremtes"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c005",
+      "front": "Miért űzték ki Ádámot és Évát a paradicsomból a történet szerint?",
+      "back": "Mert megszegték Isten parancsát (ettek a tiltott gyümölcsből).",
+      "tags": [
+        "biblia",
+        "teremtes"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c006",
+      "front": "Ki építette a bárkát a vízözön történetében?",
+      "back": "Noé.",
+      "tags": [
+        "biblia",
+        "noe"
+      ],
+      "source": {
+        "book_page": 59
+      }
+    },
+    {
+      "id": "c007",
+      "front": "Mi volt a vízözön történetének üzenete a tankönyvi magyarázat szerint?",
+      "back": "Isten megbünteti a bűnt, de megmenti a jókat / engedelmeseket.",
+      "tags": [
+        "biblia",
+        "noe"
+      ],
+      "source": {
+        "book_page": 59
+      }
+    },
+    {
+      "id": "c008",
+      "front": "Ki volt József az Ószövetségben (egyiptomi történet)?",
+      "back": "Jákob fia, akit testvérei eladtak, majd Egyiptomban a fáraó szolgálatába került.",
+      "tags": [
+        "biblia",
+        "jozsef"
+      ],
+      "source": {
+        "book_page": 60
+      }
+    },
+    {
+      "id": "c009",
+      "front": "Mit jelentett a fáraó álmában a hét kövér és hét sovány tehén?",
+      "back": "Hét bőséges év után hét szűk (éhezős) esztendő jön.",
+      "tags": [
+        "biblia",
+        "jozsef"
+      ],
+      "source": {
+        "book_page": 60
+      }
+    },
+    {
+      "id": "c010",
+      "front": "Ki vezette ki a zsidókat Egyiptomból a Biblia szerint?",
+      "back": "Mózes.",
+      "tags": [
+        "biblia",
+        "mozes"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c011",
+      "front": "Mi a 'kivonulás' (exodus) lényege?",
+      "back": "A zsidók elmenekülése/eltávozása Egyiptomból Mózes vezetésével.",
+      "tags": [
+        "biblia",
+        "mozes"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c012",
+      "front": "Mi a Tízparancsolat?",
+      "back": "Tíz alapvető vallási-erkölcsi parancs, amelyet a hagyomány szerint Mózes kapott Istentől.",
+      "tags": [
+        "biblia",
+        "tizparancsolat",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c013",
+      "front": "Mi volt Dávid fegyvere Góliát ellen a bibliai történetben?",
+      "back": "Parittya.",
+      "tags": [
+        "biblia",
+        "david"
+      ],
+      "source": {
+        "book_page": 60
+      }
+    },
+    {
+      "id": "c014",
+      "front": "Ki volt Salamon a bibliai hagyományban?",
+      "back": "Izrael királya, Dávid fia, a bölcs király.",
+      "tags": [
+        "biblia",
+        "salamon"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c015",
+      "front": "Mit építtetett Salamon Jeruzsálemben?",
+      "back": "Templomot (a jeruzsálemi templomot).",
+      "tags": [
+        "biblia",
+        "salamon",
+        "jeruzsalem"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c016",
+      "front": "Mi a 'salamoni döntés' kifejezés eredete?",
+      "back": "Salamon bölcs ítéletére utal (a két asszony és a gyermek története).",
+      "tags": [
+        "biblia",
+        "salamon",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c017",
+      "front": "Melyik város volt a zsidóság vallási központja a Biblia alapján?",
+      "back": "Jeruzsálem.",
+      "tags": [
+        "zsidok",
+        "jeruzsalem"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c018",
+      "front": "Mikor rombolták le a rómaiak Jeruzsálem templomát a tankönyv szerint?",
+      "back": "Kr. u. 70-ben.",
+      "tags": [
+        "zsidok",
+        "jeruzsalem"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c019",
+      "front": "Mi a Siratófal?",
+      "back": "A jeruzsálemi templom egy megmaradt támfala; a zsidó vallás egyik legszentebb helye.",
+      "tags": [
+        "zsidok",
+        "jeruzsalem",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c020",
+      "front": "Mit jelent a diaszpóra?",
+      "back": "Szétszórtság: egy nép szétszóródva él más országokban.",
+      "tags": [
+        "zsidok",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c021",
+      "front": "Melyik nép ábécéjét említi a tankönyv a betűírás kapcsán?",
+      "back": "A föníciaiakét.",
+      "tags": [
+        "oszovetseg",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 60
+      }
+    },
+    {
+      "id": "c022",
+      "front": "Hol született Jézus a hagyomány szerint?",
+      "back": "Betlehemben.",
+      "tags": [
+        "jezus",
+        "ujszovetseg"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c023",
+      "front": "Kik keresték fel a kis Jézust a csillagot követve a történet szerint?",
+      "back": "A napkeleti bölcsek.",
+      "tags": [
+        "jezus",
+        "bolcsek"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c024",
+      "front": "Milyen ajándékokat vittek a napkeleti bölcsek?",
+      "back": "Aranyat, tömjént és mirhát.",
+      "tags": [
+        "bolcsek"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c025",
+      "front": "Ki keresztelte meg Jézust a Jordán folyóban?",
+      "back": "Keresztelő János.",
+      "tags": [
+        "jezus",
+        "keresztelo_janos"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c026",
+      "front": "Mit jelent az apostol szó?",
+      "back": "Küldött; Jézus tanítványa és hírnöke.",
+      "tags": [
+        "jezus",
+        "apostolok",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c027",
+      "front": "Mi Jézus tanításának egyik központi parancsa a tankönyv szerint?",
+      "back": "„Szeresd a másik embert!” / felebaráti szeretet.",
+      "tags": [
+        "jezus"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c028",
+      "front": "Mit jelent a példázat (Jézus tanításában)?",
+      "back": "Rövid, tanulságos történet, amely erkölcsi üzenetet közvetít.",
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c029",
+      "front": "Mit tanít a 'szálka és gerenda' példája?",
+      "back": "Előbb a saját hibáinkat vegyük észre, ne másokat ítélgessünk.",
+      "tags": [
+        "jezus",
+        "peldazat"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c030",
+      "front": "Mit tanít a 'sziklára épített ház' példája?",
+      "back": "Szilárd alapra kell építeni (Isten tanításaira), mert a viharban az marad meg.",
+      "tags": [
+        "jezus",
+        "peldazat"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c031",
+      "front": "Miért volt népszerű Jézus tanítása a szegények körében a tankönyv szerint?",
+      "back": "Mert azt hirdette, hogy nem a gazdagság tesz boldoggá, és Isten előtt mindenki egyenlő.",
+      "tags": [
+        "jezus"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c032",
+      "front": "Ki ítélte halálra Jézust a történet szerint?",
+      "back": "Poncius Pilátus.",
+      "tags": [
+        "jezus",
+        "keresztre_feszites"
+      ],
+      "source": {
+        "book_page": 64
+      }
+    },
+    {
+      "id": "c033",
+      "front": "Hol feszítették keresztre Jézust?",
+      "back": "A Golgotán.",
+      "tags": [
+        "jezus",
+        "keresztre_feszites"
+      ],
+      "source": {
+        "book_page": 64
+      }
+    },
+    {
+      "id": "c034",
+      "front": "Mit ünnepel a kereszténység húsvétkor?",
+      "back": "Jézus feltámadását.",
+      "tags": [
+        "jezus",
+        "feltamadas"
+      ],
+      "source": {
+        "book_page": 64
+      }
+    },
+    {
+      "id": "c035",
+      "front": "Hány nappal a feltámadás után történt a mennybemenetel a tankönyv szerint?",
+      "back": "40 nappal.",
+      "tags": [
+        "jezus",
+        "mennybemenetel"
+      ],
+      "source": {
+        "book_page": 64
+      }
+    },
+    {
+      "id": "c036",
+      "front": "Ki volt Saul, és milyen néven ismert később?",
+      "back": "A keresztényüldöző Saul később Pál (apostol) lett.",
+      "tags": [
+        "pal",
+        "apostolok"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c037",
+      "front": "Mi a 'pálfordulás' kifejezés jelentése?",
+      "back": "Nagy, hirtelen vélemény-/életmódváltás (Saul → Pál megtérése alapján).",
+      "tags": [
+        "pal",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c038",
+      "front": "Melyik városba vezető úton tért meg Saul a történet szerint?",
+      "back": "Damaszkuszba vezető úton.",
+      "tags": [
+        "pal"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c039",
+      "front": "Miért üldözték a keresztényeket a Római Birodalomban a tankönyv szerint?",
+      "back": "Mert nem áldoztak a császárnak és a pogány isteneknek, és külön vallási közösséget alkottak.",
+      "tags": [
+        "uldozes"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c040",
+      "front": "Kihez kötik az első nagy keresztényüldözést Rómában?",
+      "back": "Néró császárhoz.",
+      "tags": [
+        "uldozes",
+        "nero"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c041",
+      "front": "Melyik évhez köti a tankönyv Péter és Pál apostol halálát (hagyomány szerint)?",
+      "back": "Kr. u. 64.",
+      "tags": [
+        "uldozes",
+        "apostolok"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c042",
+      "front": "Ki szüntette meg az üldözéseket és tette a kereszténységet egyenjogúvá a tankönyv szerint?",
+      "back": "Konstantin császár.",
+      "tags": [
+        "konstantin"
+      ],
+      "source": {
+        "book_page": 67
+      }
+    },
+    {
+      "id": "c043",
+      "front": "Mit jelent az, hogy a kereszténység később 'államvallás' lett?",
+      "back": "A birodalom hivatalos vallása lett, az állam támogatta és védte.",
+      "tags": [
+        "allamvallas",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 67
+      }
+    },
+    {
+      "id": "c044",
+      "front": "Miért lett a vasárnap munkaszüneti nap a keresztény államban?",
+      "back": "Mert a keresztények számára a vasárnap (az Úr napja) kiemelt ünnepnap.",
+      "tags": [
+        "allamvallas"
+      ],
+      "source": {
+        "book_page": 67
+      }
+    },
+    {
+      "id": "c045",
+      "front": "Mit jelentenek az evangéliumok?",
+      "back": "Az Újszövetségben Jézus életéről és tanításairól szóló beszámolók.",
+      "tags": [
+        "ujszovetseg",
+        "evangelium"
+      ],
+      "source": {
+        "book_page": 68
+      }
+    },
+    {
+      "id": "c046",
+      "front": "Milyen nyelven írtak sokáig a Nyugati Egyházban a liturgiában és az iskolákban?",
+      "back": "Latinul.",
+      "tags": [
+        "egyhaz",
+        "latin"
+      ],
+      "source": {
+        "book_page": 69
+      }
+    },
+    {
+      "id": "c047",
+      "front": "Mikor kezdődik a középkor a tankönyv szerint?",
+      "back": "476-ban (a Nyugat-római Birodalom bukásával).",
+      "tags": [
+        "kozepkor",
+        "korszakok"
+      ],
+      "source": {
+        "book_page": 70
+      }
+    },
+    {
+      "id": "c048",
+      "front": "Mikor ér véget a középkor a tankönyv szerint?",
+      "back": "1492-ben (Amerika felfedezésével).",
+      "tags": [
+        "kozepkor",
+        "korszakok"
+      ],
+      "source": {
+        "book_page": 70
+      }
+    },
+    {
+      "id": "c049",
+      "front": "Melyik birodalom volt a Kelet-római Birodalom utódja?",
+      "back": "A Bizánci Birodalom (Bizánc).",
+      "tags": [
+        "kozepkor",
+        "bizanc"
+      ],
+      "source": {
+        "book_page": 70
+      }
+    },
+    {
+      "id": "c050",
+      "front": "Ki volt Nagy Károly, és mikor koronázták császárrá?",
+      "back": "A Frank Birodalom uralkodója; 800-ban koronázták császárrá.",
+      "tags": [
+        "frank",
+        "nagy_karoly"
+      ],
+      "source": {
+        "book_page": 70
+      }
+    },
+    {
+      "id": "c051",
+      "front": "Ki alapította a Német-római Császárságot a tankönyv szerint, és mikor?",
+      "back": "I. Ottó; 962-ben.",
+      "tags": [
+        "nemet_romai",
+        "otto"
+      ],
+      "source": {
+        "book_page": 70
+      }
+    },
+    {
+      "id": "c052",
+      "front": "Mit jelent a 'hűbér' a középkori társadalomban?",
+      "back": "Földbirtok/szolgálati birtok, amit hűségért és szolgálatért adtak.",
+      "tags": [
+        "huberi",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 71
+      }
+    },
+    {
+      "id": "c053",
+      "front": "Mit jelent a 'vérükkel adóztak' kifejezés a nemesekre?",
+      "back": "A nemesek katonai szolgálattal tartoztak (háborúban harcoltak).",
+      "tags": [
+        "huberi"
+      ],
+      "source": {
+        "book_page": 71
+      }
+    },
+    {
+      "id": "c054",
+      "front": "Miért építettek várakat a középkorban?",
+      "back": "Védelemre: támadások ellen menedéket és erődítményt adtak.",
+      "tags": [
+        "varak"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c055",
+      "front": "Mi a fellegvár?",
+      "back": "A vár legjobban védett, legmagasabban fekvő része (utolsó menedék).",
+      "tags": [
+        "varak",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c056",
+      "front": "Mi a lőrés?",
+      "back": "Keskeny nyílás a vár falán, amelyen át védekezni lehetett (lőni/nyilazni).",
+      "tags": [
+        "varak",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c057",
+      "front": "Mi a felvonóhíd szerepe?",
+      "back": "A vár bejáratának védelme; felhúzva megnehezíti a támadók bejutását.",
+      "tags": [
+        "varak"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c058",
+      "front": "Miért volt fontos a kút és a raktár a várban?",
+      "back": "Ostrom esetén víz- és élelemellátást biztosított.",
+      "tags": [
+        "varak"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c059",
+      "front": "Melyik magyar királyi központot említi a tankönyv a középkori várak kapcsán?",
+      "back": "Visegrádot.",
+      "tags": [
+        "visegrad",
+        "varak"
+      ],
+      "source": {
+        "book_page": 73
+      }
+    },
+    {
+      "id": "c060",
+      "front": "Melyik évben tartottak királytalálkozót Visegrádon a tankönyv szerint?",
+      "back": "1335-ben.",
+      "tags": [
+        "visegrad"
+      ],
+      "source": {
+        "book_page": 73
+      }
+    },
+    {
+      "id": "c061",
+      "front": "Ki a katolikus egyház feje?",
+      "back": "A pápa (a római püspök).",
+      "tags": [
+        "egyhaz",
+        "papa"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c062",
+      "front": "Mi a püspök feladata az egyházszervezetben?",
+      "back": "Egy egyházmegye vezetése; a papok és plébániák irányítása.",
+      "tags": [
+        "egyhaz",
+        "puspok"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c063",
+      "front": "Ki a plébános?",
+      "back": "Egy plébánia (helyi közösség) papja/vezetője.",
+      "tags": [
+        "egyhaz",
+        "plebanos"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c064",
+      "front": "Miben különbözött a keleti és a nyugati egyház a tankönyv szerint (nyelv szerint)?",
+      "back": "Keleten görögül, nyugaton latinul használták a liturgiát.",
+      "tags": [
+        "egyhaz",
+        "kelet_nyugat"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c065",
+      "front": "Mit jelent a 'Habemus Papam'?",
+      "back": "„Van pápánk!” – a pápaválasztás utáni bejelentés.",
+      "tags": [
+        "papa_valasztas",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 75
+      }
+    },
+    {
+      "id": "c066",
+      "front": "Mit jelent a fekete füst a pápaválasztásnál?",
+      "back": "Nem sikerült pápát választani.",
+      "tags": [
+        "papa_valasztas"
+      ],
+      "source": {
+        "book_page": 75
+      }
+    },
+    {
+      "id": "c067",
+      "front": "Mit jelent a fehér füst a pápaválasztásnál?",
+      "back": "Sikerült pápát választani.",
+      "tags": [
+        "papa_valasztas"
+      ],
+      "source": {
+        "book_page": 75
+      }
+    },
+    {
+      "id": "c068",
+      "front": "Mi az ereklye?",
+      "back": "Szenthez kapcsolódó tárgy vagy maradvány, amelyet tisztelettel őriznek.",
+      "tags": [
+        "szentek",
+        "ereklye",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c069",
+      "front": "Mi a zarándoklat?",
+      "back": "Vallási célú utazás szent helyekre.",
+      "tags": [
+        "zarandoklat",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c070",
+      "front": "Melyik várost említi a tankönyv fontos zarándokhelyként?",
+      "back": "Jeruzsálemet.",
+      "tags": [
+        "zarandoklat",
+        "jeruzsalem"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c071",
+      "front": "Ki volt Szent Márton a magyar hagyományban tanított szentek közül?",
+      "back": "Katonából lett püspök; a legenda szerint köpenyét megosztotta a koldussal.",
+      "tags": [
+        "szentek"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c072",
+      "front": "Kinek a védőszentjeként említi a tankönyv Szent Flóriánt?",
+      "back": "Tűzoltók/ a tűz ellen védő szentként (általános iskolai tananyagban így szerepel).",
+      "tags": [
+        "szentek"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c073",
+      "front": "Melyik három fő szerzetesi fogadalmat emeli ki a tankönyv?",
+      "back": "Szegénység, tisztaság, engedelmesség.",
+      "tags": [
+        "szerzetesek",
+        "fogadalom"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c074",
+      "front": "Ki alapította a bencés rendet?",
+      "back": "Szent Benedek (6. század).",
+      "tags": [
+        "szerzetesek",
+        "bences"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c075",
+      "front": "Mikor jött létre a pálos rend a tankönyv szerint, és kihez kötik?",
+      "back": "A 13. században; Boldog Özsébhez kötik.",
+      "tags": [
+        "szerzetesek",
+        "palos"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c076",
+      "front": "Miért hoztak létre kolostorokat/szerzetesrendeket?",
+      "back": "Az imádság, tanulás, munkavégzés és a vallásos élet elmélyítésére; közösségi szabályok szerint éltek.",
+      "tags": [
+        "szerzetesek"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c077",
+      "front": "Melyik építészeti stílusra jellemzők a vastag falak és a kis ablakok?",
+      "back": "A román stílusra.",
+      "tags": [
+        "epiteszet",
+        "roman"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c078",
+      "front": "Melyik építészeti stílusra jellemzők a magasba törő formák és a nagy üvegablakok?",
+      "back": "A gótikus stílusra.",
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c079",
+      "front": "Mi a támpillér szerepe a gótikus katedrálisokon?",
+      "back": "A falak tehermentesítése; így lehettek magasabbak és nagyobb ablakok.",
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c080",
+      "front": "Mit jelent a 'katedrális' szó eredete a tankönyv szerint?",
+      "back": "A püspöki székhez (cathedra) kötődik; a püspök temploma.",
+      "tags": [
+        "epiteszet",
+        "katedralis",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 79
+      }
+    },
+    {
+      "id": "c081",
+      "front": "Melyik híres francia katedrálist említi a tankönyv?",
+      "back": "A párizsi Notre-Dame-ot.",
+      "tags": [
+        "notre_dame",
+        "katedralis"
+      ],
+      "source": {
+        "book_page": 79
+      }
+    },
+    {
+      "id": "c082",
+      "front": "Hol tanultak a középkorban sokszor az írástudók a tankönyv szerint?",
+      "back": "Kolostori és katedrális iskolákban.",
+      "tags": [
+        "oktatas",
+        "kozepkor"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c083",
+      "front": "Mi a kódex?",
+      "back": "Kézzel másolt, könyv formájú kézirat (gyakran díszítve).",
+      "tags": [
+        "oktatas",
+        "kodex",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c084",
+      "front": "Miért volt lassú a könyvek terjedése a középkorban?",
+      "back": "Mert a könyveket kézzel másolták, nyomtatás még nem volt elterjedt.",
+      "tags": [
+        "oktatas"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c085",
+      "front": "Mik voltak a középkori egyetemek előzményei a tankönyv szerint?",
+      "back": "A kolostori és katedrális iskolák.",
+      "tags": [
+        "oktatas",
+        "egyetem"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c086",
+      "front": "Miért tanultak latinul a középkori iskolákban?",
+      "back": "Mert a tudomány és az egyház nyelve a latin volt Nyugat-Európában.",
+      "tags": [
+        "oktatas",
+        "latin"
+      ],
+      "source": {
+        "book_page": 81
+      }
+    },
+    {
+      "id": "c087",
+      "front": "Mit jelent a 'plébánia'?",
+      "back": "Egyházközség; helyi egyházi közösség területe.",
+      "tags": [
+        "egyhaz",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c088",
+      "front": "Mit jelent a monoteizmus (egyistenhit) a zsidó-keresztény hagyományban?",
+      "back": "Egy Istenben való hit.",
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c089",
+      "front": "Mit jelent a politeizmus (sokistenhit)?",
+      "back": "Több isten tisztelete.",
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 58
+      }
+    },
+    {
+      "id": "c090",
+      "front": "Mit parancsol a Tízparancsolat első parancsa a tankönyvi összefoglaló szerint?",
+      "back": "Ne legyenek más isteneid (csak az egy Istent tiszteld).",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c091",
+      "front": "Mit parancsol a Tízparancsolat 'Ne ölj!' parancsa?",
+      "back": "Az emberi élet tiszteletét; tilos ölni.",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c092",
+      "front": "Mit parancsol a 'Ne lopj!' parancsolat?",
+      "back": "Más tulajdonának tiszteletét; tilos lopni.",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c093",
+      "front": "Mit parancsol a 'Ne hazudj!' parancsolat lényege?",
+      "back": "Ne tégy hamis tanúbizonyságot / ne hazudj.",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c094",
+      "front": "Mit parancsol a 'Tiszteld apádat és anyádat!'?",
+      "back": "A szülők tiszteletét.",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c095",
+      "front": "Mit jelent a 'Szenteld meg az ünnepnapot!' (szombat/vasárnap)?",
+      "back": "Legyen pihenő- és vallási ünnepnap; fordíts időt Istenre és a családra.",
+      "tags": [
+        "tizparancsolat"
+      ],
+      "source": {
+        "book_page": 61
+      }
+    },
+    {
+      "id": "c096",
+      "front": "Miért volt fontos a népszámlálás Jézus születésének történetében?",
+      "back": "A történet szerint ezért mentek József és Mária Betlehembe.",
+      "tags": [
+        "jezus"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c097",
+      "front": "Ki volt Heródes a történetben?",
+      "back": "Júdea királya/uralkodója Jézus születése idején.",
+      "tags": [
+        "jezus"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c098",
+      "front": "Mi volt Júdea helyzete Jézus korában a tankönyv szerint?",
+      "back": "Római uralom alatt állt.",
+      "tags": [
+        "jezus",
+        "roma"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c099",
+      "front": "Mi a 'keresztség' jelentése a kereszténységben (alapfogalom)?",
+      "back": "A keresztény hitbe való befogadás szertartása.",
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c100",
+      "front": "Mit jelent a 'Messiás' szó (általános vallástörténeti fogalom)?",
+      "back": "Felkent, megváltóként várt személy.",
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 63
+      }
+    },
+    {
+      "id": "c101",
+      "front": "Mi a 'Golgota' szó jelentése (gyakori tankönyvi magyarázat)?",
+      "back": "Koponya-hegy; a keresztre feszítés helye.",
+      "tags": [
+        "keresztre_feszites",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 64
+      }
+    },
+    {
+      "id": "c102",
+      "front": "Mit ünnepel a kereszténység karácsonykor?",
+      "back": "Jézus születését.",
+      "tags": [
+        "jezus"
+      ],
+      "source": {
+        "book_page": 62
+      }
+    },
+    {
+      "id": "c103",
+      "front": "Mi volt Plinius beszámolójának lényege a keresztényekről (tankönyvi példa)?",
+      "back": "A keresztények összegyűltek, énekeltek/esküt tettek, és erkölcsös életet ígértek.",
+      "tags": [
+        "uldozes"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c104",
+      "front": "Miért volt gyanús a keresztény közösség a római hatóságok szemében?",
+      "back": "Mert titkos összejöveteleik voltak és nem vettek részt a császárkultuszban.",
+      "tags": [
+        "uldozes"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c105",
+      "front": "Mit jelent a 'császárkultusz'?",
+      "back": "A császár isteni tisztelete; áldozás a császárnak.",
+      "tags": [
+        "roma",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 66
+      }
+    },
+    {
+      "id": "c106",
+      "front": "Mit jelent az 'egyenjogú vallás' a tankönyvi fordulatban?",
+      "back": "A kereszténység szabadon gyakorolható lett, nem üldözték.",
+      "tags": [
+        "konstantin"
+      ],
+      "source": {
+        "book_page": 67
+      }
+    },
+    {
+      "id": "c107",
+      "front": "Melyik császárhoz kötik a kereszténység állami támogatásának kezdetét?",
+      "back": "Konstantinhoz.",
+      "tags": [
+        "konstantin"
+      ],
+      "source": {
+        "book_page": 67
+      }
+    },
+    {
+      "id": "c108",
+      "front": "Mit jelent a 'püspöki szék' (cathedra) a katedrális definíciójában?",
+      "back": "A püspök tanítói/vezetői jelképes széke; innen a katedrális elnevezés.",
+      "tags": [
+        "katedralis",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 79
+      }
+    },
+    {
+      "id": "c109",
+      "front": "Mit jelent a 'liturgia' (alapfogalom)?",
+      "back": "Istentiszteleti szertartásrend.",
+      "tags": [
+        "egyhaz",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c110",
+      "front": "Mi a különbség a pap és a szerzetes között?",
+      "back": "A pap a hívek lelkipásztora (plébánián), a szerzetes rendi szabály szerint kolostorban él (nem feltétlenül pap).",
+      "tags": [
+        "egyhaz",
+        "szerzetesek"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c111",
+      "front": "Mit jelent az 'ora et labora' jelmondat (bencésekhez kötik)?",
+      "back": "Imádkozz és dolgozz.",
+      "tags": [
+        "bences"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c112",
+      "front": "Mi a kolostor?",
+      "back": "Szerzetesek lakóhelye és közössége.",
+      "tags": [
+        "szerzetesek",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 77
+      }
+    },
+    {
+      "id": "c113",
+      "front": "Miért voltak a kolostorok a tanulás központjai?",
+      "back": "Mert ott másolták a könyveket és iskolákat működtettek; az írástudás ott volt erős.",
+      "tags": [
+        "oktatas",
+        "szerzetesek"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c114",
+      "front": "Mi az 'illum... illumináció' a kódexeknél (alapfogalom)?",
+      "back": "Díszített, festett kezdőbetűk és képek a kéziratokban.",
+      "tags": [
+        "kodex",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 80
+      }
+    },
+    {
+      "id": "c115",
+      "front": "Mit jelent a 'hűségeskü' a hűbéri rendszerben?",
+      "back": "A vazallus hűséget fogadott urának, cserébe birtokot és védelmet kapott.",
+      "tags": [
+        "huberi"
+      ],
+      "source": {
+        "book_page": 71
+      }
+    },
+    {
+      "id": "c116",
+      "front": "Kik voltak a jobbágyok a középkori társadalomban?",
+      "back": "Földművelő parasztok, akik a földesúrnak szolgáltatásokkal tartoztak.",
+      "tags": [
+        "kozepkor",
+        "huberi"
+      ],
+      "source": {
+        "book_page": 71
+      }
+    },
+    {
+      "id": "c117",
+      "front": "Miért vették körül a várat gyakran árokkal?",
+      "back": "Nehezítette a rohamot és a falak alá jutást (védelmi akadály).",
+      "tags": [
+        "varak"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c118",
+      "front": "Mi volt a vártorony szerepe?",
+      "back": "Megfigyelés és védelem; jelző- és őrhely.",
+      "tags": [
+        "varak"
+      ],
+      "source": {
+        "book_page": 72
+      }
+    },
+    {
+      "id": "c119",
+      "front": "Miért épültek a gótikus templomok magasabbra, mint a román templomok?",
+      "back": "A szerkezet (támpillér, boltozat) jobban elosztotta a terheket, így magasabb falak és nagy ablakok készülhettek.",
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c120",
+      "front": "Mi jellemző a román templomok belső terére (fény szempontból)?",
+      "back": "Sötétebb, mert kicsik az ablakok és vastagok a falak.",
+      "tags": [
+        "epiteszet",
+        "roman"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c121",
+      "front": "Miért fontosak a nagy üvegablakok a gótikus templomokban?",
+      "back": "Sok fényt engednek be és bibliai történeteket is ábrázolhattak.",
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "source": {
+        "book_page": 78
+      }
+    },
+    {
+      "id": "c122",
+      "front": "Mit jelent a 'szent' fogalma a kereszténységben (alap)?",
+      "back": "Olyan személy, akit példás hitéért/életéért az egyház külön tiszteletben részesít.",
+      "tags": [
+        "szentek",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c123",
+      "front": "Mi a legenda?",
+      "back": "Szentekről, csodákról szóló tanulságos elbeszélés.",
+      "tags": [
+        "szentek",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c124",
+      "front": "Miért tisztelték az ereklyéket a középkorban?",
+      "back": "Mert a szentekhez kapcsolódó tárgyaknak különleges (vallási) jelentőséget tulajdonítottak.",
+      "tags": [
+        "ereklye"
+      ],
+      "source": {
+        "book_page": 76
+      }
+    },
+    {
+      "id": "c125",
+      "front": "Mi a 'pápaság' szerepe a nyugati egyházban?",
+      "back": "A pápa vezető szerepe: a nyugati kereszténység irányítása és egységének fenntartása.",
+      "tags": [
+        "papa"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c126",
+      "front": "Miért volt nagy tekintélye a pápának a középkorban?",
+      "back": "Mert vallási vezetőként az emberek üdvösségéről és a hit kérdéseiről döntött, és nagy politikai befolyása is volt.",
+      "tags": [
+        "papa"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c127",
+      "front": "Mit jelöl a 'plébánia' kifejezés a mindennapokban?",
+      "back": "Egy település/kerület egyházi közösségét és területét.",
+      "tags": [
+        "egyhaz",
+        "plebanos"
+      ],
+      "source": {
+        "book_page": 74
+      }
+    },
+    {
+      "id": "c128",
+      "front": "Mit jelent a 'katedra' szó (tanári asztal/...) és hogyan kapcsolódik a cathedrához?",
+      "back": "A cathedra eredetileg szék; innen a katedra szó is.",
+      "tags": [
+        "oktatas",
+        "fogalom"
+      ],
+      "source": {
+        "book_page": 79
+      }
+    },
+    {
+      "id": "c129",
+      "front": "Mi volt a latin szerepe a középkori tudományban?",
+      "back": "Közös nyelvként összekötötte az európai tanult embereket és az egyházat.",
+      "tags": [
+        "latin",
+        "oktatas"
+      ],
+      "source": {
+        "book_page": 81
+      }
+    },
+    {
+      "id": "c130",
+      "front": "Mi volt a középkori egyetemek célja?",
+      "back": "Magasabb szintű képzés (pl. jog, teológia, orvoslás), tudósok képzése.",
+      "tags": [
+        "egyetem"
+      ],
+      "source": {
+        "book_page": 81
+      }
+    }
+  ],
+  "qa": [
+    {
+      "id": "q001",
+      "type": "typed",
+      "prompt": "Mi a Biblia két fő része?",
+      "answer": "Ószövetség és Újszövetség.",
+      "accepted": [
+        "oszovetseg ujszovetseg"
+      ],
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "fellegvár",
+        "plébános",
+        "kódex",
+        "államvallás",
+        "Néró",
+        "engedelmesség",
+        "Német-római Császárság",
+        "Siratófal",
+        "Ponc...Pilátus",
+        "Jeruzsálem"
+      ]
+    },
+    {
+      "id": "q002",
+      "type": "typed",
+      "prompt": "Mit nevezünk Ószövetségnek?",
+      "answer": "A zsidó (héber) Biblia iratait; a keresztény Biblia első részét.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "oszovetseg"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "kolostor",
+        "feltámadás",
+        "pápa",
+        "Keresztelő János",
+        "Dávid",
+        "plébános",
+        "engedelmesség",
+        "bencések",
+        "Konstantin",
+        "román stílus"
+      ]
+    },
+    {
+      "id": "q003",
+      "type": "typed",
+      "prompt": "Mit jelent az 'evangélium' szó?",
+      "answer": "Örömhír / jó hír.",
+      "accepted": [
+        "jo hir",
+        "oromhir"
+      ],
+      "tags": [
+        "ujszovetseg",
+        "fogalom"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "kolostor",
+        "román stílus",
+        "Noé",
+        "apostol",
+        "ereklye",
+        "engedelmesség",
+        "Frank Birodalom",
+        "Ponc...Pilátus",
+        "katedra",
+        "üvegablak"
+      ]
+    },
+    {
+      "id": "q004",
+      "type": "typed",
+      "prompt": "Kik voltak Ádám és Éva a bibliai teremtéstörténetben?",
+      "answer": "Az első emberpár.",
+      "accepted": [
+        "elso emberpar"
+      ],
+      "tags": [
+        "biblia",
+        "teremtes"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "államvallás",
+        "Nagy Károly",
+        "császárkultusz",
+        "cathedra",
+        "feltámadás",
+        "Dávid",
+        "Góliát",
+        "Vörös-tenger",
+        "vízözön",
+        "Ádám és Éva"
+      ]
+    },
+    {
+      "id": "q005",
+      "type": "typed",
+      "prompt": "Miért űzték ki Ádámot és Évát a paradicsomból a történet szerint?",
+      "answer": "Mert megszegték Isten parancsát (ettek a tiltott gyümölcsből).",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "teremtes"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "középkor",
+        "mennybemenetel",
+        "felvonóhíd",
+        "katedra",
+        "Boldog Özséb",
+        "Bizánc",
+        "Mózes",
+        "katedrális",
+        "Notre-Dame",
+        "I. Ottó"
+      ]
+    },
+    {
+      "id": "q006",
+      "type": "typed",
+      "prompt": "Ki építette a bárkát a vízözön történetében?",
+      "answer": "Noé.",
+      "accepted": [
+        "noe"
+      ],
+      "tags": [
+        "biblia",
+        "noe"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 59
+      },
+      "distractors": [
+        "felvonóhíd",
+        "Ponc...Pilátus",
+        "katedra",
+        "Néró",
+        "szegénység",
+        "szálka",
+        "középkor",
+        "feltámadás",
+        "gótikus stílus",
+        "Vörös-tenger"
+      ]
+    },
+    {
+      "id": "q007",
+      "type": "typed",
+      "prompt": "Mi volt a vízözön történetének üzenete a tankönyvi magyarázat szerint?",
+      "answer": "Isten megbünteti a bűnt, de megmenti a jókat / engedelmeseket.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "noe"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 59
+      },
+      "distractors": [
+        "üvegablak",
+        "Bizánc",
+        "I. Ottó",
+        "Mózes",
+        "Dávid",
+        "Siratófal",
+        "zarándoklat",
+        "bencések",
+        "gerenda",
+        "pálosok"
+      ]
+    },
+    {
+      "id": "q008",
+      "type": "typed",
+      "prompt": "Ki volt József az Ószövetségben (egyiptomi történet)?",
+      "answer": "Jákob fia, akit testvérei eladtak, majd Egyiptomban a fáraó szolgálatába került.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "jozsef"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 60
+      },
+      "distractors": [
+        "bencések",
+        "evangélium",
+        "Góliát",
+        "Siratófal",
+        "kolostor",
+        "gerenda",
+        "tisztaság",
+        "egyetem",
+        "I. Ottó",
+        "Jeruzsálem"
+      ]
+    },
+    {
+      "id": "q009",
+      "type": "typed",
+      "prompt": "Mit jelentett a fáraó álmában a hét kövér és hét sovány tehén?",
+      "answer": "Hét bőséges év után hét szűk (éhezős) esztendő jön.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "jozsef"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 60
+      },
+      "distractors": [
+        "szegénység",
+        "diaszpóra",
+        "Keresztelő János",
+        "Góliát",
+        "pálosok",
+        "Noé",
+        "Szent Benedek",
+        "Ószövetség",
+        "engedelmesség",
+        "plébános"
+      ]
+    },
+    {
+      "id": "q010",
+      "type": "typed",
+      "prompt": "Ki vezette ki a zsidókat Egyiptomból a Biblia szerint?",
+      "answer": "Mózes.",
+      "accepted": [
+        "mozes"
+      ],
+      "tags": [
+        "biblia",
+        "mozes"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "plébános",
+        "Noé",
+        "Golgota",
+        "Szent Benedek",
+        "hűbér",
+        "Frank Birodalom",
+        "latin",
+        "szálka",
+        "fellegvár",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q011",
+      "type": "typed",
+      "prompt": "Mi a 'kivonulás' (exodus) lényege?",
+      "answer": "A zsidók elmenekülése/eltávozása Egyiptomból Mózes vezetésével.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "mozes"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "Salamon",
+        "mennybemenetel",
+        "Szent Benedek",
+        "Ószövetség",
+        "József",
+        "Konstantin",
+        "államvallás",
+        "Golgota",
+        "apostol",
+        "cathedra"
+      ]
+    },
+    {
+      "id": "q012",
+      "type": "typed",
+      "prompt": "Mi a Tízparancsolat?",
+      "answer": "Tíz alapvető vallási-erkölcsi parancs, amelyet a hagyomány szerint Mózes kapott Istentől.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "tizparancsolat",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "Siratófal",
+        "zarándoklat",
+        "cathedra",
+        "ereklye",
+        "várárok",
+        "Német-római Császárság",
+        "plébános",
+        "Szent Benedek",
+        "Konstantin",
+        "Salamon"
+      ]
+    },
+    {
+      "id": "q013",
+      "type": "typed",
+      "prompt": "Mi volt Dávid fegyvere Góliát ellen a bibliai történetben?",
+      "answer": "Parittya.",
+      "accepted": [
+        "parittya"
+      ],
+      "tags": [
+        "biblia",
+        "david"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 60
+      },
+      "distractors": [
+        "plébános",
+        "Golgota",
+        "hűbér",
+        "fellegvár",
+        "Újszövetség",
+        "zarándoklat",
+        "tisztaság",
+        "államvallás",
+        "kódex",
+        "Ószövetség"
+      ]
+    },
+    {
+      "id": "q014",
+      "type": "typed",
+      "prompt": "Ki volt Salamon a bibliai hagyományban?",
+      "answer": "Izrael királya, Dávid fia, a bölcs király.",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "salamon"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "egyetem",
+        "üvegablak",
+        "püspök",
+        "ereklye",
+        "Ószövetség",
+        "pálosok",
+        "Noé",
+        "Mózes",
+        "Notre-Dame",
+        "Keresztelő János"
+      ]
+    },
+    {
+      "id": "q015",
+      "type": "typed",
+      "prompt": "Mit építtetett Salamon Jeruzsálemben?",
+      "answer": "Templomot (a jeruzsálemi templomot).",
+      "accepted": [
+        "templom",
+        "jeruzsalemi templom"
+      ],
+      "tags": [
+        "biblia",
+        "salamon",
+        "jeruzsalem"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "apostol",
+        "pápa",
+        "Vörös-tenger",
+        "katedra",
+        "feltámadás",
+        "szegénység",
+        "császárkultusz",
+        "Salamon",
+        "Noé",
+        "Frank Birodalom"
+      ]
+    },
+    {
+      "id": "q016",
+      "type": "typed",
+      "prompt": "Mi a 'salamoni döntés' kifejezés eredete?",
+      "answer": "Salamon bölcs ítéletére utal (a két asszony és a gyermek története).",
+      "accepted": [],
+      "tags": [
+        "biblia",
+        "salamon",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "államvallás",
+        "kódex",
+        "pápa",
+        "Ponc...Pilátus",
+        "apostol",
+        "kolostor",
+        "Salamon",
+        "vasárnap",
+        "szegénység",
+        "Róma"
+      ]
+    },
+    {
+      "id": "q017",
+      "type": "typed",
+      "prompt": "Melyik város volt a zsidóság vallási központja a Biblia alapján?",
+      "answer": "Jeruzsálem.",
+      "accepted": [
+        "jeruzsalem"
+      ],
+      "tags": [
+        "zsidok",
+        "jeruzsalem"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "bencések",
+        "Ószövetség",
+        "Salamon",
+        "fogadalom",
+        "hűbér",
+        "Dávid",
+        "szegénység",
+        "zarándoklat",
+        "császárkultusz",
+        "evangélium"
+      ]
+    },
+    {
+      "id": "q018",
+      "type": "typed",
+      "prompt": "Mikor rombolták le a rómaiak Jeruzsálem templomát a tankönyv szerint?",
+      "answer": "Kr. u. 70-ben.",
+      "accepted": [
+        "70",
+        "kr u 70"
+      ],
+      "tags": [
+        "zsidok",
+        "jeruzsalem"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "katedrális",
+        "vízözön",
+        "Néró",
+        "ereklye",
+        "Tízparancsolat",
+        "pápa",
+        "Golgota",
+        "támpillér",
+        "lőrés",
+        "felvonóhíd"
+      ]
+    },
+    {
+      "id": "q019",
+      "type": "typed",
+      "prompt": "Mi a Siratófal?",
+      "answer": "A jeruzsálemi templom egy megmaradt támfala; a zsidó vallás egyik legszentebb helye.",
+      "accepted": [],
+      "tags": [
+        "zsidok",
+        "jeruzsalem",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "Bizánc",
+        "Szent Benedek",
+        "diaszpóra",
+        "Német-római Császárság",
+        "latin",
+        "kódex",
+        "Nagy Károly",
+        "középkor",
+        "várárok",
+        "hűbér"
+      ]
+    },
+    {
+      "id": "q020",
+      "type": "typed",
+      "prompt": "Mit jelent a diaszpóra?",
+      "answer": "Szétszórtság: egy nép szétszóródva él más országokban.",
+      "accepted": [
+        "szetszortseg"
+      ],
+      "tags": [
+        "zsidok",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "gótikus stílus",
+        "pálosok",
+        "I. Ottó",
+        "pápa",
+        "Német-római Császárság",
+        "katedrális",
+        "fellegvár",
+        "Saul (Pál)",
+        "fogadalom",
+        "katedra"
+      ]
+    },
+    {
+      "id": "q021",
+      "type": "typed",
+      "prompt": "Melyik nép ábécéjét említi a tankönyv a betűírás kapcsán?",
+      "answer": "A föníciaiakét.",
+      "accepted": [
+        "foniciaiak"
+      ],
+      "tags": [
+        "oszovetseg",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 60
+      },
+      "distractors": [
+        "kolostor",
+        "Frank Birodalom",
+        "engedelmesség",
+        "Bizánc",
+        "evangélium",
+        "Nagy Károly",
+        "József",
+        "mennybemenetel",
+        "fogadalom",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q022",
+      "type": "typed",
+      "prompt": "Hol született Jézus a hagyomány szerint?",
+      "answer": "Betlehemben.",
+      "accepted": [
+        "betlehem"
+      ],
+      "tags": [
+        "jezus",
+        "ujszovetseg"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "I. Ottó",
+        "kolostor",
+        "Szent Benedek",
+        "szegénység",
+        "Góliát",
+        "kódex",
+        "cathedra",
+        "apostol",
+        "Bizánc",
+        "felvonóhíd"
+      ]
+    },
+    {
+      "id": "q023",
+      "type": "typed",
+      "prompt": "Kik keresték fel a kis Jézust a csillagot követve a történet szerint?",
+      "answer": "A napkeleti bölcsek.",
+      "accepted": [
+        "napkeleti bolcsek",
+        "bolcsek"
+      ],
+      "tags": [
+        "jezus",
+        "bolcsek"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "engedelmesség",
+        "Ponc...Pilátus",
+        "vízözön",
+        "Jeruzsálem",
+        "mennybemenetel",
+        "zarándoklat",
+        "Vörös-tenger",
+        "várárok",
+        "hűbér",
+        "Visegrád"
+      ]
+    },
+    {
+      "id": "q024",
+      "type": "typed",
+      "prompt": "Milyen ajándékokat vittek a napkeleti bölcsek?",
+      "answer": "Aranyat, tömjént és mirhát.",
+      "accepted": [
+        "arany tomjen mirha",
+        "arany",
+        "tomjen",
+        "mirha"
+      ],
+      "tags": [
+        "bolcsek"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "Mózes",
+        "Dávid",
+        "I. Ottó",
+        "vasárnap",
+        "fogadalom",
+        "gótikus stílus",
+        "Góliát",
+        "ereklye",
+        "Jeruzsálem",
+        "hűbér"
+      ]
+    },
+    {
+      "id": "q025",
+      "type": "typed",
+      "prompt": "Ki keresztelte meg Jézust a Jordán folyóban?",
+      "answer": "Keresztelő János.",
+      "accepted": [
+        "keresztelo janos",
+        "janos"
+      ],
+      "tags": [
+        "jezus",
+        "keresztelo_janos"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "feltámadás",
+        "Nagy Károly",
+        "evangélium",
+        "püspök",
+        "Ádám és Éva",
+        "Siratófal",
+        "kódex",
+        "Visegrád",
+        "középkor",
+        "Mózes"
+      ]
+    },
+    {
+      "id": "q026",
+      "type": "typed",
+      "prompt": "Mit jelent az apostol szó?",
+      "answer": "Küldött; Jézus tanítványa és hírnöke.",
+      "accepted": [
+        "kuldoott",
+        "tanitvany"
+      ],
+      "tags": [
+        "jezus",
+        "apostolok",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "vízözön",
+        "gerenda",
+        "Boldog Özséb",
+        "egyetem",
+        "Újszövetség",
+        "Vörös-tenger",
+        "katedrális",
+        "Visegrád",
+        "zarándoklat",
+        "Tízparancsolat"
+      ]
+    },
+    {
+      "id": "q027",
+      "type": "typed",
+      "prompt": "Mi Jézus tanításának egyik központi parancsa a tankönyv szerint?",
+      "answer": "„Szeresd a másik embert!” / felebaráti szeretet.",
+      "accepted": [
+        "szeresd felebaratodat",
+        "felebarati szeretet"
+      ],
+      "tags": [
+        "jezus"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "Keresztelő János",
+        "szegénység",
+        "I. Ottó",
+        "román stílus",
+        "feltámadás",
+        "Ponc...Pilátus",
+        "Ószövetség",
+        "Siratófal",
+        "hűbér",
+        "Salamon"
+      ]
+    },
+    {
+      "id": "q028",
+      "type": "typed",
+      "prompt": "Mit jelent a példázat (Jézus tanításában)?",
+      "answer": "Rövid, tanulságos történet, amely erkölcsi üzenetet közvetít.",
+      "accepted": [],
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "ereklye",
+        "Notre-Dame",
+        "gerenda",
+        "apostol",
+        "Damaszkusz",
+        "Bizánc",
+        "Vörös-tenger",
+        "engedelmesség",
+        "császárkultusz",
+        "Siratófal"
+      ]
+    },
+    {
+      "id": "q029",
+      "type": "typed",
+      "prompt": "Mit tanít a 'szálka és gerenda' példája?",
+      "answer": "Előbb a saját hibáinkat vegyük észre, ne másokat ítélgessünk.",
+      "accepted": [],
+      "tags": [
+        "jezus",
+        "peldazat"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "Saul (Pál)",
+        "Golgota",
+        "Ponc...Pilátus",
+        "zarándoklat",
+        "várárok",
+        "gerenda",
+        "katedrális",
+        "apostol",
+        "Ószövetség",
+        "bencések"
+      ]
+    },
+    {
+      "id": "q030",
+      "type": "typed",
+      "prompt": "Mit tanít a 'sziklára épített ház' példája?",
+      "answer": "Szilárd alapra kell építeni (Isten tanításaira), mert a viharban az marad meg.",
+      "accepted": [],
+      "tags": [
+        "jezus",
+        "peldazat"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "evangélium",
+        "fogadalom",
+        "szálka",
+        "zarándoklat",
+        "Salamon",
+        "ereklye",
+        "Boldog Özséb",
+        "gótikus stílus",
+        "Mózes",
+        "egyetem"
+      ]
+    },
+    {
+      "id": "q031",
+      "type": "typed",
+      "prompt": "Miért volt népszerű Jézus tanítása a szegények körében a tankönyv szerint?",
+      "answer": "Mert azt hirdette, hogy nem a gazdagság tesz boldoggá, és Isten előtt mindenki egyenlő.",
+      "accepted": [],
+      "tags": [
+        "jezus"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "Dávid",
+        "Notre-Dame",
+        "ereklye",
+        "Mózes",
+        "Újszövetség",
+        "Vörös-tenger",
+        "államvallás",
+        "pálosok",
+        "kolostor",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q032",
+      "type": "typed",
+      "prompt": "Ki ítélte halálra Jézust a történet szerint?",
+      "answer": "Poncius Pilátus.",
+      "accepted": [
+        "pilatus",
+        "poncius pilatus"
+      ],
+      "tags": [
+        "jezus",
+        "keresztre_feszites"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 64
+      },
+      "distractors": [
+        "diaszpóra",
+        "Ponc...Pilátus",
+        "Boldog Özséb",
+        "ereklye",
+        "cathedra",
+        "középkor",
+        "fogadalom",
+        "püspök",
+        "Mózes",
+        "Ószövetség"
+      ]
+    },
+    {
+      "id": "q033",
+      "type": "typed",
+      "prompt": "Hol feszítették keresztre Jézust?",
+      "answer": "A Golgotán.",
+      "accepted": [
+        "golgota"
+      ],
+      "tags": [
+        "jezus",
+        "keresztre_feszites"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 64
+      },
+      "distractors": [
+        "támpillér",
+        "cathedra",
+        "szegénység",
+        "ereklye",
+        "kolostor",
+        "Ponc...Pilátus",
+        "Noé",
+        "zarándoklat",
+        "bencések",
+        "román stílus"
+      ]
+    },
+    {
+      "id": "q034",
+      "type": "typed",
+      "prompt": "Mit ünnepel a kereszténység húsvétkor?",
+      "answer": "Jézus feltámadását.",
+      "accepted": [
+        "feltamadas"
+      ],
+      "tags": [
+        "jezus",
+        "feltamadas"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 64
+      },
+      "distractors": [
+        "államvallás",
+        "középkor",
+        "cathedra",
+        "fogadalom",
+        "I. Ottó",
+        "József",
+        "pápa",
+        "Visegrád",
+        "császárkultusz",
+        "latin"
+      ]
+    },
+    {
+      "id": "q035",
+      "type": "typed",
+      "prompt": "Hány nappal a feltámadás után történt a mennybemenetel a tankönyv szerint?",
+      "answer": "40 nappal.",
+      "accepted": [
+        "40",
+        "negyven"
+      ],
+      "tags": [
+        "jezus",
+        "mennybemenetel"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 64
+      },
+      "distractors": [
+        "1096",
+        "1054",
+        "395",
+        "962",
+        "1492",
+        "313",
+        "800",
+        "476",
+        "1453",
+        "1335"
+      ]
+    },
+    {
+      "id": "q036",
+      "type": "typed",
+      "prompt": "Ki volt Saul, és milyen néven ismert később?",
+      "answer": "A keresztényüldöző Saul később Pál (apostol) lett.",
+      "accepted": [
+        "pal"
+      ],
+      "tags": [
+        "pal",
+        "apostolok"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "Néró",
+        "engedelmesség",
+        "Mózes",
+        "Róma",
+        "Golgota",
+        "Siratófal",
+        "vízözön",
+        "császárkultusz",
+        "tisztaság",
+        "pápa"
+      ]
+    },
+    {
+      "id": "q037",
+      "type": "typed",
+      "prompt": "Mi a 'pálfordulás' kifejezés jelentése?",
+      "answer": "Nagy, hirtelen vélemény-/életmódváltás (Saul → Pál megtérése alapján).",
+      "accepted": [],
+      "tags": [
+        "pal",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "latin",
+        "kódex",
+        "pálosok",
+        "püspök",
+        "hűbér",
+        "támpillér",
+        "mennybemenetel",
+        "Vörös-tenger",
+        "császárkultusz",
+        "Ószövetség"
+      ]
+    },
+    {
+      "id": "q038",
+      "type": "typed",
+      "prompt": "Melyik városba vezető úton tért meg Saul a történet szerint?",
+      "answer": "Damaszkuszba vezető úton.",
+      "accepted": [
+        "damaszkusz"
+      ],
+      "tags": [
+        "pal"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "Ószövetség",
+        "tisztaság",
+        "Német-római Császárság",
+        "Golgota",
+        "Ádám és Éva",
+        "fellegvár",
+        "Róma",
+        "hűbér",
+        "román stílus",
+        "szegénység"
+      ]
+    },
+    {
+      "id": "q039",
+      "type": "typed",
+      "prompt": "Miért üldözték a keresztényeket a Római Birodalomban a tankönyv szerint?",
+      "answer": "Mert nem áldoztak a császárnak és a pogány isteneknek, és külön vallási közösséget alkottak.",
+      "accepted": [],
+      "tags": [
+        "uldozes"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "kolostor",
+        "Keresztelő János",
+        "Golgota",
+        "bencések",
+        "fogadalom",
+        "Szent Benedek",
+        "felvonóhíd",
+        "államvallás",
+        "császárkultusz",
+        "latin"
+      ]
+    },
+    {
+      "id": "q040",
+      "type": "typed",
+      "prompt": "Kihez kötik az első nagy keresztényüldözést Rómában?",
+      "answer": "Néró császárhoz.",
+      "accepted": [
+        "nero"
+      ],
+      "tags": [
+        "uldozes",
+        "nero"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "szálka",
+        "gerenda",
+        "vasárnap",
+        "tisztaság",
+        "Róma",
+        "Újszövetség",
+        "császárkultusz",
+        "támpillér",
+        "Nagy Károly",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q041",
+      "type": "typed",
+      "prompt": "Melyik évhez köti a tankönyv Péter és Pál apostol halálát (hagyomány szerint)?",
+      "answer": "Kr. u. 64.",
+      "accepted": [
+        "64",
+        "kr u 64"
+      ],
+      "tags": [
+        "uldozes",
+        "apostolok"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "1453",
+        "1096",
+        "1492",
+        "313",
+        "325",
+        "1335",
+        "476",
+        "395",
+        "1054",
+        "962"
+      ]
+    },
+    {
+      "id": "q042",
+      "type": "typed",
+      "prompt": "Ki szüntette meg az üldözéseket és tette a kereszténységet egyenjogúvá a tankönyv szerint?",
+      "answer": "Konstantin császár.",
+      "accepted": [
+        "konstantin"
+      ],
+      "tags": [
+        "konstantin"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 67
+      },
+      "distractors": [
+        "Nagy Károly",
+        "bencések",
+        "Néró",
+        "Golgota",
+        "szikla",
+        "Mózes",
+        "apostol",
+        "vízözön",
+        "tisztaság",
+        "fellegvár"
+      ]
+    },
+    {
+      "id": "q043",
+      "type": "typed",
+      "prompt": "Mit jelent az, hogy a kereszténység később 'államvallás' lett?",
+      "answer": "A birodalom hivatalos vallása lett, az állam támogatta és védte.",
+      "accepted": [],
+      "tags": [
+        "allamvallas",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 67
+      },
+      "distractors": [
+        "pápa",
+        "középkor",
+        "Ponc...Pilátus",
+        "Saul (Pál)",
+        "Német-római Császárság",
+        "fellegvár",
+        "Dávid",
+        "Róma",
+        "mennybemenetel",
+        "Szent Benedek"
+      ]
+    },
+    {
+      "id": "q044",
+      "type": "typed",
+      "prompt": "Miért lett a vasárnap munkaszüneti nap a keresztény államban?",
+      "answer": "Mert a keresztények számára a vasárnap (az Úr napja) kiemelt ünnepnap.",
+      "accepted": [],
+      "tags": [
+        "allamvallas"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 67
+      },
+      "distractors": [
+        "Újszövetség",
+        "apostol",
+        "Keresztelő János",
+        "plébános",
+        "Boldog Özséb",
+        "Noé",
+        "gótikus stílus",
+        "zarándoklat",
+        "szálka",
+        "feltámadás"
+      ]
+    },
+    {
+      "id": "q045",
+      "type": "typed",
+      "prompt": "Mit jelentenek az evangéliumok?",
+      "answer": "Az Újszövetségben Jézus életéről és tanításairól szóló beszámolók.",
+      "accepted": [],
+      "tags": [
+        "ujszovetseg",
+        "evangelium"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 68
+      },
+      "distractors": [
+        "császárkultusz",
+        "várárok",
+        "Salamon",
+        "zarándoklat",
+        "pálosok",
+        "kolostor",
+        "Tízparancsolat",
+        "Néró",
+        "gótikus stílus",
+        "Siratófal"
+      ]
+    },
+    {
+      "id": "q046",
+      "type": "typed",
+      "prompt": "Milyen nyelven írtak sokáig a Nyugati Egyházban a liturgiában és az iskolákban?",
+      "answer": "Latinul.",
+      "accepted": [
+        "latin"
+      ],
+      "tags": [
+        "egyhaz",
+        "latin"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 69
+      },
+      "distractors": [
+        "cathedra",
+        "Német-római Császárság",
+        "Ponc...Pilátus",
+        "latin",
+        "plébános",
+        "Tízparancsolat",
+        "fogadalom",
+        "középkor",
+        "Golgota",
+        "hűbér"
+      ]
+    },
+    {
+      "id": "q047",
+      "type": "typed",
+      "prompt": "Mikor kezdődik a középkor a tankönyv szerint?",
+      "answer": "476-ban (a Nyugat-római Birodalom bukásával).",
+      "accepted": [
+        "476"
+      ],
+      "tags": [
+        "kozepkor",
+        "korszakok"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 70
+      },
+      "distractors": [
+        "egyetem",
+        "plébános",
+        "gótikus stílus",
+        "üvegablak",
+        "Német-római Császárság",
+        "gerenda",
+        "I. Ottó",
+        "Szent Benedek",
+        "császárkultusz",
+        "fellegvár"
+      ]
+    },
+    {
+      "id": "q048",
+      "type": "typed",
+      "prompt": "Mikor ér véget a középkor a tankönyv szerint?",
+      "answer": "1492-ben (Amerika felfedezésével).",
+      "accepted": [
+        "1492"
+      ],
+      "tags": [
+        "kozepkor",
+        "korszakok"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 70
+      },
+      "distractors": [
+        "Ádám és Éva",
+        "engedelmesség",
+        "mennybemenetel",
+        "feltámadás",
+        "katedrális",
+        "katedra",
+        "Róma",
+        "pálosok",
+        "hűbér",
+        "tisztaság"
+      ]
+    },
+    {
+      "id": "q049",
+      "type": "typed",
+      "prompt": "Melyik birodalom volt a Kelet-római Birodalom utódja?",
+      "answer": "A Bizánci Birodalom (Bizánc).",
+      "accepted": [
+        "bizanc"
+      ],
+      "tags": [
+        "kozepkor",
+        "bizanc"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 70
+      },
+      "distractors": [
+        "gótikus stílus",
+        "fellegvár",
+        "József",
+        "pápa",
+        "katedra",
+        "diaszpóra",
+        "Damaszkusz",
+        "Saul (Pál)",
+        "felvonóhíd",
+        "Szent Benedek"
+      ]
+    },
+    {
+      "id": "q050",
+      "type": "typed",
+      "prompt": "Ki volt Nagy Károly, és mikor koronázták császárrá?",
+      "answer": "A Frank Birodalom uralkodója; 800-ban koronázták császárrá.",
+      "accepted": [
+        "800"
+      ],
+      "tags": [
+        "frank",
+        "nagy_karoly"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 70
+      },
+      "distractors": [
+        "bencések",
+        "Német-római Császárság",
+        "cathedra",
+        "Konstantin",
+        "gerenda",
+        "Siratófal",
+        "pápa",
+        "egyetem",
+        "üvegablak",
+        "tisztaság"
+      ]
+    },
+    {
+      "id": "q051",
+      "type": "typed",
+      "prompt": "Ki alapította a Német-római Császárságot a tankönyv szerint, és mikor?",
+      "answer": "I. Ottó; 962-ben.",
+      "accepted": [
+        "962",
+        "i otto"
+      ],
+      "tags": [
+        "nemet_romai",
+        "otto"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 70
+      },
+      "distractors": [
+        "József",
+        "Keresztelő János",
+        "mennybemenetel",
+        "Róma",
+        "egyetem",
+        "pápa",
+        "I. Ottó",
+        "Konstantin",
+        "gerenda",
+        "Notre-Dame"
+      ]
+    },
+    {
+      "id": "q052",
+      "type": "typed",
+      "prompt": "Mit jelent a 'hűbér' a középkori társadalomban?",
+      "answer": "Földbirtok/szolgálati birtok, amit hűségért és szolgálatért adtak.",
+      "accepted": [],
+      "tags": [
+        "huberi",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 71
+      },
+      "distractors": [
+        "Nagy Károly",
+        "katedrális",
+        "plébános",
+        "diaszpóra",
+        "Konstantin",
+        "pálosok",
+        "szálka",
+        "üvegablak",
+        "gerenda",
+        "latin"
+      ]
+    },
+    {
+      "id": "q053",
+      "type": "typed",
+      "prompt": "Mit jelent a 'vérükkel adóztak' kifejezés a nemesekre?",
+      "answer": "A nemesek katonai szolgálattal tartoztak (háborúban harcoltak).",
+      "accepted": [],
+      "tags": [
+        "huberi"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 71
+      },
+      "distractors": [
+        "katedra",
+        "feltámadás",
+        "államvallás",
+        "Német-római Császárság",
+        "Ószövetség",
+        "ereklye",
+        "püspök",
+        "katedrális",
+        "szegénység",
+        "Tízparancsolat"
+      ]
+    },
+    {
+      "id": "q054",
+      "type": "typed",
+      "prompt": "Miért építettek várakat a középkorban?",
+      "answer": "Védelemre: támadások ellen menedéket és erődítményt adtak.",
+      "accepted": [],
+      "tags": [
+        "varak"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "József",
+        "Visegrád",
+        "ereklye",
+        "Róma",
+        "üvegablak",
+        "plébános",
+        "apostol",
+        "püspök",
+        "egyetem",
+        "kódex"
+      ]
+    },
+    {
+      "id": "q055",
+      "type": "typed",
+      "prompt": "Mi a fellegvár?",
+      "answer": "A vár legjobban védett, legmagasabban fekvő része (utolsó menedék).",
+      "accepted": [],
+      "tags": [
+        "varak",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "hűbér",
+        "Góliát",
+        "Damaszkusz",
+        "államvallás",
+        "Boldog Özséb",
+        "Nagy Károly",
+        "evangélium",
+        "zarándoklat",
+        "Golgota",
+        "szikla"
+      ]
+    },
+    {
+      "id": "q056",
+      "type": "typed",
+      "prompt": "Mi a lőrés?",
+      "answer": "Keskeny nyílás a vár falán, amelyen át védekezni lehetett (lőni/nyilazni).",
+      "accepted": [],
+      "tags": [
+        "varak",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "Visegrád",
+        "Golgota",
+        "lőrés",
+        "Siratófal",
+        "szikla",
+        "Dávid",
+        "katedra",
+        "államvallás",
+        "Ádám és Éva",
+        "gótikus stílus"
+      ]
+    },
+    {
+      "id": "q057",
+      "type": "typed",
+      "prompt": "Mi a felvonóhíd szerepe?",
+      "answer": "A vár bejáratának védelme; felhúzva megnehezíti a támadók bejutását.",
+      "accepted": [],
+      "tags": [
+        "varak"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "Tízparancsolat",
+        "várárok",
+        "üvegablak",
+        "Ádám és Éva",
+        "támpillér",
+        "gerenda",
+        "Siratófal",
+        "Góliát",
+        "Bizánc",
+        "Újszövetség"
+      ]
+    },
+    {
+      "id": "q058",
+      "type": "typed",
+      "prompt": "Miért volt fontos a kút és a raktár a várban?",
+      "answer": "Ostrom esetén víz- és élelemellátást biztosított.",
+      "accepted": [],
+      "tags": [
+        "varak"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "hűbér",
+        "szálka",
+        "gerenda",
+        "Ádám és Éva",
+        "cathedra",
+        "Keresztelő János",
+        "József",
+        "Újszövetség",
+        "Dávid",
+        "mennybemenetel"
+      ]
+    },
+    {
+      "id": "q059",
+      "type": "typed",
+      "prompt": "Melyik magyar királyi központot említi a tankönyv a középkori várak kapcsán?",
+      "answer": "Visegrádot.",
+      "accepted": [
+        "visegrad"
+      ],
+      "tags": [
+        "visegrad",
+        "varak"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 73
+      },
+      "distractors": [
+        "engedelmesség",
+        "feltámadás",
+        "diaszpóra",
+        "Jeruzsálem",
+        "felvonóhíd",
+        "Siratófal",
+        "katedra",
+        "tisztaság",
+        "ereklye",
+        "Szent Benedek"
+      ]
+    },
+    {
+      "id": "q060",
+      "type": "typed",
+      "prompt": "Melyik évben tartottak királytalálkozót Visegrádon a tankönyv szerint?",
+      "answer": "1335-ben.",
+      "accepted": [
+        "1335"
+      ],
+      "tags": [
+        "visegrad"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 73
+      },
+      "distractors": [
+        "1096",
+        "395",
+        "325",
+        "800",
+        "1492",
+        "313",
+        "1453",
+        "1054",
+        "962",
+        "476"
+      ]
+    },
+    {
+      "id": "q061",
+      "type": "typed",
+      "prompt": "Ki a katolikus egyház feje?",
+      "answer": "A pápa (a római püspök).",
+      "accepted": [
+        "papa"
+      ],
+      "tags": [
+        "egyhaz",
+        "papa"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "ereklye",
+        "pálosok",
+        "Jeruzsálem",
+        "Frank Birodalom",
+        "Német-római Császárság",
+        "román stílus",
+        "Keresztelő János",
+        "Golgota",
+        "Góliát",
+        "engedelmesség"
+      ]
+    },
+    {
+      "id": "q062",
+      "type": "typed",
+      "prompt": "Mi a püspök feladata az egyházszervezetben?",
+      "answer": "Egy egyházmegye vezetése; a papok és plébániák irányítása.",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "puspok"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Noé",
+        "tisztaság",
+        "gerenda",
+        "Róma",
+        "Újszövetség",
+        "pálosok",
+        "vasárnap",
+        "Ponc...Pilátus",
+        "feltámadás",
+        "Szent Benedek"
+      ]
+    },
+    {
+      "id": "q063",
+      "type": "typed",
+      "prompt": "Ki a plébános?",
+      "answer": "Egy plébánia (helyi közösség) papja/vezetője.",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "plebanos"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Saul (Pál)",
+        "Visegrád",
+        "támpillér",
+        "evangélium",
+        "kolostor",
+        "középkor",
+        "pálosok",
+        "vízözön",
+        "vasárnap",
+        "Ádám és Éva"
+      ]
+    },
+    {
+      "id": "q064",
+      "type": "typed",
+      "prompt": "Miben különbözött a keleti és a nyugati egyház a tankönyv szerint (nyelv szerint)?",
+      "answer": "Keleten görögül, nyugaton latinul használták a liturgiát.",
+      "accepted": [
+        "görög és latin",
+        "gorog latin"
+      ],
+      "tags": [
+        "egyhaz",
+        "kelet_nyugat"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Frank Birodalom",
+        "Keresztelő János",
+        "Róma",
+        "Szent Benedek",
+        "Jeruzsálem",
+        "Golgota",
+        "Ádám és Éva",
+        "szálka",
+        "Saul (Pál)",
+        "felvonóhíd"
+      ]
+    },
+    {
+      "id": "q065",
+      "type": "typed",
+      "prompt": "Mit jelent a 'Habemus Papam'?",
+      "answer": "„Van pápánk!” – a pápaválasztás utáni bejelentés.",
+      "accepted": [
+        "van papan k"
+      ],
+      "tags": [
+        "papa_valasztas",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 75
+      },
+      "distractors": [
+        "Ponc...Pilátus",
+        "Notre-Dame",
+        "ereklye",
+        "Golgota",
+        "gerenda",
+        "Damaszkusz",
+        "Nagy Károly",
+        "üvegablak",
+        "gótikus stílus",
+        "latin"
+      ]
+    },
+    {
+      "id": "q066",
+      "type": "typed",
+      "prompt": "Mit jelent a fekete füst a pápaválasztásnál?",
+      "answer": "Nem sikerült pápát választani.",
+      "accepted": [
+        "nincs papa"
+      ],
+      "tags": [
+        "papa_valasztas"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 75
+      },
+      "distractors": [
+        "vasárnap",
+        "Újszövetség",
+        "tisztaság",
+        "támpillér",
+        "Szent Benedek",
+        "Jeruzsálem",
+        "felvonóhíd",
+        "Ádám és Éva",
+        "kolostor",
+        "plébános"
+      ]
+    },
+    {
+      "id": "q067",
+      "type": "typed",
+      "prompt": "Mit jelent a fehér füst a pápaválasztásnál?",
+      "answer": "Sikerült pápát választani.",
+      "accepted": [
+        "van uj papa"
+      ],
+      "tags": [
+        "papa_valasztas"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 75
+      },
+      "distractors": [
+        "katedrális",
+        "ereklye",
+        "egyetem",
+        "szegénység",
+        "pápa",
+        "Néró",
+        "Keresztelő János",
+        "Saul (Pál)",
+        "szálka",
+        "Német-római Császárság"
+      ]
+    },
+    {
+      "id": "q068",
+      "type": "typed",
+      "prompt": "Mi az ereklye?",
+      "answer": "Szenthez kapcsolódó tárgy vagy maradvány, amelyet tisztelettel őriznek.",
+      "accepted": [],
+      "tags": [
+        "szentek",
+        "ereklye",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "fogadalom",
+        "engedelmesség",
+        "Szent Benedek",
+        "kódex",
+        "Jeruzsálem",
+        "Boldog Özséb",
+        "Vörös-tenger",
+        "Visegrád",
+        "üvegablak",
+        "feltámadás"
+      ]
+    },
+    {
+      "id": "q069",
+      "type": "typed",
+      "prompt": "Mi a zarándoklat?",
+      "answer": "Vallási célú utazás szent helyekre.",
+      "accepted": [],
+      "tags": [
+        "zarandoklat",
+        "fogalom"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "államvallás",
+        "Német-római Császárság",
+        "szikla",
+        "Bizánc",
+        "Salamon",
+        "várárok",
+        "pápa",
+        "engedelmesség",
+        "Ponc...Pilátus",
+        "fogadalom"
+      ]
+    },
+    {
+      "id": "q070",
+      "type": "typed",
+      "prompt": "Melyik várost említi a tankönyv fontos zarándokhelyként?",
+      "answer": "Jeruzsálemet.",
+      "accepted": [
+        "jeruzsalem"
+      ],
+      "tags": [
+        "zarandoklat",
+        "jeruzsalem"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "Saul (Pál)",
+        "Damaszkusz",
+        "cathedra",
+        "fellegvár",
+        "államvallás",
+        "Nagy Károly",
+        "Frank Birodalom",
+        "bencések",
+        "evangélium",
+        "Salamon"
+      ]
+    },
+    {
+      "id": "q071",
+      "type": "typed",
+      "prompt": "Ki volt Szent Márton a magyar hagyományban tanított szentek közül?",
+      "answer": "Katonából lett püspök; a legenda szerint köpenyét megosztotta a koldussal.",
+      "accepted": [],
+      "tags": [
+        "szentek"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "plébános",
+        "lőrés",
+        "katedrális",
+        "középkor",
+        "Damaszkusz",
+        "hűbér",
+        "zarándoklat",
+        "Dávid",
+        "engedelmesség",
+        "szikla"
+      ]
+    },
+    {
+      "id": "q072",
+      "type": "typed",
+      "prompt": "Kinek a védőszentjeként említi a tankönyv Szent Flóriánt?",
+      "answer": "Tűzoltók/ a tűz ellen védő szentként (általános iskolai tananyagban így szerepel).",
+      "accepted": [],
+      "tags": [
+        "szentek"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "vízözön",
+        "Golgota",
+        "Néró",
+        "evangélium",
+        "tisztaság",
+        "szikla",
+        "Góliát",
+        "latin",
+        "Keresztelő János",
+        "Noé"
+      ]
+    },
+    {
+      "id": "q073",
+      "type": "typed",
+      "prompt": "Melyik három fő szerzetesi fogadalmat emeli ki a tankönyv?",
+      "answer": "Szegénység, tisztaság, engedelmesség.",
+      "accepted": [
+        "szegenyseg tisztasag engedelmesseg"
+      ],
+      "tags": [
+        "szerzetesek",
+        "fogadalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "diaszpóra",
+        "Saul (Pál)",
+        "feltámadás",
+        "Ponc...Pilátus",
+        "vasárnap",
+        "Boldog Özséb",
+        "támpillér",
+        "katedrális",
+        "kódex",
+        "üvegablak"
+      ]
+    },
+    {
+      "id": "q074",
+      "type": "typed",
+      "prompt": "Ki alapította a bencés rendet?",
+      "answer": "Szent Benedek (6. század).",
+      "accepted": [
+        "szent benedek",
+        "benedek"
+      ],
+      "tags": [
+        "szerzetesek",
+        "bences"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "Salamon",
+        "Ponc...Pilátus",
+        "Ószövetség",
+        "Tízparancsolat",
+        "Konstantin",
+        "plébános",
+        "támpillér",
+        "császárkultusz",
+        "egyetem",
+        "szegénység"
+      ]
+    },
+    {
+      "id": "q075",
+      "type": "typed",
+      "prompt": "Mikor jött létre a pálos rend a tankönyv szerint, és kihez kötik?",
+      "answer": "A 13. században; Boldog Özsébhez kötik.",
+      "accepted": [
+        "boldog ozseb"
+      ],
+      "tags": [
+        "szerzetesek",
+        "palos"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "tisztaság",
+        "apostol",
+        "Boldog Özséb",
+        "pálosok",
+        "katedra",
+        "Újszövetség",
+        "gótikus stílus",
+        "Ádám és Éva",
+        "Szent Benedek",
+        "hűbér"
+      ]
+    },
+    {
+      "id": "q076",
+      "type": "typed",
+      "prompt": "Miért hoztak létre kolostorokat/szerzetesrendeket?",
+      "answer": "Az imádság, tanulás, munkavégzés és a vallásos élet elmélyítésére; közösségi szabályok szerint éltek.",
+      "accepted": [],
+      "tags": [
+        "szerzetesek"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "diaszpóra",
+        "támpillér",
+        "püspök",
+        "román stílus",
+        "Német-római Császárság",
+        "Ádám és Éva",
+        "Konstantin",
+        "Notre-Dame",
+        "Ószövetség",
+        "Nagy Károly"
+      ]
+    },
+    {
+      "id": "q077",
+      "type": "typed",
+      "prompt": "Melyik építészeti stílusra jellemzők a vastag falak és a kis ablakok?",
+      "answer": "A román stílusra.",
+      "accepted": [
+        "roman"
+      ],
+      "tags": [
+        "epiteszet",
+        "roman"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "Német-római Császárság",
+        "Bizánc",
+        "szikla",
+        "Golgota",
+        "fellegvár",
+        "Visegrád",
+        "Frank Birodalom",
+        "Ószövetség",
+        "felvonóhíd",
+        "Nagy Károly"
+      ]
+    },
+    {
+      "id": "q078",
+      "type": "typed",
+      "prompt": "Melyik építészeti stílusra jellemzők a magasba törő formák és a nagy üvegablakok?",
+      "answer": "A gótikus stílusra.",
+      "accepted": [
+        "gotikus"
+      ],
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "szikla",
+        "gerenda",
+        "hűbér",
+        "felvonóhíd",
+        "császárkultusz",
+        "Dávid",
+        "engedelmesség",
+        "Újszövetség",
+        "cathedra",
+        "Keresztelő János"
+      ]
+    },
+    {
+      "id": "q079",
+      "type": "typed",
+      "prompt": "Mi a támpillér szerepe a gótikus katedrálisokon?",
+      "answer": "A falak tehermentesítése; így lehettek magasabbak és nagyobb ablakok.",
+      "accepted": [],
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "plébános",
+        "Jeruzsálem",
+        "szálka",
+        "gótikus stílus",
+        "Ponc...Pilátus",
+        "mennybemenetel",
+        "evangélium",
+        "vasárnap",
+        "vízözön",
+        "kolostor"
+      ]
+    },
+    {
+      "id": "q080",
+      "type": "typed",
+      "prompt": "Mit jelent a 'katedrális' szó eredete a tankönyv szerint?",
+      "answer": "A püspöki székhez (cathedra) kötődik; a püspök temploma.",
+      "accepted": [
+        "puspoki templom",
+        "cathedra"
+      ],
+      "tags": [
+        "epiteszet",
+        "katedralis",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 79
+      },
+      "distractors": [
+        "császárkultusz",
+        "latin",
+        "katedrális",
+        "Szent Benedek",
+        "Róma",
+        "feltámadás",
+        "ereklye",
+        "Visegrád",
+        "Néró",
+        "zarándoklat"
+      ]
+    },
+    {
+      "id": "q081",
+      "type": "typed",
+      "prompt": "Melyik híres francia katedrálist említi a tankönyv?",
+      "answer": "A párizsi Notre-Dame-ot.",
+      "accepted": [
+        "notre dame"
+      ],
+      "tags": [
+        "notre_dame",
+        "katedralis"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 79
+      },
+      "distractors": [
+        "gótikus stílus",
+        "tisztaság",
+        "vasárnap",
+        "Noé",
+        "Ádám és Éva",
+        "fellegvár",
+        "Vörös-tenger",
+        "bencések",
+        "Frank Birodalom",
+        "cathedra"
+      ]
+    },
+    {
+      "id": "q082",
+      "type": "typed",
+      "prompt": "Hol tanultak a középkorban sokszor az írástudók a tankönyv szerint?",
+      "answer": "Kolostori és katedrális iskolákban.",
+      "accepted": [
+        "kolostor",
+        "katedralis iskola"
+      ],
+      "tags": [
+        "oktatas",
+        "kozepkor"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "Saul (Pál)",
+        "államvallás",
+        "Ádám és Éva",
+        "Mózes",
+        "Konstantin",
+        "tisztaság",
+        "kolostor",
+        "felvonóhíd",
+        "I. Ottó",
+        "Boldog Özséb"
+      ]
+    },
+    {
+      "id": "q083",
+      "type": "typed",
+      "prompt": "Mi a kódex?",
+      "answer": "Kézzel másolt, könyv formájú kézirat (gyakran díszítve).",
+      "accepted": [
+        "kezirat"
+      ],
+      "tags": [
+        "oktatas",
+        "kodex",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "Nagy Károly",
+        "gótikus stílus",
+        "engedelmesség",
+        "Golgota",
+        "Róma",
+        "Tízparancsolat",
+        "Ádám és Éva",
+        "Noé",
+        "Frank Birodalom",
+        "mennybemenetel"
+      ]
+    },
+    {
+      "id": "q084",
+      "type": "typed",
+      "prompt": "Miért volt lassú a könyvek terjedése a középkorban?",
+      "answer": "Mert a könyveket kézzel másolták, nyomtatás még nem volt elterjedt.",
+      "accepted": [],
+      "tags": [
+        "oktatas"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "plébános",
+        "Siratófal",
+        "gótikus stílus",
+        "gerenda",
+        "Néró",
+        "kódex",
+        "Ószövetség",
+        "zarándoklat",
+        "középkor",
+        "Damaszkusz"
+      ]
+    },
+    {
+      "id": "q085",
+      "type": "typed",
+      "prompt": "Mik voltak a középkori egyetemek előzményei a tankönyv szerint?",
+      "answer": "A kolostori és katedrális iskolák.",
+      "accepted": [],
+      "tags": [
+        "oktatas",
+        "egyetem"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "támpillér",
+        "Ponc...Pilátus",
+        "pápa",
+        "evangélium",
+        "Nagy Károly",
+        "gerenda",
+        "bencések",
+        "Bizánc",
+        "I. Ottó",
+        "plébános"
+      ]
+    },
+    {
+      "id": "q086",
+      "type": "typed",
+      "prompt": "Miért tanultak latinul a középkori iskolákban?",
+      "answer": "Mert a tudomány és az egyház nyelve a latin volt Nyugat-Európában.",
+      "accepted": [],
+      "tags": [
+        "oktatas",
+        "latin"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 81
+      },
+      "distractors": [
+        "ereklye",
+        "román stílus",
+        "Boldog Özséb",
+        "zarándoklat",
+        "Salamon",
+        "szikla",
+        "támpillér",
+        "Notre-Dame",
+        "Róma",
+        "Siratófal"
+      ]
+    },
+    {
+      "id": "q087",
+      "type": "typed",
+      "prompt": "Mit jelent a 'plébánia'?",
+      "answer": "Egyházközség; helyi egyházi közösség területe.",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Frank Birodalom",
+        "Konstantin",
+        "bencések",
+        "Újszövetség",
+        "mennybemenetel",
+        "gerenda",
+        "Saul (Pál)",
+        "Dávid",
+        "feltámadás",
+        "Damaszkusz"
+      ]
+    },
+    {
+      "id": "q088",
+      "type": "typed",
+      "prompt": "Mit jelent a monoteizmus (egyistenhit) a zsidó-keresztény hagyományban?",
+      "answer": "Egy Istenben való hit.",
+      "accepted": [
+        "egyistenhit"
+      ],
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "bencések",
+        "Golgota",
+        "zarándoklat",
+        "evangélium",
+        "Vörös-tenger",
+        "felvonóhíd",
+        "Dávid",
+        "I. Ottó",
+        "szikla",
+        "Ponc...Pilátus"
+      ]
+    },
+    {
+      "id": "q089",
+      "type": "typed",
+      "prompt": "Mit jelent a politeizmus (sokistenhit)?",
+      "answer": "Több isten tisztelete.",
+      "accepted": [
+        "sokistenhit"
+      ],
+      "tags": [
+        "biblia",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 58
+      },
+      "distractors": [
+        "engedelmesség",
+        "Róma",
+        "felvonóhíd",
+        "Damaszkusz",
+        "gerenda",
+        "katedrális",
+        "zarándoklat",
+        "vízözön",
+        "gótikus stílus",
+        "román stílus"
+      ]
+    },
+    {
+      "id": "q090",
+      "type": "typed",
+      "prompt": "Mit parancsol a Tízparancsolat első parancsa a tankönyvi összefoglaló szerint?",
+      "answer": "Ne legyenek más isteneid (csak az egy Istent tiszteld).",
+      "accepted": [
+        "ne legyenek mas isteneid"
+      ],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "katedrális",
+        "vízözön",
+        "Szent Benedek",
+        "Ószövetség",
+        "Noé",
+        "fogadalom",
+        "Golgota",
+        "Notre-Dame",
+        "Konstantin",
+        "várárok"
+      ]
+    },
+    {
+      "id": "q091",
+      "type": "typed",
+      "prompt": "Mit parancsol a Tízparancsolat 'Ne ölj!' parancsa?",
+      "answer": "Az emberi élet tiszteletét; tilos ölni.",
+      "accepted": [
+        "ne olj"
+      ],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "pápa",
+        "Salamon",
+        "Boldog Özséb",
+        "katedrális",
+        "Ószövetség",
+        "kódex",
+        "középkor",
+        "Bizánc",
+        "Góliát",
+        "felvonóhíd"
+      ]
+    },
+    {
+      "id": "q092",
+      "type": "typed",
+      "prompt": "Mit parancsol a 'Ne lopj!' parancsolat?",
+      "answer": "Más tulajdonának tiszteletét; tilos lopni.",
+      "accepted": [
+        "ne lopj"
+      ],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "Német-római Császárság",
+        "román stílus",
+        "tisztaság",
+        "latin",
+        "Góliát",
+        "ereklye",
+        "Tízparancsolat",
+        "Siratófal",
+        "Salamon",
+        "Nagy Károly"
+      ]
+    },
+    {
+      "id": "q093",
+      "type": "typed",
+      "prompt": "Mit parancsol a 'Ne hazudj!' parancsolat lényege?",
+      "answer": "Ne tégy hamis tanúbizonyságot / ne hazudj.",
+      "accepted": [
+        "ne hazudj",
+        "ne tegy hamis tanubizonysagot"
+      ],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "gótikus stílus",
+        "szegénység",
+        "Róma",
+        "Konstantin",
+        "vasárnap",
+        "Notre-Dame",
+        "feltámadás",
+        "Góliát",
+        "pápa",
+        "evangélium"
+      ]
+    },
+    {
+      "id": "q094",
+      "type": "typed",
+      "prompt": "Mit parancsol a 'Tiszteld apádat és anyádat!'?",
+      "answer": "A szülők tiszteletét.",
+      "accepted": [
+        "tiszteld apadat es anyadat"
+      ],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "ereklye",
+        "vasárnap",
+        "Tízparancsolat",
+        "román stílus",
+        "gótikus stílus",
+        "püspök",
+        "Ádám és Éva",
+        "cathedra",
+        "I. Ottó",
+        "zarándoklat"
+      ]
+    },
+    {
+      "id": "q095",
+      "type": "typed",
+      "prompt": "Mit jelent a 'Szenteld meg az ünnepnapot!' (szombat/vasárnap)?",
+      "answer": "Legyen pihenő- és vallási ünnepnap; fordíts időt Istenre és a családra.",
+      "accepted": [],
+      "tags": [
+        "tizparancsolat"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 61
+      },
+      "distractors": [
+        "apostol",
+        "Siratófal",
+        "feltámadás",
+        "püspök",
+        "evangélium",
+        "Ponc...Pilátus",
+        "Konstantin",
+        "Vörös-tenger",
+        "katedrális",
+        "Dávid"
+      ]
+    },
+    {
+      "id": "q096",
+      "type": "typed",
+      "prompt": "Miért volt fontos a népszámlálás Jézus születésének történetében?",
+      "answer": "A történet szerint ezért mentek József és Mária Betlehembe.",
+      "accepted": [],
+      "tags": [
+        "jezus"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "Visegrád",
+        "Jeruzsálem",
+        "Golgota",
+        "mennybemenetel",
+        "kódex",
+        "államvallás",
+        "gerenda",
+        "hűbér",
+        "Boldog Özséb",
+        "támpillér"
+      ]
+    },
+    {
+      "id": "q097",
+      "type": "typed",
+      "prompt": "Ki volt Heródes a történetben?",
+      "answer": "Júdea királya/uralkodója Jézus születése idején.",
+      "accepted": [
+        "herodes"
+      ],
+      "tags": [
+        "jezus"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "hűbér",
+        "vasárnap",
+        "Konstantin",
+        "Salamon",
+        "Néró",
+        "kódex",
+        "gerenda",
+        "Ószövetség",
+        "fellegvár",
+        "Góliát"
+      ]
+    },
+    {
+      "id": "q098",
+      "type": "typed",
+      "prompt": "Mi volt Júdea helyzete Jézus korában a tankönyv szerint?",
+      "answer": "Római uralom alatt állt.",
+      "accepted": [
+        "romai uralom"
+      ],
+      "tags": [
+        "jezus",
+        "roma"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "gótikus stílus",
+        "üvegablak",
+        "pápa",
+        "ereklye",
+        "cathedra",
+        "Siratófal",
+        "fogadalom",
+        "hűbér",
+        "mennybemenetel",
+        "Golgota"
+      ]
+    },
+    {
+      "id": "q099",
+      "type": "typed",
+      "prompt": "Mi a 'keresztség' jelentése a kereszténységben (alapfogalom)?",
+      "answer": "A keresztény hitbe való befogadás szertartása.",
+      "accepted": [],
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "egyetem",
+        "Ádám és Éva",
+        "ereklye",
+        "Golgota",
+        "szikla",
+        "Néró",
+        "felvonóhíd",
+        "bencések",
+        "fogadalom",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q100",
+      "type": "typed",
+      "prompt": "Mit jelent a 'Messiás' szó (általános vallástörténeti fogalom)?",
+      "answer": "Felkent, megváltóként várt személy.",
+      "accepted": [
+        "megv...megvalto"
+      ],
+      "tags": [
+        "jezus",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 63
+      },
+      "distractors": [
+        "Noé",
+        "Konstantin",
+        "feltámadás",
+        "ereklye",
+        "katedrális",
+        "Tízparancsolat",
+        "cathedra",
+        "püspök",
+        "Ádám és Éva",
+        "Újszövetség"
+      ]
+    },
+    {
+      "id": "q101",
+      "type": "typed",
+      "prompt": "Mi a 'Golgota' szó jelentése (gyakori tankönyvi magyarázat)?",
+      "answer": "Koponya-hegy; a keresztre feszítés helye.",
+      "accepted": [],
+      "tags": [
+        "keresztre_feszites",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 64
+      },
+      "distractors": [
+        "József",
+        "katedrális",
+        "Szent Benedek",
+        "Konstantin",
+        "gótikus stílus",
+        "pápa",
+        "Salamon",
+        "mennybemenetel",
+        "egyetem",
+        "Saul (Pál)"
+      ]
+    },
+    {
+      "id": "q102",
+      "type": "typed",
+      "prompt": "Mit ünnepel a kereszténység karácsonykor?",
+      "answer": "Jézus születését.",
+      "accepted": [
+        "jezus szuletese"
+      ],
+      "tags": [
+        "jezus"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 62
+      },
+      "distractors": [
+        "Ószövetség",
+        "Ádám és Éva",
+        "Nagy Károly",
+        "cathedra",
+        "Frank Birodalom",
+        "vízözön",
+        "pálosok",
+        "Damaszkusz",
+        "Notre-Dame",
+        "Szent Benedek"
+      ]
+    },
+    {
+      "id": "q103",
+      "type": "typed",
+      "prompt": "Mi volt Plinius beszámolójának lényege a keresztényekről (tankönyvi példa)?",
+      "answer": "A keresztények összegyűltek, énekeltek/esküt tettek, és erkölcsös életet ígértek.",
+      "accepted": [],
+      "tags": [
+        "uldozes"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "Damaszkusz",
+        "gótikus stílus",
+        "vízözön",
+        "lőrés",
+        "bencések",
+        "Ádám és Éva",
+        "Nagy Károly",
+        "pápa",
+        "Szent Benedek",
+        "Dávid"
+      ]
+    },
+    {
+      "id": "q104",
+      "type": "typed",
+      "prompt": "Miért volt gyanús a keresztény közösség a római hatóságok szemében?",
+      "answer": "Mert titkos összejöveteleik voltak és nem vettek részt a császárkultuszban.",
+      "accepted": [],
+      "tags": [
+        "uldozes"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "ereklye",
+        "várárok",
+        "egyetem",
+        "Boldog Özséb",
+        "Frank Birodalom",
+        "Golgota",
+        "tisztaság",
+        "Nagy Károly",
+        "Tízparancsolat",
+        "József"
+      ]
+    },
+    {
+      "id": "q105",
+      "type": "typed",
+      "prompt": "Mit jelent a 'császárkultusz'?",
+      "answer": "A császár isteni tisztelete; áldozás a császárnak.",
+      "accepted": [],
+      "tags": [
+        "roma",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 66
+      },
+      "distractors": [
+        "Tízparancsolat",
+        "Visegrád",
+        "Nagy Károly",
+        "Salamon",
+        "apostol",
+        "I. Ottó",
+        "államvallás",
+        "katedra",
+        "bencések",
+        "gótikus stílus"
+      ]
+    },
+    {
+      "id": "q106",
+      "type": "typed",
+      "prompt": "Mit jelent az 'egyenjogú vallás' a tankönyvi fordulatban?",
+      "answer": "A kereszténység szabadon gyakorolható lett, nem üldözték.",
+      "accepted": [],
+      "tags": [
+        "konstantin"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 67
+      },
+      "distractors": [
+        "Boldog Özséb",
+        "kódex",
+        "diaszpóra",
+        "Siratófal",
+        "Tízparancsolat",
+        "evangélium",
+        "gótikus stílus",
+        "Saul (Pál)",
+        "Noé",
+        "Mózes"
+      ]
+    },
+    {
+      "id": "q107",
+      "type": "typed",
+      "prompt": "Melyik császárhoz kötik a kereszténység állami támogatásának kezdetét?",
+      "answer": "Konstantinhoz.",
+      "accepted": [
+        "konstantin"
+      ],
+      "tags": [
+        "konstantin"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 67
+      },
+      "distractors": [
+        "Salamon",
+        "egyetem",
+        "Góliát",
+        "Róma",
+        "üvegablak",
+        "Szent Benedek",
+        "Boldog Özséb",
+        "román stílus",
+        "Frank Birodalom",
+        "püspök"
+      ]
+    },
+    {
+      "id": "q108",
+      "type": "typed",
+      "prompt": "Mit jelent a 'püspöki szék' (cathedra) a katedrális definíciójában?",
+      "answer": "A püspök tanítói/vezetői jelképes széke; innen a katedrális elnevezés.",
+      "accepted": [],
+      "tags": [
+        "katedralis",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 79
+      },
+      "distractors": [
+        "bencések",
+        "Tízparancsolat",
+        "lőrés",
+        "ereklye",
+        "szálka",
+        "Nagy Károly",
+        "Ádám és Éva",
+        "pálosok",
+        "József",
+        "Német-római Császárság"
+      ]
+    },
+    {
+      "id": "q109",
+      "type": "typed",
+      "prompt": "Mit jelent a 'liturgia' (alapfogalom)?",
+      "answer": "Istentiszteleti szertartásrend.",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Saul (Pál)",
+        "Notre-Dame",
+        "román stílus",
+        "vasárnap",
+        "I. Ottó",
+        "Vörös-tenger",
+        "cathedra",
+        "püspök",
+        "lőrés",
+        "ereklye"
+      ]
+    },
+    {
+      "id": "q110",
+      "type": "typed",
+      "prompt": "Mi a különbség a pap és a szerzetes között?",
+      "answer": "A pap a hívek lelkipásztora (plébánián), a szerzetes rendi szabály szerint kolostorban él (nem feltétlenül pap).",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "szerzetesek"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "Tízparancsolat",
+        "Salamon",
+        "Német-római Császárság",
+        "cathedra",
+        "Dávid",
+        "zarándoklat",
+        "román stílus",
+        "kolostor",
+        "Keresztelő János",
+        "diaszpóra"
+      ]
+    },
+    {
+      "id": "q111",
+      "type": "typed",
+      "prompt": "Mit jelent az 'ora et labora' jelmondat (bencésekhez kötik)?",
+      "answer": "Imádkozz és dolgozz.",
+      "accepted": [
+        "imadkozz es dolgozz"
+      ],
+      "tags": [
+        "bences"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "vízözön",
+        "engedelmesség",
+        "lőrés",
+        "kolostor",
+        "Vörös-tenger",
+        "Frank Birodalom",
+        "mennybemenetel",
+        "szálka",
+        "latin",
+        "katedra"
+      ]
+    },
+    {
+      "id": "q112",
+      "type": "typed",
+      "prompt": "Mi a kolostor?",
+      "answer": "Szerzetesek lakóhelye és közössége.",
+      "accepted": [],
+      "tags": [
+        "szerzetesek",
+        "fogalom"
+      ],
+      "difficulty": 1,
+      "explanation": "",
+      "source": {
+        "book_page": 77
+      },
+      "distractors": [
+        "Bizánc",
+        "I. Ottó",
+        "katedra",
+        "ereklye",
+        "Ponc...Pilátus",
+        "Jeruzsálem",
+        "apostol",
+        "Keresztelő János",
+        "kolostor",
+        "Tízparancsolat"
+      ]
+    },
+    {
+      "id": "q113",
+      "type": "typed",
+      "prompt": "Miért voltak a kolostorok a tanulás központjai?",
+      "answer": "Mert ott másolták a könyveket és iskolákat működtettek; az írástudás ott volt erős.",
+      "accepted": [],
+      "tags": [
+        "oktatas",
+        "szerzetesek"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "szikla",
+        "szálka",
+        "Damaszkusz",
+        "diaszpóra",
+        "Keresztelő János",
+        "gerenda",
+        "Konstantin",
+        "fellegvár",
+        "Frank Birodalom",
+        "Siratófal"
+      ]
+    },
+    {
+      "id": "q114",
+      "type": "typed",
+      "prompt": "Mi az 'illum... illumináció' a kódexeknél (alapfogalom)?",
+      "answer": "Díszített, festett kezdőbetűk és képek a kéziratokban.",
+      "accepted": [],
+      "tags": [
+        "kodex",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 80
+      },
+      "distractors": [
+        "román stílus",
+        "szálka",
+        "üvegablak",
+        "Jeruzsálem",
+        "apostol",
+        "fogadalom",
+        "Keresztelő János",
+        "mennybemenetel",
+        "Ószövetség",
+        "egyetem"
+      ]
+    },
+    {
+      "id": "q115",
+      "type": "typed",
+      "prompt": "Mit jelent a 'hűségeskü' a hűbéri rendszerben?",
+      "answer": "A vazallus hűséget fogadott urának, cserébe birtokot és védelmet kapott.",
+      "accepted": [],
+      "tags": [
+        "huberi"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 71
+      },
+      "distractors": [
+        "bencések",
+        "vasárnap",
+        "Boldog Özséb",
+        "evangélium",
+        "latin",
+        "várárok",
+        "Visegrád",
+        "felvonóhíd",
+        "Ószövetség",
+        "Néró"
+      ]
+    },
+    {
+      "id": "q116",
+      "type": "typed",
+      "prompt": "Kik voltak a jobbágyok a középkori társadalomban?",
+      "answer": "Földművelő parasztok, akik a földesúrnak szolgáltatásokkal tartoztak.",
+      "accepted": [],
+      "tags": [
+        "kozepkor",
+        "huberi"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 71
+      },
+      "distractors": [
+        "diaszpóra",
+        "latin",
+        "kolostor",
+        "Konstantin",
+        "felvonóhíd",
+        "Újszövetség",
+        "plébános",
+        "evangélium",
+        "középkor",
+        "Nagy Károly"
+      ]
+    },
+    {
+      "id": "q117",
+      "type": "typed",
+      "prompt": "Miért vették körül a várat gyakran árokkal?",
+      "answer": "Nehezítette a rohamot és a falak alá jutást (védelmi akadály).",
+      "accepted": [],
+      "tags": [
+        "varak"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "bencések",
+        "Újszövetség",
+        "fellegvár",
+        "plébános",
+        "Konstantin",
+        "Német-római Császárság",
+        "üvegablak",
+        "evangélium",
+        "Bizánc",
+        "Ószövetség"
+      ]
+    },
+    {
+      "id": "q118",
+      "type": "typed",
+      "prompt": "Mi volt a vártorony szerepe?",
+      "answer": "Megfigyelés és védelem; jelző- és őrhely.",
+      "accepted": [],
+      "tags": [
+        "varak"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 72
+      },
+      "distractors": [
+        "Noé",
+        "szálka",
+        "Mózes",
+        "üvegablak",
+        "Német-római Császárság",
+        "Néró",
+        "engedelmesség",
+        "román stílus",
+        "Saul (Pál)",
+        "várárok"
+      ]
+    },
+    {
+      "id": "q119",
+      "type": "typed",
+      "prompt": "Miért épültek a gótikus templomok magasabbra, mint a román templomok?",
+      "answer": "A szerkezet (támpillér, boltozat) jobban elosztotta a terheket, így magasabb falak és nagy ablakok készülhettek.",
+      "accepted": [],
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "Góliát",
+        "Visegrád",
+        "katedrális",
+        "egyetem",
+        "Siratófal",
+        "Néró",
+        "feltámadás",
+        "Damaszkusz",
+        "Keresztelő János",
+        "zarándoklat"
+      ]
+    },
+    {
+      "id": "q120",
+      "type": "typed",
+      "prompt": "Mi jellemző a román templomok belső terére (fény szempontból)?",
+      "answer": "Sötétebb, mert kicsik az ablakok és vastagok a falak.",
+      "accepted": [],
+      "tags": [
+        "epiteszet",
+        "roman"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "fellegvár",
+        "zarándoklat",
+        "Bizánc",
+        "kódex",
+        "apostol",
+        "Notre-Dame",
+        "Újszövetség",
+        "püspök",
+        "Szent Benedek",
+        "Saul (Pál)"
+      ]
+    },
+    {
+      "id": "q121",
+      "type": "typed",
+      "prompt": "Miért fontosak a nagy üvegablakok a gótikus templomokban?",
+      "answer": "Sok fényt engednek be és bibliai történeteket is ábrázolhattak.",
+      "accepted": [],
+      "tags": [
+        "epiteszet",
+        "gotikus"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 78
+      },
+      "distractors": [
+        "felvonóhíd",
+        "üvegablak",
+        "Frank Birodalom",
+        "kolostor",
+        "Nagy Károly",
+        "Notre-Dame",
+        "József",
+        "mennybemenetel",
+        "Újszövetség",
+        "gerenda"
+      ]
+    },
+    {
+      "id": "q122",
+      "type": "typed",
+      "prompt": "Mit jelent a 'szent' fogalma a kereszténységben (alap)?",
+      "answer": "Olyan személy, akit példás hitéért/életéért az egyház külön tiszteletben részesít.",
+      "accepted": [],
+      "tags": [
+        "szentek",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "hűbér",
+        "diaszpóra",
+        "Ponc...Pilátus",
+        "plébános",
+        "felvonóhíd",
+        "evangélium",
+        "szikla",
+        "Újszövetség",
+        "Visegrád",
+        "pálosok"
+      ]
+    },
+    {
+      "id": "q123",
+      "type": "typed",
+      "prompt": "Mi a legenda?",
+      "answer": "Szentekről, csodákról szóló tanulságos elbeszélés.",
+      "accepted": [],
+      "tags": [
+        "szentek",
+        "fogalom"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "vízözön",
+        "támpillér",
+        "Ádám és Éva",
+        "Vörös-tenger",
+        "szikla",
+        "Tízparancsolat",
+        "apostol",
+        "fogadalom",
+        "engedelmesség",
+        "Golgota"
+      ]
+    },
+    {
+      "id": "q124",
+      "type": "typed",
+      "prompt": "Miért tisztelték az ereklyéket a középkorban?",
+      "answer": "Mert a szentekhez kapcsolódó tárgyaknak különleges (vallási) jelentőséget tulajdonítottak.",
+      "accepted": [],
+      "tags": [
+        "ereklye"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 76
+      },
+      "distractors": [
+        "latin",
+        "Golgota",
+        "Jeruzsálem",
+        "Róma",
+        "lőrés",
+        "mennybemenetel",
+        "Újszövetség",
+        "szikla",
+        "Ponc...Pilátus",
+        "katedra"
+      ]
+    },
+    {
+      "id": "q125",
+      "type": "typed",
+      "prompt": "Mi a 'pápaság' szerepe a nyugati egyházban?",
+      "answer": "A pápa vezető szerepe: a nyugati kereszténység irányítása és egységének fenntartása.",
+      "accepted": [],
+      "tags": [
+        "papa"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Vörös-tenger",
+        "várárok",
+        "Frank Birodalom",
+        "szikla",
+        "kódex",
+        "szálka",
+        "Nagy Károly",
+        "Német-római Császárság",
+        "gerenda",
+        "mennybemenetel"
+      ]
+    },
+    {
+      "id": "q126",
+      "type": "typed",
+      "prompt": "Miért volt nagy tekintélye a pápának a középkorban?",
+      "answer": "Mert vallási vezetőként az emberek üdvösségéről és a hit kérdéseiről döntött, és nagy politikai befolyása is volt.",
+      "accepted": [],
+      "tags": [
+        "papa"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "pálosok",
+        "Keresztelő János",
+        "gótikus stílus",
+        "Ószövetség",
+        "vízözön",
+        "cathedra",
+        "kolostor",
+        "román stílus",
+        "Jeruzsálem",
+        "Róma"
+      ]
+    },
+    {
+      "id": "q127",
+      "type": "typed",
+      "prompt": "Mit jelöl a 'plébánia' kifejezés a mindennapokban?",
+      "answer": "Egy település/kerület egyházi közösségét és területét.",
+      "accepted": [],
+      "tags": [
+        "egyhaz",
+        "plebanos"
+      ],
+      "difficulty": 2,
+      "explanation": "",
+      "source": {
+        "book_page": 74
+      },
+      "distractors": [
+        "Keresztelő János",
+        "hűbér",
+        "szálka",
+        "pápa",
+        "felvonóhíd",
+        "támpillér",
+        "vízözön",
+        "diaszpóra",
+        "Ponc...Pilátus",
+        "fellegvár"
+      ]
+    },
+    {
+      "id": "q128",
+      "type": "typed",
+      "prompt": "Mit jelent a 'katedra' szó (tanári asztal/...) és hogyan kapcsolódik a cathedrához?",
+      "answer": "A cathedra eredetileg szék; innen a katedra szó is.",
+      "accepted": [],
+      "tags": [
+        "oktatas",
+        "fogalom"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 79
+      },
+      "distractors": [
+        "román stílus",
+        "Keresztelő János",
+        "szegénység",
+        "püspök",
+        "pápa",
+        "Jeruzsálem",
+        "szálka",
+        "József",
+        "Frank Birodalom",
+        "kolostor"
+      ]
+    },
+    {
+      "id": "q129",
+      "type": "typed",
+      "prompt": "Mi volt a latin szerepe a középkori tudományban?",
+      "answer": "Közös nyelvként összekötötte az európai tanult embereket és az egyházat.",
+      "accepted": [],
+      "tags": [
+        "latin",
+        "oktatas"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 81
+      },
+      "distractors": [
+        "Néró",
+        "vízözön",
+        "püspök",
+        "fogadalom",
+        "Saul (Pál)",
+        "Siratófal",
+        "Góliát",
+        "pálosok",
+        "katedrális",
+        "várárok"
+      ]
+    },
+    {
+      "id": "q130",
+      "type": "typed",
+      "prompt": "Mi volt a középkori egyetemek célja?",
+      "answer": "Magasabb szintű képzés (pl. jog, teológia, orvoslás), tudósok képzése.",
+      "accepted": [],
+      "tags": [
+        "egyetem"
+      ],
+      "difficulty": 3,
+      "explanation": "",
+      "source": {
+        "book_page": 81
+      },
+      "distractors": [
+        "zarándoklat",
+        "Mózes",
+        "Újszövetség",
+        "fellegvár",
+        "vasárnap",
+        "ereklye",
+        "üvegablak",
+        "cathedra",
+        "felvonóhíd",
+        "engedelmesség"
+      ]
+    }
+  ]
+}
