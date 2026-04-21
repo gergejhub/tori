@@ -9,1328 +9,532 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ===== ROOT VARIABLES ===== */
-:root {
-  --coral:    #FF6B6B;
-  --gold:     #FFD93D;
-  --mint:     #51CF66;
-  --sky:      #339AF0;
-  --purple:   #CC5DE8;
-  --orange:   #FF9F43;
-  --pink:     #F783AC;
-  --teal:     #38D9A9;
-  --dark:     #212529;
-  --light:    #F8F9FA;
-  --white:    #FFFFFF;
-  --shadow:   0 6px 24px rgba(0,0,0,.15);
-  --radius:   22px;
-  --radiusSm: 14px;
-}
-
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html { font-size: 16px; }
-body {
-  font-family: 'Nunito', sans-serif;
-  background: linear-gradient(135deg, #FFF5E6 0%, #FFF0FB 50%, #EEF6FF 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: var(--dark);
-}
-
-/* ===== APP WRAPPER ===== */
-#app {
-  max-width: 430px;
-  margin: 0 auto;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ===== SCREEN BASE ===== */
-.screen {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0 0 32px;
-  animation: fadeIn .35s ease;
-}
-@keyframes fadeIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
-@keyframes pop    { 0% { transform:scale(1); } 50% { transform:scale(1.18); } 100% { transform:scale(1); } }
-@keyframes shake  { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
-@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-@keyframes spin   { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-@keyframes pulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.8;transform:scale(.97)} }
-@keyframes confettiDrop { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
-@keyframes starPop { 0%{transform:scale(0) rotate(-30deg);opacity:0} 60%{transform:scale(1.3) rotate(5deg);opacity:1} 100%{transform:scale(1) rotate(0deg);opacity:1} }
-@keyframes flipIn { from{transform:rotateY(90deg);opacity:0} to{transform:rotateY(0deg);opacity:1} }
-
-/* ===== HEADER ===== */
-.header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 20px 20px 14px;
-  position: relative;
-}
-.header-back {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: var(--white);
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
-  display: flex; align-items:center; justify-content:center;
-  transition: transform .15s;
-}
-.header-back:active { transform: scale(.92); }
-.header-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.25rem;
-  color: var(--dark);
-  flex: 1;
-}
-.header-score {
-  font-weight: 900;
-  font-size: .95rem;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 5px 12px;
-  border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
-}
-
-/* ===== WELCOME SCREEN ===== */
-.welcome-bg {
-  background: linear-gradient(160deg, #FF6B6B 0%, #FF9F43 40%, #FFD93D 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 24px;
-  position: relative;
-  overflow: hidden;
-}
-.welcome-castle {
-  font-size: 6rem;
-  animation: bounce 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,.25));
-  margin-bottom: 8px;
-}
-.welcome-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.4rem;
-  color: var(--white);
-  text-align: center;
-  text-shadow: 0 3px 12px rgba(0,0,0,.2);
-  line-height: 1.15;
-}
-.welcome-sub {
-  font-size: 1.05rem;
-  color: rgba(255,255,255,.92);
-  text-align: center;
-  margin: 10px 0 28px;
-  font-weight: 700;
-}
-.welcome-card {
-  background: rgba(255,255,255,.97);
-  border-radius: 28px;
-  padding: 28px 24px;
-  width: 100%;
-  box-shadow: 0 12px 40px rgba(0,0,0,.18);
-}
-.input-label {
-  font-size: .9rem;
-  font-weight: 800;
-  color: #555;
-  margin-bottom: 8px;
-  display: block;
-}
-.name-input {
-  width: 100%;
-  padding: 14px 18px;
-  border: 3px solid #FFD93D;
-  border-radius: 14px;
-  font-size: 1.1rem;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  background: #FFFDE7;
-  color: var(--dark);
-  outline: none;
-  transition: border-color .2s;
-}
-.name-input:focus { border-color: #FF6B6B; }
-.btn-primary {
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(135deg, #FF6B6B 0%, #FF9F43 100%);
-  color: white;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.25rem;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255,107,107,.45);
-  transition: transform .15s, box-shadow .15s;
-  margin-top: 16px;
-  letter-spacing: .5px;
-}
-.btn-primary:active { transform: scale(.96); box-shadow: 0 3px 12px rgba(255,107,107,.4); }
-
-/* ===== HOME SCREEN ===== */
-.home-hero {
-  background: linear-gradient(135deg, #339AF0 0%, #CC5DE8 100%);
-  padding: 28px 24px 40px;
-  position: relative;
-  overflow: hidden;
-}
-.home-hero::after {
-  content: '';
-  position: absolute;
-  bottom: -20px; left: 0; right: 0;
-  height: 44px;
-  background: linear-gradient(135deg, #FFF5E6 0%, #FFF0FB 50%, #EEF6FF 100%);
-  border-radius: 50% 50% 0 0 / 44px 44px 0 0;
-}
-.home-greeting {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.7rem;
-  color: white;
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
-.home-sub {
-  color: rgba(255,255,255,.88);
-  font-size: .95rem;
-  font-weight: 700;
-}
-.home-stars-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-  align-items: center;
-}
-.star-badge {
-  background: rgba(255,255,255,.25);
-  border-radius: 50px;
-  padding: 6px 14px;
-  color: white;
-  font-weight: 800;
-  font-size: .9rem;
-  backdrop-filter: blur(8px);
-}
-.home-body { padding: 32px 20px 24px; }
-.section-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
-  color: var(--dark);
-  margin-bottom: 14px;
-}
-.topic-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-  border: 3px solid transparent;
-  transition: transform .15s, border-color .15s, box-shadow .15s;
-  position: relative;
-  overflow: hidden;
-}
-.topic-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 6px; height: 100%;
-  border-radius: 4px 0 0 4px;
-}
-.topic-card.red::before  { background: linear-gradient(180deg, #FF6B6B, #FF9F43); }
-.topic-card.blue::before { background: linear-gradient(180deg, #339AF0, #CC5DE8); }
-.topic-card:active { transform: scale(.97); box-shadow: 0 3px 12px rgba(0,0,0,.12); }
-.topic-emoji {
-  font-size: 3rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.topic-info { flex: 1; }
-.topic-name {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.15rem;
-  color: var(--dark);
-  margin-bottom: 4px;
-}
-.topic-desc {
-  font-size: .83rem;
-  color: #777;
-  font-weight: 600;
-}
-.topic-progress {
-  display: flex;
-  gap: 6px;
-  margin-top: 8px;
-}
-.progress-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #E9ECEF;
-}
-.progress-dot.done { background: var(--mint); }
-.topic-arrow {
-  font-size: 1.4rem;
-  color: #CCC;
-}
-
-/* ===== TOPIC MENU ===== */
-.topic-header {
-  padding: 24px 20px;
-  text-align: center;
-  position: relative;
-}
-.topic-header-emoji { font-size: 4.5rem; animation: bounce 2s ease-in-out infinite; display: block; margin-bottom: 8px; }
-.topic-header-name {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.8rem;
-  color: var(--dark);
-}
-.topic-header-sub { font-size: .9rem; color: #888; font-weight: 700; margin-top: 4px; }
-.mode-cards { padding: 0 20px; display: flex; flex-direction: column; gap: 14px; }
-.mode-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  border: none;
-  text-align: left;
-  transition: transform .15s, box-shadow .15s;
-  box-shadow: 0 4px 16px rgba(0,0,0,.12);
-  position: relative;
-  overflow: hidden;
-}
-.mode-card:active { transform: scale(.97); }
-.mode-card.study  { background: linear-gradient(135deg, #FFF3CD, #FFE082); }
-.mode-card.quiz   { background: linear-gradient(135deg, #D3F9D8, #B2F2BB); }
-.mode-card.tf     { background: linear-gradient(135deg, #E5DBFF, #D0BFFF); }
-.mode-card.all    { background: linear-gradient(135deg, #FFE3E3, #FFC9C9); }
-.mode-icon { font-size: 2.4rem; flex-shrink: 0; }
-.mode-info { flex: 1; }
-.mode-name {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.15rem;
-  color: var(--dark);
-}
-.mode-desc { font-size: .82rem; color: #555; font-weight: 700; margin-top: 3px; }
-.mode-badge {
-  background: rgba(0,0,0,.1);
-  padding: 4px 10px;
-  border-radius: 50px;
-  font-size: .78rem;
-  font-weight: 800;
-  color: #333;
-}
-
-/* ===== FLASHCARD SCREEN ===== */
-.study-progress {
-  padding: 12px 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.progress-bar-wrap {
-  flex: 1;
-  height: 10px;
-  background: #E9ECEF;
-  border-radius: 50px;
-  overflow: hidden;
-}
-.progress-bar-fill {
-  height: 100%;
-  border-radius: 50px;
-  background: linear-gradient(90deg, #FF6B6B, #FFD93D);
-  transition: width .4s ease;
-}
-.progress-text {
-  font-size: .85rem;
-  font-weight: 800;
-  color: #888;
-  white-space: nowrap;
-}
-.flashcard-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 20px;
-}
-.flashcard-hint {
-  font-size: .82rem;
-  color: #AAA;
-  font-weight: 700;
-  margin-bottom: 12px;
-  text-align: center;
-}
-.flashcard {
-  width: 100%;
-  min-height: 220px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-.flashcard-inner {
-  position: relative;
-  width: 100%;
-  min-height: 220px;
-  transition: transform .5s ease;
-  transform-style: preserve-3d;
-}
-.flashcard-inner.flipped { transform: rotateY(180deg); }
-.flashcard-face {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  min-height: 220px;
-  border-radius: var(--radius);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,.18);
-  text-align: center;
-}
-.flashcard-front {
-  background: linear-gradient(135deg, #4D96FF 0%, #339AF0 100%);
-  color: white;
-}
-.flashcard-back {
-  background: linear-gradient(135deg, #51CF66 0%, #38D9A9 100%);
-  color: white;
-  transform: rotateY(180deg);
-}
-.card-side-label {
-  font-size: .72rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: .7;
-  margin-bottom: 12px;
-}
-.card-emoji { font-size: 2.5rem; margin-bottom: 12px; }
-.card-text {
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1.4;
-}
-.flashcard-nav {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  width: 100%;
-}
-.btn-nav {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform .15s;
-  box-shadow: 0 3px 12px rgba(0,0,0,.12);
-}
-.btn-nav:active { transform: scale(.95); }
-.btn-prev { background: #E9ECEF; color: #555; }
-.btn-next { background: linear-gradient(135deg, #FF6B6B, #FF9F43); color: white; }
-.btn-flip {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.05rem;
-  cursor: pointer;
-  background: linear-gradient(135deg, #CC5DE8, #9C27B0);
-  color: white;
-  box-shadow: 0 3px 12px rgba(0,0,0,.15);
-  transition: transform .15s;
-  margin-bottom: 10px;
-}
-.btn-flip:active { transform: scale(.95); }
-
-/* ===== QUIZ SCREEN ===== */
-.quiz-header { padding: 16px 20px 8px; }
-.quiz-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.quiz-qnum {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  color: var(--dark);
-}
-.timer-wrap {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--white);
-  padding: 6px 14px;
-  border-radius: 50px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.1);
-}
-.timer-icon { font-size: 1.1rem; }
-.timer-text {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  min-width: 28px;
-  text-align: center;
-}
-.timer-text.urgent { color: #FF6B6B; animation: pulse .6s ease infinite; }
-.timer-bar-wrap { width: 100%; height: 8px; background: #E9ECEF; border-radius: 50px; overflow: hidden; }
-.timer-bar-fill {
-  height: 100%;
-  border-radius: 50px;
-  background: linear-gradient(90deg, #51CF66, #FFD93D, #FF6B6B);
-  transition: width 1s linear;
-}
-.quiz-body { padding: 16px 20px; }
-.question-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 22px;
-  box-shadow: var(--shadow);
-  margin-bottom: 20px;
-}
-.question-emoji { font-size: 2.2rem; display: block; margin-bottom: 10px; text-align: center; }
-.question-text {
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1.45;
-  text-align: center;
-  color: var(--dark);
-}
-.options-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.option-btn {
-  width: 100%;
-  padding: 15px 18px;
-  border: 3px solid #E9ECEF;
-  border-radius: 14px;
-  background: var(--white);
-  font-family: 'Nunito', sans-serif;
-  font-size: .97rem;
-  font-weight: 700;
-  color: var(--dark);
-  cursor: pointer;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: border-color .15s, background .15s, transform .1s;
-  line-height: 1.35;
-}
-.option-btn:active { transform: scale(.98); }
-.option-btn.correct {
-  border-color: #51CF66;
-  background: #D3F9D8;
-  animation: pop .3s ease;
-}
-.option-btn.wrong {
-  border-color: #FF6B6B;
-  background: #FFE3E3;
-  animation: shake .3s ease;
-}
-.option-btn.reveal {
-  border-color: #51CF66;
-  background: #D3F9D8;
-}
-.option-btn:disabled { cursor: default; }
-.option-letter {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  background: #F1F3F5;
-  display: flex; align-items:center; justify-content:center;
-  font-weight: 900;
-  font-size: .88rem;
-  flex-shrink: 0;
-}
-.option-btn.correct .option-letter { background: #51CF66; color: white; }
-.option-btn.wrong   .option-letter { background: #FF6B6B; color: white; }
-.option-btn.reveal  .option-letter { background: #51CF66; color: white; }
-.feedback-box {
-  padding: 14px 18px;
-  border-radius: 14px;
-  font-weight: 800;
-  font-size: .95rem;
-  text-align: center;
-  margin-bottom: 16px;
-  display: none;
-}
-.feedback-box.show { display: block; animation: fadeIn .3s ease; }
-.feedback-box.ok  { background: #D3F9D8; color: #2F9E44; border: 2px solid #8CE99A; }
-.feedback-box.bad { background: #FFE3E3; color: #C92A2A; border: 2px solid #FFA8A8; }
-.btn-next-q {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background: linear-gradient(135deg, #339AF0 0%, #CC5DE8 100%);
-  color: white;
-  box-shadow: 0 4px 16px rgba(51,154,240,.35);
-  transition: transform .15s;
-  display: none;
-}
-.btn-next-q.show { display: block; animation: fadeIn .3s ease; }
-.btn-next-q:active { transform: scale(.96); }
-
-/* ===== TRUE/FALSE SCREEN ===== */
-.tf-question-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 26px 24px;
-  box-shadow: var(--shadow);
-  margin: 20px 20px 16px;
-  text-align: center;
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.tf-emoji { font-size: 2.5rem; margin-bottom: 14px; }
-.tf-text {
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1.5;
-  color: var(--dark);
-}
-.tf-buttons {
-  display: flex;
-  gap: 14px;
-  padding: 0 20px;
-  margin-top: 4px;
-}
-.tf-btn {
-  flex: 1;
-  padding: 18px 10px;
-  border: none;
-  border-radius: 18px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
-  cursor: pointer;
-  transition: transform .15s, box-shadow .15s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 14px rgba(0,0,0,.15);
-}
-.tf-btn:active { transform: scale(.94); }
-.tf-true  { background: linear-gradient(135deg, #51CF66, #38D9A9); color: white; }
-.tf-false { background: linear-gradient(135deg, #FF6B6B, #FF9F43); color: white; }
-.tf-btn-icon { font-size: 2rem; }
-.tf-btn-label { font-size: .85rem; }
-.tf-feedback {
-  padding: 14px 20px;
-  margin: 12px 20px 0;
-  border-radius: 14px;
-  font-weight: 800;
-  text-align: center;
-  display: none;
-  animation: fadeIn .3s ease;
-}
-.tf-feedback.show { display: block; }
-.tf-feedback.ok  { background: #D3F9D8; color: #2F9E44; }
-.tf-feedback.bad { background: #FFE3E3; color: #C92A2A; }
-
-/* ===== RESULT SCREEN ===== */
-.result-screen {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 24px;
-  position: relative;
-  background: linear-gradient(135deg, #339AF0 0%, #CC5DE8 60%, #FF6B6B 100%);
-  overflow: hidden;
-}
-.result-emoji {
-  font-size: 5.5rem;
-  animation: bounce 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,.25));
-}
-.result-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.3rem;
-  color: white;
-  text-align: center;
-  margin: 12px 0 4px;
-  text-shadow: 0 3px 10px rgba(0,0,0,.2);
-}
-.result-msg {
-  color: rgba(255,255,255,.9);
-  font-size: 1rem;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 20px;
-  max-width: 300px;
-}
-.stars-display {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-.star-display {
-  font-size: 2.8rem;
-  animation: starPop .4s ease both;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.3));
-}
-.star-display:nth-child(1) { animation-delay: .1s; }
-.star-display:nth-child(2) { animation-delay: .3s; }
-.star-display:nth-child(3) { animation-delay: .5s; }
-.result-score-card {
-  background: rgba(255,255,255,.22);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 20px 32px;
-  text-align: center;
-  margin-bottom: 24px;
-  border: 2px solid rgba(255,255,255,.35);
-}
-.result-score-num {
-  font-family: 'Fredoka One', cursive;
-  font-size: 3rem;
-  color: white;
-  line-height: 1;
-}
-.result-score-sub {
-  color: rgba(255,255,255,.8);
-  font-size: .9rem;
-  font-weight: 700;
-}
-.result-btns { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 280px; }
-.btn-retry {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background: white;
-  color: var(--dark);
-  box-shadow: 0 4px 16px rgba(0,0,0,.2);
-  transition: transform .15s;
-}
-.btn-retry:active { transform: scale(.96); }
-.btn-home {
-  width: 100%;
-  padding: 15px;
-  border: 3px solid rgba(255,255,255,.6);
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background: transparent;
-  color: white;
-  transition: transform .15s, background .15s;
-}
-.btn-home:active { transform: scale(.96); background: rgba(255,255,255,.15); }
-
-/* Confetti particles */
-.confetti-piece {
-  position: absolute;
-  width: 12px; height: 12px;
-  border-radius: 2px;
-  animation: confettiDrop linear both;
-  pointer-events: none;
-}
-
-/* ===== MISC UTILS ===== */
-.spacer-sm { height: 12px; }
-.spacer-md { height: 20px; }
-.text-center { text-align: center; }
-.emoji-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin: 12px 0; }
-
-/* ===== FLOATING DECOR ===== */
-.decor { position: absolute; pointer-events: none; opacity: .07; font-size: 5rem; }
-
-/* ===== STUDY COMPLETE BANNER ===== */
-.study-done-banner {
-  background: linear-gradient(135deg, #FFD93D, #FF9F43);
-  padding: 16px 20px;
-  border-radius: 16px;
-  margin: 16px 20px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
-}
-.study-done-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
-  color: white;
-  margin-bottom: 4px;
-}
-.study-done-sub { font-size: .9rem; color: rgba(255,255,255,.9); font-weight: 700; }
-.btn-start-quiz {
-  width: calc(100% - 40px);
-  margin: 0 20px;
-  padding: 15px;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background: linear-gradient(135deg, #51CF66, #38D9A9);
-  color: white;
-  box-shadow: 0 4px 16px rgba(81,207,102,.35);
-  transition: transform .15s;
-}
-.btn-start-quiz:active { transform: scale(.96); }
-
-/* ===== MASCOT CHAT BUBBLE ===== */
-.mascot-bubble {
-  background: var(--white);
-  border-radius: 18px 18px 18px 4px;
-  padding: 12px 16px;
-  margin: 12px 20px 4px;
-  font-size: .9rem;
-  font-weight: 700;
-  color: var(--dark);
-  box-shadow: 0 3px 12px rgba(0,0,0,.1);
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.mascot-icon { font-size: 1.6rem; flex-shrink: 0; }
+:root{--coral:#FF6B6B;--gold:#FFD93D;--mint:#51CF66;--sky:#339AF0;--purple:#CC5DE8;--orange:#FF9F43;--dark:#212529;--white:#FFFFFF;--shadow:0 6px 24px rgba(0,0,0,.15);--radius:22px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#FFF5E6 0%,#FFF0FB 50%,#EEF6FF 100%);min-height:100vh;overflow-x:hidden;color:var(--dark)}
+#app{max-width:430px;margin:0 auto;min-height:100vh;position:relative;overflow:hidden}
+.screen{min-height:100vh;display:flex;flex-direction:column;padding:0 0 32px;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.8;transform:scale(.97)}}
+@keyframes confettiDrop{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes starPop{0%{transform:scale(0) rotate(-30deg);opacity:0}60%{transform:scale(1.3) rotate(5deg);opacity:1}100%{transform:scale(1) rotate(0deg);opacity:1}}
+.header{display:flex;align-items:center;gap:10px;padding:20px 20px 14px}
+.header-back{width:42px;height:42px;border-radius:50%;background:var(--white);border:none;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.header-back:active{transform:scale(.92)}
+.header-title{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);flex:1}
+.header-score{font-weight:900;font-size:.95rem;background:var(--gold);color:var(--dark);padding:5px 12px;border-radius:50px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.welcome-bg{background:linear-gradient(160deg,#FF6B6B 0%,#FF9F43 40%,#FFD93D 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;position:relative;overflow:hidden}
+.welcome-castle{font-size:6rem;animation:bounce 2.5s ease-in-out infinite;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));margin-bottom:8px}
+.welcome-title{font-family:'Fredoka One',cursive;font-size:2.4rem;color:#fff;text-align:center;text-shadow:0 3px 12px rgba(0,0,0,.2);line-height:1.15}
+.welcome-sub{font-size:1.05rem;color:rgba(255,255,255,.92);text-align:center;margin:10px 0 28px;font-weight:700}
+.welcome-card{background:rgba(255,255,255,.97);border-radius:28px;padding:28px 24px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+.input-label{font-size:.9rem;font-weight:800;color:#555;margin-bottom:8px;display:block}
+.name-input{width:100%;padding:14px 18px;border:3px solid #FFD93D;border-radius:14px;font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700;background:#FFFDE7;color:var(--dark);outline:none;transition:border-color .2s}
+.name-input:focus{border-color:#FF6B6B}
+.btn-primary{width:100%;padding:16px;background:linear-gradient(135deg,#FF6B6B 0%,#FF9F43 100%);color:white;font-family:'Fredoka One',cursive;font-size:1.25rem;border:none;border-radius:16px;cursor:pointer;box-shadow:0 6px 20px rgba(255,107,107,.45);transition:transform .15s;margin-top:16px}
+.btn-primary:active{transform:scale(.96)}
+.home-hero{background:linear-gradient(135deg,#339AF0 0%,#CC5DE8 100%);padding:28px 24px 40px;position:relative;overflow:hidden}
+.home-hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:44px;background:linear-gradient(135deg,#FFF5E6 0%,#FFF0FB 50%,#EEF6FF 100%);border-radius:50% 50% 0 0 / 44px 44px 0 0}
+.home-greeting{font-family:'Fredoka One',cursive;font-size:1.7rem;color:white;line-height:1.2;margin-bottom:4px}
+.home-sub{color:rgba(255,255,255,.88);font-size:.95rem;font-weight:700}
+.home-stars-row{display:flex;gap:8px;margin-top:16px;align-items:center}
+.star-badge{background:rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;color:white;font-weight:800;font-size:.9rem;backdrop-filter:blur(8px)}
+.home-body{padding:32px 20px 24px}
+.section-title{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--dark);margin-bottom:14px}
+.topic-card{background:var(--white);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px;cursor:pointer;border:3px solid transparent;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+.topic-card::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;border-radius:4px 0 0 4px}
+.topic-card.red::before{background:linear-gradient(180deg,#FF6B6B,#FF9F43)}
+.topic-card.blue::before{background:linear-gradient(180deg,#339AF0,#CC5DE8)}
+.topic-card:active{transform:scale(.97)}
+.topic-emoji{font-size:3rem;line-height:1;flex-shrink:0}
+.topic-info{flex:1}
+.topic-name{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--dark);margin-bottom:4px}
+.topic-desc{font-size:.83rem;color:#777;font-weight:600}
+.topic-progress{display:flex;gap:6px;margin-top:8px}
+.progress-dot{width:10px;height:10px;border-radius:50%;background:#E9ECEF}
+.progress-dot.done{background:var(--mint)}
+.topic-arrow{font-size:1.4rem;color:#CCC}
+.topic-header{padding:24px 20px;text-align:center}
+.topic-header-emoji{font-size:4.5rem;animation:bounce 2s ease-in-out infinite;display:block;margin-bottom:8px}
+.topic-header-name{font-family:'Fredoka One',cursive;font-size:1.8rem;color:var(--dark)}
+.topic-header-sub{font-size:.9rem;color:#888;font-weight:700;margin-top:4px}
+.mode-cards{padding:0 20px;display:flex;flex-direction:column;gap:14px}
+.mode-card{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--radius);cursor:pointer;border:none;text-align:left;transition:transform .15s;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.mode-card:active{transform:scale(.97)}
+.mode-card.study{background:linear-gradient(135deg,#FFF3CD,#FFE082)}
+.mode-card.quiz{background:linear-gradient(135deg,#D3F9D8,#B2F2BB)}
+.mode-card.tf{background:linear-gradient(135deg,#E5DBFF,#D0BFFF)}
+.mode-icon{font-size:2.4rem;flex-shrink:0}
+.mode-info{flex:1}
+.mode-name{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--dark)}
+.mode-desc{font-size:.82rem;color:#555;font-weight:700;margin-top:3px}
+.mode-badge{background:rgba(0,0,0,.1);padding:4px 10px;border-radius:50px;font-size:.78rem;font-weight:800;color:#333}
+.study-progress{padding:12px 20px 0;display:flex;align-items:center;gap:10px}
+.progress-bar-wrap{flex:1;height:10px;background:#E9ECEF;border-radius:50px;overflow:hidden}
+.progress-bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,#FF6B6B,#FFD93D);transition:width .4s ease}
+.progress-text{font-size:.85rem;font-weight:800;color:#888;white-space:nowrap}
+.flashcard-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.flashcard-hint{font-size:.82rem;color:#AAA;font-weight:700;margin-bottom:12px;text-align:center}
+.flashcard{width:100%;min-height:220px;perspective:1000px;cursor:pointer}
+.flashcard-inner{position:relative;width:100%;min-height:220px;transition:transform .5s ease;transform-style:preserve-3d}
+.flashcard-inner.flipped{transform:rotateY(180deg)}
+.flashcard-face{position:absolute;top:0;left:0;right:0;min-height:220px;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 8px 32px rgba(0,0,0,.18);text-align:center}
+.flashcard-front{background:linear-gradient(135deg,#4D96FF 0%,#339AF0 100%);color:white}
+.flashcard-back{background:linear-gradient(135deg,#51CF66 0%,#38D9A9 100%);color:white;transform:rotateY(180deg)}
+.card-side-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;opacity:.7;margin-bottom:12px}
+.card-emoji{font-size:2.5rem;margin-bottom:12px}
+.card-text{font-size:1.05rem;font-weight:800;line-height:1.4}
+.flashcard-nav{display:flex;gap:12px;margin-top:20px;width:100%}
+.btn-nav{flex:1;padding:14px;border:none;border-radius:14px;font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;transition:transform .15s;box-shadow:0 3px 12px rgba(0,0,0,.12)}
+.btn-nav:active{transform:scale(.95)}
+.btn-prev{background:#E9ECEF;color:#555}
+.btn-next{background:linear-gradient(135deg,#FF6B6B,#FF9F43);color:white}
+.btn-flip{width:100%;padding:14px;border:none;border-radius:14px;font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;background:linear-gradient(135deg,#CC5DE8,#9C27B0);color:white;box-shadow:0 3px 12px rgba(0,0,0,.15);transition:transform .15s;margin-bottom:10px}
+.btn-flip:active{transform:scale(.95)}
+.quiz-header{padding:16px 20px 8px}
+.quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.quiz-qnum{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--dark)}
+.timer-wrap{display:flex;align-items:center;gap:6px;background:var(--white);padding:6px 14px;border-radius:50px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.timer-text{font-family:'Fredoka One',cursive;font-size:1.1rem;min-width:28px;text-align:center}
+.timer-text.urgent{color:#FF6B6B;animation:pulse .6s ease infinite}
+.timer-bar-wrap{width:100%;height:8px;background:#E9ECEF;border-radius:50px;overflow:hidden}
+.timer-bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,#51CF66,#FFD93D,#FF6B6B);transition:width 1s linear}
+.quiz-body{padding:16px 20px}
+.question-card{background:var(--white);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:20px}
+.question-emoji{font-size:2.2rem;display:block;margin-bottom:10px;text-align:center}
+.question-text{font-size:1.05rem;font-weight:800;line-height:1.45;text-align:center;color:var(--dark)}
+.options-grid{display:flex;flex-direction:column;gap:10px}
+.option-btn{width:100%;padding:15px 18px;border:3px solid #E9ECEF;border-radius:14px;background:var(--white);font-family:'Nunito',sans-serif;font-size:.97rem;font-weight:700;color:var(--dark);cursor:pointer;text-align:left;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s,transform .1s;line-height:1.35}
+.option-btn:active{transform:scale(.98)}
+.option-btn.correct{border-color:#51CF66;background:#D3F9D8;animation:pop .3s ease}
+.option-btn.wrong{border-color:#FF6B6B;background:#FFE3E3;animation:shake .3s ease}
+.option-btn.reveal{border-color:#51CF66;background:#D3F9D8}
+.option-btn:disabled{cursor:default}
+.option-letter{width:30px;height:30px;border-radius:50%;background:#F1F3F5;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.88rem;flex-shrink:0}
+.option-btn.correct .option-letter{background:#51CF66;color:white}
+.option-btn.wrong .option-letter{background:#FF6B6B;color:white}
+.option-btn.reveal .option-letter{background:#51CF66;color:white}
+.feedback-box{padding:14px 18px;border-radius:14px;font-weight:800;font-size:.95rem;text-align:center;margin-bottom:16px;display:none}
+.feedback-box.show{display:block;animation:fadeIn .3s ease}
+.feedback-box.ok{background:#D3F9D8;color:#2F9E44;border:2px solid #8CE99A}
+.feedback-box.bad{background:#FFE3E3;color:#C92A2A;border:2px solid #FFA8A8}
+.btn-next-q{width:100%;padding:15px;border:none;border-radius:14px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;background:linear-gradient(135deg,#339AF0 0%,#CC5DE8 100%);color:white;box-shadow:0 4px 16px rgba(51,154,240,.35);transition:transform .15s;display:none}
+.btn-next-q.show{display:block;animation:fadeIn .3s ease}
+.btn-next-q:active{transform:scale(.96)}
+.tf-question-card{background:var(--white);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow);margin:20px 20px 16px;text-align:center;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tf-emoji{font-size:2.5rem;margin-bottom:14px}
+.tf-text{font-size:1.05rem;font-weight:800;line-height:1.5;color:var(--dark)}
+.tf-buttons{display:flex;gap:14px;padding:0 20px;margin-top:4px}
+.tf-btn{flex:1;padding:18px 10px;border:none;border-radius:18px;font-family:'Fredoka One',cursive;font-size:1.3rem;cursor:pointer;transition:transform .15s;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.tf-btn:active{transform:scale(.94)}
+.tf-true{background:linear-gradient(135deg,#51CF66,#38D9A9);color:white}
+.tf-false{background:linear-gradient(135deg,#FF6B6B,#FF9F43);color:white}
+.tf-btn-icon{font-size:2rem}
+.tf-btn-label{font-size:.85rem}
+.tf-feedback{padding:14px 20px;margin:12px 20px 0;border-radius:14px;font-weight:800;text-align:center;display:none;animation:fadeIn .3s ease}
+.tf-feedback.show{display:block}
+.tf-feedback.ok{background:#D3F9D8;color:#2F9E44}
+.tf-feedback.bad{background:#FFE3E3;color:#C92A2A}
+.result-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;position:relative;background:linear-gradient(135deg,#339AF0 0%,#CC5DE8 60%,#FF6B6B 100%);overflow:hidden}
+.result-emoji{font-size:5.5rem;animation:bounce 1.5s ease-in-out infinite;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25))}
+.result-title{font-family:'Fredoka One',cursive;font-size:2.3rem;color:white;text-align:center;margin:12px 0 4px;text-shadow:0 3px 10px rgba(0,0,0,.2)}
+.result-msg{color:rgba(255,255,255,.9);font-size:1rem;text-align:center;font-weight:700;margin-bottom:20px;max-width:300px}
+.stars-display{display:flex;gap:8px;margin-bottom:20px}
+.star-display{font-size:2.8rem;animation:starPop .4s ease both;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
+.star-display:nth-child(1){animation-delay:.1s}
+.star-display:nth-child(2){animation-delay:.3s}
+.star-display:nth-child(3){animation-delay:.5s}
+.result-score-card{background:rgba(255,255,255,.22);backdrop-filter:blur(12px);border-radius:20px;padding:20px 32px;text-align:center;margin-bottom:24px;border:2px solid rgba(255,255,255,.35)}
+.result-score-num{font-family:'Fredoka One',cursive;font-size:3rem;color:white;line-height:1}
+.result-score-sub{color:rgba(255,255,255,.8);font-size:.9rem;font-weight:700}
+.result-btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px}
+.btn-retry{width:100%;padding:15px;border:none;border-radius:14px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;background:white;color:var(--dark);box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .15s}
+.btn-retry:active{transform:scale(.96)}
+.btn-home{width:100%;padding:15px;border:3px solid rgba(255,255,255,.6);border-radius:14px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;background:transparent;color:white;transition:transform .15s,background .15s}
+.btn-home:active{transform:scale(.96);background:rgba(255,255,255,.15)}
+.confetti-piece{position:absolute;width:12px;height:12px;border-radius:2px;animation:confettiDrop linear both;pointer-events:none}
+.spacer-sm{height:12px}.spacer-md{height:20px}
+.decor{position:absolute;pointer-events:none;opacity:.07;font-size:5rem}
+.study-done-banner{background:linear-gradient(135deg,#FFD93D,#FF9F43);padding:16px 20px;border-radius:16px;margin:16px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.study-done-title{font-family:'Fredoka One',cursive;font-size:1.3rem;color:white;margin-bottom:4px}
+.study-done-sub{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:700}
+.btn-start-quiz{width:calc(100% - 40px);margin:0 20px;padding:15px;border:none;border-radius:14px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;background:linear-gradient(135deg,#51CF66,#38D9A9);color:white;box-shadow:0 4px 16px rgba(81,207,102,.35);transition:transform .15s}
+.btn-start-quiz:active{transform:scale(.96)}
+.mascot-bubble{background:var(--white);border-radius:18px 18px 18px 4px;padding:12px 16px;margin:12px 20px 4px;font-size:.9rem;font-weight:700;color:var(--dark);box-shadow:0 3px 12px rgba(0,0,0,.1);display:flex;align-items:center;gap:10px}
+.mascot-icon{font-size:1.6rem;flex-shrink:0}
 </style>
 </head>
 <body>
 <div id="app"></div>
-
 <script>
-/* =====================================================================
-   GAME DATA — Magyar 5. osztályos történelem NAT2020
-   III. Fejezet: Kereszténység  |  IV. Fejezet: A középkor világai
-   ===================================================================== */
-const DATA = {
-
-  keresztenyseg: {
-    id: 'keresztenyseg',
-    name: 'A Kereszténység',
-    emoji: '✝️',
-    color: 'red',
-    desc: '8–9. lecke • Jézus, apostolok, egyház',
-    flashcards: [
-      { q:'Hol és kik körében alakult ki a kereszténység?', a:'Júdea provinciában, a zsidó nép körében.', emoji:'🗺️' },
-      { q:'Ki alapította a kereszténységet?', a:'Jézus Krisztus – Isten Fia, a Megváltó (Messiás).', emoji:'✝️' },
-      { q:'Hol született Jézus?', a:'Betlehemben (ma Palesztina területén).', emoji:'⭐' },
-      { q:'Hol nevelkedett Jézus?', a:'Názáretben – ezért „a Názáreti Jézus".', emoji:'🏡' },
-      { q:'Hol halt meg Jézus?', a:'Jeruzsálemben – keresztre feszítve.', emoji:'⛪' },
-      { q:'Kik az apostolok?', a:'Jézus 12 tanítványa, akik terjesztették tanításait.', emoji:'👥' },
-      { q:'Mit jelent az evangélium?', a:'Jó hír – Jézus életét és tanításait leíró könyv. Négy evangélista: Máté, Márk, Lukács, János.', emoji:'📖' },
-      { q:'Miből áll a Biblia?', a:'Ószövetségből (zsidó szentírás) és Újszövetségből (Jézus élete, apostolok levelei).', emoji:'📚' },
-      { q:'Mi a kereszténység legfontosabb tanítása?', a:'Szeretni kell Istent és az embereket. Jézus feltámadt és örök életet ígért.', emoji:'❤️' },
-      { q:'Ki volt Pál apostol?', a:'Eredetileg Saul – a damaszkuszi úton tért meg. Ő terjesztette a kereszténységet a nem zsidók között is.', emoji:'🛤️' },
-      { q:'Miért üldözték a keresztényeket Rómában?', a:'Mert nem imádták a császárt istenként, és nem áldoztak a szobrai előtt.', emoji:'🦁' },
-      { q:'Kik a mártírok / vértanúk?', a:'Azok, akik életüket áldozták a keresztény hitükért.', emoji:'🌹' },
-      { q:'Mikor adták ki a Milánói ediktumot és ki adta ki?', a:'313-ban, Nagy Konstantin császár – szabad vallásgyakorlatot biztosított.', emoji:'📜' },
-      { q:'Mit tett Theodosius császár?', a:'A kereszténységet a Római Birodalom egyetlen hivatalos (állam)vallásává tette.', emoji:'👑' },
-      { q:'Mikor volt az egyházszakadás?', a:'1054-ben – a kereszténység keleti és nyugati ágra szakadt.', emoji:'✂️' },
-      { q:'Mi lett a nyugati egyház neve?', a:'Katolikus (jelentése: igaz hitű, általános) – Rómából irányítva, élén a pápa.', emoji:'🏛️' },
-      { q:'Mi lett a keleti egyház neve?', a:'Ortodox (görögkeleti) – Konstantinápolyból, élén a pátriárka.', emoji:'🕌' },
-      { q:'Mit jelent az „Ora et labora" mondás?', a:'Imádkozz és dolgozz! – A Benedek-rend jelmondata.', emoji:'🙏' },
-      { q:'Mi a szerzetesség?', a:'Szerzetesek kolostorokban élnek, imádkoznak, tanítanak, betegeket ápolnak, könyveket másolnak.', emoji:'📝' },
-      { q:'Hol volt a keleti kereszténység fővárosa?', a:'Konstantinápolyban (Bizánc) – a Bizánci Birodalom fővárosa.', emoji:'🏙️' }
-    ],
-    quiz: [
-      {
-        q:'Hol alakult ki a kereszténység?',
-        emoji:'🗺️',
-        opts:['Rómában','Júdea provinciában','Egyiptomban','Görögországban'],
-        ans:1,
-        exp:'A kereszténység Júdea provinciában, a zsidó nép körében alakult ki.'
-      },
-      {
-        q:'Mi Jézus másik neve / címe?',
-        emoji:'✝️',
-        opts:['Mohamed','Buddha','Messiás / Megváltó','Fáraó'],
-        ans:2,
-        exp:'Jézus Krisztus = a Felkent, vagyis a Megváltó (Messiás).'
-      },
-      {
-        q:'Hol született Jézus?',
-        emoji:'⭐',
-        opts:['Jeruzsálemben','Názáretben','Betlehemben','Rómában'],
-        ans:2,
-        exp:'Jézus Betlehemben született.'
-      },
-      {
-        q:'Hol nevelkedett Jézus?',
-        emoji:'🏡',
-        opts:['Betlehemben','Egyiptomban','Jeruzsálemben','Názáretben'],
-        ans:3,
-        exp:'Jézus Názáretben nevelkedett – ezért hívják „a Názáreti Jézusnak".'
-      },
-      {
-        q:'Hány apostola (tanítványa) volt Jézusnak?',
-        emoji:'👥',
-        opts:['7','10','12','15'],
-        ans:2,
-        exp:'Jézusnak 12 apostola volt.'
-      },
-      {
-        q:'Miből áll a Biblia?',
-        emoji:'📚',
-        opts:['Csak az Újszövetségből','Ószövetségből és Újszövetségből','Három részből','Csak az Ószövetségből'],
-        ans:1,
-        exp:'A Biblia két részből áll: Ószövetség + Újszövetség.'
-      },
-      {
-        q:'Mi volt Pál apostol neve MIELŐTT megtért?',
-        emoji:'🛤️',
-        opts:['Péter','Saul','János','Tamás'],
-        ans:1,
-        exp:'Pál apostol eredeti neve Saul volt – a damaszkuszi úton tért meg.'
-      },
-      {
-        q:'Miért üldözték a keresztényeket a Római Birodalomban?',
-        emoji:'🦁',
-        opts:['Nem fizették az adót','Loptak a piacról','Nem imádták istenként a császárt','Háborút viseltek Róma ellen'],
-        ans:2,
-        exp:'A keresztények nem tekintették istennek a császárt – ezért üldözték őket.'
-      },
-      {
-        q:'Ki adta ki a Milánói ediktumot (313)?',
-        emoji:'📜',
-        opts:['Julius Caesar','Néró','Theodosius','Nagy Konstantin'],
-        ans:3,
-        exp:'Nagy Konstantin adta ki 313-ban – szabad vallásgyakorlatot biztosított.'
-      },
-      {
-        q:'Mikor következett be az egyházszakadás?',
-        emoji:'✂️',
-        opts:['313-ban','476-ban','800-ban','1054-ben'],
-        ans:3,
-        exp:'1054-ben szakadt ketté a kereszténység katolikus és ortodox ágra.'
-      },
-      {
-        q:'Mit jelent az „Ora et labora"?',
-        emoji:'🙏',
-        opts:['Élj és harcolj!','Tanulj és játssz!','Imádkozz és dolgozz!','Egyél és aludj!'],
-        ans:2,
-        exp:'„Ora et labora" = Imádkozz és dolgozz! – a Benedek-rend jelmondata.'
-      },
-      {
-        q:'Mi lett a nyugati egyház neve az egyházszakadás után?',
-        emoji:'🏛️',
-        opts:['Ortodox','Protestáns','Evangélikus','Katolikus'],
-        ans:3,
-        exp:'A nyugati egyház neve: Katolikus (Róma, élén a pápa).'
-      },
-      {
-        q:'Hol volt a nyugati kereszténység vezető városa?',
-        emoji:'🏙️',
-        opts:['Konstantinápolyban','Jeruzsálemben','Rómában','Athénban'],
-        ans:2,
-        exp:'A nyugati kereszténység vezető városa Róma – élén a pápa.'
-      },
-      {
-        q:'Hogyan nevezzük azokat, akik életüket adták a hitükért?',
-        emoji:'🌹',
-        opts:['Apostolok','Szerzetesek','Mártírok / vértanúk','Püspökök'],
-        ans:2,
-        exp:'A mártírok (vértanúk) életüket áldozták a keresztény hitért.'
-      },
-      {
-        q:'Melyik rend jelmondata az „Ora et labora"?',
-        emoji:'📝',
-        opts:['Jezsuita rend','Ferences rend','Benedek-rend','Domonkos-rend'],
-        ans:2,
-        exp:'Az „Ora et labora" a Benedek-rend jelmondata.'
-      }
-    ],
-    tf: [
-      { s:'Jézus Betlehemben született.', t:true,  emoji:'⭐', exp:'Igen! Betlehemben született.' },
-      { s:'Jézus Rómában halt meg.', t:false, emoji:'❌', exp:'Nem! Jeruzsálemben halt meg, keresztre feszítve.' },
-      { s:'Pál apostol eredeti neve Saul volt.', t:true, emoji:'🛤️', exp:'Igen! A damaszkuszi úton tért meg és változtatta nevét Pálra.' },
-      { s:'A Milánói ediktumot 313-ban adták ki.', t:true, emoji:'📜', exp:'Igen! Nagy Konstantin 313-ban adta ki.' },
-      { s:'Az egyházszakadás 1054-ben következett be.', t:true, emoji:'✂️', exp:'Igen! 1054 az egyházszakadás éve.' },
-      { s:'A katolikus egyház központja Konstantinápoly.', t:false, emoji:'🏛️', exp:'Nem! A katolikus egyház központja Róma; Konstantinápoly az ortodox egyházé.' },
-      { s:'Az ortodox egyház a keleti egyház.', t:true, emoji:'🕌', exp:'Igen! Az ortodox (görögkeleti) egyház a keleti ág.' },
-      { s:'Az „Ora et labora" a Benedek-rend jelmondata.', t:true, emoji:'🙏', exp:'Igen! Imádkozz és dolgozz!' },
-      { s:'Jézusnak 7 apostola volt.', t:false, emoji:'👥', exp:'Nem! Jézusnak 12 apostola volt.' },
-      { s:'A Biblia Ószövetségből és Újszövetségből áll.', t:true, emoji:'📚', exp:'Igen! Két nagy részből áll a Biblia.' },
-      { s:'Theodosius tette a kereszténységet a birodalom államvallásává.', t:true, emoji:'👑', exp:'Igen! Theodosius intézkedett erről.' },
-      { s:'A keresztényeket azért üldözték, mert nem fizették az adót.', t:false, emoji:'🦁', exp:'Nem! Azért üldözték őket, mert nem imádták istenként a császárt.' },
-      { s:'Az evangéliumokat Jézus maga írta.', t:false, emoji:'📖', exp:'Nem! A négy evangélista (Máté, Márk, Lukács, János) írta le Jézus életét.' },
-      { s:'A szerzetesek kolostorokban élnek.', t:true, emoji:'🏰', exp:'Igen! A szerzetesek kolostorokban élnek és dolgoznak.' },
-      { s:'Jézus Názáretben nevelkedett.', t:true, emoji:'🏡', exp:'Igen! Ezért is hívják „a Názáreti Jézusnak".' }
-    ]
-  },
-
-  kozepkor: {
-    id: 'kozepkor',
-    name: 'A Középkor Világai',
-    emoji: '🏰',
-    color: 'blue',
-    desc: '10–13. lecke • Hűbériség, lovagok, városok',
-    flashcards: [
-      { q:'Mi a hűbéri rend (feudalizmus)?', a:'Földbirtok-adományozáson alapuló középkori társadalmi rend: a hűbérúr földet ad, a hűbéres cserébe katonai szolgálatot teljesít.', emoji:'🏰' },
-      { q:'Ki a hűbérúr és ki a hűbéres?', a:'Hűbérúr = aki a földet adja. Hűbéres = aki megkapja a földet és cserébe harcol érte.', emoji:'🤝' },
-      { q:'Mi az uradalom?', a:'A hűbérúr birtoka – megmunkálja a jobbágy.', emoji:'🌾' },
-      { q:'Ki a jobbágy?', a:'A nemesek földjén élő és dolgozó paraszt, aki különféle kötelezettségekkel tartozik a hűbérúrnak.', emoji:'👨‍🌾' },
-      { q:'Mi a robot?', a:'Ingyenmunka – a jobbágy a hűbérúr földjén dolgozik ingyen (általában heti 1-2 nap).', emoji:'🔨' },
-      { q:'Mi a dézsma?', a:'A termés tizede – a jobbágynak a betakarított termés 1/10-ét kellett az egyháznak adni.', emoji:'🌽' },
-      { q:'Mi a három nyomásos gazdálkodás?', a:'A szántóföld három részre oszlik: 1) őszi gabona, 2) tavaszi gabona, 3) ugar (pihenő). Minden évben más rész pihen.', emoji:'🌱' },
-      { q:'Mit jelent az „ugar"?', a:'Megmunkálatlan, pihenő föld – egy éven át nem vetnek bele semmit, hogy visszanyerje termőerejét.', emoji:'🏔️' },
-      { q:'Kik a lovagok?', a:'Páncélba öltözött, lóháton harcoló nemesek, akik egy hűbérúrnak esküdtek hűséget.', emoji:'⚔️' },
-      { q:'Milyen erények jellemzik a lovagot?', a:'Bátorság, hűség, becsület, vallásosság – ezeket lovagi erényeknek hívjuk.', emoji:'🛡️' },
-      { q:'Mit csináltak a szerzetesek a kolostorban?', a:'Imádkoztak, tanítottak, betegeket ápoltak, könyveket másoltak – „Ora et labora" = Imádkozz és dolgozz!', emoji:'📜' },
-      { q:'Mi az egyházi hierarchia helyes sorrendje?', a:'Pápa → érsek → püspök → plébános (fentről lefelé haladva).', emoji:'⛪' },
-      { q:'Mi a román stílus jellemzője?', a:'Vastag falak, kis kerek ablakok, félkör alakú (félkörös) boltozatok – masszív, nehéz megjelenés.', emoji:'🏛️' },
-      { q:'Mi a gótikus stílus jellemzője?', a:'Csúcsos ívek, nagy üvegablakok (rózsaablakok), égbe törő tornyok – nyújtott, könnyű megjelenés.', emoji:'🔮' },
-      { q:'Hogyan alakultak ki a középkori városok?', a:'A 11–12. században kereskedők és iparosok gyűltek össze biztos helyen – vásárok, folyópartok, várak közelében.', emoji:'🏙️' },
-      { q:'Mi a céh?', a:'Az azonos mesterséget folytató iparosok szövetsége – tagjai: mester → legény → inas.', emoji:'🔧' },
-      { q:'Mi a kiváltságlevél?', a:'A városoknak adott írott jogok: önkormányzat, vásártartás joga, adókedvezmények.', emoji:'📋' },
-      { q:'Ki volt Nagy Károly?', a:'Frank király, akit 800-ban koronáztak (nyugat)római császárrá. Nagy birodalmat hozott létre Európában.', emoji:'👑' },
-      { q:'Mi a Bizánci Birodalom?', a:'A Keletrómai Birodalom örököse – fővárosa Konstantinápoly (Bizánc). 1453-ig fennállt.', emoji:'🕌' },
-      { q:'Mi a lovagi torna?', a:'Katonai gyakorlat és szórakozás – lovagok harcolnak egymás ellen lándsával vagy karddal, szabályozott körülmények között.', emoji:'🏇' }
-    ],
-    quiz: [
-      {
-        q:'Mit nevezünk hűbéri rendnek (feudalizmusnak)?',
-        emoji:'🏰',
-        opts:['Rabszolgatartó társadalom','Demokratikus városállam','Földbirtok-adományozáson alapuló társadalmi rend','Katonai diktatúra'],
-        ans:2,
-        exp:'A hűbéri rend (feudalizmus) a földbirtok-adományozáson alapuló középkori társadalmi rend.'
-      },
-      {
-        q:'Mi a robot?',
-        emoji:'🔨',
-        opts:['Fémből készült katona','Ingyenmunka a hűbérúr földjén','A lovag páncélzata','Középkori eszköz neve'],
-        ans:1,
-        exp:'A robot ingyenmunka – a jobbágy a hűbérúr földjén dolgozik ingyen.'
-      },
-      {
-        q:'Mi a dézsma?',
-        emoji:'🌽',
-        opts:['Az összes termés elvétele','A termés fele','A termés tizede az egyháznak','A városi adó neve'],
-        ans:2,
-        exp:'A dézsma a termés tizede (1/10 része), amit az egyháznak kellett adni.'
-      },
-      {
-        q:'Mi az uradalom?',
-        emoji:'🌾',
-        opts:['A városi piac','A hűbérúr birtoka','A kolostor kertje','A lovagi torna helyszíne'],
-        ans:1,
-        exp:'Az uradalom a hűbérúr birtoka, amelyet a jobbágyok művelnek meg.'
-      },
-      {
-        q:'Mi a három nyomásos gazdálkodásnál az „ugar"?',
-        emoji:'🌱',
-        opts:['Egy búzafajta neve','Pihenő, megmunkálatlan föld','Az őszi gabona neve','A szántóföld neve'],
-        ans:1,
-        exp:'Az ugar pihenő föld – egy évig nem vetnek bele, hogy visszanyerje termőerejét.'
-      },
-      {
-        q:'Milyen erények jellemzik a lovagot?',
-        emoji:'⚔️',
-        opts:['Kapzsiság, gyávaság, lustaság','Bátorság, hűség, becsület, vallásosság','Okosság, ügyesség, gazdagság','Gyorsaság, erő, magasság'],
-        ans:1,
-        exp:'A lovagi erények: bátorság, hűség, becsület, vallásosság.'
-      },
-      {
-        q:'Mi az egyházi hierarchia LEGFELSŐ fokozata?',
-        emoji:'⛪',
-        opts:['Érsek','Plébános','Püspök','Pápa'],
-        ans:3,
-        exp:'Pápa → érsek → püspök → plébános. A pápa a legfelső.'
-      },
-      {
-        q:'Mi jellemzi a ROMÁN stílusú épületeket?',
-        emoji:'🏛️',
-        opts:['Csúcsos ívek és nagy ablakok','Üveg és acél szerkezet','Vastag falak, kis ablakok, félkör alakú boltozat','Lapos tető és kerengő folyosók'],
-        ans:2,
-        exp:'A román stílusra vastag falak, kis kerek ablakok és félkörös boltozatok jellemzők.'
-      },
-      {
-        q:'Mi jellemzi a GÓTIKUS stílusú épületeket?',
-        emoji:'🔮',
-        opts:['Vastag falak és kis ablakok','Csúcsos ívek, nagy ablakok, magas tornyok','Lapos tető és teraszok','Kör alaprajzú templomok'],
-        ans:1,
-        exp:'A gótikus stílusra csúcsos ívek, nagy üvegablakok (rózsaablakok) és magas tornyok jellemzők.'
-      },
-      {
-        q:'Mi a céh?',
-        emoji:'🔧',
-        opts:['Egy középkori ital neve','Az iparosok szövetsége','A lovagok szövetsége','A szerzetesek közössége'],
-        ans:1,
-        exp:'A céh az azonos mesterséget folytató iparosok szövetsége (mester → legény → inas).'
-      },
-      {
-        q:'Ki volt Nagy Károly?',
-        emoji:'👑',
-        opts:['Bizánci császár','Magyar vezér','Pápa','Frank király, akit 800-ban koronáztak császárrá'],
-        ans:3,
-        exp:'Nagy Károly frank király volt, akit 800-ban koronáztak meg nyugati (frank) császárrá.'
-      },
-      {
-        q:'Mi volt a Bizánci Birodalom?',
-        emoji:'🕌',
-        opts:['A Nyugatrómai Birodalom örököse','Arab birodalom','A Keletrómai Birodalom örököse, fővárosa Konstantinápoly','Frank királyság'],
-        ans:2,
-        exp:'A Bizánci Birodalom a Keletrómai Birodalom örököse, fővárosa Konstantinápoly (Bizánc).'
-      },
-      {
-        q:'Mit csináltak a szerzetesek a kolostorban?',
-        emoji:'📜',
-        opts:['Csak imádkoztak','Csak harcoltak','Imádkoztak, tanítottak, betegeket ápoltak, könyveket másoltak','Csak kertészkedtek'],
-        ans:2,
-        exp:'A szerzetesek az „Ora et labora" jegyében sokféle munkát végeztek a kolostorban.'
-      },
-      {
-        q:'Mi a kiváltságlevél?',
-        emoji:'📋',
-        opts:['Adófizetési kötelezettség','Egyházi engedély','Hűbéri eskü szövege','Városnak adott írott jogok (önkormányzat, vásártartás)'],
-        ans:3,
-        exp:'A kiváltságlevél a városnak adott írott jogokat tartalmazta: önkormányzat, vásártartás stb.'
-      },
-      {
-        q:'Ki a jobbágy?',
-        emoji:'👨‍🌾',
-        opts:['A hűbérúr legközelebbi lovagja','A kolostorban élő szerzetes','A nemesek földjén élő és dolgozó paraszt','A városi kereskedő'],
-        ans:2,
-        exp:'A jobbágy a nemesek földjén élő és dolgozó paraszt, aki robotot és dézsmát fizetett.'
-      }
-    ],
-    tf: [
-      { s:'A feudalizmus másik neve a hűbéri rend.', t:true, emoji:'🏰', exp:'Igen! Feudalizmus = hűbéri rend.' },
-      { s:'A robot ingyenmunka a hűbérúr földjén.', t:true, emoji:'🔨', exp:'Igen! A jobbágy ingyen dolgozott a hűbérúrnak.' },
-      { s:'A dézsma a termés fele, amit a királynak adtak.', t:false, emoji:'🌽', exp:'Nem! A dézsma a termés TIZEDE, amit az EGYHÁZNAK adtak.' },
-      { s:'A három nyomásos gazdálkodásnál a föld harmada minden évben pihen (ugar).', t:true, emoji:'🌱', exp:'Igen! Az „ugar" a pihentetett rész.' },
-      { s:'A lovagok gyalogosan, karddal harcoltak.', t:false, emoji:'⚔️', exp:'Nem! A lovagok lóháton, páncélban harcoltak.' },
-      { s:'A lovagi erények közé tartozik a bátorság és a hűség.', t:true, emoji:'🛡️', exp:'Igen! Bátorság, hűség, becsület, vallásosság.' },
-      { s:'Az egyházi hierarchiában a pápa a legfelső vezető.', t:true, emoji:'⛪', exp:'Igen! Pápa → érsek → püspök → plébános.' },
-      { s:'A román stílusra a csúcsos ívek és nagy ablakok jellemzők.', t:false, emoji:'🏛️', exp:'Nem! A csúcsos ívek GÓTIKUS jellemzők; a román stílusnál vastag falak és kis ablakok vannak.' },
-      { s:'A gótikus templomokra jellemzők a rózsaablakok.', t:true, emoji:'🔮', exp:'Igen! A nagy, díszes rózsaablakok gótikus jellemzők.' },
-      { s:'A céh az iparosok szövetsége volt.', t:true, emoji:'🔧', exp:'Igen! Azonos mesterséget folytató iparosok szövetsége.' },
-      { s:'Nagy Károlyt 800-ban koronázták császárrá.', t:true, emoji:'👑', exp:'Igen! 800-ban, karácsonykor, Rómában koronázták meg.' },
-      { s:'A Bizánci Birodalom a Nyugatrómai Birodalom örököse volt.', t:false, emoji:'🕌', exp:'Nem! A KELETRÓMAI Birodalom örököse volt, fővárosa Konstantinápoly.' },
-      { s:'A kiváltságlevél a városok jogait tartalmazta.', t:true, emoji:'📋', exp:'Igen! Önkormányzat, vásártartás joga stb.' },
-      { s:'A jobbágy nemesi származású volt.', t:false, emoji:'👨‍🌾', exp:'Nem! A jobbágy paraszt volt, a nemesek földjén élt és dolgozott.' },
-      { s:'A szerzetesek jelmondata: „Imádkozz és dolgozz!"', t:true, emoji:'📜', exp:'Igen! „Ora et labora" = Imádkozz és dolgozz! – Benedek-rend.' }
-    ]
+/* =====================================================
+   FISHER-YATES KEVERŐ — valódi véletlenszerű sorrend!
+   ===================================================== */
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
   }
-};
+  return a;
+}
 
-/* =====================================================================
+/* =====================================================
+   TELJES TANANYAG — NAT2020 Történelem 5. osztály
+   III. Kereszténység  |  IV. A középkor világai
+   ===================================================== */
+const DATA={
+
+/* ── KERESZTÉNYSÉG ─────────────────────────────────── */
+keresztenyseg:{
+  id:'keresztenyseg',name:'A Kereszténység',emoji:'✝️',color:'red',
+  desc:'8–9. lecke • Jézus, apostolok, egyház, 1054',
+  flashcards:[
+    {q:'Hol és kik körében alakult ki a kereszténység?',a:'Júdea provinciában, a zsidó nép körében.',emoji:'🗺️'},
+    {q:'Ki alapította a kereszténységet?',a:'Jézus Krisztus – Isten Fia, a Megváltó (Messiás).',emoji:'✝️'},
+    {q:'Hol született Jézus?',a:'Betlehemben (ma Palesztina területén).',emoji:'⭐'},
+    {q:'Hol nevelkedett Jézus?',a:'Názáretben – ezért „a Názáreti Jézus".',emoji:'🏡'},
+    {q:'Hol halt meg Jézus?',a:'Jeruzsálemben – keresztre feszítve.',emoji:'⛪'},
+    {q:'Kik az apostolok?',a:'Jézus 12 tanítványa, akik terjesztették tanításait.',emoji:'👥'},
+    {q:'Mit jelent az „evangélium" szó?',a:'Jó hír – Jézus életét és tanításait leíró könyv. Négy evangélista: Máté, Márk, Lukács, János.',emoji:'📖'},
+    {q:'Miből áll a Biblia?',a:'Ószövetségből (zsidó szentírás) és Újszövetségből (Jézus élete, apostolok).',emoji:'📚'},
+    {q:'Mi a kereszténység legfontosabb tanítása?',a:'Szeretni kell Istent és az embereket. Jézus feltámadt és örök életet ígért.',emoji:'❤️'},
+    {q:'Ki volt Pál apostol és mi volt az eredeti neve?',a:'Eredetileg Saul – a damaszkuszi úton tért meg, és ő terjesztette a kereszténységet a nem zsidók között is.',emoji:'🛤️'},
+    {q:'Miért üldözték a keresztényeket Rómában?',a:'Mert nem imádták a császárt istenként, és nem áldoztak a szobrai előtt.',emoji:'🦁'},
+    {q:'Kik a mártírok / vértanúk?',a:'Azok, akik életüket áldozták a keresztény hitükért.',emoji:'🌹'},
+    {q:'Mikor adták ki a Milánói ediktumot és ki adta ki?',a:'313-ban, Nagy Konstantin császár. Szabad vallásgyakorlatot biztosított a keresztényeknek.',emoji:'📜'},
+    {q:'Mit tett Theodosius császár a kereszténységgel?',a:'A kereszténységet a Római Birodalom egyetlen hivatalos (állam)vallásává tette.',emoji:'👑'},
+    {q:'Mikor volt az egyházszakadás?',a:'1054-ben – a kereszténység katolikus és ortodox (keleti) ágra szakadt.',emoji:'✂️'},
+    {q:'Mi lett a nyugati egyház neve?',a:'Katolikus (jelentése: igaz hitű, általános) – Rómából irányítva, élén a pápa.',emoji:'🏛️'},
+    {q:'Mi lett a keleti egyház neve?',a:'Ortodox (görögkeleti) – Konstantinápolyból irányítva, élén a pátriárka.',emoji:'🕌'},
+    {q:'Mit jelent az „Ora et labora" mondás?',a:'Imádkozz és dolgozz! – A Benedek-rend jelmondata.',emoji:'🙏'},
+    {q:'Mi a szerzetesség?',a:'Szerzetesek kolostorokban élnek, imádkoznak, tanítanak, betegeket ápolnak, könyveket másolnak.',emoji:'📝'},
+    {q:'Hol volt a keleti kereszténység fővárosa?',a:'Konstantinápolyban (Bizánc) – a Bizánci Birodalom fővárosa.',emoji:'🏙️'},
+    {q:'Mit jelent a „Krisztus" szó?',a:'Felkent – Jézus megváltói szerepének jelölése görögül.',emoji:'✨'},
+    {q:'Mi volt Néró szerepe a keresztények életében?',a:'Néró császár üldözte a keresztényeket – sokan vértanúhalált haltak.',emoji:'🔥'},
+    {q:'Kik voltak az evangélisták?',a:'Máté, Márk, Lukács és János – ők írták le Jézus életét az evangéliumokban.',emoji:'✍️'},
+    {q:'Mi az Ószövetség?',a:'A Biblia első része – a zsidó nép és Isten kapcsolatáról szól, Jézus születése előtti időkből.',emoji:'📜'},
+    {q:'Mi az Újszövetség?',a:'A Biblia második része – Jézus élete, tanításai, és az apostolok levelei.',emoji:'📗'},
+    {q:'Hová menekítették Jézust gyermekként?',a:'Egyiptomba – hogy megvédjék Heródes király parancsától.',emoji:'🌴'},
+    {q:'Mi a pátriárka szerepe?',a:'Az ortodox (keleti) egyház feje – hasonló a pápa szerepéhez a nyugati egyházban.',emoji:'🕌'},
+    {q:'Mi a pápa szerepe?',a:'A katolikus (nyugati) egyház feje – Rómából irányítja az egyházat.',emoji:'🏛️'},
+    {q:'Miért fontos 313-as év?',a:'A Milánói ediktum éve – Nagy Konstantin szabad vallásgyakorlatot adott a keresztényeknek.',emoji:'📅'},
+    {q:'Miért fontos 1054-es év?',a:'Az egyházszakadás éve – a kereszténység katolikus és ortodox ágra vált szét.',emoji:'✂️'},
+    {q:'Mi a kolostor?',a:'Szerzetesek zárt közössége, ahol imádkoznak, dolgoznak és tanulnak.',emoji:'⛩️'},
+    {q:'Mit másoltak a szerzetesek a kolostorban?',a:'Könyveket – így őrizték meg az ókori és keresztény tudást a középkorban.',emoji:'📜'},
+    {q:'Hogyan tért meg Pál apostol?',a:'A damaszkuszi úton Jézus megjelent neki – onnantól a kereszténység egyik legnagyobb hirdetője lett.',emoji:'⚡'},
+    {q:'Mi a Benedek-rend jelmondata?',a:'Ora et labora – Imádkozz és dolgozz! Nursiai Benedek alapította a 6. században.',emoji:'🏠'},
+    {q:'Milyen nyelveken imádkoztak a keleti és a nyugati egyházban?',a:'Nyugati (katolikus): latinul. Keleti (ortodox): görögül.',emoji:'🗣️'},
+    {q:'Miért fontos Jeruzsálem a keresztények számára?',a:'Jézus itt halt meg és támadt fel – ezért a keresztény hit egyik legszentebb helye.',emoji:'🕊️'},
+    {q:'Mi az egyházi hierarchia sorrendje (fentről lefelé)?',a:'Pápa → érsek → püspök → plébános.',emoji:'⛪'},
+    {q:'Mit jelent a „mártír" szó?',a:'Tanú – valaki, aki hitéért életét adja.',emoji:'🌸'},
+    {q:'Hány evangélista volt?',a:'Négy: Máté, Márk, Lukács és János.',emoji:'✍️'},
+    {q:'Mi az Ószövetség és az Újszövetség közötti fő különbség?',a:'Ószövetség: Jézus előtti zsidó történet. Újszövetség: Jézus élete és az apostolok tevékenysége.',emoji:'📚'},
+  ],
+  quiz:[
+    {q:'Hol alakult ki a kereszténység?',emoji:'🗺️',opts:['Rómában','Júdea provinciában','Egyiptomban','Görögországban'],ans:1,exp:'Júdea provinciában, a zsidó nép körében alakult ki.'},
+    {q:'Mi Jézus másik neve / megváltói címe?',emoji:'✝️',opts:['Mohamed','Buddha','Messiás / Megváltó','Fáraó'],ans:2,exp:'Jézus Krisztus = a Felkent, vagyis a Megváltó (Messiás).'},
+    {q:'Hol született Jézus?',emoji:'⭐',opts:['Jeruzsálemben','Názáretben','Betlehemben','Rómában'],ans:2,exp:'Jézus Betlehemben született.'},
+    {q:'Hol nevelkedett Jézus?',emoji:'🏡',opts:['Betlehemben','Egyiptomban','Jeruzsálemben','Názáretben'],ans:3,exp:'Jézus Názáretben nevelkedett – ezért „a Názáreti Jézus".'},
+    {q:'Hány apostola volt Jézusnak?',emoji:'👥',opts:['7','10','12','15'],ans:2,exp:'Jézusnak 12 apostola volt.'},
+    {q:'Miből áll a Biblia?',emoji:'📚',opts:['Csak Újszövetségből','Ószövetségből és Újszövetségből','Három könyvből','Csak Ószövetségből'],ans:1,exp:'Ószövetség + Újszövetség.'},
+    {q:'Mi volt Pál apostol eredeti neve?',emoji:'🛤️',opts:['Péter','Saul','János','Tamás'],ans:1,exp:'Pál apostol neve Saul volt – a damaszkuszi úton tért meg.'},
+    {q:'Miért üldözték a keresztényeket Rómában?',emoji:'🦁',opts:['Nem fizették az adót','Nem harcoltak','Nem imádták istenként a császárt','Háborút indítottak'],ans:2,exp:'Nem tekintették istennek a császárt és nem áldoztak szobrai előtt.'},
+    {q:'Ki adta ki a Milánói ediktumot 313-ban?',emoji:'📜',opts:['Julius Caesar','Néró','Theodosius','Nagy Konstantin'],ans:3,exp:'Nagy Konstantin adta ki 313-ban – szabad vallásgyakorlatot biztosított.'},
+    {q:'Mikor következett be az egyházszakadás?',emoji:'✂️',opts:['313-ban','476-ban','800-ban','1054-ben'],ans:3,exp:'1054-ben szakadt ketté a kereszténység.'},
+    {q:'Mit jelent az „Ora et labora"?',emoji:'🙏',opts:['Élj és harcolj!','Tanulj és játssz!','Imádkozz és dolgozz!','Egyél és aludj!'],ans:2,exp:'„Ora et labora" = Imádkozz és dolgozz! – Benedek-rend jelmondata.'},
+    {q:'Mi lett a nyugati egyház neve az egyházszakadás után?',emoji:'🏛️',opts:['Ortodox','Protestáns','Evangélikus','Katolikus'],ans:3,exp:'Katolikus egyház – Rómából, a pápa vezeti.'},
+    {q:'Hol volt a nyugati kereszténység vezető városa?',emoji:'🏙️',opts:['Konstantinápolyban','Jeruzsálemben','Rómában','Athénban'],ans:2,exp:'Róma – a pápa székhelye.'},
+    {q:'Hogyan nevezzük azokat, akik életüket adták a hitükért?',emoji:'🌹',opts:['Apostolok','Szerzetesek','Mártírok / vértanúk','Püspökök'],ans:2,exp:'A mártírok (vértanúk) életüket áldozták a hitükért.'},
+    {q:'Mi a keleti (ortodox) egyház vezető városának neve?',emoji:'🕌',opts:['Róma','Athén','Alexandria','Konstantinápoly'],ans:3,exp:'Konstantinápoly (Bizánc) az ortodox egyház fővárosa.'},
+    {q:'Kik írták meg Jézus életét az evangéliumokban?',emoji:'📖',opts:['Az összes apostol','Máté, Márk, Lukács, János','Pál és Péter','Maga Jézus'],ans:1,exp:'A négy evangélista: Máté, Márk, Lukács, János.'},
+    {q:'Mit csináltak a szerzetesek a kolostorban?',emoji:'📝',opts:['Csak imádkoztak','Csak harcoltak','Imádkoztak, tanítottak, könyveket másoltak','Csak kertészkedtek'],ans:2,exp:'Ima, tanítás, betegápolás, könyvmásolás – Ora et labora!'},
+    {q:'Hová menekítették a kis Jézust?',emoji:'🌴',opts:['Rómába','Görögországba','Egyiptomba','Perzsiába'],ans:2,exp:'Egyiptomba menekítették, hogy megvédjék Heródes elől.'},
+    {q:'Mit jelent a „Krisztus" szó?',emoji:'✨',opts:['Próféta','Király','Felkent','Tanár'],ans:2,exp:'Krisztus = Felkent – a megváltói szerepre utal.'},
+    {q:'Melyik rend jelmondata az „Ora et labora"?',emoji:'⛩️',opts:['Jezsuita rend','Ferences rend','Benedek-rend','Domonkos-rend'],ans:2,exp:'Benedek-rend – Nursiai Benedek alapította a 6. században.'},
+    {q:'Melyik császár tette a kereszténységet államvallássá?',emoji:'🏛️',opts:['Nagy Konstantin','Julius Caesar','Justinianus','Theodosius'],ans:3,exp:'Theodosius tette a kereszténységet a birodalom egyetlen vallásává.'},
+    {q:'Mi az Ószövetség?',emoji:'📜',opts:['Jézus élete','Az apostolok levelei','A zsidó nép és Isten kapcsolata','Az egyházi törvények'],ans:2,exp:'Ószövetség: a zsidó nép és Isten kapcsolata, Jézus előtti kor.'},
+    {q:'Hol halt meg Jézus?',emoji:'✝️',opts:['Betlehemben','Názáretben','Rómában','Jeruzsálemben'],ans:3,exp:'Jézus Jeruzsálemben halt meg, keresztre feszítve.'},
+    {q:'Ki a pátriárka?',emoji:'🕌',opts:['A katolikus egyház papjai','A keleti (ortodox) egyház feje','A kolostorok apátja','A zsidó főpapok'],ans:1,exp:'A pátriárka az ortodox (keleti) egyház feje – Konstantinápolyban.'},
+    {q:'Milyen nyelvű volt a katolikus egyházi szertartás?',emoji:'🗣️',opts:['Görög','Magyar','Latin','Arab'],ans:2,exp:'A katolikus egyház latin nyelven tartotta szertartásait.'},
+    {q:'Hány evangélista volt?',emoji:'✍️',opts:['2','3','4','5'],ans:2,exp:'4 evangélista: Máté, Márk, Lukács, János.'},
+    {q:'Mi volt a szerzetesek jelmondata latinul?',emoji:'📿',opts:['Ora et labora','Carpe diem','Veni vidi vici','In hoc signo vinces'],ans:0,exp:'Ora et labora = Imádkozz és dolgozz!'},
+    {q:'Miért fontos Jeruzsálem a keresztények számára?',emoji:'🕊️',opts:['Ott született Jézus','Ott nevelkedett Jézus','Ott halt meg és támadt fel Jézus','Ott írták a Bibliát'],ans:2,exp:'Jézus Jeruzsálemben halt meg és támadt fel – ezért a legszentebb hely.'},
+    {q:'Hol élt a pátriárka (az ortodox egyház feje)?',emoji:'🏙️',opts:['Rómában','Jeruzsálemben','Alexandriában','Konstantinápolyban'],ans:3,exp:'A pátriárka Konstantinápolyban (Bizáncban) élt.'},
+    {q:'Hol halt meg és hol temették el Jézust?',emoji:'✝️',opts:['Betlehemben','Názáretben','Rómában','Jeruzsálemben'],ans:3,exp:'Jeruzsálemben halt meg és ott is temették el.'},
+  ],
+  tf:[
+    {s:'Jézus Betlehemben született.',t:true,emoji:'⭐',exp:'Igen! Betlehemben született.'},
+    {s:'Jézus Rómában halt meg.',t:false,emoji:'❌',exp:'Nem! Jeruzsálemben halt meg, keresztre feszítve.'},
+    {s:'Pál apostol eredeti neve Saul volt.',t:true,emoji:'🛤️',exp:'Igen! A damaszkuszi úton tért meg és vette fel a Pál nevet.'},
+    {s:'A Milánói ediktumot 313-ban adták ki.',t:true,emoji:'📜',exp:'Igen! Nagy Konstantin adta ki 313-ban.'},
+    {s:'Az egyházszakadás 1054-ben következett be.',t:true,emoji:'✂️',exp:'Igen! 1054 az egyházszakadás éve.'},
+    {s:'A katolikus egyház fő központja Konstantinápoly.',t:false,emoji:'🏛️',exp:'Nem! A katolikus egyház fővárosa Róma; Konstantinápoly az ortodox egyházé.'},
+    {s:'Az ortodox egyház a keleti ág.',t:true,emoji:'🕌',exp:'Igen! Ortodox = görögkeleti = keleti egyház.'},
+    {s:'Az „Ora et labora" a Benedek-rend jelmondata.',t:true,emoji:'🙏',exp:'Igen! Imádkozz és dolgozz!'},
+    {s:'Jézusnak 7 apostola volt.',t:false,emoji:'👥',exp:'Nem! Jézusnak 12 apostola volt.'},
+    {s:'A Biblia Ószövetségből és Újszövetségből áll.',t:true,emoji:'📚',exp:'Igen! Két nagy részből áll a Biblia.'},
+    {s:'Theodosius tette a kereszténységet a birodalom államvallásává.',t:true,emoji:'👑',exp:'Igen! Theodosius intézkedett erről.'},
+    {s:'A keresztényeket azért üldözték, mert nem fizették az adót.',t:false,emoji:'🦁',exp:'Nem! Azért üldözték őket, mert nem imádták istenként a császárt.'},
+    {s:'Az evangéliumokat Jézus maga írta.',t:false,emoji:'📖',exp:'Nem! A négy evangélista (Máté, Márk, Lukács, János) írta.'},
+    {s:'A szerzetesek kolostorokban élnek.',t:true,emoji:'⛩️',exp:'Igen! Kolostorokban élnek és dolgoznak.'},
+    {s:'Jézus Názáretben nevelkedett.',t:true,emoji:'🏡',exp:'Igen! Ezért hívják „a Názáreti Jézusnak".'},
+    {s:'A pátriárka a nyugati (katolikus) egyház feje.',t:false,emoji:'🕌',exp:'Nem! A pátriárka a KELETI (ortodox) egyház feje. A katolikusok fejét pápának hívják.'},
+    {s:'A Milánói ediktumot Nagy Konstantin adta ki.',t:true,emoji:'📜',exp:'Igen! Nagy Konstantin császár 313-ban.'},
+    {s:'A katolikus egyházi szertartások latinul zajlottak.',t:true,emoji:'🗣️',exp:'Igen! A katolikus egyház latin nyelvet használt.'},
+    {s:'Jézust gyermekként Egyiptomba menekítették.',t:true,emoji:'🌴',exp:'Igen! Heródes elől Egyiptomba vitték.'},
+    {s:'Az evangélium szó „jó hírt" jelent.',t:true,emoji:'📖',exp:'Igen! Evangélium = jó hír (görögül: euangelion).'},
+    {s:'A Benedek-rendet Nursiai Benedek alapította.',t:true,emoji:'⛪',exp:'Igen! Nursiai Szent Benedek alapította a 6. században.'},
+    {s:'Néró üldözte a keresztényeket.',t:true,emoji:'🔥',exp:'Igen! Néró az egyik leghírhedtebb keresztényüldöző császár volt.'},
+    {s:'Az Ószövetség Jézus születése utáni időkről szól.',t:false,emoji:'📜',exp:'Nem! Az Ószövetség Jézus ELŐTTI korokról szól – a zsidó nép és Isten kapcsolatáról.'},
+    {s:'A szerzetesek könyveket másoltak a kolostorokban.',t:true,emoji:'📝',exp:'Igen! Így őrizték meg az ókori tudást a középkorban.'},
+    {s:'Jézusnak 4 evangélistája volt.',t:true,emoji:'✍️',exp:'Igen! Máté, Márk, Lukács és János.'},
+    {s:'Az ortodox egyházi szertartások görögül zajlottak.',t:true,emoji:'🕌',exp:'Igen! A keleti (ortodox) egyház görög nyelvet használt.'},
+    {s:'A pápa Konstantinápolyban él.',t:false,emoji:'🏛️',exp:'Nem! A pápa RÓMÁBAN él és a katolikus egyházat vezeti.'},
+    {s:'Pál apostol terjesztette a kereszténységet a nem zsidók között is.',t:true,emoji:'🌍',exp:'Igen! Pál „a pogányok apostola" – mindenkihez vitte az evangéliumot.'},
+    {s:'Az egyházszakadás előtt csak egy keresztény egyház létezett.',t:true,emoji:'✂️',exp:'Igen! 1054 előtt egységes volt a keresztény egyház.'},
+    {s:'A vértanú szó ugyanazt jelenti, mint a mártír.',t:true,emoji:'🌹',exp:'Igen! Mindkét szó olyan személyre utal, aki hitéért életét adta.'},
+  ]
+},
+
+/* ── A KÖZÉPKOR VILÁGAI ─────────────────────────────── */
+kozepkor:{
+  id:'kozepkor',name:'A Középkor Világai',emoji:'🏰',color:'blue',
+  desc:'10–13. lecke • Hűbériség, lovagok, kolostor, városok',
+  flashcards:[
+    {q:'Mi a hűbéri rend (feudalizmus)?',a:'Földbirtok-adományozáson alapuló középkori társadalmi rend: a hűbérúr földet ad, a hűbéres katonai szolgálatot teljesít cserébe.',emoji:'🏰'},
+    {q:'Ki a hűbérúr és ki a hűbéres?',a:'Hűbérúr = aki a földet adja. Hűbéres = aki megkapja a földet és cserébe harcol érte.',emoji:'🤝'},
+    {q:'Mi az uradalom?',a:'A hűbérúr birtoka – megmunkálja a jobbágy.',emoji:'🌾'},
+    {q:'Ki a jobbágy?',a:'A nemesek földjén élő és dolgozó paraszt, aki robot- és dézsmaszolgáltatással tartozik a hűbérúrnak.',emoji:'👨‍🌾'},
+    {q:'Mi a robot?',a:'Ingyenmunka – a jobbágy a hűbérúr földjén dolgozik ingyen (általában heti 1-2 nap).',emoji:'🔨'},
+    {q:'Mi a dézsma?',a:'A termés tizede – a jobbágynak a betakarított termés 1/10-ét kellett az egyháznak adni.',emoji:'🌽'},
+    {q:'Mi a három nyomásos gazdálkodás?',a:'A szántóföld három részre oszlik: 1) őszi gabona, 2) tavaszi gabona, 3) ugar (pihenő). Évente más rész pihen.',emoji:'🌱'},
+    {q:'Mit jelent az „ugar"?',a:'Megmunkálatlan, pihenő föld – egy éven át nem vetnek bele semmit, hogy visszanyerje termőerejét.',emoji:'🏔️'},
+    {q:'Kik a lovagok?',a:'Páncélba öltözött, lóháton harcoló nemesek, akik egy hűbérúrnak esküdtek hűséget.',emoji:'⚔️'},
+    {q:'Milyen erények jellemzik a lovagot?',a:'Bátorság, hűség, becsület, vallásosság – ezeket lovagi erényeknek hívjuk.',emoji:'🛡️'},
+    {q:'Mit csináltak a szerzetesek a kolostorban?',a:'Imádkoztak, tanítottak, betegeket ápoltak, könyveket másoltak – „Ora et labora" = Imádkozz és dolgozz!',emoji:'📜'},
+    {q:'Mi az egyházi hierarchia helyes sorrendje?',a:'Pápa → érsek → püspök → plébános – fentről lefelé haladva.',emoji:'⛪'},
+    {q:'Mi a román stílus jellemzője?',a:'Vastag falak, kis kerek ablakok, félkör alakú boltozatok – masszív, nehéz megjelenés.',emoji:'🏛️'},
+    {q:'Mi a gótikus stílus jellemzője?',a:'Csúcsos ívek, nagy üvegablakok (rózsaablakok), égbe törő tornyok – nyújtott, könnyű megjelenés.',emoji:'🔮'},
+    {q:'Hogyan alakultak ki a középkori városok?',a:'A 11–12. században kereskedők és iparosok gyűltek össze vásárok, folyópartok, várak közelében.',emoji:'🏙️'},
+    {q:'Mi a céh?',a:'Az azonos mesterséget folytató iparosok szövetsége – tagjai: mester → legény → inas.',emoji:'🔧'},
+    {q:'Mi a kiváltságlevél?',a:'A városoknak adott írott jogok: önkormányzat, vásártartás joga, adókedvezmények.',emoji:'📋'},
+    {q:'Ki volt Nagy Károly?',a:'Frank király, akit 800-ban koronáztak (nyugat)római császárrá. Nagy birodalmat hozott létre Európában.',emoji:'👑'},
+    {q:'Mi a Bizánci Birodalom?',a:'A Keletrómai Birodalom örököse – fővárosa Konstantinápoly (Bizánc). 1453-ig fennállt.',emoji:'🕌'},
+    {q:'Mi a lovagi torna?',a:'Katonai gyakorlat és szórakozás – lovagok harcolnak egymás ellen lándsával vagy karddal, szabályok szerint.',emoji:'🏇'},
+    {q:'Mit jelent a „hűbérbirtok"?',a:'A hűbérúr által adományozott föld – a hűbéres katonai hűség fejében kapja.',emoji:'🌍'},
+    {q:'Milyen munkát végzett a jobbágy?',a:'Robotmunkát a hűbérúr földjén, fizette a dézsmát az egyháznak, és terméseinek részét a hűbérúrnak adta.',emoji:'👨‍🌾'},
+    {q:'Mi jellemzi a középkori várat?',a:'Vastag kőfalak, tornyok, felvonóhíd, várárok – védelmi célokat szolgál.',emoji:'🏰'},
+    {q:'Kik éltek a középkori várban?',a:'A hűbérúr és családja, lovagok, szolgák – a vár volt a hatalom és a védelem helyszíne.',emoji:'🛡️'},
+    {q:'Mi a jobbágy és a rabszolga különbsége?',a:'A jobbágy nem adható-vehető, van némi joga és saját portája – a rabszolga teljesen a tulajdonosa tulajdona.',emoji:'⚖️'},
+    {q:'Mi a plébánia?',a:'Egy pap (plébános) által vezetett helyi egyházi közösség – a falvak temploma köré szervezett közösség.',emoji:'⛪'},
+    {q:'Hogyan épültek a középkori katedrálisok?',a:'Évtizedek vagy akár évszázadok alatt – sok mester, kőfaragó és munkás dolgozta.',emoji:'🏗️'},
+    {q:'Mi a céh hierarchiája (sorrendje)?',a:'Mester (legfelül) → legény (középen) → inas (legalsó) – az iparos fokozatai.',emoji:'🔧'},
+    {q:'Mikor és hol koronázták meg Nagy Károlyt?',a:'800-ban, karácsonykor, Rómában – III. Leó pápa koronázta meg.',emoji:'👑'},
+    {q:'Mi a felvonóhíd szerepe a várban?',a:'A várárkot áthidaló fahíd – felvonva véd az ellenségtől, lebocsátva belépést enged.',emoji:'🌉'},
+    {q:'Mi volt Nagy Károly fővárosa?',a:'Aachen – ma Németországban található.',emoji:'🏙️'},
+    {q:'Mire volt a dézsma?',a:'Az egyház fenntartására, templomok építésére, papok eltartására.',emoji:'💰'},
+    {q:'Mi az apát szerepe?',a:'A kolostor főnöke – ő vezeti a szerzetesközösséget.',emoji:'📿'},
+    {q:'Milyen volt a lovagi felszerelés?',a:'Páncél, sisak, kard, pajzs, lándzsa, harci ló – rendkívül drága felszerelés volt.',emoji:'⚔️'},
+    {q:'Mi a várárok szerepe?',a:'Védelmi eszköz – megnehezítette az ellenség közeledését a várhoz.',emoji:'🌊'},
+    {q:'Hogyan lett valakiből lovag?',a:'Apród → fegyverhordozó → lovag – hosszú tanulási folyamat volt.',emoji:'🛡️'},
+    {q:'Mit termesztett főleg a középkori jobbágy?',a:'Gabonát (búza, rozs, árpa), zöldségeket – a három nyomásos gazdálkodás szerint.',emoji:'🌾'},
+    {q:'Mi a különbség az érsek és a püspök között?',a:'Az érsek nagyobb területet (egyháztartomány) vezet, a püspök kisebb területet (egyházmegye).',emoji:'⛪'},
+    {q:'Mi volt a középkori városok legfőbb gazdasági tevékenysége?',a:'Kereskedelem és kézműipar – céhek szabályozták az ipart, vásárokon folyt a kereskedelem.',emoji:'🏪'},
+    {q:'Meddig állt fenn a Bizánci Birodalom?',a:'1453-ig – ekkor foglalták el a törökök Konstantinápolyt.',emoji:'🕌'},
+  ],
+  quiz:[
+    {q:'Mit nevezünk hűbéri rendnek (feudalizmusnak)?',emoji:'🏰',opts:['Rabszolgatartó társadalom','Demokratikus városállam','Földbirtok-adományozáson alapuló rend','Katonai diktatúra'],ans:2,exp:'A feudalizmus a földbirtok-adományozáson alapuló középkori társadalmi rend.'},
+    {q:'Mi a robot?',emoji:'🔨',opts:['Fémből készült katona','Ingyenmunka a hűbérúr földjén','A lovag páncélzata','Középkori gép'],ans:1,exp:'Robot = ingyenmunka a hűbérúr földjén.'},
+    {q:'Mi a dézsma?',emoji:'🌽',opts:['Az összes termés elvétele','A termés fele','A termés tizede az egyháznak','A városi adó'],ans:2,exp:'Dézsma = a termés tizede (1/10), amit az egyháznak kellett adni.'},
+    {q:'Mi az uradalom?',emoji:'🌾',opts:['A városi piac','A hűbérúr birtoka','A kolostor kertje','A lovagi torna helyszíne'],ans:1,exp:'Az uradalom a hűbérúr birtoka, amelyet jobbágyok művelnek meg.'},
+    {q:'Mit jelent az „ugar"?',emoji:'🌱',opts:['Egy búzafajta','Pihenő, megmunkálatlan föld','Az őszi gabona neve','A szántóföld neve'],ans:1,exp:'Az ugar pihenő föld – egy évig nem vetnek bele.'},
+    {q:'Milyen erények jellemzik a lovagot?',emoji:'⚔️',opts:['Kapzsiság és gyávaság','Bátorság, hűség, becsület, vallásosság','Okosság, ügyesség, gazdagság','Gyorsaság és erő'],ans:1,exp:'Lovagi erények: bátorság, hűség, becsület, vallásosság.'},
+    {q:'Mi az egyházi hierarchia LEGFELSŐ fokozata?',emoji:'⛪',opts:['Érsek','Plébános','Püspök','Pápa'],ans:3,exp:'Pápa → érsek → püspök → plébános. A pápa a legfelső.'},
+    {q:'Mi jellemzi a ROMÁN stílusú épületeket?',emoji:'🏛️',opts:['Csúcsos ívek és nagy ablakok','Üveg és acél szerkezet','Vastag falak, kis ablakok, félkörös boltozat','Lapos tető'],ans:2,exp:'Román stílus: vastag falak, kis kerek ablakok, félkörös boltozatok.'},
+    {q:'Mi jellemzi a GÓTIKUS stílusú épületeket?',emoji:'🔮',opts:['Vastag falak és kis ablakok','Csúcsos ívek, nagy ablakok, magas tornyok','Lapos tető','Kör alaprajz'],ans:1,exp:'Gótikus stílus: csúcsos ívek, nagy üvegablakok (rózsaablakok), magas tornyok.'},
+    {q:'Mi a céh?',emoji:'🔧',opts:['Középkori ital neve','Az iparosok szövetsége','A lovagok szövetsége','A szerzetesek közössége'],ans:1,exp:'Céh = azonos mesterséget folytató iparosok szövetsége.'},
+    {q:'Ki volt Nagy Károly?',emoji:'👑',opts:['Bizánci császár','Magyar vezér','Pápa','Frank király, 800-ban koronázták császárrá'],ans:3,exp:'Nagy Károly frank király, 800-ban koronázták meg nyugati császárrá.'},
+    {q:'Mi volt a Bizánci Birodalom?',emoji:'🕌',opts:['A Nyugatrómai Birodalom örököse','Arab birodalom','A Keletrómai Birodalom örököse – főv. Konstantinápoly','Frank királyság'],ans:2,exp:'A Bizánci Birodalom a Keletrómai Birodalom örököse, fővárosa Konstantinápoly.'},
+    {q:'Mit csináltak a szerzetesek a kolostorban?',emoji:'📜',opts:['Csak imádkoztak','Csak harcoltak','Imádkoztak, tanítottak, könyveket másoltak','Csak kertészkedtek'],ans:2,exp:'Ima, tanítás, betegápolás, könyvmásolás – Ora et labora!'},
+    {q:'Mi a kiváltságlevél?',emoji:'📋',opts:['Adófizetési kötelezettség','Egyházi engedély','Hűbéri eskü','Városnak adott írott jogok'],ans:3,exp:'Kiváltságlevél = a városnak adott írott jogok (önkormányzat, vásártartás stb.).'},
+    {q:'Ki a jobbágy?',emoji:'👨‍🌾',opts:['A hűbérúr lovagja','A kolostorban élő szerzetes','A nemesek földjén élő és dolgozó paraszt','A városi kereskedő'],ans:2,exp:'A jobbágy nemesi földön élő paraszt, aki robotot és dézsmát fizetett.'},
+    {q:'Hány részre osztják a szántóföldet a három nyomásos gazdálkodásban?',emoji:'🌱',opts:['2','3','4','5'],ans:1,exp:'3 részre: őszi gabona / tavaszi gabona / ugar (pihenő).'},
+    {q:'Milyen fegyverzettel harcoltak a lovagok?',emoji:'⚔️',opts:['Íjjal, gyalogosan','Páncélban, lóháton, karddal és lándsával','Katapulttal','Harci elefánton'],ans:1,exp:'Lovagok: páncél, ló, kard, lándzsa – rendkívül drága felszerelés.'},
+    {q:'Mikor koronázták meg Nagy Károlyt?',emoji:'👑',opts:['476-ban','714-ban','800-ban','1000-ben'],ans:2,exp:'800-ban, karácsonykor, Rómában koronázta meg III. Leó pápa.'},
+    {q:'Mi a céh legmagasabb fokozata?',emoji:'🔧',opts:['Inas','Legény','Mester','Nagymester'],ans:2,exp:'Mester → legény → inas. A mester a legfelső szint.'},
+    {q:'Mit szolgál a várárok?',emoji:'🌊',opts:['Ivóvíz tárolása','Védelmi célokat','Halászatra','Hajózásra'],ans:1,exp:'A várárok védelmi célokat szolgál – megnehezíti az ellenség közeledését.'},
+    {q:'Mi volt a felvonóhíd feladata?',emoji:'🌉',opts:['A kereskedők fogadása','A vár ékesítése','A várárkot áthidaló, felhúzható híd','Vízszállítás'],ans:2,exp:'Felvonóhíd = a várárkot áthidaló fahíd – felvonva véd, lebocsátva beenged.'},
+    {q:'Mi a fő különbség a román stílus és a gótika között?',emoji:'🏛️',opts:['Semmi különbség','Román: csúcsos ívek; gótika: kerek ívek','Román: vastag fal, kis ablak; gótika: csúcsos ív, nagy ablak','Román: fa; gótika: kő'],ans:2,exp:'Román: vastag fal, kis ablak. Gótika: csúcsos ív, nagy (rózsa)ablak.'},
+    {q:'Kik alapítottak középkori városokat?',emoji:'🏙️',opts:['Csak a nemesek','Kereskedők és iparosok gyűltek össze','Csak a szerzetesek','Csak a királyok'],ans:1,exp:'Kereskedők és iparosok gyűltek össze – vásárok, folyópartok, várak közelében.'},
+    {q:'Mi az apát feladata?',emoji:'📿',opts:['A püspök helyettese','A kolostor főnöke','A céh mestere','A király tanácsadója'],ans:1,exp:'Az apát a kolostor (szerzetesközösség) főnöke.'},
+    {q:'Melyik épületre jellemző a rózsaablak?',emoji:'🌸',opts:['Román stílusú templomra','Gótikus katedrálisra','Középkori várra','Kolostor ebédlőjére'],ans:1,exp:'A rózsaablak a gótikus katedrálisok egyik legszebb jellemzője.'},
+    {q:'Mi a jobbágy és a rabszolga fő különbsége?',emoji:'⚖️',opts:['Semmi különbség','A jobbágynak van némi joga és portája, a rabszolga teljes tulajdon','A rabszolgának több joga van','A jobbágy nemesi'],ans:1,exp:'A jobbágy nem adható-vehető és van saját portája – a rabszolga teljesen tulajdon.'},
+    {q:'Mi a hűbérbirtok?',emoji:'🌍',opts:['Az egyház tulajdona','A hűbérúr által adományozott föld katonai szolgálatért','A jobbágy saját telke','Pénzben kifizetett jutalom'],ans:1,exp:'Hűbérbirtok = hűbérúr által adott föld, cserébe katonai (hűbéri) szolgálatért.'},
+    {q:'Melyik városban volt Nagy Károly fővárosa?',emoji:'👑',opts:['Párizs','Bécs','Aachen','Róma'],ans:2,exp:'Nagy Károly fővárosa Aachen volt (ma Németországban).'},
+    {q:'Meddig állt fenn a Bizánci Birodalom?',emoji:'🕌',opts:['476-ig','800-ig','1054-ig','1453-ig'],ans:3,exp:'A Bizánci Birodalom 1453-ig állt fenn – ekkor foglalták el a törökök.'},
+    {q:'Melyik pápa koronázta meg Nagy Károlyt?',emoji:'👑',opts:['I. Gergely','II. Piusz','III. Leó','IV. Orbán'],ans:2,exp:'III. Leó pápa koronázta meg Nagy Károlyt 800-ban, karácsonykor.'},
+  ],
+  tf:[
+    {s:'A feudalizmus másik neve a hűbéri rend.',t:true,emoji:'🏰',exp:'Igen! Feudalizmus = hűbéri rend.'},
+    {s:'A robot ingyenmunka a hűbérúr földjén.',t:true,emoji:'🔨',exp:'Igen! A jobbágy ingyen dolgozott a hűbérúrnak.'},
+    {s:'A dézsma a termés fele, amit a királynak adtak.',t:false,emoji:'🌽',exp:'Nem! A dézsma a termés TIZEDE, amit az EGYHÁZNAK adtak.'},
+    {s:'A három nyomásos gazdálkodásnál a föld harmada minden évben pihen.',t:true,emoji:'🌱',exp:'Igen! Az „ugar" a pihentetett, megmunkálatlan rész.'},
+    {s:'A lovagok gyalogosan, kézzel harcoltak.',t:false,emoji:'⚔️',exp:'Nem! A lovagok LÓHÁTON, PÁNCÉLBAN harcoltak karddal és lándsával.'},
+    {s:'A lovagi erények közé tartozik a bátorság és a hűség.',t:true,emoji:'🛡️',exp:'Igen! Bátorság, hűség, becsület, vallásosság.'},
+    {s:'Az egyházi hierarchiában a pápa a legfelső vezető.',t:true,emoji:'⛪',exp:'Igen! Pápa → érsek → püspök → plébános.'},
+    {s:'A román stílusra a csúcsos ívek és nagy ablakok jellemzők.',t:false,emoji:'🏛️',exp:'Nem! A csúcsos ívek GÓTIKUS jellemzők – a román stílusnál vastag falak és kis ablakok vannak.'},
+    {s:'A gótikus templomokra jellemzők a rózsaablakok.',t:true,emoji:'🔮',exp:'Igen! A nagy, díszes rózsaablakok gótikus jellemzők.'},
+    {s:'A céh az iparosok szövetsége volt.',t:true,emoji:'🔧',exp:'Igen! Azonos mesterséget folytató iparosok szövetsége.'},
+    {s:'Nagy Károlyt 800-ban koronázták császárrá.',t:true,emoji:'👑',exp:'Igen! 800-ban, karácsonykor, Rómában koronázta meg III. Leó pápa.'},
+    {s:'A Bizánci Birodalom a Nyugatrómai Birodalom örököse volt.',t:false,emoji:'🕌',exp:'Nem! A KELETRÓMAI Birodalom örököse volt, fővárosa Konstantinápoly.'},
+    {s:'A kiváltságlevél a városok jogait tartalmazta.',t:true,emoji:'📋',exp:'Igen! Önkormányzat, vásártartás joga stb.'},
+    {s:'A jobbágy nemesi származású volt.',t:false,emoji:'👨‍🌾',exp:'Nem! A jobbágy paraszt volt, nemesi földön élt és dolgozott.'},
+    {s:'A szerzetesek jelmondata: „Imádkozz és dolgozz!"',t:true,emoji:'📜',exp:'Igen! „Ora et labora" = Imádkozz és dolgozz! – Benedek-rend.'},
+    {s:'Az uradalom a jobbágy saját birtoka volt.',t:false,emoji:'🌾',exp:'Nem! Az uradalom a HŰBÉRÚR birtoka – a jobbágy csak megmunkálta.'},
+    {s:'A három nyomásos gazdálkodásban a szántó négy részre osztódik.',t:false,emoji:'🌱',exp:'Nem! HÁROM részre: őszi gabona / tavaszi gabona / ugar.'},
+    {s:'A gótika jellemzője a vastag fal és a kis ablak.',t:false,emoji:'🔮',exp:'Nem! Ez a ROMÁN stílus jellemzője. A gótikában csúcsos ívek és nagy ablakok vannak.'},
+    {s:'Nagy Károly fővárosa Aachen volt.',t:true,emoji:'👑',exp:'Igen! Aachen (ma Németország) volt Nagy Károly székhelye.'},
+    {s:'A várárok védelmi célokat szolgált.',t:true,emoji:'🌊',exp:'Igen! Megnehezítette az ellenség közeledését.'},
+    {s:'A céh legmagasabb fokozata az inas.',t:false,emoji:'🔧',exp:'Nem! A legalacsonyabb az inas – a legmagasabb a MESTER.'},
+    {s:'A lovagi felszerelés rendkívül drága volt.',t:true,emoji:'⚔️',exp:'Igen! Páncél, ló, fegyverek – csak gazdag nemesek engedhették meg maguknak.'},
+    {s:'A Bizánci Birodalom 1453-ban szűnt meg.',t:true,emoji:'🕌',exp:'Igen! 1453-ban a törökök elfoglalták Konstantinápolyt.'},
+    {s:'A jobbágy nem volt eladható, mint egy rabszolga.',t:true,emoji:'⚖️',exp:'Igen! A jobbágy nem volt adható-vehető – ebben különbözött a rabszolgától.'},
+    {s:'A hűbéres katonai szolgálatot teljesített a kapott földért.',t:true,emoji:'🤝',exp:'Igen! A hűbéri rend lényege: föld a katonai hűségért.'},
+    {s:'Az érsek magasabb rangú egyházi vezető, mint a püspök.',t:true,emoji:'⛪',exp:'Igen! Érsek > püspök a rangsorban.'},
+    {s:'Nagy Károlyt III. Leó pápa koronázta meg.',t:true,emoji:'👑',exp:'Igen! 800-ban, Rómában, III. Leó pápa koronázta meg.'},
+    {s:'A középkori városok kialakulásában a kereskedők fontos szerepet játszottak.',t:true,emoji:'🏙️',exp:'Igen! Kereskedők és iparosok gyűltek össze a városok helyén.'},
+    {s:'A felvonóhíd az ellenség számára megkönnyítette a vár megközelítését.',t:false,emoji:'🌉',exp:'Nem! Felhúzva MEGAKADÁLYOZTA az ellenség belépését.'},
+    {s:'A román és gótikus stílus egyaránt középkori egyházi építészeti stílus.',t:true,emoji:'🏛️',exp:'Igen! Mindkettő a középkori templomépítészet jellegzetes stílusa.'},
+  ]
+}
+
+}; /* DATA vége */
+
+/* =====================================================
    STATE
-   ===================================================================== */
-let S = {
-  screen: 'welcome',     // welcome | home | topicMenu | study | quiz | tf | result
-  name: '',
-  topic: null,           // 'keresztenyseg' | 'kozepkor'
-  mode:  null,           // 'study' | 'quiz' | 'tf'
-  idx:   0,
-  cardFlipped: false,
-  score:  0,
-  total:  0,
-  answered: false,
-  timerVal: 25,
-  timerRunning: false,
-  progress: {
-    keresztenyseg: { study:false, quiz:0, tf:0 },
-    kozepkor:      { study:false, quiz:0, tf:0 }
+   ===================================================== */
+let S={
+  screen:'welcome',name:'',topic:null,mode:null,
+  idx:0,cardFlipped:false,score:0,total:0,answered:false,
+  timerVal:25,timerRunning:false,_questions:[],_cards:[],
+  progress:{
+    keresztenyseg:{study:false,quiz:0,tf:0},
+    kozepkor:{study:false,quiz:0,tf:0}
   }
 };
-let timerInterval = null;
-const APP = document.getElementById('app');
+let timerInterval=null;
+const APP=document.getElementById('app');
 
-/* =====================================================================
-   SOUND (Web Audio API)
-   ===================================================================== */
-const AC = (typeof AudioContext !== 'undefined') ? new AudioContext() : null;
-function beep(freq, dur, type='sine', vol=0.15) {
-  if (!AC) return;
-  try {
-    const o = AC.createOscillator();
-    const g = AC.createGain();
-    o.connect(g); g.connect(AC.destination);
-    o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(vol, AC.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + dur);
-    o.start(); o.stop(AC.currentTime + dur);
-  } catch(e) {}
+/* =====================================================
+   SOUND
+   ===================================================== */
+const AC=(typeof AudioContext!=='undefined')?new AudioContext():null;
+function beep(freq,dur,type='sine',vol=0.15){
+  if(!AC)return;
+  try{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(vol,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+dur);o.start();o.stop(AC.currentTime+dur)}catch(e){}
 }
-const SFX = {
-  correct: () => { beep(523,0.1); setTimeout(()=>beep(659,0.15),100); setTimeout(()=>beep(784,0.2),220); },
-  wrong:   () => { beep(200,0.3,'sawtooth'); },
-  click:   () => { beep(440,0.06); },
-  win:     () => { [523,587,659,698,784,880,988].forEach((f,i)=>setTimeout(()=>beep(f,0.18),i*90)); }
+const SFX={
+  correct:()=>{beep(523,.1);setTimeout(()=>beep(659,.15),100);setTimeout(()=>beep(784,.2),220)},
+  wrong:()=>beep(200,.3,'sawtooth'),
+  click:()=>beep(440,.06),
+  win:()=>[523,587,659,698,784,880,988].forEach((f,i)=>setTimeout(()=>beep(f,.18),i*90))
 };
 
-/* =====================================================================
+/* =====================================================
    HELPERS
-   ===================================================================== */
-function shuffle(arr) { return [...arr].sort(() => Math.random()-.5); }
-function $(sel, ctx) { return (ctx||document).querySelector(sel); }
-function $$(sel, ctx) { return [...(ctx||document).querySelectorAll(sel)]; }
-
-function stopTimer() {
-  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-  S.timerRunning = false;
+   ===================================================== */
+function $(s,c){return(c||document).querySelector(s)}
+function $$(s,c){return[...(c||document).querySelectorAll(s)]}
+function stopTimer(){if(timerInterval){clearInterval(timerInterval);timerInterval=null}S.timerRunning=false}
+function startTimer(onEnd){
+  stopTimer();S.timerVal=25;S.timerRunning=true;updateTimerUI();
+  timerInterval=setInterval(()=>{if(!S.timerRunning)return;S.timerVal--;updateTimerUI();if(S.timerVal<=0){stopTimer();onEnd()}},1000);
 }
-
-function startTimer(onEnd) {
-  stopTimer();
-  S.timerVal = 25;
-  S.timerRunning = true;
-  updateTimerUI();
-  timerInterval = setInterval(() => {
-    if (!S.timerRunning) return;
-    S.timerVal--;
-    updateTimerUI();
-    if (S.timerVal <= 0) {
-      stopTimer();
-      onEnd();
-    }
-  }, 1000);
+function updateTimerUI(){
+  const el=$('.timer-text'),bar=$('.timer-bar-fill');
+  if(el){el.textContent=S.timerVal;el.className='timer-text'+(S.timerVal<=7?' urgent':'')}
+  if(bar)bar.style.width=(S.timerVal/25*100)+'%';
 }
-
-function updateTimerUI() {
-  const el = $('.timer-text');
-  const bar = $('.timer-bar-fill');
-  if (el) {
-    el.textContent = S.timerVal;
-    el.className = 'timer-text' + (S.timerVal <= 7 ? ' urgent' : '');
-  }
-  if (bar) bar.style.width = (S.timerVal / 25 * 100) + '%';
+function pct(){return S.total>0?Math.round(S.score/S.total*100):0}
+function stars(){const p=pct();return p>=80?3:p>=55?2:p>=30?1:0}
+function resultMsg(p){
+  if(p>=90)return['🎉 FANTASZTIKUS! 🎉','Te vagy a középkor legokosabb lovagja! Ötös biztos!'];
+  if(p>=75)return['🌟 Szuper! 🌟','Nagyon jól teljesítettél! Büszke vagyok rád!'];
+  if(p>=55)return['😊 Jól ment! 😊','Szép teljesítmény! Még egy kis ismétlés és perfekt leszel!'];
+  if(p>=35)return['🤔 Majdnem! 🤔','Ne add fel! Nézd át a kártyákat és próbáld újra!'];
+  return['💪 Nem gond! 💪','Minden próbálkozás közelebb visz a sikerhez! Tanulj és kísérletezz újra!'];
 }
-
-function pct() { return S.total > 0 ? Math.round(S.score / S.total * 100) : 0; }
-function stars() {
-  const p = pct();
-  if (p >= 80) return 3;
-  if (p >= 55) return 2;
-  if (p >= 30) return 1;
-  return 0;
+function getTotalStars(){
+  let tot=0;
+  ['keresztenyseg','kozepkor'].forEach(t=>{
+    const p=S.progress[t];
+    if(p.study)tot++;
+    if(p.quiz>=12)tot+=3;else if(p.quiz>=9)tot+=2;else if(p.quiz>=5)tot++;
+    if(p.tf>=12)tot+=3;else if(p.tf>=9)tot+=2;else if(p.tf>=5)tot++;
+  });
+  return tot;
 }
-function resultMsg(p) {
-  if (p >= 90) return ['🎉 FANTASZTIKUS! 🎉', 'Te vagy a középkor legokosabb lovagja! Ötös biztos!'];
-  if (p >= 75) return ['🌟 Szuper! 🌟', 'Nagyon jól teljesítettél! Büszke vagyok rád!'];
-  if (p >= 55) return ['😊 Jól ment! 😊', 'Szép teljesítmény! Még egy kis ismétlés és perfekt leszel!'];
-  if (p >= 35) return ['🤔 Majdnem! 🤔', 'Ne add fel! Nézd át a kártyákat és próbáld újra!'];
-  return ['💪 Nem gond! 💪', 'Minden próbálkozás közelebb visz a sikerhez! Tanulj és újra kísérletezz!'];
-}
-function mascotTip(topic, mode) {
-  const tips = {
-    study:  ['📖 Forgasd meg a kártyákat! Koppints rájuk!', '🧠 Olvasd el figyelmesen, majd forgasd meg!', '✨ Ismétlés a tudás anyja!'],
-    quiz:   ['⏱️ 25 másodperced van kérdésenként!', '🤔 Gondold végig, mielőtt válaszolsz!', '🎯 Figyelj az apró részletekre!'],
-    tf:     ['👍 vagy 👎 – merd vállalni a döntést!', '🕵️ Olvass figyelmesen, néha cseles!', '✅ Igaz vagy Hamis – jól meggondold!']
-  };
-  const list = tips[mode] || tips.study;
-  return list[Math.floor(Math.random() * list.length)];
-}
-
-/* =====================================================================
-   CONFETTI
-   ===================================================================== */
-function makeConfetti(n=30) {
-  const colors = ['#FF6B6B','#FFD93D','#51CF66','#339AF0','#CC5DE8','#FF9F43','#F783AC'];
-  const container = $('.result-screen') || document.body;
-  for (let i=0; i<n; i++) {
-    const d = document.createElement('div');
-    d.className = 'confetti-piece';
-    d.style.cssText = `
-      left:${Math.random()*100}%;
-      top:${Math.random()*30-20}%;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      width:${8+Math.random()*10}px;
-      height:${8+Math.random()*10}px;
-      border-radius:${Math.random()>0.5?'50%':'2px'};
-      animation-duration:${2+Math.random()*2}s;
-      animation-delay:${Math.random()*1.5}s;
-    `;
-    container.appendChild(d);
-    setTimeout(() => d.remove(), 5000);
+function makeConfetti(n=35){
+  const colors=['#FF6B6B','#FFD93D','#51CF66','#339AF0','#CC5DE8','#FF9F43','#F783AC'];
+  const cont=$('.result-screen')||document.body;
+  for(let i=0;i<n;i++){
+    const d=document.createElement('div');d.className='confetti-piece';
+    d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*30-20}%;background:${colors[~~(Math.random()*colors.length)]};width:${8+Math.random()*10}px;height:${8+Math.random()*10}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*1.5}s;`;
+    cont.appendChild(d);setTimeout(()=>d.remove(),5000);
   }
 }
 
-/* =====================================================================
+/* =====================================================
    RENDER
-   ===================================================================== */
-function render() {
+   ===================================================== */
+function render(){
   stopTimer();
-  switch (S.screen) {
-    case 'welcome':   APP.innerHTML = renderWelcome();   break;
-    case 'home':      APP.innerHTML = renderHome();      break;
-    case 'topicMenu': APP.innerHTML = renderTopicMenu(); break;
-    case 'study':     APP.innerHTML = renderStudy();     break;
-    case 'quiz':      APP.innerHTML = renderQuiz();      initQuizTimer(); break;
-    case 'tf':        APP.innerHTML = renderTF();        break;
-    case 'result':    APP.innerHTML = renderResult();    setTimeout(()=>{ if(stars()>=2) makeConfetti(); SFX.win(); },400); break;
+  switch(S.screen){
+    case'welcome':APP.innerHTML=renderWelcome();break;
+    case'home':APP.innerHTML=renderHome();break;
+    case'topicMenu':APP.innerHTML=renderTopicMenu();break;
+    case'study':APP.innerHTML=renderStudy();break;
+    case'quiz':APP.innerHTML=renderQuiz();initQuizTimer();break;
+    case'tf':APP.innerHTML=renderTF();break;
+    case'result':APP.innerHTML=renderResult();setTimeout(()=>{if(stars()>=2)makeConfetti();SFX.win()},400);break;
   }
 }
 
-/* =====================================================================
-   SCREEN: WELCOME
-   ===================================================================== */
-function renderWelcome() {
-  return `
-  <div class="welcome-bg">
+/* =====================================================
+   WELCOME
+   ===================================================== */
+function renderWelcome(){
+  return`<div class="welcome-bg">
     <div class="decor" style="top:5%;right:-5%;transform:rotate(15deg)">🏰</div>
     <div class="decor" style="bottom:10%;left:-5%;transform:rotate(-20deg)">⚔️</div>
     <div class="welcome-castle">🏰</div>
     <h1 class="welcome-title">Töri Kvíz<br>Kaland!</h1>
     <p class="welcome-sub">5. osztályos történelem<br>Kereszténység & Középkor</p>
     <div class="welcome-card">
-      <label class="input-label" for="nameInput">👋 Mi a neved, lovag?</label>
-      <input id="nameInput" class="name-input" type="text" placeholder="Írd be a neved..." maxlength="20" autocomplete="off">
+      <label class="input-label" for="ni">👋 Mi a neved, lovag?</label>
+      <input id="ni" class="name-input" type="text" placeholder="Írd be a neved..." maxlength="20" autocomplete="off">
       <button class="btn-primary" onclick="startGame()">⚔️ Kalandozás kezdődik! ⚔️</button>
     </div>
   </div>`;
 }
-function startGame() {
-  SFX.click();
-  const n = $('#nameInput').value.trim();
-  S.name = n || 'Hős Lovag';
-  S.screen = 'home';
-  render();
-}
+function startGame(){SFX.click();S.name=($('#ni').value.trim())||'Hős Lovag';S.screen='home';render()}
 
-/* =====================================================================
-   SCREEN: HOME
-   ===================================================================== */
-function renderHome() {
-  const p = S.progress;
-  function dots(tid) {
-    const pr = p[tid];
-    const done = [pr.study, pr.quiz>=8, pr.tf>=8].filter(Boolean).length;
-    return [0,1,2].map(i=>`<div class="progress-dot${i<done?' done':''}"></div>`).join('');
+/* =====================================================
+   HOME
+   ===================================================== */
+function renderHome(){
+  function dots(tid){
+    const p=S.progress[tid];
+    const done=[p.study,p.quiz>=10,p.tf>=10].filter(Boolean).length;
+    return[0,1,2].map(i=>`<div class="progress-dot${i<done?' done':''}"></div>`).join('');
   }
-  const totalStars = getTotalStars();
-  return `
-  <div class="screen">
+  return`<div class="screen">
     <div class="home-hero">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-top:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-top:8px">
         <div>
           <div class="home-greeting">Szia, ${S.name}! 👑</div>
           <div class="home-sub">Mire vársz? Kalandozzunk a<br>középkorban! 🗺️</div>
@@ -1338,8 +542,8 @@ function renderHome() {
         <div style="font-size:3rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))">🏰</div>
       </div>
       <div class="home-stars-row">
-        <div class="star-badge">⭐ ${totalStars} csillag</div>
-        <div class="star-badge">🎯 Teljesítsd mindet!</div>
+        <div class="star-badge">⭐ ${getTotalStars()} csillag</div>
+        <div class="star-badge">🎲 Mindig más sorrend!</div>
       </div>
     </div>
     <div class="home-body">
@@ -1365,30 +569,19 @@ function renderHome() {
       <div class="spacer-md"></div>
       <div class="mascot-bubble">
         <span class="mascot-icon">🧙‍♂️</span>
-        <span>Válassz egy témakört, és mutasd meg, mennyit tudsz! Az összes módot próbáld ki! 💪</span>
+        <span>Minden játéknál más sorrendben jönnek a kérdések és kártyák – sosem unod meg! 🎲</span>
       </div>
     </div>
   </div>`;
 }
-function getTotalStars() {
-  let tot = 0;
-  ['keresztenyseg','kozepkor'].forEach(t => {
-    const p = S.progress[t];
-    if (p.study) tot++;
-    if (p.quiz >= 10) tot += 3; else if (p.quiz >= 7) tot += 2; else if (p.quiz >= 4) tot++;
-    if (p.tf  >= 10) tot += 3; else if (p.tf  >= 7) tot += 2; else if (p.tf  >= 4) tot++;
-  });
-  return tot;
-}
-function selectTopic(tid) { SFX.click(); S.topic = tid; S.screen = 'topicMenu'; render(); }
+function selectTopic(tid){SFX.click();S.topic=tid;S.screen='topicMenu';render()}
 
-/* =====================================================================
-   SCREEN: TOPIC MENU
-   ===================================================================== */
-function renderTopicMenu() {
-  const td = DATA[S.topic];
-  return `
-  <div class="screen">
+/* =====================================================
+   TOPIC MENU
+   ===================================================== */
+function renderTopicMenu(){
+  const td=DATA[S.topic];
+  return`<div class="screen">
     <div class="header">
       <button class="header-back" onclick="goHome()">‹</button>
       <span class="header-title">Témakör</span>
@@ -1403,75 +596,86 @@ function renderTopicMenu() {
         <span class="mode-icon">🃏</span>
         <div class="mode-info">
           <div class="mode-name">Tanulj – Kártyák</div>
-          <div class="mode-desc">Forgasd meg a kártyákat, tanuld meg az anyagot!</div>
+          <div class="mode-desc">Mind a ${td.flashcards.length} kártya, mindig random sorrendben! 🎲</div>
         </div>
-        <span class="mode-badge">20 kártya</span>
+        <span class="mode-badge">${td.flashcards.length} kártya</span>
       </button>
       <button class="mode-card quiz" onclick="startMode('quiz')">
         <span class="mode-icon">🎯</span>
         <div class="mode-info">
           <div class="mode-name">Kvíz – Válassz!</div>
-          <div class="mode-desc">4 lehetőség, 1 helyes – melyik az? Tick-tock... ⏱️</div>
+          <div class="mode-desc">15 véletlenszerű kérdés a ${td.quiz.length}-ből. Minden kör más! ⏱️</div>
         </div>
-        <span class="mode-badge">15 kérdés</span>
+        <span class="mode-badge">${td.quiz.length} kérdésből</span>
       </button>
       <button class="mode-card tf" onclick="startMode('tf')">
         <span class="mode-icon">🤔</span>
         <div class="mode-info">
           <div class="mode-name">Igaz vagy Hamis?</div>
-          <div class="mode-desc">Olvasd el az állítást és döntsd el – igaz-e!</div>
+          <div class="mode-desc">15 véletlenszerű állítás a ${td.tf.length}-ból. Döntsd el! 🎲</div>
         </div>
-        <span class="mode-badge">15 állítás</span>
+        <span class="mode-badge">${td.tf.length} állításból</span>
       </button>
     </div>
     <div class="spacer-md"></div>
     <div class="mascot-bubble">
       <span class="mascot-icon">⚔️</span>
-      <span>${mascotTip(S.topic,'study')}</span>
+      <span>🎲 A válaszlehetőségek sorrendje is felcserélődik minden kérdésnél!</span>
     </div>
   </div>`;
 }
-function goHome() { SFX.click(); S.screen = 'home'; render(); }
-function startMode(mode) {
+function goHome(){SFX.click();S.screen='home';render()}
+
+/* =====================================================
+   START MODE  — FISHER-YATES keverés ITT TÖRTÉNIK!
+   ===================================================== */
+function startMode(mode){
   SFX.click();
-  S.mode = mode;
-  S.idx = 0;
-  S.score = 0;
-  S.answered = false;
-  S.cardFlipped = false;
-  const td = DATA[S.topic];
-  if (mode === 'quiz') {
-    S._questions = shuffle(td.quiz).slice(0, 15).map(q => {
-      const opts = shuffle(q.opts.map((o,i) => ({text:o, orig:i})));
-      return { ...q, opts: opts.map(o=>o.text), ans: opts.findIndex(o=>o.orig===q.ans) };
+  S.mode=mode;S.idx=0;S.score=0;S.answered=false;S.cardFlipped=false;
+  const td=DATA[S.topic];
+
+  if(mode==='quiz'){
+    /* 1. Az összes kérdés keverése */
+    const shuffled=shuffle(td.quiz);
+    /* 2. Első 15 kivétele */
+    const picked=shuffled.slice(0,15);
+    /* 3. Válaszlehetőségek keverése is! */
+    S._questions=picked.map(q=>{
+      const zipped=q.opts.map((o,i)=>({text:o,orig:i}));
+      const mixed=shuffle(zipped);
+      return{...q,opts:mixed.map(o=>o.text),ans:mixed.findIndex(o=>o.orig===q.ans)};
     });
-    S.total = S._questions.length;
-  } else if (mode === 'tf') {
-    S._questions = shuffle(td.tf).slice(0, 15);
-    S.total = S._questions.length;
-  } else {
-    S._cards = [...td.flashcards];
-    S.total = S._cards.length;
+    S.total=S._questions.length;
+
+  }else if(mode==='tf'){
+    /* Az összes állítás keverése, első 15 kivétele */
+    S._questions=shuffle(td.tf).slice(0,15);
+    S.total=S._questions.length;
+
+  }else{
+    /* Kártyák keverése – minden alkalommal más sorrendben! */
+    S._cards=shuffle(td.flashcards);
+    S.total=S._cards.length;
   }
-  S.screen = mode === 'quiz' ? 'quiz' : mode === 'tf' ? 'tf' : 'study';
+
+  S.screen=mode==='quiz'?'quiz':mode==='tf'?'tf':'study';
   render();
 }
 
-/* =====================================================================
-   SCREEN: STUDY (FLASHCARDS)
-   ===================================================================== */
-function renderStudy() {
-  const cards = DATA[S.topic].flashcards;
-  const card = cards[S.idx];
-  const pct = Math.round((S.idx + 1) / cards.length * 100);
-  return `
-  <div class="screen">
+/* =====================================================
+   STUDY
+   ===================================================== */
+function renderStudy(){
+  const cards=S._cards,card=cards[S.idx];
+  const p=Math.round((S.idx+1)/cards.length*100);
+  return`<div class="screen">
     <div class="header">
       <button class="header-back" onclick="backToMenu()">‹</button>
       <span class="header-title">${DATA[S.topic].emoji} Kártyák</span>
+      <span style="font-size:.78rem;font-weight:800;color:#888">🎲 random</span>
     </div>
     <div class="study-progress">
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${p}%"></div></div>
       <span class="progress-text">${S.idx+1} / ${cards.length}</span>
     </div>
     <div class="flashcard-area">
@@ -1490,55 +694,31 @@ function renderStudy() {
           </div>
         </div>
       </div>
-      <button class="btn-flip" onclick="flipCard()">
-        ${S.cardFlipped ? '🔄 Vissza a kérdésre' : '💡 Mutasd a választ!'}
-      </button>
+      <button class="btn-flip" onclick="flipCard()">${S.cardFlipped?'🔄 Vissza a kérdésre':'💡 Mutasd a választ!'}</button>
       <div class="flashcard-nav">
         <button class="btn-nav btn-prev" onclick="prevCard()" ${S.idx===0?'disabled':''}>‹ Előző</button>
-        <button class="btn-nav btn-next" onclick="nextCard()">
-          ${S.idx===cards.length-1 ? '🎉 Kész!' : 'Következő ›'}
-        </button>
+        <button class="btn-nav btn-next" onclick="nextCard()">${S.idx===cards.length-1?'🎉 Kész!':'Következő ›'}</button>
       </div>
     </div>
-    ${S.idx===cards.length-1 && S.cardFlipped ? `
+    ${S.idx===cards.length-1&&S.cardFlipped?`
     <div class="study-done-banner">
-      <div class="study-done-title">🎉 Végigmentél az összes kártyán!</div>
+      <div class="study-done-title">🎉 Végig a ${cards.length} kártyán!</div>
       <div class="study-done-sub">Most teszteld le magad a kvízzzel!</div>
     </div>
-    <button class="btn-start-quiz" onclick="startMode('quiz')">🎯 Kvíz indítása!</button>
-    ` : ''}
+    <button class="btn-start-quiz" onclick="startMode('quiz')">🎯 Kvíz indítása!</button>`:''}
   </div>`;
 }
-function flipCard() {
-  SFX.click();
-  S.cardFlipped = !S.cardFlipped;
-  render();
-}
-function prevCard() {
-  if (S.idx > 0) { SFX.click(); S.idx--; S.cardFlipped = false; render(); }
-}
-function nextCard() {
-  SFX.click();
-  const cards = DATA[S.topic].flashcards;
-  if (S.idx >= cards.length - 1) {
-    S.progress[S.topic].study = true;
-    backToMenu();
-  } else {
-    S.idx++;
-    S.cardFlipped = false;
-    render();
-  }
-}
-function backToMenu() { SFX.click(); S.screen = 'topicMenu'; render(); }
+function flipCard(){SFX.click();S.cardFlipped=!S.cardFlipped;render()}
+function prevCard(){if(S.idx>0){SFX.click();S.idx--;S.cardFlipped=false;render()}}
+function nextCard(){SFX.click();if(S.idx>=S._cards.length-1){S.progress[S.topic].study=true;backToMenu()}else{S.idx++;S.cardFlipped=false;render()}}
+function backToMenu(){SFX.click();S.screen='topicMenu';render()}
 
-/* =====================================================================
-   SCREEN: QUIZ
-   ===================================================================== */
-function renderQuiz() {
-  const q = S._questions[S.idx];
-  const letters = ['A','B','C','D'];
-  return `
-  <div class="screen">
+/* =====================================================
+   QUIZ
+   ===================================================== */
+function renderQuiz(){
+  const q=S._questions[S.idx],L=['A','B','C','D'];
+  return`<div class="screen">
     <div class="header">
       <button class="header-back" onclick="backToMenu()">‹</button>
       <span class="header-title">${DATA[S.topic].emoji} Kvíz</span>
@@ -1546,11 +726,8 @@ function renderQuiz() {
     </div>
     <div class="quiz-header">
       <div class="quiz-meta">
-        <span class="quiz-qnum">🎯 ${S.idx+1} / ${S.total} kérdés</span>
-        <div class="timer-wrap">
-          <span class="timer-icon">⏱️</span>
-          <span class="timer-text">${S.timerVal}</span>
-        </div>
+        <span class="quiz-qnum">🎯 ${S.idx+1} / ${S.total}</span>
+        <div class="timer-wrap"><span style="font-size:1.1rem">⏱️</span><span class="timer-text">${S.timerVal}</span></div>
       </div>
       <div class="timer-bar-wrap"><div class="timer-bar-fill" style="width:${S.timerVal/25*100}%"></div></div>
     </div>
@@ -1560,74 +737,48 @@ function renderQuiz() {
         <div class="question-text">${q.q}</div>
       </div>
       <div class="options-grid">
-        ${q.opts.map((opt,i)=>`
-          <button class="option-btn" id="opt${i}" onclick="answerQuiz(${i})" ${S.answered?'disabled':''}>
-            <span class="option-letter">${letters[i]}</span>
-            <span>${opt}</span>
-          </button>`).join('')}
+        ${q.opts.map((opt,i)=>`<button class="option-btn" id="opt${i}" onclick="answerQuiz(${i})" ${S.answered?'disabled':''}><span class="option-letter">${L[i]}</span><span>${opt}</span></button>`).join('')}
       </div>
       <div class="spacer-sm"></div>
       <div class="feedback-box" id="fbBox"></div>
-      <button class="btn-next-q" id="btnNextQ" onclick="nextQuizQ()">
-        ${S.idx===S.total-1 ? '🏁 Eredmény!' : 'Következő kérdés ›'}
-      </button>
+      <button class="btn-next-q" id="btnNextQ" onclick="nextQuizQ()">${S.idx===S.total-1?'🏁 Eredmény!':'Következő ›'}</button>
     </div>
   </div>`;
 }
-function initQuizTimer() {
-  if (!S.answered) {
-    startTimer(() => {
-      if (!S.answered) answerQuiz(-1);
-    });
-  }
-}
-function answerQuiz(chosen) {
-  if (S.answered) return;
-  stopTimer();
-  S.answered = true;
-  const q = S._questions[S.idx];
-  const correct = chosen === q.ans;
-  if (correct) { S.score++; SFX.correct(); }
-  else { SFX.wrong(); }
-
-  // Highlight buttons
-  $$('.option-btn').forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === q.ans) btn.classList.add('reveal');
-    if (i === chosen && !correct) btn.classList.add('wrong');
-    if (i === chosen && correct) { btn.classList.remove('reveal'); btn.classList.add('correct'); }
+function initQuizTimer(){if(!S.answered)startTimer(()=>{if(!S.answered)answerQuiz(-1)})}
+function answerQuiz(chosen){
+  if(S.answered)return;
+  stopTimer();S.answered=true;
+  const q=S._questions[S.idx],ok=chosen===q.ans;
+  if(ok){S.score++;SFX.correct()}else SFX.wrong();
+  $$('.option-btn').forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===q.ans)btn.classList.add('reveal');
+    if(i===chosen&&!ok)btn.classList.add('wrong');
+    if(i===chosen&&ok){btn.classList.remove('reveal');btn.classList.add('correct')}
   });
-
-  // Feedback
-  const fb = $('#fbBox');
-  if (fb) {
-    fb.className = 'feedback-box show ' + (correct ? 'ok' : 'bad');
-    if (chosen === -1) fb.innerHTML = `⏰ Lejárt az idő! A helyes válasz: <strong>${q.opts[q.ans]}</strong><br><em>${q.exp}</em>`;
-    else if (correct)  fb.innerHTML = `${['🎉 Helyes!','🌟 Brávó!','💯 Tökéletes!','🏆 Szuper!'][Math.floor(Math.random()*4)]} ${q.exp}`;
-    else               fb.innerHTML = `😬 Nem ez volt... A helyes válasz: <strong>${q.opts[q.ans]}</strong><br><em>${q.exp}</em>`;
+  const fb=$('#fbBox');
+  if(fb){
+    fb.className='feedback-box show '+(ok?'ok':'bad');
+    const pr=['🎉 Helyes!','🌟 Brávó!','💯 Tökéletes!','🏆 Szuper!'];
+    if(chosen===-1)fb.innerHTML=`⏰ Lejárt! Helyes: <strong>${q.opts[q.ans]}</strong><br><em>${q.exp}</em>`;
+    else if(ok)fb.innerHTML=`${pr[~~(Math.random()*pr.length)]} ${q.exp}`;
+    else fb.innerHTML=`😬 Nem ez... Helyes: <strong>${q.opts[q.ans]}</strong><br><em>${q.exp}</em>`;
   }
-  const btn = $('#btnNextQ');
-  if (btn) btn.classList.add('show');
+  const btn=$('#btnNextQ');if(btn)btn.classList.add('show');
 }
-function nextQuizQ() {
+function nextQuizQ(){
   SFX.click();
-  if (S.idx >= S.total - 1) {
-    S.progress[S.topic].quiz = Math.max(S.progress[S.topic].quiz, S.score);
-    S.screen = 'result'; render(); return;
-  }
-  S.idx++;
-  S.answered = false;
-  S.timerVal = 25;
-  render();
+  if(S.idx>=S.total-1){S.progress[S.topic].quiz=Math.max(S.progress[S.topic].quiz,S.score);S.screen='result';render();return}
+  S.idx++;S.answered=false;S.timerVal=25;render();
 }
 
-/* =====================================================================
-   SCREEN: TRUE / FALSE
-   ===================================================================== */
-function renderTF() {
-  const q = S._questions[S.idx];
-  return `
-  <div class="screen">
+/* =====================================================
+   TRUE / FALSE
+   ===================================================== */
+function renderTF(){
+  const q=S._questions[S.idx];
+  return`<div class="screen">
     <div class="header">
       <button class="header-back" onclick="backToMenu()">‹</button>
       <span class="header-title">${DATA[S.topic].emoji} Igaz/Hamis</span>
@@ -1642,92 +793,59 @@ function renderTF() {
       <div class="tf-text">"${q.s}"</div>
     </div>
     <div class="tf-buttons">
-      <button class="tf-btn tf-true" id="btnTrue" onclick="answerTF(true)">
-        <span class="tf-btn-icon">✅</span>
-        <span class="tf-btn-label">IGAZ</span>
-      </button>
-      <button class="tf-btn tf-false" id="btnFalse" onclick="answerTF(false)">
-        <span class="tf-btn-icon">❌</span>
-        <span class="tf-btn-label">HAMIS</span>
-      </button>
+      <button class="tf-btn tf-true" id="btnTrue" onclick="answerTF(true)"><span class="tf-btn-icon">✅</span><span class="tf-btn-label">IGAZ</span></button>
+      <button class="tf-btn tf-false" id="btnFalse" onclick="answerTF(false)"><span class="tf-btn-icon">❌</span><span class="tf-btn-label">HAMIS</span></button>
     </div>
     <div class="tf-feedback" id="tfFb"></div>
     <div style="padding:12px 20px 0">
-      <button class="btn-next-q" id="btnNextTF" onclick="nextTF()">
-        ${S.idx===S.total-1 ? '🏁 Eredmény!' : 'Következő ›'}
-      </button>
+      <button class="btn-next-q" id="btnNextTF" onclick="nextTF()">${S.idx===S.total-1?'🏁 Eredmény!':'Következő ›'}</button>
     </div>
   </div>`;
 }
-function answerTF(answer) {
-  if (S.answered) return;
-  S.answered = true;
-  const q = S._questions[S.idx];
-  const correct = answer === q.t;
-  if (correct) { S.score++; SFX.correct(); }
-  else { SFX.wrong(); }
-
-  $('#btnTrue').disabled = true;
-  $('#btnFalse').disabled = true;
-
-  const fb = $('#tfFb');
-  if (fb) {
-    fb.className = 'tf-feedback show ' + (correct ? 'ok' : 'bad');
-    if (correct) fb.innerHTML = `✅ ${['Helyes! 🎉','Brávó! 🌟','Igen, pontosan! 💯','Szuper! 🏆'][Math.floor(Math.random()*4)]} ${q.exp}`;
-    else         fb.innerHTML = `❌ Téves! A mondat valójában <strong>${q.t?'IGAZ':'HAMIS'}</strong>. ${q.exp}`;
+function answerTF(answer){
+  if(S.answered)return;
+  S.answered=true;const q=S._questions[S.idx],ok=answer===q.t;
+  if(ok){S.score++;SFX.correct()}else SFX.wrong();
+  $('#btnTrue').disabled=true;$('#btnFalse').disabled=true;
+  const fb=$('#tfFb');
+  if(fb){
+    fb.className='tf-feedback show '+(ok?'ok':'bad');
+    const pr=['✅ Helyes! 🎉','✅ Brávó! 🌟','✅ Pontosan! 💯','✅ Szuper! 🏆'];
+    if(ok)fb.innerHTML=`${pr[~~(Math.random()*pr.length)]} ${q.exp}`;
+    else fb.innerHTML=`❌ Téves! A mondat valójában <strong>${q.t?'IGAZ':'HAMIS'}</strong>. ${q.exp}`;
   }
-  const btn = $('#btnNextTF');
-  if (btn) btn.classList.add('show');
+  const btn=$('#btnNextTF');if(btn)btn.classList.add('show');
 }
-function nextTF() {
+function nextTF(){
   SFX.click();
-  if (S.idx >= S.total - 1) {
-    S.progress[S.topic].tf = Math.max(S.progress[S.topic].tf, S.score);
-    S.screen = 'result'; render(); return;
-  }
-  S.idx++;
-  S.answered = false;
-  render();
+  if(S.idx>=S.total-1){S.progress[S.topic].tf=Math.max(S.progress[S.topic].tf,S.score);S.screen='result';render();return}
+  S.idx++;S.answered=false;render();
 }
 
-/* =====================================================================
-   SCREEN: RESULT
-   ===================================================================== */
-function renderResult() {
-  const p = pct(), st = stars();
-  const [title, msg] = resultMsg(p);
-  const modeName = S.mode === 'quiz' ? 'Kvíz' : 'Igaz/Hamis';
-  const starEmoji = ['😢','⭐','⭐⭐','⭐⭐⭐'];
-  return `
-  <div class="result-screen screen">
+/* =====================================================
+   RESULT
+   ===================================================== */
+function renderResult(){
+  const p=pct(),st=stars();
+  const[title,msg]=resultMsg(p);
+  const modeName=S.mode==='quiz'?'Kvíz':'Igaz/Hamis';
+  return`<div class="result-screen screen">
     <div class="result-emoji">${p>=80?'🏆':p>=55?'🌟':p>=35?'😊':'💪'}</div>
     <div class="result-title">${title}</div>
     <div class="result-msg">${msg}</div>
-    <div class="stars-display">
-      ${'⭐'.repeat(st)}${'☆'.repeat(3-st)}
-    </div>
+    <div class="stars-display">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>
     <div class="result-score-card">
       <div class="result-score-num">${S.score} / ${S.total}</div>
-      <div class="result-score-sub">${p}% helyes válasz — ${modeName}</div>
+      <div class="result-score-sub">${p}% helyes — ${modeName}</div>
     </div>
     <div class="result-btns">
-      <button class="btn-retry" onclick="retryMode()">🔄 Próbáld újra!</button>
+      <button class="btn-retry" onclick="retryMode()">🎲 Újra – más sorrendben!</button>
       <button class="btn-home" onclick="goHome()">🏠 Főmenüre</button>
     </div>
   </div>`;
 }
-function retryMode() { SFX.click(); startMode(S.mode); }
-
-/* =====================================================================
-   KEY EVENTS (Enter to submit name)
-   ===================================================================== */
-document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && S.screen === 'welcome') startGame();
-});
-
-/* =====================================================================
-   INIT
-   ===================================================================== */
+function retryMode(){SFX.click();startMode(S.mode)}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&S.screen==='welcome')startGame()});
 render();
 </script>
 </body>
